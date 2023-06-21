@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./rbooking.component.css']
 })
 export class RbookingComponent {
+  rooms: any[] = []
 
 }

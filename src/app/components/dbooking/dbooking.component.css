@@ -1,0 +1,12 @@
+.deskElement {
+    max-height: fit-content;
+    max-width: 100%;
+    border-radius: 8px;
+    margin-left: 150px;
+    border: 1px solid #DDDEDE;
+}
+
+.parent {
+    display: flex;
+    flex-direction: column;
+}

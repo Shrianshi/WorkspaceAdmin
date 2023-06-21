@@ -1,1 +1,130 @@
-<p>dbooking works!</p>
+<div class="parent">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <header class="row ">
+        <div class="col-sm-6 mt-2">
+            <h3>Desk Booking</h3>
+        </div>
+        <div class="col-sm-4 px-1">
+            <nav class="navbar">
+                <form class="container-fluid  d-flex">
+                    <div class="input-group">
+                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
+                                style="color: #a1a3a5;"></i></span>
+                        <input type="text" class="search form-control no-border" placeholder="Search Employees"
+                            aria-label="Search Employees" aria-describedby="basic-addon1">
+                    </div>
+                </form>
+            </nav>
+        </div>
+        <div class="col-sm-2" style="position:relative">
+            <img src="assets/img/bell.svg">
+            <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
+                <span class="visually-hidden">Hello</span>
+            </span>
+            <button class="avatar-btn mx-2" type="submit"></button>HR admin
+        </div>
+    </header>
+    <hr>
+
+    <div class="container d-flex flex-wrap  ">
+        <h2 style="color:grey" class="">Founding <b style="color:black">
+                12 Bookings
+            </b></h2>
+        <select class="" name="" id="" style="max-height: 30px;margin-left: .5rem; margin-top:.3rem ;">
+            <option value="">Chennai</option>
+            <option value="">Bangalore</option>
+            <option value="">Pune</option>
+            <option value="">Coimbatore</option>
+
+        </select>
+        <button onclick="toggleCalender()" type="date" name="" id=""
+            style="max-height: 30px;margin-left: .5rem;margin-top:.3rem ;background-color: white; border: 1px solid grey;">
+            Today<i style="margin-left: 6px;" class="bi bi-chevron-down "></i>
+        </button>
+    </div>
+    <div class=" deskElement container mt-4">
+        <div style="display: flex; gap: 50px;">
+            <img style="width:50px;border-radius: 24px; object-fit: contain;" src="images/person1.jpg" alt="">
+            <div class="mt-3">
+                <h3 style="display: inline;">3455-</h3>
+                <h3 style="display: inline;">Dhiraj Rote</h3>
+                <p>Senior Associate</p>
+            </div>
+            <div style="display:flex; align-items:center">
+                <img style="object-fit: contain; width: 20px; border-radius: 4px;" src="images/kanini logo.png" alt="">
+                <p class="mt-3 ms-2">Booking id </p>
+                <h6 class="mt-2 ms-2"><b>#8777</b></h6>
+            </div>
+            <div style="display:flex ;align-items:center">
+                <i class="bi bi-geo-alt"></i>
+                <h6 class="mt-2 ms-2">Futura,Pune</h6>
+            </div>
+            <div style="display:flex;align-items:center">
+                <i class="bi bi-calendar4-event"></i>
+                <h6 class="mt-2 ms-2">july 11,2021</h6>
+            </div>
+            <div style="display:flex;align-items:center">
+                <i class="bi bi-clock"></i>
+                <h6 class="mt-2 ms-2">11:00 am</h6>
+            </div>
+        </div>
+
+    </div>
+    <div class=" deskElement container mt-4">
+        <div style="display: flex; gap: 50px; align-items: center;">
+            <img style="width:50px;border-radius: 24px; object-fit: contain;" src="images/Ellipse 223.png" alt="">
+            <div class="mt-3">
+                <h3 class="" style="display: inline; ">4533-</h3>
+                <h3 style="display: inline;">Ankur Verma</h3>
+                <p>Senior Associate</p>
+            </div>
+            <div style="display:flex; align-items:center">
+                <img class="" style="object-fit: contain; width: 20px; border-radius: 4px;" src="images/kanini logo.png"
+                    alt="">
+                <p class="mt-3 ms-2">Booking id </p>
+                <h6 class="mt-2 ms-2"><b>#8777</b></h6>
+            </div>
+            <div style="display:flex ;align-items:center">
+                <i class="bi bi-geo-alt"></i>
+                <h6 class="mt-2 ms-2">Futura,Pune</h6>
+            </div>
+            <div style="display:flex;align-items:center">
+                <i class="bi bi-calendar4-event"></i>
+                <h6 class="mt-2 ms-2">july 11,2021</h6>
+            </div>
+            <div style="display:flex;align-items:center">
+                <i class="bi bi-clock"></i>
+                <h6 class="mt-2 ms-2">11:00 am</h6>
+            </div>
+        </div>
+
+    </div>
+    <div class=" deskElement container mt-4">
+        <div style="display: flex; gap: 50px;">
+            <img style="width:50px;border-radius: 24px; object-fit: contain;" src="images/Ellipse 223s.png" alt="">
+            <div class="mt-3">
+                <h3 style="display: inline;">3455-</h3>
+                <h3 style="display: inline;">Dhiraj Rote</h3>
+                <p>Senior Associate</p>
+            </div>
+            <div style="display:flex; align-items:center">
+                <img style="object-fit: contain; width: 20px; border-radius: 4px;" src="images/kanini logo.png" alt="">
+                <p class="mt-3 ms-2">Booking id </p>
+                <h6 class="mt-2 ms-2"><b>#8777</b></h6>
+            </div>
+            <div style="display:flex ;align-items:center">
+                <i class="bi bi-geo-alt"></i>
+                <h6 class="mt-2 ms-2">Futura,Pune</h6>
+            </div>
+            <div style="display:flex;align-items:center">
+                <i class="bi bi-calendar4-event"></i>
+                <h6 class="mt-2 ms-2">july 11,2021</h6>
+            </div>
+            <div style="display:flex;align-items:center">
+                <i class="bi bi-clock"></i>
+                <h6 class="mt-2 ms-2">11:00 am</h6>
+            </div>
+        </div>
+
+    </div>
+</div>

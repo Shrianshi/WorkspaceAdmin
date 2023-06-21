@@ -1,2 +1,75 @@
-<p>rbooking works!</p>
-<p>Checking Git Push after cloning repository </p>
+<div class="parent">
+    <header class="row ">
+        <div class="col-sm-6 mt-2">
+            <h3>Room Booking</h3>
+        </div>
+        <div class="col-sm-4 px-1">
+            <nav class="navbar">
+                <form class="container-fluid  d-flex">
+                    <div class="input-group">
+                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
+                                style="color: #a1a3a5;"></i></span>
+                        <input type="text" class="search form-control no-border" placeholder="Search Employees"
+                            aria-label="Search Employees" aria-describedby="basic-addon1">
+                    </div>
+                </form>
+            </nav>
+
+        </div>
+        <div class="col-sm-2" style="position:relative">
+            <img src="assets/img/bell.svg">
+            <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
+                <span class="visually-hidden">Hello</span>
+            </span>
+            <button class="avatar-btn mx-2" type="submit"></button>HR admin
+        </div>
+
+    </header>
+    <hr>
+    <div class="container d-flex flex-wrap   mb-3 mb-4">
+        <h2 style="color:grey" class="">Founding <b style="color:black">
+                12 Bookings
+            </b></h2>
+        <select class="" name="" id="location" style="max-height: 30px;margin-left: .5rem; margin-top:.3rem ;">
+            <option value="chennai">Chennai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Pune">Pune</option>
+            <option value="Coimbatore">Coimbatore</option>
+
+        </select>
+        <select type="date" name="" id=""
+            style="max-height: 30px;margin-left: .5rem;margin-top:.3rem ;background-color: white; border: 1px solid grey;">
+            <option value="">Today</option>
+        </select>
+    </div>
+    <div class=" container cardCont d-flex flex-wrap border border-secondary p-1 ml-4 mb-4 " *ngFor="let room of rooms">
+
+        <img class="roomImg" src="../../../assets/images/{{room.image}}" alt="">
+
+
+        <div>
+            <div class="roomName ps-4">
+                <h2>{{room.roomName}} </h2>
+            </div>
+            <div class=" empRow d-flex  ">
+                <img class="knainiLogo" src=" ../../../assets/images/kanini logo.png">
+                <h6 class="emp text-secondary">Employee :</h6>
+                <h6> {{room.user}}</h6>
+                <h6 class="text-secondary">| Booking id</h6>
+                <h6><b>{{room.bookingId}}</b></h6>
+            </div>
+            <div class=" d-flex mt-4">
+                <i class=" fa fa-light fa-comment text-secondary ps-4"></i>
+                <h6 class="ps-1">{{room.purpose}}</h6>
+                <i class="fa fa-map-marker text-secondary ps-2"></i>
+                <h6 class="ps-1">{{room.location}}</h6>
+                <i class="fa fa-light fa-user text-secondary ps-2"></i>
+                <h6 class="ps-1">{{room.noOfPeople}}</h6>
+                <i class="fa fa-sharp fa-light fa-calendar text-secondary ps-2"></i>
+                <h6 class="ps-1">{{room.date}}</h6>
+                <i class="fa fa-clock-o text-secondary ps-2"></i>
+                <h6 class="ps-1">{{room.time}}</h6>
+            </div>
+        </div>
+    </div>
+</div>
