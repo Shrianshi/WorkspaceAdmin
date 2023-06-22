@@ -11,6 +11,8 @@ import { MbookingComponent } from './components/mbooking/mbooking.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { ManageComponent } from './components/manage/manage.component';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { BookaroomComponent } from './components/bookaroom/bookaroom.component';
+import { SlotComponent } from './components/slot/slot.component';
 
 const routes: Routes = [
   {path: '',redirectTo:'/article-section',pathMatch:'full'},
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path:'notifications',component:NotificationsComponent},
   {path:'manage',component:ManageComponent},
   {path:'employee',component:EmployeeComponent},
+  {path:'bookaroom',component:BookaroomComponent},
+  {path:'slot',component:SlotComponent},
   {path: '**',component: PageNotFoundComponent}
 ];
 
