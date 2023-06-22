@@ -14,6 +14,7 @@ import { DbookingComponent } from './components//dbooking/dbooking.component';
 import { MbookingComponent } from './components//mbooking/mbooking.component';
 import { ManageComponent } from './components//manage/manage.component';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { EmployeeComponent } from './components/employee/employee.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FullCalendarModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

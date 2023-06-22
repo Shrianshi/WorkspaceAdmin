@@ -188,3 +188,16 @@
     margin: 10px 0 10px 100px; /* Adjust the margin as needed */
   }
   
+  .container-fluid{
+    margin-left: 17%;
+  }
+  /* Set the background color of day, week, month buttons to white */
+.fc-dayGridMonth-button, .fc-timeGridWeek-button, .fc-timeGridDay-button {
+    background-color: white;
+  }
+  
+  /* Set the background color of navigation arrows to white */
+  .fc-prev-button, .fc-next-button {
+    background-color: white;
+  }
+  
