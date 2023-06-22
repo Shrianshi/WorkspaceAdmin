@@ -17,12 +17,11 @@ import { ManageComponent } from './components//manage/manage.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { BookaroomComponent } from './components/bookaroom/bookaroom.component';
 import { SlotComponent } from './components/slot/slot.component';
-
 const routes: Routes = [
   { path: 'bookaroom', component: BookaroomComponent },
   { path: 'slot', component: SlotComponent },
-  
 ];
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -43,7 +42,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FullCalendarModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
