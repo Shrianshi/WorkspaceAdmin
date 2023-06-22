@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,14 @@ import { DbookingComponent } from './components//dbooking/dbooking.component';
 import { MbookingComponent } from './components//mbooking/mbooking.component';
 import { ManageComponent } from './components//manage/manage.component';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { BookaroomComponent } from './components/bookaroom/bookaroom.component';
+import { SlotComponent } from './components/slot/slot.component';
+
+const routes: Routes = [
+  { path: 'bookaroom', component: BookaroomComponent },
+  { path: 'slot', component: SlotComponent },
+  
+];
 
 @NgModule({
   declarations: [
@@ -28,7 +37,9 @@ import { EmployeeComponent } from './components/employee/employee.component';
     DbookingComponent,
     MbookingComponent,
     ManageComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    BookaroomComponent,
+    SlotComponent
   ],
   imports: [
     BrowserModule,
