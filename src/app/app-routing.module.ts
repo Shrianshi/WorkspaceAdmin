@@ -15,19 +15,21 @@ import { BookaroomComponent } from './components/bookaroom/bookaroom.component';
 import { SlotComponent } from './components/slot/slot.component';
 
 const routes: Routes = [
-  {path: '',redirectTo:'/article-section',pathMatch:'full'},
-  {path:'article-section',component:ArticleSectionComponent},
-  {path:'events',component:EventsComponent},
-  {path:'calendar',component:CalendarComponent},
-  {path:'dbooking',component:DbookingComponent},
-  {path:'rbooking',component:RbookingComponent},
-  {path:'mbooking',component:MbookingComponent},
-  {path:'notifications',component:NotificationsComponent},
-  {path:'manage',component:ManageComponent},
-  {path:'employee',component:EmployeeComponent},
-  {path:'bookaroom',component:BookaroomComponent},
-  {path:'slot',component:SlotComponent},
-  {path: '**',component: PageNotFoundComponent}
+  { path: '', redirectTo: '/article-section', pathMatch: 'full' },
+  { path: 'article-section', component: ArticleSectionComponent },
+  { path: 'events', component: EventsComponent },
+  { path: 'calendar', component: CalendarComponent },
+  { path: 'dbooking', component: DbookingComponent },
+  { path: 'rbooking', component: RbookingComponent },
+  { path: 'mbooking', component: MbookingComponent },
+  { path: 'notifications', component: NotificationsComponent },
+  { path: 'manage', component: ManageComponent },
+  { path: 'employee', component: EmployeeComponent },
+  { path: 'bookaroom', component: BookaroomComponent },
+  { path: 'slot', component: SlotComponent },
+  { path: 'bookaroom', component: BookaroomComponent },
+  { path: 'slot', component: SlotComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

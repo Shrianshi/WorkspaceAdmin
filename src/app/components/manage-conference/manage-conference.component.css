@@ -1,0 +1,148 @@
+/* Card Icons*/
+.bi {
+    border: 1px solid grey;
+    border-radius: 0.3rem;
+    font-style: normal;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+}
+
+/* Card Button*/
+.card-btn-chennai {
+
+    float: right;
+    margin-top: 7px;
+    color: blue;
+    background-color: rgb(208, 227, 244);
+    border-radius: 7px;
+    border: none;
+}
+
+.card-btn-pune {
+    float: right;
+    margin-top: 7px;
+    color: rgb(186, 113, 124);
+    background-color: rgb(247, 220, 224);
+    border-radius: 7px;
+    border: none;
+}
+
+.card-btn-bangalore {
+    float: right;
+    margin-top: 7px;
+    background-color: #AD51F624;
+    color: #B864F9;
+    border-radius: 7px;
+    border: none;
+}
+
+/* pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    background: none;
+    color: #15151A;
+    /* padding: 10px 40px; */
+    border-radius: 6px;
+}
+
+/* ul{
+            margin: 20px 30px;
+        } */
+
+ul li {
+    display: inline-block;
+    margin: 0 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.previous-arrow,
+.next-arrow {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding-bottom: 12px;
+}
+
+ul li.active {
+    color: #fff;
+    background-color: #5162F6;
+}
+
+#pageSection {
+    position: relative;
+}
+
+#spanResult {
+    position: absolute;
+    right: 400px;
+    padding-top: 0.7rem;
+}
+
+#pagination {
+    position: absolute;
+    right: 50px;
+}
+
+
+/* offCanvas CSS */
+#btnCanvas {
+    width: 161px;
+    height: 40px;
+    background: #5162F6;
+    border-radius: 4px;
+}
+
+.offcanvas {
+    background-color: #FFFFFF;
+}
+
+#offcanvasRight {
+    width: 35rem;
+}
+
+#offcanvasRightLabel {
+    font-size: 24px;
+}
+
+.button_close {
+    border: none;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+#addbtn,
+#cancel {
+    width: 125px;
+    height: 50px;
+}
+
+#allLocationFilter {
+    background: #FFFFFF;
+    border: 1px solid #EAE9EA;
+    box-shadow: 0px 7px 29px rgba(86, 86, 86, 0.07);
+    border-radius: 4px;
+    color: #333B4F;
+    width: 123px;
+    height: 32px;
+}
+
+#roomsper {
+    width: 71px;
+    height: 32px;
+    background: #FFFFFF;
+    border: 1px solid #EAE9EA;
+    box-shadow: 0px 7px 29px rgba(86, 86, 86, 0.07);
+    border-radius: 4px;
+    color: #333B4F;
+}

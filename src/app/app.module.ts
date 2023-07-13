@@ -17,11 +17,14 @@ import { ManageComponent } from './components//manage/manage.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { BookaroomComponent } from './components/bookaroom/bookaroom.component';
 import { SlotComponent } from './components/slot/slot.component';
-const routes: Routes = [
-  { path: 'bookaroom', component: BookaroomComponent },
-  { path: 'slot', component: SlotComponent },
-];
+
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { ManageConferenceComponent } from './components/manage-conference/manage-conference.component';
+import { LocationComponent } from './components/location/location.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { RemoveEmpComponent } from './components/remove-emp/remove-emp.component';
+import { BookedSuccessComponent } from './components/booked-success/booked-success.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +41,19 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     ManageComponent,
     EmployeeComponent,
     BookaroomComponent,
-    SlotComponent
+    SlotComponent,
+    ManageConferenceComponent,
+    LocationComponent,
+    SignUpComponent,
+    ForgotPassComponent,
+    RemoveEmpComponent,
+    BookedSuccessComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FullCalendarModule 
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
