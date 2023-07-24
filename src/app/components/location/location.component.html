@@ -1,1 +1,191 @@
-<p>location works!</p>
+<body>
+    <header class="row p-4 border border-bottom">
+        <div class="col-sm-7">
+            <h6>Location</h6>
+
+            <!-- <div>
+        <select class="text-secondary border shadow-sm">
+          <option>Chennai</option>
+          <option>Pune</option>
+        </select>
+      </div> -->
+        </div>
+
+        <div class="col-sm-3 px-1">
+            <nav class="navbar">
+                <form class="container-fluid  d-flex">
+                    <div class="input-group">
+                        <span class="search input-group-text" id="basic-addon1"><i class="bi-search" id="i"></i></span>
+                        <input type="text" class="search form-control" placeholder="Search Employees"
+                            aria-label="Search Employees" aria-describedby="basic-addon1">
+                    </div>
+                </form>
+            </nav>
+            <!-- <form class="d-flex" role="search">
+        <input class="search form-control" type="search" placeholder="Search Employees" aria-label="Search">
+
+      </form> -->
+        </div>
+        <div class="col-sm-2" style="position:relative">
+            <i class="bi-bell "></i>
+            <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
+                <span class="visually-hidden">Hello</span>
+            </span>
+            <!-- <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+          <span class="visually-hidden">Hello</span>
+        </span> -->
+
+            <!-- <i class="bi-bell mx-2"></i> -->
+
+            <button class="avatar-btn mx-2" type="submit"></button>HR admin
+        </div>
+
+    </header>
+
+    <div>
+        <aside>
+            <div class="row">
+                <div class="col-10 text-left">
+                    <h5>All Location</h5>
+                </div>
+
+                <div class="col-2 text-right">
+                    <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add Location</button>
+
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                        aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasRightLabel">Add a new location</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class=row>
+                                <p>Share location building image</p>
+                                <div class="card text-center mb-3" style="border:1px dashed;">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi-card-image"></i></h5>
+                                        <p class="card-text">Drop your feature image here, or <a href="#">Browse</a><br>
+                                            Supports : JPG,PNG</p>
+
+                                    </div>
+                                </div>
+
+                            </div><br>
+                            <div class="row">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Floor no/Buiding name"
+                                        aria-label="Floor no/ Buiding name">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Street Address"
+                                        aria-label="Street Address">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="City" aria-label="City">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="State" aria-label="State">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="number" class="form-control" placeholder="Pincode"
+                                        aria-label="Pincode">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Country" aria-label="Country">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <p>General Info</p>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="No. of conference room"
+                                        aria-label="No. of coference room ">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="No. of desk"
+                                        aria-label="No. of desk">
+                                </div>
+                            </div><br>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </aside>
+
+    </div>
+    <br>
+
+
+    <article>
+
+        <div>
+            <div class="row ">
+                <div class="col-sm-3 ">
+                    <div class="card ">
+                        <img src="assets/img/chennai.png" class="card-img-top " alt="... ">
+                        <div class="card-body ">
+                            <h6 class="card-title ">Chennai</h6>
+                            <p class="card-text p1 text-secondary">Tower A, 1st Floor, 51, Ratha Tek Meadows Rd, Elcot
+                                Sez, Sholinganallur, Chennai-600119</p>
+                            <a href="# " class="btn btn-sm border border-primary text-primary">Edit Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 ">
+                    <div class="card ">
+                        <img src="assets/img/coimbatore.png" class="card-img-top " alt="... ">
+                        <div class="card-body ">
+                            <h6 class="card-title ">Coimbatore</h6>
+                            <p class="card-text p1 text-secondary">ELCOT SEZ, IT/ITES, Villankurichi Rd, Civil Aerodrome
+                                Post, Coimbatore-641014</p>
+                            <a href="# " class="btn btn-sm border border-primary text-primary">Edit Details</a>
+                        </div>
+                    </div>
+                </div><br><br><br>
+                <div class="col-sm-3 ">
+                    <div class="card ">
+                        <img src="assets/img/bangalore.png " class="card-img-top " alt="... ">
+                        <div class="card-body ">
+                            <h6 class="card-title ">Bangalore</h6>
+                            <p class="card-text p1 text-secondary">#1, 4th floor, Navarathna Gardens, Sy. No, 68,
+                                Kanakapura Rd, Bengaluru-560062</p>
+                            <a href="# " class="btn btn-sm border border-primary text-primary">Edit Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            <div class="row ">
+                <div class="col-sm-3 ">
+                    <div class="card ">
+                        <img src="assets/img/pune.png" class="card-img-top " alt="... ">
+                        <div class="card-body ">
+                            <h6 class="card-title ">Pune</h6>
+                            <p class="card-text p1 text-secondary">Panchshil Futura Module 01-131, First floor,
+                                Magarpatta Rd, Baugh, Pune-411028</p>
+                            <a href="# " class="btn btn-sm border border-primary text-primary ">Edit Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </article>
+    <br>
+</body>

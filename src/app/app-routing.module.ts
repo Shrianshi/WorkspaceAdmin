@@ -13,6 +13,8 @@ import { ManageComponent } from './components/manage/manage.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { BookaroomComponent } from './components/bookaroom/bookaroom.component';
 import { SlotComponent } from './components/slot/slot.component';
+import { ManageConferenceComponent } from './components/manage-conference/manage-conference.component';
+import { LocationComponent } from './components/location/location.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/article-section', pathMatch: 'full' },
@@ -29,6 +31,8 @@ const routes: Routes = [
   { path: 'slot', component: SlotComponent },
   { path: 'bookaroom', component: BookaroomComponent },
   { path: 'slot', component: SlotComponent },
+  { path: 'manage/conference', component: ManageConferenceComponent },
+  { path: 'manage/location', component: LocationComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
