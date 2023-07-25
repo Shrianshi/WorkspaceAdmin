@@ -33,17 +33,31 @@
 <hr class="custom-line">
 <div class="container-fluid">
 <div class="row">
-    <div class="col-sm-7">
-        <full-calendar [options]="calendarOptions"></full-calendar>
-        
-    </div>
-    <div class="col-sm-5">
-        hi
-    </div>
-</div>
+    <div class="col-sm-8">
+        <div class="card cal">
+            <full-calendar [options]="calendarOptions"></full-calendar>
 
-</div>
-
-<div class="col-sm-3">
+        </div>        
+    </div>
+    <div class="mini-cal col-sm-4">
+      <div class="card p-3">
+        <mat-calendar #releasedAtPicker color="primary" ></mat-calendar>
+        <hr>
+        <h5>Events</h5>
+        <p>Today, {{today|date}}</p>
+        <div class="card p-2"  [ngStyle]="{'background-color':'lightblue'}" >
+            <p>{{events2|json}}</p>
+            <button class="btn btn-outline-primary" [ngStyle]="{'width': '50%'}">View Details</button>
+        </div>
+        <br>
+        <div class="card p-2"  [ngStyle]="{'background-color':'lightpink'}" >
+            <p>Event 2</p>
+            <button class="btn btn-outline-primary" [ngStyle]="{'width': '50%'}">View Details</button>
+        </div>
+      </div>
     
+    </div>
 </div>
+
+</div>
+

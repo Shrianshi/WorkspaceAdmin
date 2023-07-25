@@ -1,5 +1,9 @@
 .body{
-    width:1260px;
+   
+    
+    width: 100%;
+    
+      
 }
 .cardw{
     width:350px;
@@ -189,7 +193,9 @@
   }
   
   .container-fluid{
-    margin-left: 17%;
+    margin-left: 0%;
+    
+
   }
   /* Set the background color of day, week, month buttons to white */
 .fc-dayGridMonth-button, .fc-timeGridWeek-button, .fc-timeGridDay-button {
@@ -199,5 +205,11 @@
   /* Set the background color of navigation arrows to white */
   .fc-prev-button, .fc-next-button {
     background-color: white;
+  }
+  .cal{
+    width:102%;
+  }
+  .mini-cal{
+    width: 33%;
   }
   

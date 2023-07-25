@@ -9,7 +9,8 @@ import 'bootstrap-datepicker';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-  
+  today:Date = new Date();
+  events2:any=[];
   calendarOptions: CalendarOptions = {
     
    
@@ -25,15 +26,17 @@ export class CalendarComponent implements OnInit {
         end: 'prev,next'             
       },
       events: [
-        { title: 'event 1', date: '2023-06-01' },
-        { title: 'event 2', date: '2019-04-02' }
+       
+        { title: 'event 3', date: '2023-07-25',time:'7.00' }
+
       ],
       dayMaxEventRows: true,
       plugins: [dayGridPlugin] ,
       
     };
-  }
+    this.events2= this.calendarOptions.events;
+    console.log(this.events2);
+  }//ngInit
+ 
   
-
-  
-}
+}//end iof component

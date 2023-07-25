@@ -25,6 +25,9 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { RemoveEmpComponent } from './components/remove-emp/remove-emp.component';
 import { BookedSuccessComponent } from './components/booked-success/booked-success.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { BookedSuccessComponent } from './components/booked-success/booked-succe
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FullCalendarModule
+    FullCalendarModule,
+    NoopAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
