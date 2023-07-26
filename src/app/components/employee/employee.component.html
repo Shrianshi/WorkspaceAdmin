@@ -1,1 +1,799 @@
-<p>employee works!</p>
+
+<app-navbar></app-navbar>
+<body class="body">
+
+    <div class="container-fluid">
+        <header class="row py-4 border-bottom">
+            <div class="col-sm-6">
+                <h6 class="">Employee Details</h6>
+            </div>
+
+            <div class="col-sm-4 px-1">
+                <nav class="navbar">
+                    <form class="container-fluid  d-flex">
+                        <div class="input-group">
+                            <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass" style="color: #a1a3a5;"></i></span>
+                            <input type="text" class="search form-control no-border" placeholder="Search Employees"
+                                aria-label="Search Employees" aria-describedby="basic-addon1">
+                        </div>
+                    </form>
+                </nav>
+    
+            </div>
+            <div class="col-sm-2" style="position:relative">
+                <img src="assets/img/bell.svg">
+                <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
+                    <span class="visually-hidden">Hello</span>
+                </span>
+                <button class="avatar-btn mx-2" type="submit"></button>HR admin
+            </div>
+    
+        </header>
+
+        <!-- BODY -->
+        <div class="row">
+            <div class="col-sm-9">
+                <p style="font-size: 16px;" class="p-3">Founding <b> 453 Members</b></p>
+            </div>
+            <div class="col-sm-1">
+                <!-- FILTER SECTION -->
+                <div class="btn-group p-3" style="float: right;">
+                    <button class="btn  btn-sm dropdown-toggle" id="t1" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="border: 1px solid #9DA2B6;width: 101px;
+                        height: 30px;">
+                        <i class="bi-funnel"></i> Filter
+                    </button>
+                    <ul class="dropdown-menu" id="t2">
+                        <div style="width: 18rem;">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Location
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Chennai
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Coimbatore
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Banglore
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Pune
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            Department
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="accordion-body">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault" checked>
+                                                        IT Application Development
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        Data science
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        Software testing
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        Human resource
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        Finance & Accounting
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        Network & Security
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        Digital marketing
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                            Status
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    All
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    In
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Out
+                                                </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="btn-group">
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Add a new employee
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><button class="btn " type="button"
+                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                                    aria-controls="offcanvasRight">Add
+                                    Manually</button></a>
+                        </li>
+                        <li><a class="dropdown-item" href="#"><button class="btn " type="button"
+                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1"
+                                    aria-controls="offcanvasRight">Import CSV File
+                                    file</button></a>
+                        </li>
+
+
+
+                    </ul>
+
+                    <!-- CSV IMPORT -->
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight1"
+                        aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasRightLabel1">Import employee from CSV file</h5>
+
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+
+
+                        </div>
+
+                        <p> This tool allows you to import (or merge) employee data to your
+                            employee list from a CSV file.</p>
+                        <div class="offcanvas-body">
+                            <div>
+                                <h5> Download Template</h5>
+                                <button type="submit" class="btn btn-primary btn-sm" style="float: right;">Download
+                                    Template</button>
+                                <br>
+                                Download the CSV file template to match your data<br>
+
+                            </div>
+                            <br>
+
+
+                            Choose a CSV file from your computer
+
+
+
+                            <div>
+                                <div class="card text-center mb-3" style="border:1px dashed;">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi-card-image"></i></h5>
+                                        <p class="card-text">Drop your CSV file here, or <a href="#">Browse</a><br>
+                                            Supports : CSV, TXT</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Import</button>
+                            <button type="submit" class="btn ">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MANUALLY ADD -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasRightLabel">Add a Employee</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="row g-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Employee ID">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="First Name"
+                                    aria-label="First Name">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row g-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Last name">
+                            </div>
+                            <div class="col">
+                                <select id="inputState" class="form-select">
+                                    <option selected>Location</option>
+                                    <option>Pune</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Department">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Title">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Email address">
+                            </div>
+
+                        </div>
+                        <br>
+
+                        <div class="row g-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Phone number">
+                            </div>
+
+                        </div>
+                        <br>
+
+                        <div class="row g-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Add Password">
+                            </div>
+
+                        </div>
+                        <br>
+
+                        <div class="row g-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Confirm Password">
+                            </div>
+
+                        </div>
+                        <br>
+
+                        <div class="row g-3">
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">Add</button>
+                                <button type="submit" class="btn ">Cancel</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+
+
+
+
+        <!-- CARD SECTION -->
+
+        <div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div>
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false" style="float: right; border: none;">
+                                        <i class="bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+
+                                    </ul>
+                                </div>
+
+
+                                <button type="button" class="red-btn">
+                                    Out
+                                </button>
+                            </div>
+                            <br> <br> <br> <br>
+                            <div class="position-relative">
+
+                                <div class="position-absolute top-50 start-50 translate-middle">
+                                    <img src="assets/img/dhiraj.jpg" alt="pic" class="rounded-circle " width="60px"
+                                        height="60px" id="p1">
+                                </div>
+
+
+                            </div>
+
+
+
+                            <br><br>
+                            <div class="card-title black" align="center">
+                                2841 - Dhiraj Rote</div>
+                            <p class="card-text" style="font-weight: 400;
+                        font-size: 12px;">Senior Associate - IT Application Development<br><br>
+                                <i class="bi-envelope"></i> dhiraj.rote@kanini.com<br>
+                                <i class="bi-telephone"></i> 8007738148
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-sm-3">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div>
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false" style="float: right; border: none;">
+                                        <i class="bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+
+                                    </ul>
+                                </div>
+
+
+                                <button type="button" class="green-btn">
+                                    In
+                                </button>
+                            </div>
+                            <br> <br> <br> <br>
+                            <div class="position-relative">
+
+                                <div class="position-absolute top-50 start-50 translate-middle">
+                                    <img src="assets/img/sriram.jpg" alt="pic" class="rounded-circle " width="73px"
+                                        height="73px" id="p1">
+                                </div>
+
+
+                            </div>
+
+
+
+                            <br><br>
+                            <div class="card-title black" align="center">
+                                2484 - Sriram Muralidharan</div>
+                            <p class="card-text" style="font-weight: 400;
+                    font-size: 12px;">Junior Associate - IT Application Development<br><br>
+                                <i class="bi-envelope"></i>sriram.muralidharan@kanini.com<br>
+                                <i class="bi-telephone"></i> 8939191419
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-sm-3">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div>
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false" style="float: right; border: none;">
+                                        <i class="bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+
+                                    </ul>
+                                </div>
+
+
+                                <button type="button" class="red-btn">
+                                    Out
+                                </button>
+                            </div>
+                            <br> <br> <br> <br>
+                            <div class="position-relative">
+
+                                <div class="position-absolute top-50 start-50 translate-middle">
+                                    <img src="assets/img/vishnu.jpg" alt="pic" class="rounded-circle " width="73px"
+                                        height="73px" id="p1">
+                                </div>
+
+
+                            </div>
+
+
+
+                            <br><br>
+                            <div class="card-title black" align="center">
+                               2506 - Vishnu Venkatesan</div>
+                            <p class="card-text" style="font-weight: 400;
+                        font-size: 12px;">Senior Associate - IT Application Development<br><br>
+                                <i class="bi-envelope"></i> vishnu.venkatesan@kanini.com<br>
+                                <i class="bi-telephone"></i> 9940070651
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-sm-3">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div>
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false" style="float: right; border: none;">
+                                        <i class="bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+
+                                    </ul>
+                                </div>
+
+
+                                <button type="button" class="green-btn">
+                                    In
+                                </button>
+                            </div>
+                            <br> <br> <br> <br>
+                            <div class="position-relative">
+
+                                <div class="position-absolute top-50 start-50 translate-middle">
+                                    <img src="assets/img/divyanshi.jpg" alt="pic" class="rounded-circle " width="73px"
+                                        height="73px" id="p1">
+                                </div>
+
+
+                            </div>
+
+
+
+                            <br><br>
+                            <div class="card-title black" align="center">
+                                2787 - Divyanshi Gupta</div>
+                            <p class="card-text" style="font-weight: 400;
+                        font-size: 12px;">Senior Associate - IT Application Development<br><br>
+                                <i class="bi-envelope"></i> divyanshi.gupta@kanini.com<br>
+                                <i class="bi-telephone"></i> 8975522511
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+            <div class="row py-4">
+                <div class="col-sm-3">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div>
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false" style="float: right; border: none;">
+                                        <i class="bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+
+                                    </ul>
+                                </div>
+
+
+                                <button type="button" class="red-btn">
+                                    Out
+                                </button>
+                            </div>
+                            <br> <br> <br> <br>
+                            <div class="position-relative">
+
+                                <div class="position-absolute top-50 start-50 translate-middle">
+                                    <img src="assets/img/ankur.jpg" alt="pic" class="rounded-circle " width="73px"
+                                        height="73px" id="p1">
+                                </div>
+
+
+                            </div>
+
+
+
+                            <br><br>
+                            <div class="card-title black" align="center">
+                                2585 - Ankur Saxena</div>
+                            <p class="card-text" style="font-weight: 400;
+                        font-size: 12px;">Senior Associate - IT Application Development<br><br>
+                                <i class="bi-envelope"></i> ankur.saxena@kanini.com<br>
+                                <i class="bi-telephone"></i>7878751018
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-sm-3">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div>
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false" style="float: right; border: none;">
+                                        <i class="bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+
+                                    </ul>
+                                </div>
+
+
+                                <button type="button" class="green-btn">
+                                    In
+                                </button>
+                            </div>
+                            <br> <br> <br> <br>
+                            <div class="position-relative">
+
+                                <div class="position-absolute top-50 start-50 translate-middle">
+                                    <img src="assets/img/madhu.jpg" alt="pic" class="rounded-circle " width="73px"
+                                        height="73px" id="p1">
+                                </div>
+
+
+                            </div>
+
+
+
+                            <br><br>
+                            <div class="card-title black" align="center">
+                                2544 - Madhusudhana Reddy</div>
+                            <p class="card-text" style="font-weight: 400;
+                    font-size: 12px;"> Associate - IT Application Development<br><br>
+                                <i class="bi-envelope"></i> madhusudhana.reddy@kanini.com<br>
+                                <i class="bi-telephone"></i> 8861508698
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-sm-3">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div>
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false" style="float: right; border: none;">
+                                        <i class="bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+
+                                    </ul>
+                                </div>
+
+
+                                <button type="button" class="red-btn">
+                                    Out
+                                </button>
+                            </div>
+                            <br> <br> <br> <br>
+                            <div class="position-relative">
+
+                                <div class="position-absolute top-50 start-50 translate-middle">
+                                    <img src="assets/img/sharanya.jpg" alt="pic" class="rounded-circle " width="73px"
+                                        height="73px" id="p1">
+                                </div>
+
+
+                            </div>
+
+
+
+                            <br><br>
+                            <div class="card-title black" align="center">
+                            2786 - Sharanya Salehittal</div>
+                            <p class="card-text" style="font-weight: 400;
+                    font-size: 12px;"> Associate - IT Application Development<br><br>
+                                <i class="bi-envelope"></i> sharanya.salehittal@kanini.com<br>
+                                <i class="bi-telephone"></i> 9940070651
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-sm-3">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div>
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false" style="float: right; border: none;">
+                                        <i class="bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+
+                                    </ul>
+                                </div>
+
+
+                                <button type="button" class="green-btn">
+                                    In
+                                </button>
+                            </div>
+                            <br> <br> <br> <br>
+                            <div class="position-relative">
+
+                                <div class="position-absolute top-50 start-50 translate-middle">
+                                    <img src="assets/img/archana.jpg" alt="pic" class="rounded-circle " width="73px"
+                                        height="73px" id="p1">
+                                </div>
+
+
+                            </div>
+
+
+
+                            <br><br>
+                            <div class="card-title black" align="center">
+                               2507 - Archana Sharma</div>
+                            <p class="card-text" style="font-weight: 400;
+                    font-size: 12px;">Senior Associate - IT Application Development<br><br>
+                                <i class="bi-envelope"></i> archana.sharma@kanini.com<br>
+                                <i class="bi-telephone"></i>7977786632
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+        <div class="container-fluid p-3 ">
+            View
+            <div class="btn-group">
+                <button class="btn  btn-sm dropdown-toggle btn-outline-secondary" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    8 &nbsp; &nbsp; &nbsp;<i class="bi-arrow-down-square"></i>
+                    <ul class="dropdown-menu">
+                        <li>4</li>
+                        <li>8</li>
+                        <li>12</li>
+                    </ul>
+                </button> &nbsp; Employees per page
+            </div>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end  border-0">
+                    Showing 8/500 results &nbsp; &nbsp; <li class="page-item">
+                        <a class="page-link"><i class="bi-arrow-left"></i></a>
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">1</span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link"><i class="bi-arrow-right"></i></a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</body>

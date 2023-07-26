@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-section',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./article-section.component.css']
 })
 export class ArticleSectionComponent {
-
+  constructor(private router: Router) { }
+  employee() {
+    this.router.navigate(['employee'])
+    console.log("inside employee")
+  }
+  conference() {
+    this.router.navigate([''])
+    console.log("inside conference")
+  }
 }

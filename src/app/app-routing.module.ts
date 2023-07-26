@@ -15,9 +15,11 @@ import { BookaroomComponent } from './components/bookaroom/bookaroom.component';
 import { SlotComponent } from './components/slot/slot.component';
 import { ManageConferenceComponent } from './components/manage-conference/manage-conference.component';
 import { LocationComponent } from './components/location/location.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/article-section', pathMatch: 'full' },
+  { path: '', redirectTo: '/sign-up', pathMatch: 'full' },
+  { path: 'sign-up', component: SignUpComponent },
   { path: 'article-section', component: ArticleSectionComponent },
   { path: 'events', component: EventsComponent },
   { path: 'calendar', component: CalendarComponent },

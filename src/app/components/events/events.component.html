@@ -1,15 +1,10 @@
+<app-navbar></app-navbar>
+
+
 <div class="body">
-    <header class="row p-4">
+    <header class="row py-4 border-bottom">
         <div class="col-sm-6">
-            <h6>Welcome, Admin!</h6>
-            <p class="p-small text-secondary">View complete details of all location and its corresponding details
-            </p>
-            <div>
-                <select class="text-secondary border shadow-sm">
-                    <option>Chennai</option>
-                    <option>Pune</option>
-                </select>
-            </div>
+            <h6>Events</h6>
         </div>
 
         <div class="col-sm-4 px-1">
@@ -108,10 +103,10 @@
 
     <!-- Example split danger button -->
     <div class="container">
-        <div class="row g-3">
+        <div class="row g-3 card-deck">
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
-                    <img src="assets/img/Event_Img.jpg" class="card-img-top" alt="A Street in Europe" />
+                    <img src="assets/img/Event_img.jpg" class="card-img-top" alt="A Street in Europe" />
                     <div class="card-body">
                         <h5 class="card-title">Soft Skills Training</h5>
                         <p class="card-text text-secondary" id="eventDate">12 July 2022 10.00am-12.00pm</p>
@@ -151,7 +146,7 @@
                         <!-- <a href="#" class="btn btn-primary">View event details</a> -->
                         <button type="button" class="btn btn-outline-primary">View event details</button>
                         <span style="text-decoration: none;" href="" onclick="window.open('softskill.html')"><img
-                                src="img/party_vs.svg" alt="" class="bg-primary img-event"><span class="people">15
+                                src="assets/img/party_vs.svg" alt="" class="bg-primary img-event"><span class="people">15
                                 People
                                 joining this event</span></span>
                     </div>
@@ -159,14 +154,14 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
-                    <img src="img/Event_Img4.jpg" class="card-img-top" alt="A Street in Europe" />
+                    <img src="assets/img/Event_Img4.jpg" class="card-img-top" alt="A Street in Europe" />
                     <div class="card-body">
                         <h5 class="card-title">Soft Skills Training</h5>
                         <p class="card-text" id="eventDate">12 July 2022 10.00am-12.00pm</p>
                         <!-- <a href="#" class="btn btn-primary">View event details</a> -->
                         <button type="button" class="btn btn-outline-primary">View event details</button>
                         <span style="text-decoration: none;" href="" onclick="window.open('softskill.html')"><img
-                                src="img/party_vs.svg" alt="" class="bg-primary img-event"><span class="people">8 People
+                                src="assets/img/party_vs.svg" alt="" class="bg-primary img-event"><span class="people">8 People
                                 joining this event</span>
                         </span>
                     </div>
@@ -174,13 +169,13 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
-                    <img src="img/Event_Img5.jpg" class="card-img-top" alt="A Street in Europe" />
+                    <img src="assets/img/Event_Img5.jpg" class="card-img-top" alt="A Street in Europe" />
                     <div class="card-body">
                         <h5 class="card-title">Soft Skills Training</h5>
                         <p class="card-text text-secondary" id="eventDate">12 July 2022 10.00am-12.00pm</p>
                         <button type="button" class="btn btn-outline-primary">View event details</button>
                         <span style="text-decoration: none;" href="" onclick="window.open('softskill.html')"><img
-                                src="img/party_vs.svg" alt="" class="bg-primary img-event"><span class="people">8 People
+                                src="assets/img/party_vs.svg" alt="" class="bg-primary img-event"><span class="people">8 People
                                 joining this event</span>
                         </span>
                     </div>
@@ -193,3 +188,4 @@
     </div>
 
 </div>
+<router-outlet></router-outlet>
