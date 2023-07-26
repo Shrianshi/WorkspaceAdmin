@@ -1,52 +1,40 @@
-<body>
-    <header class="row p-4 border border-bottom">
-        <div class="col-sm-7">
-            <h6>Location</h6>
+<app-navbar></app-navbar>
 
-            <!-- <div>
-        <select class="text-secondary border shadow-sm">
-          <option>Chennai</option>
-          <option>Pune</option>
-        </select>
-      </div> -->
+<body class="body">
+    <header class="row py-4 border-bottom">
+        <div class="col-sm-6">
+            <h6 class="">Locations</h6>
         </div>
 
-        <div class="col-sm-3 px-1">
+        <div class="col-sm-4 px-1">
             <nav class="navbar">
                 <form class="container-fluid  d-flex">
                     <div class="input-group">
-                        <span class="search input-group-text" id="basic-addon1"><i class="bi-search" id="i"></i></span>
-                        <input type="text" class="search form-control" placeholder="Search Employees"
+                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
+                                style="color: #a1a3a5;"></i></span>
+                        <input type="text" class="search form-control no-border" placeholder="Search Employees"
                             aria-label="Search Employees" aria-describedby="basic-addon1">
                     </div>
                 </form>
             </nav>
-            <!-- <form class="d-flex" role="search">
-        <input class="search form-control" type="search" placeholder="Search Employees" aria-label="Search">
 
-      </form> -->
         </div>
         <div class="col-sm-2" style="position:relative">
-            <i class="bi-bell "></i>
+            <img src="assets/img/bell.svg">
             <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
                 <span class="visually-hidden">Hello</span>
             </span>
-            <!-- <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
-          <span class="visually-hidden">Hello</span>
-        </span> -->
-
-            <!-- <i class="bi-bell mx-2"></i> -->
-
             <button class="avatar-btn mx-2" type="submit"></button>HR admin
         </div>
 
     </header>
 
+
     <div>
         <aside>
             <div class="row">
                 <div class="col-10 text-left">
-                    <h5>All Location</h5>
+                    <h6>All Location</h6>
                 </div>
 
                 <div class="col-2 text-right">

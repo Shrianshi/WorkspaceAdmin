@@ -1,5 +1,5 @@
 .body{
-    width:1260px;
+    width:100%;
 }
 .cardw{
     width:350px;
@@ -166,6 +166,7 @@
     position:absolute;
     left: 20%;
     top:188%;
+    
 }
 .aside{
     position:relative;
