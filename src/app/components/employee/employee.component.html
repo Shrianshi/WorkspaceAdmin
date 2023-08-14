@@ -187,12 +187,12 @@
 
             <div class="col-sm-2">
                 <div class="btn-group">
-                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-primary btn-sm dropdown-toggle mt-3" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Add a new employee
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#"><button class="btn " type="button"
+                        <li><a class="dropdown-item"><button class="btn " type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                                     aria-controls="offcanvasRight">Add
                                     Manually</button></a>
@@ -349,10 +349,10 @@
 
         <div>
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-3 " *ngFor="let card of cards">
                     <div class="card">
 
-                        <div class="card-body">
+                        <div class="card-body" >
                             <div>
                                 <div class="dropdown">
                                     <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -375,7 +375,7 @@
                             <div class="position-relative">
 
                                 <div class="position-absolute top-50 start-50 translate-middle">
-                                    <img src="assets/img/dhiraj.jpg" alt="pic" class="rounded-circle " width="60px"
+                                    <img [src]="card.imageUrl" alt="pic" class="rounded-circle " width="60px"
                                         height="60px" id="p1">
                                 </div>
 
@@ -386,379 +386,17 @@
 
                             <br><br>
                             <div class="card-title black" align="center">
-                                2841 - Dhiraj Rote</div>
+                                {{card.EmpId}}-{{ card.fname }} {{card.lname}}</div>
                             <p class="card-text" style="font-weight: 400;
-                        font-size: 12px;">Senior Associate - IT Application Development<br><br>
-                                <i class="bi-envelope"></i> dhiraj.rote@kanini.com<br>
-                                <i class="bi-telephone"></i> 8007738148
+                        font-size: 12px;">{{card.Department}} - {{card.Title}}<br><br>
+                                <i class="bi-envelope"></i> {{card.Email}}<br>
+                                <i class="bi-telephone"></i> {{card.Phone}}
                             </p>
 
                         </div>
                     </div>
 
                 </div>
-
-
-                <div class="col-sm-3">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div>
-                                <div class="dropdown">
-                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false" style="float: right; border: none;">
-                                        <i class="bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-
-                                    </ul>
-                                </div>
-
-
-                                <button type="button" class="green-btn">
-                                    In
-                                </button>
-                            </div>
-                            <br> <br> <br> <br>
-                            <div class="position-relative">
-
-                                <div class="position-absolute top-50 start-50 translate-middle">
-                                    <img src="assets/img/sriram.jpg" alt="pic" class="rounded-circle " width="73px"
-                                        height="73px" id="p1">
-                                </div>
-
-
-                            </div>
-
-
-
-                            <br><br>
-                            <div class="card-title black" align="center">
-                                2484 - Sriram Muralidharan</div>
-                            <p class="card-text" style="font-weight: 400;
-                    font-size: 12px;">Junior Associate - IT Application Development<br><br>
-                                <i class="bi-envelope"></i>sriram.muralidharan@kanini.com<br>
-                                <i class="bi-telephone"></i> 8939191419
-                            </p>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="col-sm-3">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div>
-                                <div class="dropdown">
-                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false" style="float: right; border: none;">
-                                        <i class="bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-
-                                    </ul>
-                                </div>
-
-
-                                <button type="button" class="red-btn">
-                                    Out
-                                </button>
-                            </div>
-                            <br> <br> <br> <br>
-                            <div class="position-relative">
-
-                                <div class="position-absolute top-50 start-50 translate-middle">
-                                    <img src="assets/img/vishnu.jpg" alt="pic" class="rounded-circle " width="73px"
-                                        height="73px" id="p1">
-                                </div>
-
-
-                            </div>
-
-
-
-                            <br><br>
-                            <div class="card-title black" align="center">
-                               2506 - Vishnu Venkatesan</div>
-                            <p class="card-text" style="font-weight: 400;
-                        font-size: 12px;">Senior Associate - IT Application Development<br><br>
-                                <i class="bi-envelope"></i> vishnu.venkatesan@kanini.com<br>
-                                <i class="bi-telephone"></i> 9940070651
-                            </p>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-                <div class="col-sm-3">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div>
-                                <div class="dropdown">
-                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false" style="float: right; border: none;">
-                                        <i class="bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-
-                                    </ul>
-                                </div>
-
-
-                                <button type="button" class="green-btn">
-                                    In
-                                </button>
-                            </div>
-                            <br> <br> <br> <br>
-                            <div class="position-relative">
-
-                                <div class="position-absolute top-50 start-50 translate-middle">
-                                    <img src="assets/img/divyanshi.jpg" alt="pic" class="rounded-circle " width="73px"
-                                        height="73px" id="p1">
-                                </div>
-
-
-                            </div>
-
-
-
-                            <br><br>
-                            <div class="card-title black" align="center">
-                                2787 - Divyanshi Gupta</div>
-                            <p class="card-text" style="font-weight: 400;
-                        font-size: 12px;">Senior Associate - IT Application Development<br><br>
-                                <i class="bi-envelope"></i> divyanshi.gupta@kanini.com<br>
-                                <i class="bi-telephone"></i> 8975522511
-                            </p>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-
-            </div>
-
-
-
-            <div class="row py-4">
-                <div class="col-sm-3">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div>
-                                <div class="dropdown">
-                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false" style="float: right; border: none;">
-                                        <i class="bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-
-                                    </ul>
-                                </div>
-
-
-                                <button type="button" class="red-btn">
-                                    Out
-                                </button>
-                            </div>
-                            <br> <br> <br> <br>
-                            <div class="position-relative">
-
-                                <div class="position-absolute top-50 start-50 translate-middle">
-                                    <img src="assets/img/ankur.jpg" alt="pic" class="rounded-circle " width="73px"
-                                        height="73px" id="p1">
-                                </div>
-
-
-                            </div>
-
-
-
-                            <br><br>
-                            <div class="card-title black" align="center">
-                                2585 - Ankur Saxena</div>
-                            <p class="card-text" style="font-weight: 400;
-                        font-size: 12px;">Senior Associate - IT Application Development<br><br>
-                                <i class="bi-envelope"></i> ankur.saxena@kanini.com<br>
-                                <i class="bi-telephone"></i>7878751018
-                            </p>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="col-sm-3">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div>
-                                <div class="dropdown">
-                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false" style="float: right; border: none;">
-                                        <i class="bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-
-                                    </ul>
-                                </div>
-
-
-                                <button type="button" class="green-btn">
-                                    In
-                                </button>
-                            </div>
-                            <br> <br> <br> <br>
-                            <div class="position-relative">
-
-                                <div class="position-absolute top-50 start-50 translate-middle">
-                                    <img src="assets/img/madhu.jpg" alt="pic" class="rounded-circle " width="73px"
-                                        height="73px" id="p1">
-                                </div>
-
-
-                            </div>
-
-
-
-                            <br><br>
-                            <div class="card-title black" align="center">
-                                2544 - Madhusudhana Reddy</div>
-                            <p class="card-text" style="font-weight: 400;
-                    font-size: 12px;"> Associate - IT Application Development<br><br>
-                                <i class="bi-envelope"></i> madhusudhana.reddy@kanini.com<br>
-                                <i class="bi-telephone"></i> 8861508698
-                            </p>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="col-sm-3">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div>
-                                <div class="dropdown">
-                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false" style="float: right; border: none;">
-                                        <i class="bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-
-                                    </ul>
-                                </div>
-
-
-                                <button type="button" class="red-btn">
-                                    Out
-                                </button>
-                            </div>
-                            <br> <br> <br> <br>
-                            <div class="position-relative">
-
-                                <div class="position-absolute top-50 start-50 translate-middle">
-                                    <img src="assets/img/sharanya.jpg" alt="pic" class="rounded-circle " width="73px"
-                                        height="73px" id="p1">
-                                </div>
-
-
-                            </div>
-
-
-
-                            <br><br>
-                            <div class="card-title black" align="center">
-                            2786 - Sharanya Salehittal</div>
-                            <p class="card-text" style="font-weight: 400;
-                    font-size: 12px;"> Associate - IT Application Development<br><br>
-                                <i class="bi-envelope"></i> sharanya.salehittal@kanini.com<br>
-                                <i class="bi-telephone"></i> 9940070651
-                            </p>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-                <div class="col-sm-3">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div>
-                                <div class="dropdown">
-                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false" style="float: right; border: none;">
-                                        <i class="bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-
-                                    </ul>
-                                </div>
-
-
-                                <button type="button" class="green-btn">
-                                    In
-                                </button>
-                            </div>
-                            <br> <br> <br> <br>
-                            <div class="position-relative">
-
-                                <div class="position-absolute top-50 start-50 translate-middle">
-                                    <img src="assets/img/archana.jpg" alt="pic" class="rounded-circle " width="73px"
-                                        height="73px" id="p1">
-                                </div>
-
-
-                            </div>
-
-
-
-                            <br><br>
-                            <div class="card-title black" align="center">
-                               2507 - Archana Sharma</div>
-                            <p class="card-text" style="font-weight: 400;
-                    font-size: 12px;">Senior Associate - IT Application Development<br><br>
-                                <i class="bi-envelope"></i> archana.sharma@kanini.com<br>
-                                <i class="bi-telephone"></i>7977786632
-                            </p>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-
 
             </div>
 

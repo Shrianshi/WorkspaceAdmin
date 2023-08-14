@@ -11,7 +11,8 @@
             <nav class="navbar">
                 <form class="container-fluid  d-flex">
                     <div class="input-group">
-                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass" style="color: #a1a3a5;"></i></span>
+                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
+                                style="color: #a1a3a5;"></i></span>
                         <input type="text" class="search form-control no-border" placeholder="Search Employees"
                             aria-label="Search Employees" aria-describedby="basic-addon1">
                     </div>
@@ -28,10 +29,10 @@
         </div>
 
     </header>
-    <div style="display: flex;">
-        <div class="container d-flex">
+    <div style="display: flex;justify-content: space-between;">
+        <div class="tophalf py-4">
             <h6>Finding <b>5 events</b></h6>
-            <div style="margin-left: 7px;">
+            <div>
                 <select name="" id="">
                     <option value="">Chennai</option>
                     <option value="">Bangalore</option>
@@ -39,17 +40,17 @@
                     <option value="">Combaitore</option>
                 </select>
             </div>
-            <div style="margin-left: 7px;">
+            <div>
                 <select name="" id="">
                     <option value="">Today</option>
                 </select>
 
             </div>
         </div>
-        <!-- <button style="background-color: blueviolet;" id="btn1">Add new evet</button> -->
-        <button class="btn btn-primary btn-sm float-end" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#addEventOffcanvas"> Add Event</button>
-        <!-- Offcanvas for adding a new event -->
+        <div class="p-4">
+            <button type="button" class="btn btn-primary px-2" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add Events</button>
+        </div>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="addEventOffcanvas"
             aria-labelledby="addEventOffcanvasLabel">
             <div class="offcanvas-header">
@@ -104,79 +105,20 @@
     <!-- Example split danger button -->
     <div class="container">
         <div class="row g-3 card-deck">
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-lg-4" *ngFor="let card of cards">
                 <div class="card">
-                    <img src="assets/img/Event_img.jpg" class="card-img-top" alt="A Street in Europe" />
+                    <img [src]="card.ImageUrl" class="card-img-top" alt="A Street in Europe" />
                     <div class="card-body">
-                        <h5 class="card-title">Soft Skills Training</h5>
-                        <p class="card-text text-secondary" id="eventDate">12 July 2022 10.00am-12.00pm</p>
-                        <button type="button" class="btn btn-outline-primary"
+                        <h6 class="card-title">{{card.Title}}</h6>
+                        <p class="card-text text-secondary" id="eventDate">{{card.Date}} {{card.Time}}</p>
+                        <button type="button" class="btn btn-outline-primary button"
                             onclick="window.open('softskill.html')">View
                             event
                             details
                         </button>
                         <span style="text-decoration: none;" href="" onclick="window.open('softskill.html')"><img
                                 src="assets/img/party_vs.svg" alt="" class="img-event bg-primary">
-                            <span class="people">10 People joining this event</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="assets/img/Event_Img2.jpg" class="card-img-top" alt="A Street in Europe" />
-                    <div class="card-body">
-                        <h5 class="card-title">Soft Skills Training</h5>
-                        <p class="card-text" id="eventDate">12 July 2022 10.00am-12.00pm</p>
-                        <!-- <a href="#" class="btn btn-primary">View event details</a> -->
-                        <button type="button" class="btn btn-outline-primary">View event details</button>
-                        <span style="text-decoration: none;" href="" onclick="window.open('softskill.html')"><img
-                                src="assets/img/party_vs.svg" alt="" class="bg-primary img-event"><span class="people">8 People
-                                joining this event</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="assets/img/Event_Img3.jpg" class="card-img-top" alt="A Street in Europe" />
-                    <div class="card-body">
-                        <h5 class="card-title">Soft Skills Training</h5>
-                        <p class="card-text" id="eventDate">12 July 2022 10.00am-12.00pm</p>
-                        <!-- <a href="#" class="btn btn-primary">View event details</a> -->
-                        <button type="button" class="btn btn-outline-primary">View event details</button>
-                        <span style="text-decoration: none;" href="" onclick="window.open('softskill.html')"><img
-                                src="assets/img/party_vs.svg" alt="" class="bg-primary img-event"><span class="people">15
-                                People
-                                joining this event</span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="assets/img/Event_Img4.jpg" class="card-img-top" alt="A Street in Europe" />
-                    <div class="card-body">
-                        <h5 class="card-title">Soft Skills Training</h5>
-                        <p class="card-text" id="eventDate">12 July 2022 10.00am-12.00pm</p>
-                        <!-- <a href="#" class="btn btn-primary">View event details</a> -->
-                        <button type="button" class="btn btn-outline-primary">View event details</button>
-                        <span style="text-decoration: none;" href="" onclick="window.open('softskill.html')"><img
-                                src="assets/img/party_vs.svg" alt="" class="bg-primary img-event"><span class="people">8 People
-                                joining this event</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="assets/img/Event_Img5.jpg" class="card-img-top" alt="A Street in Europe" />
-                    <div class="card-body">
-                        <h5 class="card-title">Soft Skills Training</h5>
-                        <p class="card-text text-secondary" id="eventDate">12 July 2022 10.00am-12.00pm</p>
-                        <button type="button" class="btn btn-outline-primary">View event details</button>
-                        <span style="text-decoration: none;" href="" onclick="window.open('softskill.html')"><img
-                                src="assets/img/party_vs.svg" alt="" class="bg-primary img-event"><span class="people">8 People
-                                joining this event</span>
+                            <span class="people p-small">{{card.Description}}</span>
                         </span>
                     </div>
                 </div>

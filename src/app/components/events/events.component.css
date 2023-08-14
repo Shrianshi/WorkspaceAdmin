@@ -247,3 +247,17 @@
     font-size: 13px;
 
 }
+.tophalf {
+    padding-left: 10px;
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+    border-radius: 4px;
+  }
+
+.button{
+    width:35%;
+    height:5%;
+    font-size:60%;
+    padding:1%
+}
