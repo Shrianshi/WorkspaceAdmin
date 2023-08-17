@@ -1,5 +1,4 @@
 <app-navbar></app-navbar>
-
 <div>
     <!-- Section 1: Header -->
     <header class="row py-4 border-bottom">
@@ -21,21 +20,20 @@
 
         </div>
         <div class="col-sm-2" style="position:relative">
-            <img src="assets/img/bell.svg">
+            <img src="assets/img/bell.svg"> 
             <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
                 <span class="visually-hidden">Hello</span>
             </span>
             <button class="avatar-btn mx-2" type="submit"></button>HR admin
         </div>
-
     </header>
 
         <!-- Section 1 End-->
-
+<br>
         <!-- Section 2 : Header 2-->
         <section>
             <div class="container-fluid">
-                <div class="row mt-3">
+                <div class="row">
                     <div class="col-sm-10"><span class="mx-2">Found <b>120 Conference Rooms</b></span>
                         <select id="allLocationFilter">
                             <option value="Chennai">Chennai</option>
@@ -47,15 +45,15 @@
 
                     <!-- Offcanvas -->
                     <div class="col-sm-2">
-                        <button class="btn btn-primary btn-sm" id="btnCanvas" type="button" data-bs-toggle="offcanvas"
+                        <button class="btn btn-primary btn-sm small-icon" id="btnCanvas" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add a new room</button>
 
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                             aria-labelledby="offcanvasRightLabel">
                             <div class="offcanvas-header py-3">
-                                <h5 class="offcanvas-title" id="offcanvasRightLabel">Add a new location</h5>
+                                <h6 class="offcanvas-title" id="offcanvasRightLabel">Add a new room</h6>
                                 <button type="button" class="button_close" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"><img src="../../assets/img/conf_off_close_icon.svg"></button>
+                                    aria-label="Close"><img src="../../../assets/images/close-icon.svg"></button>
 
                             </div>
                             <div class="offcanvas-body">
@@ -85,7 +83,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col text-muted">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
                                                 value="option1">
@@ -120,7 +118,7 @@
                                     <div class="col">
                                         <div class="card text-center mb-3" style="border:2px dashed #9DA2B6">
                                             <div class="card-body">
-                                                <h5 class="card-title"><i class="bi-card-image"></i></h5>
+                                                <h5 class="card-title"><img src="assets/images/gallery-icon.png"></h5>
                                                 <p class="card-text">Drop your Featured Image here, or <a
                                                         class="text-decoration-none" href="#">Browse</a><br> <span
                                                         class="text-muted">Supports : JPEG,PNG</span></p>
@@ -142,169 +140,39 @@
                 <!-- Section 2 End-->
 
                 <br>
-                <br>
-
+                
+                
                 <!--Section 3 : Cards -->
                 <section>
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-3 m-2">
+                        <div class="row" >
+                            <div class="card-size" *ngFor="let card of cards">
                                 <div class="card">
-                                    <img class="card-img-top" src="../../assets/img/conf1.png" alt="Card image cap">
+                                    <img class="card-img-top" [src]="card.ImageUrl" alt="Card image cap">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col">
-                                                <h4 class="card-title"><small class="text-muted">Conference
-                                                        Room:</small><br>Spring 4Pax</h4>
+                                            <div class="col-sm-8">
+                                                <h6 class="card-title"><small class="text-muted ">Conference
+                                                        Room:</small><br>{{card.RoomName}}</h6>
                                             </div>
-                                            <div class="col">
-                                                <button class="card-btn-chennai">&nbsp; Chennai &nbsp;</button>
+                                            <div class="col-sm-4">
+                                                <button class="card-btn-chennai small-icon" [ngStyle]="{'background-color': card.Color}"
+                                                [class.card-btn-pune]="card.Location === 'Pune'"
+                                                [class.card-btn-bangalore]="card.Location === 'Bangalore'"
+                                                [class.card-btn-chennai]="card.Location === 'Chennai'">&nbsp; {{card.Location}} &nbsp;</button>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <div class="col">
-                                                <i class="bi bi-person text-muted small"> 20 </i>&nbsp;
-                                                <i class="bi bi-tv text-muted small"> TV</i>&nbsp;
-                                                <i class="bi bi-easel text-muted small"> Whiteboard</i>
+                                            <div class="col-icons">
+                                                <span class="icon-border px-1"><img src="assets/images/profile-icon.png" class="conf-icon"> <span class="text-muted">{{card.Capacity}}</span> </span>&nbsp;&nbsp;
+                                                <span class="icon-border px-1"><img src="assets/images/TV.png" class="conf-icon"> <span class="text-muted">TV</span> </span>&nbsp;&nbsp;
+                                                <span class="icon-border px-1"><img src="assets/images/whiteboard.png" class="conf-icon"><span class="text-muted">Whiteboard</span> </span>&nbsp;&nbsp;
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
-                            <div class="col-sm-3 m-2">
-                                <div class="card">
-                                    <img class="card-img-top" src="../../assets/img/conf2.png" alt="Sunrise Image">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h4 class="card-title"><small class="text-muted">Conference
-                                                        Room:</small><br>Sunrise</h4>
-                                            </div>
-                                            <div class="col">
-                                                <button class="card-btn-pune">&nbsp; Pune &nbsp;</button>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col">
-                                                <i class="bi bi-person text-muted small"> 6 </i>&nbsp;
-                                                <i class="bi bi-tv text-muted small"> TV</i>&nbsp;
-                                                <i class="bi bi-easel text-muted small"> Whiteboard</i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-3 m-2">
-                                <div class="card">
-                                    <img class="card-img-top" src="../../assets/img/conf3.png" alt="Sunset Image">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h4 class="card-title"><small class="text-muted">Conference
-                                                        Room:</small><br>Sunset</h4>
-                                            </div>
-                                            <div class="col">
-                                                <button class="card-btn-bangalore">&nbsp; Bangalore &nbsp;</button>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col">
-                                                <i class="bi bi-person text-muted small"> 12 </i>&nbsp;
-                                                <i class="bi bi-tv text-muted small"> TV</i>&nbsp;
-                                                <i class="bi bi-easel text-muted small"> Whiteboard</i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br><br>
-
-                        <div class="row">
-                            <div class="col-sm-3 m-2">
-                                <div class="card">
-                                    <img class="card-img-top" src="../../assets/img/conf4.png" alt="Card image cap">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h4 class="card-title"><small class="text-muted">Conference
-                                                        Room:</small><br>Dotnet</h4>
-                                            </div>
-                                            <div class="col">
-                                                <button class="card-btn-chennai">&nbsp; Chennai &nbsp;</button>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col">
-                                                <i class="bi bi-person text-muted small"> 6 </i>&nbsp;
-                                                <i class="bi bi-tv text-muted small"> TV</i>&nbsp;
-                                                <i class="bi bi-easel text-muted small"> Whiteboard</i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-3 m-2">
-                                <div class="card">
-                                    <img class="card-img-top" src="../../assets/img/conf5.png" alt="Sunrise Image">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h4 class="card-title"><small class="text-muted">Conference
-                                                        Room:</small><br>CHC 2.0</h4>
-                                            </div>
-                                            <div class="col">
-                                                <button class="card-btn-pune">&nbsp; Pune &nbsp;</button>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col">
-                                                <i class="bi bi-person text-muted small"> 10 </i>&nbsp;
-                                                <i class="bi bi-tv text-muted small"> TV</i>&nbsp;
-                                                <i class="bi bi-easel text-muted small"> Whiteboard</i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-3 m-2">
-                                <div class="card">
-                                    <img class="card-img-top" src="../../assets/img/conf6.png" alt="Sunset Image">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h4 class="card-title"><small class="text-muted">Conference
-                                                        Room:</small><br>Storyboard</h4>
-                                            </div>
-                                            <div class="col">
-                                                <button class="card-btn-bangalore">&nbsp; Bangalore &nbsp;</button>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col">
-                                                <i class="bi bi-person text-muted small"> 14 </i>&nbsp;
-                                                <i class="bi bi-tv text-muted small"> TV</i>&nbsp;
-                                                <i class="bi bi-easel text-muted small"> Whiteboard</i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                             <!-- Section 3 End -->
 
                             <br>
@@ -327,9 +195,8 @@
 
                                         <div class="col-sm-3" id="pagination">
                                             <div class="pagination">
-                                                <!-- <button class="previous-arrow"><i class="bi bi-arrow-left" id="biPagination"></i></button> -->
                                                 <button class="next-arrow"><img
-                                                        src="../../assets/img/conf_page_arrow_left.svg"></button>
+                                                        src="   assets/images/left-arrow.jpeg"></button>
 
                                                 <ul>
                                                     <li class="link active" value="1">1</li>
@@ -338,9 +205,8 @@
                                                     <li class="link" value="4">4</li>
                                                     <li class="link" value="5">5</li>
                                                 </ul>
-                                                <!-- <button class="next-arrow"><i class="bi bi-arrow-right" id="biPagination"></i></button> -->
                                                 <button class="next-arrow"><img
-                                                        src="../../assets/img/conf_page_arrow_right.svg"></button>
+                                                        src="assets/images/right-arrow.jpeg"></button>
                                             </div>
                                         </div>
                                     </div>
