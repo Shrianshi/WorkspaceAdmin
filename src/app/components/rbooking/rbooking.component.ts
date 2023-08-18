@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class RbookingComponent {
   rooms: any[] = []
+  test:string=''
 
 }
