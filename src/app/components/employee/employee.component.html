@@ -262,12 +262,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
+                        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Employee ID">
+                                <input type="text" class="form-control" formControlName="employeeId" placeholder="Employee ID">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="First Name"
+                                <input type="text" class="form-control" formControlName="firstName" placeholder="First Name"
                                     aria-label="First Name">
                             </div>
                         </div>
@@ -275,7 +276,7 @@
 
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Last name">
+                                <input type="text" class="form-control" formControlName="lastName" placeholder="Last name">
                             </div>
                             <div class="col">
                                 <select id="inputState" class="form-select">
@@ -329,10 +330,11 @@
                         <div class="row g-3">
                             <div class="col">
                                 <button type="submit" class="btn btn-primary">Add</button>
-                                <button type="submit" class="btn ">Cancel</button>
+                                <button type="submit" class="btn" (click)="employeeForm.reset()">Cancel</button>
                             </div>
 
                         </div>
+                        </form>
                     </div>
 
                 </div>
