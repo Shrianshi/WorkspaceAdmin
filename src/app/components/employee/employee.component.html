@@ -199,8 +199,7 @@
                         </li>
                         <li><a class="dropdown-item" href="#"><button class="btn " type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1"
-                                    aria-controls="offcanvasRight">Import CSV File
-                                    file</button></a>
+                                    aria-controls="offcanvasRight">Import CSV File</button></a>
                         </li>
 
 
@@ -404,7 +403,7 @@
 
         </div>
 
-        <div class="container-fluid p-3 ">
+        <!-- <div class="container-fluid p-3 ">
             View
             <div class="btn-group">
                 <button class="btn  btn-sm dropdown-toggle btn-outline-secondary" type="button"
@@ -434,6 +433,41 @@
                 </ul>
             </nav>
 
-        </div>
+        </div> -->
+        <section class="page" id="#paginSection">
+            <div class="container-fluid small">
+                <div class="row">
+                    <div class="col-sm-7 py-2 text-muted">View &nbsp;
+                        <select id="roomsper small">
+                            <option value="RoomsPerPage" selected>6</option>
+                            <option value="RoomsPerPage">10</option>
+                            <option value="RoomsPerPage">14</option>
+                            <option value="RoomsPerPage">20</option>
+                        </select>
+                        Employees per page
+                    </div>
+
+                    <span class="col-sm-2 text-muted small" id="spanResult">Showing 8/500 results</span>
+
+                    <div class="col-sm-3" id="pagination">
+                        <div class="pagination">
+                            <button class="next-arrow"><img
+                                    src="   assets/images/left-arrow.jpeg"></button>
+
+                            <ul class="ul">
+                                <li class="link active li" value="1">1</li>
+                                <li class="link li" value="2">2</li>
+                                <li class="link li" value="3">3</li>
+                                <li class="link li" value="4">4</li>
+                                <li class="link li" value="5">5</li>
+                            </ul>
+                            <button class="next-arrow"><img
+                                    src="assets/images/right-arrow.jpeg"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
     </div>
 </body>

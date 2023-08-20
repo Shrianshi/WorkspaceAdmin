@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +29,7 @@ import { BookedSuccessComponent } from './components/booked-success/booked-succe
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     RemoveEmpComponent,
     BookedSuccessComponent,
 
+    
+
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     FullCalendarModule,
     NoopAnimationsModule,
     MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    FormsModule,
     MatNativeDateModule,
     ReactiveFormsModule
   ],
