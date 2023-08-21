@@ -29,6 +29,15 @@ export class EmployeeComponent implements OnInit{
       employeeId: [''],
       firstName: [''],
       lastName: [''],
+      empimage:[''],
+      Location:[''],
+      dept:[''],
+      title1:[''],
+      email:[''],
+      contact:[''],
+      pass1:[''],
+      pass2:[''],
+
       // Add other form controls here...
     });
   }

@@ -257,11 +257,26 @@
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                     aria-labelledby="offcanvasRightLabel">
                     <div class="offcanvas-header">
+
                         <h5 class="offcanvas-title" id="offcanvasRightLabel">Add a Employee</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
                         <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+                           
+                            <div class="row">
+                                <div class="col"></div>
+                                
+                                <div class="col-sm-6">
+                                    <input type="file" class="form-control" formControlName="empimage" >
+                                </div>
+                                
+                                <div class="col"></div>
+                            </div>
+                            
+                            <br>
+
                         <div class="row g-3">
                             <div class="col">
                                 <input type="text" class="form-control" formControlName="employeeId" placeholder="Employee ID">
@@ -278,33 +293,27 @@
                                 <input type="text" class="form-control" formControlName="lastName" placeholder="Last name">
                             </div>
                             <div class="col">
-                                <select id="inputState" class="form-select">
+                                <select id="inputState" class="form-select" formControlName="Location">
                                     <option selected>Location</option>
                                     <option>Pune</option>
+                                    <option>Chennai</option>
+                                    <option>Banglore</option>
                                 </select>
                             </div>
                         </div>
                         <br>
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Department">
+                                <input type="text" class="form-control" placeholder="Department" formControlName="dept">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Title">
+                                <input type="text" class="form-control" placeholder="Title" formControlName="title1">
                             </div>
                         </div>
                         <br>
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Email address">
-                            </div>
-
-                        </div>
-                        <br>
-
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Phone number">
+                                <input type="text" class="form-control" placeholder="Email address" formControlName="email">
                             </div>
 
                         </div>
@@ -312,7 +321,7 @@
 
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Add Password">
+                                <input type="text" class="form-control" placeholder="Phone number" formControlName="contact">
                             </div>
 
                         </div>
@@ -320,7 +329,15 @@
 
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Confirm Password">
+                                <input type="text" class="form-control" placeholder="Add Password" formControlName="pass1">
+                            </div>
+
+                        </div>
+                        <br>
+
+                        <div class="row g-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Confirm Password" ormControlName="pass2">
                             </div>
 
                         </div>
