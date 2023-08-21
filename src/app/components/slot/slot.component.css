@@ -78,7 +78,7 @@
 
 .fieldsetdetails {
   display: flex;
-  padding: 10px;
+  padding: 0px;
   border: 1px solid #9da2b6;
   border-radius: 6px;
   color: black;
@@ -88,7 +88,7 @@
   display: flex;
   justify-content: space-between;
   border: none;
-  width: 200px;
+  width: 100%;
   color: black;
 }
 
