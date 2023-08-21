@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { EventService } from 'src/app/services/eventService/event.service';
 
-interface Card {
-  ImageUrl: string;
-  Title: string;
-  Description: string;
-  date: string; 
-  Time: string;
-}
+
 
 @Component({
   selector: 'app-events',
@@ -15,81 +11,45 @@ interface Card {
   styleUrls: ['./events.component.css'],
 })
 export class EventsComponent {
-  eventForm: FormGroup; // Define the eventForm property
+  constructor(private eventser: EventService, private toast: ToastrService) { }
+  events: any[] = []
 
-  cards: Card[] = [
-    {
-      ImageUrl: 'assets/img/Event_img.jpg',
-      Title: 'Soft Skills Training',
-      date: 'Jan 5, 2023', // Use a string in a consistent date format
-      Time: '10:00am-12:00pm',
-      Description: '10 People joining this event',
-    },
-    {
-      ImageUrl: 'assets/img/Event_Img2.jpg',
-      Title: 'Soft Skills Training',
-      date: 'Oct 10, 2023', // Use a string in a consistent date format
-      Time: '10:00am-12:00pm',
-      Description: '10 People joining this event',
-    },
-  ];
-
-  
-
-  newEvent: Card = {
-    ImageUrl: '',
-    Title: '',
-    date: '',
-    Time: '',
-    Description: '',
+  newEvent: any = {
+    imageData: "",
+    eventTitle: "",
+    eventDescription: "",
+    locationId: 0,
+    startTime: "2023-08-21T17:38:43.809Z",
+    endTime: "2023-08-21T17:38:43.809Z",
   };
-
-   constructor(private formBuilder: FormBuilder) {
-    this.eventForm = this.formBuilder.group({
-      eventLocation: ['', Validators.required], // Example form control with validation
-    });
-  }
-  handleImageUpload(event: any) {
+  onFileSelected(event: any) {
     const file = event.target.files[0];
-    if (file) {
-      this.displayImage(file);
-
-      // Process the uploaded file, e.g., display it or send it to a server
+    const fileReader = new FileReader();
+    fileReader.onload = (event) => {
+      const fileData = fileReader.result as ArrayBuffer;
+      const byteArray = new Uint8Array(fileData);
+      const numbersArray = Array.from(byteArray);
+      const base64String = btoa(String.fromCharCode.apply(null, numbersArray));
+      this.newEvent.imageData = base64String;
+      console.log(this.newEvent)
     }
-  }
-  displayImage(file: File) {
-    const reader = new FileReader();
-    reader.onload = (e: any) => {
-      this.newEvent.ImageUrl = e.target.result;
-    };
-    reader.readAsDataURL(file);
+    fileReader.readAsArrayBuffer(file);
   }
 
   addEvent() {
-    // Push the newEvent to the cards array if valid
-    if (
-      this.newEvent.ImageUrl &&
-      this.newEvent.Title &&
-      this.newEvent.date &&
-      this.newEvent.Time &&
-      this.newEvent.Description
-    ) {
-      this.cards.push(this.newEvent);
-      console.log('New event added:', this.newEvent);
-      this.resetNewEvent(); // Reset the newEvent object
-    } else {
-      console.log('Please fill in all fields before adding the event.');
-    }
-  }
+    this.eventser.addEvent(this.newEvent).subscribe((data) => {
+      this.toast.success("Event Added")
+      console.log(data)
+    }, (error) => {
+      console.log(error)
+    })
 
-  resetNewEvent() {
-    // Reset the newEvent object to its initial state
-    this.newEvent = {
-      ImageUrl: '',
-      Title: '',
-      date: '',
-      Time: '',
-      Description: '',
-    };
+  }
+  ngOnInit(): void {
+    this.eventser.getAllEvents().subscribe((data) => {
+      this.events = data
+    }, (error) => {
+      console.log(error)
+    })
   }
 }
