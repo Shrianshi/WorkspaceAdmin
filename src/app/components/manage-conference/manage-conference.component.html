@@ -56,10 +56,13 @@
                                     aria-label="Close"><img src="../../../assets/images/close-icon.svg"></button>
 
                             </div>
+
+                            <!-- Offcanvas Form Body -->
+                            
                             <div class="offcanvas-body">
                                 <div class="row">
                                     <div class="col">
-                                        <select class="form-select text-muted" aria-label="Default select example">
+                                        <select class="form-select text-muted" aria-label="Default select example" [(ngModel)]="newRoom.Location">
                                             <option selected>Location</option>
                                             <option value="Chennai">Chennai</option>
                                             <option value="Pune">Pune</option>
@@ -70,11 +73,11 @@
                                 <div class="row">
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="Room Name"
-                                            aria-label="City">
+                                            aria-label="City" [(ngModel)]="newRoom.RoomName">
                                     </div>
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="Capacity"
-                                            aria-label="State">
+                                            aria-label="State" [(ngModel)]="newRoom.Capacity">
                                     </div>
                                 </div><br>
                                 <div class="row">
@@ -82,32 +85,17 @@
                                         <p>Choose Amenities inside the conference room</p>
                                     </div>
                                 </div>
+                               
+
                                 <div class="row">
                                     <div class="col text-muted">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                                value="option1">
-                                            <label class="form-check-label" for="inlineCheckbox1">TV</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                                value="option2">
-                                            <label class="form-check-label" for="inlineCheckbox2">Whiteboard</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                                value="option3">
-                                            <label class="form-check-label" for="inlineCheckbox3">Wi-Fi</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
-                                                value="option4">
-                                            <label class="form-check-label" for="inlineCheckbox4">Digital
-                                                Projector</label>
-                                        </div>
+                                      <div class="form-check form-check-inline" *ngFor="let amenity of amenities">
+                                        <input class="form-check-input" type="checkbox" [id]="amenity" [value]="amenity" [(ngModel)]="selectedAmenities[amenity]">
+                                        <label class="form-check-label" [for]="amenity">{{ amenity }}</label>
+                                      </div>
                                     </div>
-                                </div>
-
+                                  </div>
+                                  
                                 <br>
                                 <div class="row">
                                     <div class="col">
@@ -115,21 +103,25 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col">   
                                         <div class="card text-center mb-3" style="border:2px dashed #9DA2B6">
                                             <div class="card-body">
                                                 <h5 class="card-title"><img src="assets/images/gallery-icon.png"></h5>
-                                                <p class="card-text">Drop your Featured Image here, or <a
-                                                        class="text-decoration-none" href="#">Browse</a><br> <span
-                                                        class="text-muted">Supports : JPEG,PNG</span></p>
+                                                <p class="card-text">Drop your Featured Image here, or 
+                                                    <label class="text-decoration-none" for="fileInput" style="cursor: pointer; color: blue;">Browse</label>
+                                                    <input type="file" id="fileInput" style="display: none;" [(ngModel)]="newRoom.ImageUrl">
+                                                    <br>
+                                                    <span class="text-muted">Supports: JPEG, PNG</span>"
+                                                </p>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
 
                             <div class="offcanvas-footer p-4">
-                                <button type="Add" class="btn btn-secondary" id="addbtn">Add</button>
+                                <button type="Add" class="btn btn-secondary" id="addbtn" (click)="addRoom()">Add</button>
                                 <button type="Cancel" class="btn bg-transparent" id="cancel"
                                     data-bs-dismiss="offcanvas">Cancel</button>
                             </div>
@@ -140,8 +132,8 @@
                 <!-- Section 2 End-->
 
                 <br>
-                
-                
+                <br>
+
                 <!--Section 3 : Cards -->
                 <section>
                     <div class="container-fluid">
@@ -156,7 +148,7 @@
                                                         Room:</small><br>{{card.RoomName}}</h6>
                                             </div>
                                             <div class="col-sm-4">
-                                                <button class="card-btn-chennai small-icon" [ngStyle]="{'background-color': card.Color}"
+                                                <button class=" small-icon" 
                                                 [class.card-btn-pune]="card.Location === 'Pune'"
                                                 [class.card-btn-bangalore]="card.Location === 'Bangalore'"
                                                 [class.card-btn-chennai]="card.Location === 'Chennai'">&nbsp; {{card.Location}} &nbsp;</button>
