@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import the necessary form-related classes
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'; 
 
 interface Card {
   ImageUrl: string;
@@ -37,7 +37,7 @@ export class EventsComponent {
   
 
   newEvent: Card = {
-    ImageUrl: 'assets/img/Event 1jpg',
+    ImageUrl: '',
     Title: '',
     date: '',
     Time: '',
@@ -47,15 +47,22 @@ export class EventsComponent {
    constructor(private formBuilder: FormBuilder) {
     this.eventForm = this.formBuilder.group({
       eventLocation: ['', Validators.required], // Example form control with validation
-      // Define other form controls here
     });
   }
   handleImageUpload(event: any) {
     const file = event.target.files[0];
     if (file) {
+      this.displayImage(file);
+
       // Process the uploaded file, e.g., display it or send it to a server
-      this.newEvent.ImageUrl = URL.createObjectURL(file); // Display the uploaded image
     }
+  }
+  displayImage(file: File) {
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.newEvent.ImageUrl = e.target.result;
+    };
+    reader.readAsDataURL(file);
   }
 
   addEvent() {
