@@ -73,6 +73,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
     provideAnimations(),
     provideToastr(),
+
   ],
   bootstrap: [AppComponent]
 })
