@@ -47,7 +47,7 @@
         </select>
       </div>
       <div>
-        <input type="date" class="text-secondary border shadow-sm ms-2">
+        <input type="date" class="text-secondary border shadow-sm ms-2" />
       </div>
     </div>
     <div class="p-4">
@@ -62,6 +62,7 @@
     </div>
     <div
       class="offcanvas offcanvas-end"
+      id="offcanvasRight"
       tabindex="-1"
       id="addEventOffcanvas"
       aria-labelledby="addEventOffcanvasLabel"
@@ -78,25 +79,55 @@
         ></button>
       </div>
       <div class="offcanvas-body">
-        <div class="form-group form p-5">
-          <label for="featured-image">Featured Image</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-image"></i></span>
-            </div>
-            <div class="custom-file">
+        <!-- <div class="form-group form p-5">
+          <div class="card-body text-center">
+            <h5 class="card-title">
+              <img src="assets/images/gallery-icon.png" />
+            </h5>
+            <p class="card-text text-center">
+              Drop your Featured Image here, or
+              <label
+                class="text-decoration-none"
+                for="fileInput"
+                style="cursor: pointer; color: blue"
+                >Browse</label
+              >
               <input
                 type="file"
                 class="custom-file-input"
-                id="featured-image"
+                style="display: none"
                 [(ngModel)]="newEvent.ImageUrl"
               />
-              <label class="custom-file-label" for="featured-image"
-                >Drop your featured image here or browse</label
+              <br />
+              <span class="text-muted text-center">Supports: JPEG, PNG</span>
+            </p>
+        </div>
+        </div> -->
+        <div class="form-group form p-5">
+          <div class="card-body text-center">
+            <h5 class="card-title">
+              <img src="{{ newEvent.ImageUrl }}" />
+            </h5>
+            <p class="card-text text-center">
+              Drop your Featured Image here, or
+              <label
+                class="text-decoration-none"
+                for="fileInput"
+                style="cursor: pointer; color: blue"
               >
-            </div>
+                Browse
+              </label>
+              <input
+                type="file"
+                id="fileInput"
+                class="custom-file-input"
+                style="display: none"
+                (change)="handleImageUpload($event)"
+              />
+              <br />
+              <span class="text-muted text-center">Supports: JPEG, PNG</span>
+            </p>
           </div>
-          <small class="form-text text-muted mt-2">Supports: JPG, PNG</small>
         </div>
 
         <div class="mb-3">
@@ -119,47 +150,60 @@
         </div>
         <div class="mb-3">
           <label for="eventLocation" class="form-label">Location</label>
-          <input type="text" class="form-control" id="eventLocation" />
-        </div>
-        <!-- <div class="mb-3">
-          <label
-            for="eventDateTime"
-            class="form-label"
-            >Date and Time</label
+          <select
+            class="form-select"
+            id="eventLocation"
+            formControlName="eventLocation"
           >
-          <input
-            type="datetime-local"
-            class="form-control"
-            id="eventDateTime"
-            [(ngModel)]="newEvent.date"/>
-        </div> -->
-        <div class="mb-3">
-          <label for="eventDate" class="form-label">Date</label>
-          <input
-            type="date"
-            class="form-control"
-            id="eventDate"
-            [(ngModel)]="newEvent.date"
-          />
+            <option value="">Select a location</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Pune">Pune</option>
+            <option value="Coimbatore">Coimbatore</option>
+          </select>
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              eventForm.get('eventLocation')?.invalid &&
+              eventForm.get('eventLocation')?.touched
+            "
+          >
+            Please select a location.
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="eventTime" class="form-label">Time</label>
-          <input
-            type="time"
-            class="form-control"
-            id="eventTime"
-            [(ngModel)]="newEvent.Time"
-          />
+
+        <div class="mb-3 d-flex">
+          <div class="me-3 flex-grow-1">
+            <label for="eventDate" class="form-label">Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="eventDate"
+              [(ngModel)]="newEvent.date"
+            />
+          </div>
+          <div class="flex-grow-1">
+            <label for="eventTime" class="form-label">Time</label>
+            <input
+              type="time"
+              class="form-control"
+              id="eventTime"
+              [(ngModel)]="newEvent.Time"
+            />
+          </div>
         </div>
-        
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-bs-dismiss="offcanvas"
-        >
-          Cancel
-        </button>
-        <button class="btn btn-primary" (click)="addEvent()">Submit</button>
+        <div class="mb-3 d-flex justify-content-between">
+          <button class="btn btn-primary me-1" (click)="addEvent()">
+            Submit
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary me-1"
+            data-bs-dismiss="offcanvas"
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
     <script
@@ -187,7 +231,7 @@
             <button
               type="button"
               class="btn btn-outline-primary button"
-              onclick="window.open('softskill.html')"
+              routerLink="/viewevent"
             >
               View event details
             </button>

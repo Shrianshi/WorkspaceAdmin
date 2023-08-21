@@ -32,6 +32,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewEventComponent } from './components/view-event/view-event.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ForgotPassComponent,
     RemoveEmpComponent,
     BookedSuccessComponent,
+    ViewEventComponent,
 
 
 
