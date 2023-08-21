@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { LocationService } from 'src/app/services/location.service';
 
 @Component({
   selector: 'app-location',
@@ -6,38 +8,57 @@ import { Component } from '@angular/core';
   styleUrls: ['./location.component.css']
 })
 
-export class LocationComponent {
-  selectedImage: File | null = null;
-  selectedOption: string = '1';
-  floorBuildingName: string = '';
-  streetAddress: string = '';
-  city: string = '';
-  state: string = '';
-  pincode: number | null = null;
-  country: string = '';
-  conferenceRooms: string = '';
-  desks: string = '';
+export class LocationComponent implements OnInit {
+  constructor(private locationserv: LocationService, private toast: ToastrService) { }
+  locationDetail: any = {
+    floorNumberOrBuildingName: "",
+    streetAddress: "",
+    city: "",
+    state: "",
+    pincode: 0,
+    country: "",
+    imageData: "",
+    numberOfConferenceRooms: 0,
+    numberOfDesk: 0,
+  }
+  locations: any[] = []
 
-  onImageSelected(event: any) {
-    this.selectedImage = event.target.files[0];
+
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    const fileReader = new FileReader();
+    fileReader.onload = (event) => {
+      const fileData = fileReader.result as ArrayBuffer;
+      const byteArray = new Uint8Array(fileData);
+      const numbersArray = Array.from(byteArray);
+      const base64String = btoa(String.fromCharCode.apply(null, numbersArray));
+      this.locationDetail.imageData = base64String;
+      console.log(this.locationDetail)
+    }
+    fileReader.readAsArrayBuffer(file);
+  }
+  ngOnInit(): void {
+    this.locationserv.getAllLocation().subscribe((data) => {
+      this.locations = data
+      console.log(this.locations)
+    }, (error) => {
+      console.log(error)
+    })
+
   }
 
   onSubmit() {
-    const formData = {
-      image: this.selectedImage,
-      option: this.selectedOption,
-      floorBuildingName: this.floorBuildingName,
-      streetAddress: this.streetAddress,
-      city: this.city,
-      state: this.state,
-      pincode: this.pincode,
-      country: this.country,
-      conferenceRooms: this.conferenceRooms,
-      desks: this.desks
-    };
-    
-    console.log("success");
+    console.log(this.locationDetail)
+    this.locationserv.addLocation(this.locationDetail).subscribe((data) => {
+      this.toast.success("Location Added")
+      console.log(data)
+    }, (error) => {
+      console.log(error)
+    })
+  }
+  testToast() {
+    this.toast.success("Location Added")
 
-    console.log(formData);
   }
 }
+
