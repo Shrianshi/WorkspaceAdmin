@@ -54,60 +54,64 @@
                                 <div class="card text-center mb-3" style="border:1px dashed;">
                                     <div class="card-body">
                                         <h5 class="card-title"><i class="bi-card-image"></i></h5>
-                                        <p class="card-text">Drop your feature image here, or <a href="#">Browse</a><br>
-                                            Supports : JPG,PNG</p>
+                                        <input type="file" placeholder="select image" [(ngModel)]="selectedImage"><br>
+                                        <p>Supports : JPG,PNG</p>
+                                            
 
                                     </div>
                                 </div>
 
                             </div><br>
                             <div class="row">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
+                                <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedOption">
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
-                                </select>
+                                  </select>
+                                  
                             </div><br>
 
                             <div class="row">
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Floor no/Buiding name"
-                                        aria-label="Floor no/ Buiding name">
+                                        aria-label="Floor no/ Buiding name" [(ngModel)]="floorBuildingName" >
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Street Address"
-                                        aria-label="Street Address">
+                                        aria-label="Street Address" [(ngModel)]="streetAddress">
                                 </div>
                             </div><br>
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="City" aria-label="City">
+                                    <input type="text" class="form-control" placeholder="City" aria-label="City" [(ngModel)]="city">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="State" aria-label="State">
+                                    <input type="text" class="form-control" placeholder="State" aria-label="State" [(ngModel)]="state">
                                 </div>
                             </div><br>
                             <div class="row">
                                 <div class="col">
                                     <input type="number" class="form-control" placeholder="Pincode"
-                                        aria-label="Pincode">
+                                        aria-label="Pincode" [(ngModel)]="pincode">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Country" aria-label="Country">
+                                    <input type="text" class="form-control" placeholder="Country" aria-label="Country" [(ngModel)]="country">
                                 </div>
                             </div><br>
                             <div class="row">
                                 <p>General Info</p>
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="No. of conference room"
-                                        aria-label="No. of coference room ">
+                                        aria-label="No. of coference room " [(ngModel)]="conferenceRooms">
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="No. of desk"
-                                        aria-label="No. of desk">
+                                        aria-label="No. of desk" [(ngModel)]="desks">
                                 </div>
                             </div><br>
+                            <div>
+                                <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+                            </div>
                         </div>
                     </div>
 
@@ -172,6 +176,7 @@
                     </div>
                 </div>
             </div>
+            
 
         </div>
     </article>
