@@ -33,6 +33,7 @@ import { BookedSuccessComponent } from './components/booked-success/booked-succe
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewEventComponent } from './components/view-event/view-event.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ForgotPassComponent,
     RemoveEmpComponent,
     BookedSuccessComponent,
+    ViewEventComponent,
   ],
   imports: [
     BrowserModule,

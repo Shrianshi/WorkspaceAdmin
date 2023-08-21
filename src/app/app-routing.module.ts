@@ -17,6 +17,7 @@ import { ManageConferenceComponent } from './components/manage-conference/manage
 import { LocationComponent } from './components/location/location.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { ViewEventComponent } from './components/view-event/view-event.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-up', pathMatch: 'full' },
@@ -36,6 +37,8 @@ const routes: Routes = [
   { path: 'slot', component: SlotComponent },
   { path: 'manage/conference', component: ManageConferenceComponent },
   { path: 'manage/location', component: LocationComponent },
+  { path: 'forgotpass', component: ForgotPassComponent },
+  { path: 'viewevent', component: ViewEventComponent },
   { path: 'forgot-pass', component: ForgotPassComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
