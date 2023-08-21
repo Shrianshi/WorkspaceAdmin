@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ArticleSectionComponent } from './components/article-section/article-section.component';
@@ -39,6 +39,7 @@ const routes: Routes = [
   { path: 'manage/location', component: LocationComponent },
   { path: 'forgotpass', component: ForgotPassComponent },
   { path: 'viewevent', component: ViewEventComponent },
+  { path: 'forgot-pass', component: ForgotPassComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

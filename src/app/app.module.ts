@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 
-
+import { ToastrModule, provideToastr } from 'ngx-toastr';
+import { NoopAnimationsModule, } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +23,6 @@ import { ManageComponent } from './components//manage/manage.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { BookaroomComponent } from './components/bookaroom/bookaroom.component';
 import { SlotComponent } from './components/slot/slot.component';
-
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { ManageConferenceComponent } from './components/manage-conference/manage-conference.component';
 import { LocationComponent } from './components/location/location.component';
@@ -28,11 +30,11 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { RemoveEmpComponent } from './components/remove-emp/remove-emp.component';
 import { BookedSuccessComponent } from './components/booked-success/booked-success.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewEventComponent } from './components/view-event/view-event.component';
+
 
 @NgModule({
   declarations: [
@@ -57,9 +59,6 @@ import { ViewEventComponent } from './components/view-event/view-event.component
     RemoveEmpComponent,
     BookedSuccessComponent,
     ViewEventComponent,
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -68,12 +67,19 @@ import { ViewEventComponent } from './components/view-event/view-event.component
     NoopAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule,
-
     FormsModule
 
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    provideAnimations(),
+    provideToastr(),
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
