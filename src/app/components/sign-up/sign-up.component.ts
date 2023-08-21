@@ -11,4 +11,6 @@ export class SignUpComponent {
     this.router.navigate(['article-section'])
     console.log("inside dashboard")
   }
+
+
 }
