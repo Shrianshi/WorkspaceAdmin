@@ -1,29 +1,50 @@
 <app-navbar></app-navbar>
+<header class="row py-4 border-bottom mb-3">
+    <div class="col-sm-6">
+      <h6>Events</h6>
+    </div>
 
+    <div class="col-sm-4 px-1">
+      <nav class="navbar">
+        <form class="container-fluid d-flex">
+          <div class="input-group">
+            <span class="search input-group-text" id="basic-addon1"
+              ><i class="fa fa-magnifying-glass" style="color: #a1a3a5"></i
+            ></span>
+            <input
+              type="text"
+              class="search form-control no-border"
+              placeholder="Search Employees"
+              aria-label="Search Employees"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+        </form>
+      </nav>
+    </div>
+    <div class="col-sm-2" style="position: relative">
+      <img src="assets/img/bell.svg" />
+      <span
+        class="badge bg-danger rounded-circle p-1"
+        style="position: absolute; left: 21px; top: 3px"
+      >
+        <span class="visually-hidden">Hello</span>
+      </span>
+      <button class="avatar-btn mx-2" type="submit"></button>HR admin
+    </div>
+  </header>
 <body>
     <main>
-        <section>
-            <div class="container-fluid">
-                <div class="row py-2">
-                    <div class="col">
-                    </div>
-                </div>
-                <div class="row">
-                    <hr class="hr" />
-                </div>
-            </div>
-        </section>
+        
         <section>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-10">
                         <span class="mx-2"><b>Founding 12 Bookings</b></span>
-                        <select id="allLocationFilter">
+                        <select id="allLocationFilter" class="text-secondary border shadow-sm ms-2">
                             <option value="AllLocation" selected>All Locations</option>
                         </select>
-                        <select id="todayFilter">
-                            <option value="Today" selected>Today</option>
-                        </select>
+                        <input type="date" class="text-secondary border shadow-sm ms-2">
                     </div>
                     <div class="col-sm-2">
                         <a routerLink="/bookaroom">
