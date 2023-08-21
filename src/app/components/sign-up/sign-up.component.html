@@ -1,3 +1,4 @@
+
 <div class="image-container">
     <div class="image image1">
         <img src="assets/img/SignIn.png" width="800px" height="650px">
@@ -25,13 +26,13 @@
         <div class="password">
             Password<br>
             <input type="password" placeholder="**********">
-            <a class="p">forgot your password?</a>
+            <a class="p" (click)="emailNotification()">forgot your password?</a>
         </div>
-        
         <div>
             <button type="submit" class="signin" routerLink="/article-section">Signin</button>
         </div>
     </div>
+    
 </div>
 
 <!-- <router-outlet></router-outlet> -->

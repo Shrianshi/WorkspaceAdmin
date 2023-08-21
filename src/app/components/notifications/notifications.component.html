@@ -61,26 +61,26 @@
                     aria-label="Close"></button>
             </div>
             <div class="offcanvas-body big">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label"></label>
+                <div class="mb-3" >
+                    <label for="exampleFormControlInput1" class="form-label" ></label>
                     <input type="email" class="form-control" id="exampleFormControlInput1"
-                        placeholder="notification subject">
+                        placeholder="notification subject" [(ngModel)]="Title">
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label"></label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"
-                        placeholder="Description"></textarea>
+                        placeholder="Description"[(ngModel)]="Description"></textarea>
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label"></label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Location">
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Location" [(ngModel)]="Location">
                 </div>
 
 
                 <div class="down">
-                    <button type="button" class="btn btn-primary"
+                    <button type="button" class="btn btn-primary" (click)="onSubmit()"
                         style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;border-radius: 2px;">
                         Send Notification
                     </button>
@@ -100,7 +100,7 @@
 
 
 
-        <div class="mt-3" *ngFor="let card of cards">
+        <!-- /*<div class="mt-3" *ngFor="let card of cards">
             <div class="di2 p-3">
                 <h6>{{card.Title}}</h6>
                 <p>{{card.Description}}</p>
@@ -110,7 +110,7 @@
 
 
             </div>
-        </div>
+        </div>*/ -->
 
     </div>
 
