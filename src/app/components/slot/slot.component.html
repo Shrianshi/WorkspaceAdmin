@@ -1,34 +1,52 @@
-<body>
-    <main>
+<app-navbar></app-navbar>
+
+<header class="row py-4 border-bottom">
+  <div class="col-sm-6">
+    <h6 class="">Book a room </h6>
+  </div>
+
+  <div class="col-sm-4 px-1">
+    <nav class="navbar">
+      <form class="container-fluid  d-flex">
+        <div class="input-group">
+          <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
+              style="color: #a1a3a5;"></i></span>
+          <input type="text" class="search form-control no-border" placeholder="Search Employees"
+            aria-label="Search Employees" aria-describedby="basic-addon1">
+        </div>
+      </form>
+    </nav>
+
+  </div>
+  <div class="col-sm-2" style="position:relative">
+    <img src="assets/img/bell.svg">
+    <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
+      <span class="visually-hidden">Hello</span>
+    </span>
+    <button class="avatar-btn mx-2" type="submit"></button>HR admin
+  </div>
+</header>
+
+<body class="body container-fluid mt-3" id="article">
+  <main class="row">
+    <div class="col-sm-8">
       <div class="facilities">
         <div class="facility">
-          <img
-            class="facilitiesImage"
-            src="assets/images/Capacity.svg"
-            alt="CapacityImage"
-          />
+          <img class="facilitiesImage" src="assets/images/Capacity.svg" alt="CapacityImage" />
           <div>
             <p class="facilityHeader">Capacity:</p>
             <p>12 People</p>
           </div>
         </div>
         <div class="facility">
-          <img
-            class="facilitiesImage"
-            src="assets/images/Presentation.svg"
-            alt="PresentationImage"
-          />
+          <img class="facilitiesImage" src="assets/images/Presentation.svg" alt="PresentationImage" />
           <div>
             <p class="facilityHeader">Presentation:</p>
             <p>32inch Tv</p>
           </div>
         </div>
         <div class="facility AdditionalFacility">
-          <img
-            class="facilitiesImage"
-            src="assets/images/Additional.svg"
-            alt="AdditionalImage"
-          />
+          <img class="facilitiesImage" src="assets/images/Additional.svg" alt="AdditionalImage" />
           <div>
             <p class="facilityHeader">Additional</p>
             <p>Whiteboard</p>
@@ -41,33 +59,33 @@
       </div>
       <div>
         <p class="MeetingTitle">Book Slot</p>
-        <div class="BookingSlot">
-          <div>
+        <div class="BookingSlot row">
+          <div class="col-sm-4">
             <fieldset class="fieldsetdetails">
               <img src="assets/images/Date.svg" alt="" />
               &nbsp;
-              <legend class="bookingInfo">Date</legend>
-              <select class="basicDetails">
+              <!-- <legend class="bookingInfo">Date</legend> -->
+              <select class="basicDetails small">
                 <option value="Ratha Tek,Chennai">Today</option>
               </select>
             </fieldset>
           </div>
-          <div>
+          <div class="col-sm-4">
             <fieldset class="fieldsetdetails">
               <img src="assets/images/Loaction.svg" alt="" />
               &nbsp;
-              <legend class="bookingInfo">Location</legend>
-              <select class="basicDetails">
+              <!-- <legend class="bookingInfo">Location</legend> -->
+              <select class="basicDetails small" >
                 <option value="Ratha Tek,Chennai">Ratha Tek,Chennai</option>
               </select>
             </fieldset>
           </div>
-          <div>
+          <div class="col-sm-4">
             <fieldset class="fieldsetdetails">
-              <legend class="bookingInfo">Employees</legend>
+              <!-- <legend class="bookingInfo">Employees</legend> -->
               <img src="assets/images/Peopledark.svg" alt="" />
               &nbsp;
-              <select class="basicDetails">
+              <select class="basicDetails small">
                 <option value="Ratha Tek,Chennai">8</option>
               </select>
             </fieldset>
@@ -77,6 +95,15 @@
       <div>
         <p class="MeetingTitle">Select Start & End Time</p>
         <div class="timingGraph"></div>
+        <!-- <div class="m-5">
+        <div class="timeline">
+          <div *ngFor="let event of timelineEvents" class="timeline-event">
+            <div class="event-date">{{ event.date }}</div>
+            <div class="event-description">{{ event.description }}</div>
+          </div>
+        </div>
+        </div> -->
+
       </div>
       <div>
         <p class="MeetingTitle">The booking is for</p>
@@ -97,33 +124,31 @@
       </div>
       <div class="reservations">
         <p class="MeetingTitle">Reservations:</p>
-        <select class="reservationDetails">
+        <!-- <select class="reservationDetails">
           <option value="Ratha Tek,Chennai">Today</option>
-        </select>
+        </select> -->
+        <input type="date" class="reservationDetails">
       </div>
       <div class="reservedDetails">
         <div class="reservationList">
-          <img
-            src="assets/images/KaniniLogo.svg"
-            alt="CapacityImage"
-            class="rerservedpersonimage"
-          />
+          <img src="assets/images/KaniniLogo.svg" alt="CapacityImage" class="rerservedpersonimage" />
           <div>
             <p>Vishnu Venkatasen booked for today meeting</p>
             <p class="registredtime">03.00pm-5.00pm</p>
           </div>
         </div>
         <div class="reservationList">
-          <img
-            src="assets/images/KaniniLogo.svg"
-            alt="CapacityImage"
-            class="rerservedpersonimage"
-          />
+          <img src="assets/images/KaniniLogo.svg" alt="CapacityImage" class="rerservedpersonimage" />
           <div>
             <p>Vishnu Venkatasen booked for today meeting</p>
             <p class="registredtime">03.00pm-5.00pm</p>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+    <div class="col-sm-4">
+     <img src="assets/images/spring1.png" height="450">
+    </div>
+  </main>
+
 </body>

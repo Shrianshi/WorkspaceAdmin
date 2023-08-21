@@ -28,8 +28,6 @@
         </div>
 
     </header>
-
-
     <div>
         <aside>
             <div class="row">
@@ -54,60 +52,63 @@
                                 <div class="card text-center mb-3" style="border:1px dashed;">
                                     <div class="card-body">
                                         <h5 class="card-title"><i class="bi-card-image"></i></h5>
-                                        <p class="card-text">Drop your feature image here, or <a href="#">Browse</a><br>
-                                            Supports : JPG,PNG</p>
+                                        <input type="file" placeholder="select image"
+                                            (change)="onFileSelected($event)"><br>
+                                        <p>Supports : JPG,PNG</p>
+
 
                                     </div>
                                 </div>
 
                             </div><br>
-                            <div class="row">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div><br>
+
 
                             <div class="row">
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Floor no/Buiding name"
-                                        aria-label="Floor no/ Buiding name">
+                                        aria-label="Floor no/ Buiding name"
+                                        [(ngModel)]="locationDetail.floorNumberOrBuildingName">
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Street Address"
-                                        aria-label="Street Address">
+                                        aria-label="Street Address" [(ngModel)]="locationDetail.streetAddress">
                                 </div>
                             </div><br>
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="City" aria-label="City">
+                                    <input type="text" class="form-control" placeholder="City" aria-label="City"
+                                        [(ngModel)]="locationDetail.city">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="State" aria-label="State">
+                                    <input type="text" class="form-control" placeholder="State" aria-label="State"
+                                        [(ngModel)]="locationDetail.state">
                                 </div>
                             </div><br>
                             <div class="row">
                                 <div class="col">
-                                    <input type="number" class="form-control" placeholder="Pincode"
-                                        aria-label="Pincode">
+                                    <input type="number" class="form-control" placeholder="Pincode" aria-label="Pincode"
+                                        [(ngModel)]="locationDetail.pincode">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Country" aria-label="Country">
+                                    <input type="text" class="form-control" placeholder="Country" aria-label="Country"
+                                        [(ngModel)]="locationDetail.country">
                                 </div>
                             </div><br>
                             <div class="row">
                                 <p>General Info</p>
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="No. of conference room"
-                                        aria-label="No. of coference room ">
+                                        aria-label="No. of coference room "
+                                        [(ngModel)]="locationDetail.numberOfConferenceRooms">
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="No. of desk"
-                                        aria-label="No. of desk">
+                                        aria-label="No. of desk" [(ngModel)]="locationDetail.numberOfDesk">
                                 </div>
                             </div><br>
+                            <div>
+                                <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+                            </div>
                         </div>
                     </div>
 
@@ -119,60 +120,20 @@
 
     </div>
     <br>
-
-
     <article>
-
         <div>
             <div class="row ">
-                <div class="col-sm-3 ">
-                    <div class="card ">
-                        <img src="assets/img/chennai.png" class="card-img-top " alt="... ">
+                <div class="col-sm-3" *ngFor="let l of locations">
+                    <div class="card">
+                        <img [src]=" 'data:image/png;base64,' + l.imageData" class="card-img-top " alt="... ">
                         <div class="card-body ">
-                            <h6 class="card-title ">Chennai</h6>
-                            <p class="card-text p1 text-secondary">Tower A, 1st Floor, 51, Ratha Tek Meadows Rd, Elcot
-                                Sez, Sholinganallur, Chennai-600119</p>
+                            <h6 class="card-title ">{{l.city}}</h6>
+                            <p class="card-text p1 text-secondary">{{l.streetAddress}}, {{l.city}}-{{l.pincode}}</p>
                             <a href="# " class="btn btn-sm border border-primary text-primary">Edit Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 ">
-                    <div class="card ">
-                        <img src="assets/img/coimbatore.png" class="card-img-top " alt="... ">
-                        <div class="card-body ">
-                            <h6 class="card-title ">Coimbatore</h6>
-                            <p class="card-text p1 text-secondary">ELCOT SEZ, IT/ITES, Villankurichi Rd, Civil Aerodrome
-                                Post, Coimbatore-641014</p>
-                            <a href="# " class="btn btn-sm border border-primary text-primary">Edit Details</a>
-                        </div>
-                    </div>
-                </div><br><br><br>
-                <div class="col-sm-3 ">
-                    <div class="card ">
-                        <img src="assets/img/bangalore.png " class="card-img-top " alt="... ">
-                        <div class="card-body ">
-                            <h6 class="card-title ">Bangalore</h6>
-                            <p class="card-text p1 text-secondary">#1, 4th floor, Navarathna Gardens, Sy. No, 68,
-                                Kanakapura Rd, Bengaluru-560062</p>
-                            <a href="# " class="btn btn-sm border border-primary text-primary">Edit Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div><br>
-            <div class="row ">
-                <div class="col-sm-3 ">
-                    <div class="card ">
-                        <img src="assets/img/pune.png" class="card-img-top " alt="... ">
-                        <div class="card-body ">
-                            <h6 class="card-title ">Pune</h6>
-                            <p class="card-text p1 text-secondary">Panchshil Futura Module 01-131, First floor,
-                                Magarpatta Rd, Baugh, Pune-411028</p>
-                            <a href="# " class="btn btn-sm border border-primary text-primary ">Edit Details</a>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </article>
     <br>

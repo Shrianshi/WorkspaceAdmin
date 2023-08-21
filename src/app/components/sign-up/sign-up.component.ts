@@ -45,4 +45,6 @@ export class SignUpComponent {
     };
     console.log(formData);
   }
+
+
 }
