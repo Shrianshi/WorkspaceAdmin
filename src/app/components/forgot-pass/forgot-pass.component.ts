@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-forgot-pass',
@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./forgot-pass.component.css']
 })
 export class ForgotPassComponent {
+
 }
