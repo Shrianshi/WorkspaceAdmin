@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,10 +29,9 @@ import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.compon
 import { RemoveEmpComponent } from './components/remove-emp/remove-emp.component';
 import { BookedSuccessComponent } from './components/booked-success/booked-success.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +55,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RemoveEmpComponent,
     BookedSuccessComponent,
 
+
+
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatNativeDateModule,
     ReactiveFormsModule,
     FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

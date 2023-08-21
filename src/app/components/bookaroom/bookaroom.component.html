@@ -1,170 +1,83 @@
 <app-navbar></app-navbar>
+<header class="row py-4 border-bottom">
+  <div class="col-sm-6">
+    <h6 class="">Book a room </h6>
+  </div>
+
+  <div class="col-sm-4 px-1">
+    <nav class="navbar">
+      <form class="container-fluid  d-flex">
+        <div class="input-group">
+          <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
+              style="color: #a1a3a5;"></i></span>
+          <input type="text" class="search form-control no-border" placeholder="Search Employees"
+            aria-label="Search Employees" aria-describedby="basic-addon1">
+        </div>
+      </form>
+    </nav>
+
+  </div>
+  <div class="col-sm-2" style="position:relative">
+    <img src="assets/img/bell.svg">
+    <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
+      <span class="visually-hidden">Hello</span>
+    </span>
+    <button class="avatar-btn mx-2" type="submit"></button>HR admin
+  </div>
+</header>
 
 <div class="parent">
-    <div class="bookingInfo ms-3">
-      <div>
-        <select class="basicDetails">
-          <option value="Ratha Tek,Chennai">Ratha Tek,Chennai</option>
-        </select>
-      </div>
-      <div>
-        <select class="basicDetails ms-3">
-          <option value="Ratha Tek,Chennai">11/07/2022</option>
-        </select>
-      </div>
-      <div>
-        <select class="basicDetails ms-3">
-          <option value="Ratha Tek,Chennai">8</option>
-        </select>
-      </div>
-      <div><button class="btn btn-primary detailsSearch ms-4" style="width: 95px;height:40px">Search</button></div>
+  <div class="bookingInfo ms-3">
+    <div>
+      <select class="basicDetails">
+        <option value="Ratha Tek,Chennai">Ratha Tek,Chennai</option>
+      </select>
     </div>
+    <div>
+      <!-- <select class="basicDetails ms-3">
+        <option value="Ratha Tek,Chennai">11/07/2022</option>
+      </select> -->
+      <input type="date" class="basicDetails ms-3">
+    </div>
+    <div>
+      <select class="basicDetails ms-3">
+        <option value="Ratha Tek,Chennai">8</option>
+      </select>
+    </div>
+    <div><button class="btn btn-primary detailsSearch ms-4" style="width: 95px;height:40px">Search</button></div>
+  </div>
 
-    <div class="BookingPlaces">
-      <div class="card" (click)="redirectToSlot()">
-        <img src="assets/images/Spring 4Pax.svg" class="card-img-top" alt="HotelPic" />
-        <div class="card-body Hotelinfo">
-          <div>
-            <p class="card-text hotelName">
-              Conference Room
-              <br />
-              <b class="placeName">Spring 4Pax</b>
-            </p>
-          </div>
-          <div class="location"><span class="city">Chennai</span></div>
-        </div>
-        
-        <div class="facilities">
-          <div class="facilitiesinfo">
-            <img src="assets/images/People.svg" alt="PeopleCount" /> 20
-          </div>
-          <div class="facilitiesinfo">
-            <img src="assets/images/TV.svg" alt="TV" /> TV
-          </div>
-          <div class="facilitiesinfo">
-            <img src="assets/images/Whiteboard.svg" alt="Whiteboard" /> Whiteboard
-          </div>
-        </div>
-      </div>
+  <div class="BookingPlaces">
+
+    <div class="card-size" *ngFor="let card of cards" (click)="redirectToSlot()">
       <div class="card">
-        <img src="assets/images/Sunrise.svg" class="card-img-top" alt="HotelPic" />
-        <div class="card-body Hotelinfo">
-          <div>
-            <p class="card-text hotelName">
-              Conference Room
-              <br />
-              <b class="placeName">Sunrise</b>
-            </p>
+        <img class="card-img-top" [src]="card.ImageUrl" alt="Card image cap">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-8">
+              <h6 class="card-title"><small class="text-muted ">Conference
+                  Room:</small><br>{{card.RoomName}}</h6>
+            </div>
+            <div class="col-sm-4">
+              <button class="card-btn-chennai small-icon" [ngStyle]="{'background-color': card.Color}"
+                [class.card-btn-pune]="card.Location === 'Pune'"
+                [class.card-btn-bangalore]="card.Location === 'Bangalore'"
+                [class.card-btn-chennai]="card.Location === 'Chennai'">&nbsp; {{card.Location}} &nbsp;</button>
+            </div>
           </div>
-          <div class="location"><span class="city">Chennai</span></div>
-        </div>
-        <div class="facilities">
-          <div class="facilitiesinfo">
-            <img src="/assetsimages/People.svg" alt="PeopleCount" /> 6
-          </div>
-          <div class="facilitiesinfo">
-            <img src="assets/images/TV.svg" alt="TV" /> TV
-          </div>
-          <div class="facilitiesinfo">
-            <img src="assets/images/Whiteboard.svg" alt="Whiteboard" /> Whiteboard
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="assets/images/Sunset.svg" class="card-img-top" alt="HotelPic" />
-        <div class="card-body Hotelinfo">
-          <div>
-            <p class="card-text hotelName">
-              Conference Room
-              <br />
-              <b class="placeName">Sunset</b>
-            </p>
-          </div>
-          <div class="location"><span class="city">Chennai</span></div>
-        </div>
-        <div class="facilities">
-          <div class="facilitiesinfo">
-            <img src="assets/images/People.svg" alt="PeopleCount" /> 12
-          </div>
-          <div class="facilitiesinfo">
-            <img src="assets/images/TV.svg" alt="TV" /> TV
-          </div>
-          <div class="facilitiesinfo">
-            <img src="assets/images/Whiteboard.svg" alt="Whiteboard" /> Whiteboard
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="assets/images/Dotnet.svg" class="card-img-top" alt="HotelPic" />
-        <div class="card-body Hotelinfo">
-          <div>
-            <p class="card-text hotelName">
-              Conference Room
-              <br />
-              <b class="placeName">Dotnet</b>
-            </p>
-          </div>
-          <div class="location"><span class="city">Chennai</span></div>
-        </div>
-        <div class="facilities">
-          <div class="facilitiesinfo">
-            <img src="assets/images/People.svg" alt="PeopleCount" /> 6
-          </div>
-          <div class="facilitiesinfo">
-            <img src="assets/images/TV.svg" alt="TV" /> TV
-          </div>
-          <div class="facilitiesinfo">
-            <img src="assets/images/Whiteboard.svg" alt="Whiteboard" /> Whiteboard
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="assets/images/CHC 2.0.svg" class="card-img-top" alt="HotelPic" />
-        <div class="card-body Hotelinfo">
-          <div>
-            <p class="card-text hotelName">
-              Conference Room
-              <br />
-              <b class="placeName">CHC 2.0</b>
-            </p>
-          </div>
-          <div class="location"><span class="city">Chennai</span></div>
-        </div>
-        <div class="facilities">
-          <div class="facilitiesinfo">
-            <img src="assets/images/People.svg" alt="PeopleCount" /> 10
-          </div>
-          <div class="facilitiesinfo">
-            <img src="assets/images/TV.svg" alt="TV" /> TV
-          </div>
-          <div class="facilitiesinfo">
-            <img src="assets/images/Whiteboard.svg" alt="Whiteboard" /> Whiteboard
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="assets/images/StoryBord.svg" class="card-img-top" alt="HotelPic" />
-        <div class="card-body Hotelinfo">
-          <div>
-            <p class="card-text hotelName">
-              Conference Room
-              <br />
-              <b class="placeName">Storyboard</b>
-            </p>
-          </div>
-          <div class="location"><span class="city">Chennai</span></div>
-        </div>
-        <div class="facilities">
-          <div class="facilitiesinfo">
-            <img src="assets/images/People.svg" alt="PeopleCount" /> 14
-          </div>
-          <div class="facilitiesinfo">
-            <img src="assets/images/TV.svg" alt="TV" /> TV
-          </div>
-          <div class="facilitiesinfo">
-            <img src="assets/images/Whiteboard.svg" alt="Whiteboard" /> Whiteboard
+          <br>
+          <div class="row">
+            <div class="col-icons">
+              <span class="icon-border px-1"><img src="assets/images/profile-icon.png" class="conf-icon"> <span
+                  class="text-muted">{{card.Capacity}}</span> </span>&nbsp;&nbsp;
+              <span class="icon-border px-1"><img src="assets/images/TV.png" class="conf-icon"> <span
+                  class="text-muted">TV</span> </span>&nbsp;&nbsp;
+              <span class="icon-border px-1"><img src="assets/images/whiteboard.png" class="conf-icon"><span
+                  class="text-muted">Whiteboard</span> </span>&nbsp;&nbsp;
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
