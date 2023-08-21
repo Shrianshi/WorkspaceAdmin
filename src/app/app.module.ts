@@ -68,6 +68,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatNativeDateModule,
     ReactiveFormsModule,
 
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
