@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { EventService } from 'src/app/services/eventService/event.service';
 
 interface Card {
   ImageUrl: string;
@@ -13,16 +14,20 @@ interface Card {
   templateUrl: './view-event.component.html',
   styleUrls: ['./view-event.component.css']
 })
-export class ViewEventComponent {
+export class ViewEventComponent implements OnInit {
+  constructor(private activatedroute: ActivatedRoute, private eventSer: EventService) { }
 
-  cards: Card[] = [
-    {
-      ImageUrl: 'assets/images/Event desc.png',
-      Title: 'Soft Skills Training',
-      date: 'Jan 5, 2023', 
-      Time: '10:00am-12:00pm',
-      Description: '10 People joining this event',
-    }
-  ];
+  event: any = {}
+  eventtId: string | null = ''
+  ngOnInit(): void {
+    this.activatedroute.paramMap.subscribe((param) => {
+      this.eventtId = param.get('id')
+    })
+    if (this.eventtId != null)
+      this.eventSer.getEventById(parseInt(this.eventtId)).subscribe((data) => {
+        this.event = data
+      })
+
+  }
 }
 

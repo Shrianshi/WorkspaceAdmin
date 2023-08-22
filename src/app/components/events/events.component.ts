@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { EventService } from 'src/app/services/eventService/event.service';
+import { LocationService } from 'src/app/services/location.service';
 
 
 
@@ -11,14 +12,15 @@ import { EventService } from 'src/app/services/eventService/event.service';
   styleUrls: ['./events.component.css'],
 })
 export class EventsComponent {
-  constructor(private eventser: EventService, private toast: ToastrService) { }
+  constructor(private eventser: EventService, private toast: ToastrService, private locser: LocationService) { }
   events: any[] = []
+  locations: any[] = []
 
   newEvent: any = {
     imageData: "",
     eventTitle: "",
     eventDescription: "",
-    locationId: 0,
+    locationId: 1,
     startTime: "2023-08-21T17:38:43.809Z",
     endTime: "2023-08-21T17:38:43.809Z",
   };
@@ -37,6 +39,7 @@ export class EventsComponent {
   }
 
   addEvent() {
+    console.log("addevent")
     this.eventser.addEvent(this.newEvent).subscribe((data) => {
       this.toast.success("Event Added")
       console.log(data)
@@ -48,6 +51,11 @@ export class EventsComponent {
   ngOnInit(): void {
     this.eventser.getAllEvents().subscribe((data) => {
       this.events = data
+    }, (error) => {
+      console.log(error)
+    })
+    this.locser.getAllLocation().subscribe((data) => {
+      this.locations = data
     }, (error) => {
       console.log(error)
     })
