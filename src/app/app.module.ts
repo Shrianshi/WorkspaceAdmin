@@ -68,11 +68,7 @@ import { ViewEventComponent } from './components/view-event/view-event.component
     NoopAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
+    FormsModule
 
     ReactiveFormsModule,
     HttpClientModule,
