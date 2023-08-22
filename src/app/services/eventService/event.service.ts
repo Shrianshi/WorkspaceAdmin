@@ -15,4 +15,8 @@ export class EventService {
   getAllEvents(): Observable<any> {
     return this.http.get<any>(this.dataUrl)
   }
+  getEventById(id: number): Observable<any> {
+    let url = `${this.dataUrl}/${id}`
+    return this.http.get<any>(url)
+  }
 }

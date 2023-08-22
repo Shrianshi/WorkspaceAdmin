@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 
@@ -68,6 +67,7 @@ import { ViewEventComponent } from './components/view-event/view-event.component
     NoopAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+
 
 
     ReactiveFormsModule,

@@ -10,26 +10,17 @@
       <nav class="navbar">
         <form class="container-fluid d-flex">
           <div class="input-group">
-            <span class="search input-group-text" id="basic-addon1"
-              ><i class="fa fa-magnifying-glass" style="color: #a1a3a5"></i
-            ></span>
-            <input
-              type="text"
-              class="search form-control no-border"
-              placeholder="Search Employees"
-              aria-label="Search Employees"
-              aria-describedby="basic-addon1"
-            />
+            <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
+                style="color: #a1a3a5"></i></span>
+            <input type="text" class="search form-control no-border" placeholder="Search Employees"
+              aria-label="Search Employees" aria-describedby="basic-addon1" />
           </div>
         </form>
       </nav>
     </div>
     <div class="col-sm-2" style="position: relative">
       <img src="assets/img/bell.svg" />
-      <span
-        class="badge bg-danger rounded-circle p-1"
-        style="position: absolute; left: 21px; top: 3px"
-      >
+      <span class="badge bg-danger rounded-circle p-1" style="position: absolute; left: 21px; top: 3px">
         <span class="visually-hidden">Hello</span>
       </span>
       <button class="avatar-btn mx-2" type="submit"></button>HR admin
@@ -51,35 +42,21 @@
       </div>
     </div>
     <div class="p-4">
-      <button
-        class="btn btn-primary btn-sm float-end"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#addEventOffcanvas"
-      >
+      <button class="btn btn-primary btn-sm float-end" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#addEventOffcanvas">
         Add Event
       </button>
     </div>
-    <div
-      class="offcanvas offcanvas-end"
-      id="offcanvasRight"
-      tabindex="-1"
-      id="addEventOffcanvas"
-      aria-labelledby="addEventOffcanvasLabel"
-    >
+    <div class="offcanvas offcanvas-end" id="offcanvasRight" tabindex="-1" id="addEventOffcanvas"
+      aria-labelledby="addEventOffcanvasLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="addEventOffcanvasLabel">
           Add a new Event
         </h5>
-        <button
-          type="button"
-          class="btn-close text-reset"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-       
+
         <div class="form-group form p-5">
           <div class="card-body text-center">
             <h5 class="card-title">
@@ -90,133 +67,74 @@
               <label class="text-decoration-none" for="fileInput" style="cursor: pointer; color: blue">
                 Browse
               </label>
-              <input
-                type="file"
-                id="fileInput"
-                class="custom-file-input"
-                style="display: none"
-                (change)="handleImageUpload($event)"
-              />
+              <input type="file" id="fileInput" class="custom-file-input" style="display: none"
+                (change)="onFileSelected($event)" />
               <br />
               <span class="text-muted text-center">Supports: JPEG, PNG</span>
             </p>
           </div>
         </div>
-        
+
         <div class="mb-3">
           <label for="eventTitle" class="form-label">Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="eventTitle"
-            [(ngModel)]="newEvent.Title"
-          />
+          <input type="text" class="form-control" id="eventTitle" [(ngModel)]="newEvent.eventTitle" />
         </div>
         <div class="mb-3">
           <label for="eventDescription" class="form-label">Description</label>
-          <textarea
-            class="form-control"
-            id="eventDescription"
-            rows="3"
-            [(ngModel)]="newEvent.Description"
-          ></textarea>
+          <textarea class="form-control" id="eventDescription" rows="3"
+            [(ngModel)]="newEvent.eventDescription"></textarea>
         </div>
         <div class="mb-3">
           <label for="eventLocation" class="form-label">Location</label>
-          <select
-            class="form-select"
-            id="eventLocation"
-            formControlName="eventLocation"
-          >
-            <option value="">Select a location</option>
-            <option value="Chennai">Chennai</option>
-            <option value="Bangalore">Bangalore</option>
-            <option value="Pune">Pune</option>
-            <option value="Coimbatore">Coimbatore</option>
+          <select class="form-select" id="eventLocation" name="locationId" [(ngModel)]="newEvent.locationId">
+            <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
+
           </select>
-          <div
-            class="alert alert-danger"
-            *ngIf="
-              eventForm.get('eventLocation')?.invalid &&
-              eventForm.get('eventLocation')?.touched
-            "
-          >
-            Please select a location.
-          </div>
+
         </div>
-       
+
         <div class="mb-3 d-flex">
           <div class="me-3 flex-grow-1">
             <label for="eventDate" class="form-label">Date</label>
-            <input
-              type="date"
-              class="form-control"
-              id="eventDate"
-              [(ngModel)]="newEvent.date"
-            />
+            <input type="date" class="form-control" id="eventDate" [(ngModel)]="newEvent.startTime" />
           </div>
           <div class="flex-grow-1">
             <label for="eventTime" class="form-label">Time</label>
-            <input
-              type="time"
-              class="form-control"
-              id="eventTime"
-              [(ngModel)]="newEvent.Time"
-            />
+            <input type="time" class="form-control" id="eventTime" [(ngModel)]="newEvent.endTime" />
           </div>
         </div>
         <div class="mb-3 d-flex justify-content-between">
           <button class="btn btn-primary me-1" (click)="addEvent()">
             Submit
           </button>
-          <button
-            type="button"
-            class="btn btn-secondary me-1"
-            data-bs-dismiss="offcanvas"
-          >
+          <button type="button" class="btn btn-secondary me-1" data-bs-dismiss="offcanvas">
             Cancel
           </button>
         </div>
       </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   </div>
 
   <div class="container">
     <div class="row g-3 card-deck">
-      <div class="col-lg-4" *ngFor="let card of cards">
+      <div class="col-lg-4" *ngFor="let card of events">
         <div class="card">
-          <img
-            [src]="card.ImageUrl"
-            class="card-img-top"
-            alt="A Street in Europe"
-          />
+
+          <img [src]=" 'data:image/png;base64,' + card.imageData" class="card-img-top" alt="A Street in Europe" />
           <div class="card-body">
-            <h6 class="card-title">{{ card.Title }}</h6>
+            <h6 class="card-title">{{ card.eventTitle }}</h6>
             <p class="card-text text-secondary" id="eventDate">
-              {{ card.date }} {{ card.Time }}
+              {{ card.startTime }} {{ card.endTime }}
             </p>
-            <button
-              type="button"
-              class="btn btn-outline-primary button"
-              routerLink="/viewevent"
-            >
+            <button type="button" class="btn btn-outline-primary button" routerLink="/viewevent/{{card.eventId}}">
               View event details
             </button>
-            <span
-              style="text-decoration: none"
-              href=""
-              onclick="window.open('softskill.html')"
-              ><img
-                src="assets/img/party_vs.svg"
-                alt=""
-                class="img-event bg-primary"
-              />
-              <span class="people p-small">{{ card.Description }}</span>
+            <span style="text-decoration: none" href="" onclick="window.open('softskill.html')"><img
+                src="assets/img/party_vs.svg" alt="" class="img-event bg-primary" />
+              <span class="people p-small">120 People Joining this event</span>
             </span>
           </div>
         </div>
