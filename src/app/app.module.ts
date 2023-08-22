@@ -54,9 +54,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     ForgotPassComponent,
     RemoveEmpComponent,
     BookedSuccessComponent,
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -66,8 +63,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    FormsModule
 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
