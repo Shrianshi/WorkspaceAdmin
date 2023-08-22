@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 interface Card{
-  ImageUrl:string;
-  RoomName:string;
-  Location:string;
-  Capacity:number;
+  imageData:string;
+  roomName:string;
+  roomLocation:string;
+  roomCapacity:number;
 }
 
 @Component({
@@ -15,50 +15,50 @@ interface Card{
 export class ManageConferenceComponent  implements OnInit {
    cards: Card[]=[
     {
-    ImageUrl:'assets/images/conference1.jpeg',
-    RoomName:'Spring 4Pax',
-    Location:'Chennai',
-    Capacity:20,
+    imageData:'assets/images/conference1.jpeg',
+    roomName:'Spring 4Pax',
+    roomLocation:'Chennai',
+    roomCapacity:20,
    },
    {
-    ImageUrl:'assets/images/conference2.jpeg',
-    RoomName:'Sunrise',
-    Location:'Pune',
-    Capacity:6,
+    imageData:'assets/images/conference2.jpeg',
+    roomName:'Sunrise',
+    roomLocation:'Pune',
+    roomCapacity:6,
    },
    {
-    ImageUrl:'assets/images/conference3.jpeg',
-    RoomName:'Sunset',
-    Location:'Bangalore',
-    Capacity:12,
+    imageData:'assets/images/conference3.jpeg',
+    roomName:'Sunset',
+    roomLocation:'Bangalore',
+    roomCapacity:12,
    },
    {
-    ImageUrl:'assets/images/conference4.jpeg',
-    RoomName:'Dotnet',
-    Location:'Chennai',
-    Capacity:6,
+    imageData:'assets/images/conference4.jpeg',
+    roomName:'Dotnet',
+    roomLocation:'Chennai',
+    roomCapacity:6,
    },
    {
-    ImageUrl:'assets/images/conference6.jpeg',
-    RoomName:'CHC 2.0',
-    Location:'Pune',
-    Capacity:10,
+    imageData:'assets/images/conference6.jpeg',
+    roomName:'CHC 2.0',
+    roomLocation:'Pune',
+    roomCapacity:10,
    },
    {
-    ImageUrl:'assets/images/conference5.jpeg',
-    RoomName:'Storyboard',
-    Location:'Bangalore',
-    Capacity:14,
+    imageData:'assets/images/conference5.jpeg',
+    roomName:'Storyboard',
+    roomLocation:'Bangalore',
+    roomCapacity:14,
    },
 
   ]
 
   //Console Print 
   newRoom: Card = {
-    ImageUrl: '',
-    RoomName: '',
-    Location: 'Location',
-    Capacity: 5
+    imageData: '',
+    roomName: '',
+    roomLocation: 'Location',
+    roomCapacity: 5
   };
 
   addRoom() {

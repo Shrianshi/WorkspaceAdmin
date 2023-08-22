@@ -1,5 +1,6 @@
 /* Card Button*/
 .card-btn-chennai {
+    float: right;
     color: rgba(81, 98, 246, 1) ;
     border-radius: 7px;
     border: none;
@@ -11,7 +12,7 @@
     float: right;
     margin-top: 7px;
     color: rgba(241, 117, 117, 1);
-    background: #5162F624;
+    /* background: #5162F624; */
     border-radius: 7px;
     background: #F6515124;
     border: none;
@@ -35,7 +36,6 @@
     align-items: center;
     background: none;
     color: #15151A;
-    background: #AD51F624;
     border-radius: 6px;
 }
 
@@ -175,8 +175,9 @@ ul li.active {
 }
 
 .card-size{
-    width:30%;
-    margin-bottom: 2%;
+    width:29%;
+    margin-bottom: 1%;
+    height: 20%;
 }
 
 .small-icon{
