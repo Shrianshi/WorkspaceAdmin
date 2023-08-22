@@ -1,20 +1,19 @@
 import { Component } from '@angular/core';
-
-interface Card {
-  Title: string;
-  Description: string;
-  Location:string;
-  Date:string;
-  Time:string;
-
+interface Card{
+  
 }
-
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent {
+  Title: string | undefined;
+  Description: string | undefined;
+  Location:string | undefined;
+  Date:string | undefined;
+  Time:string | undefined;
+  
   cards: Card[] = [
     {
       Title:'Pune Capacity Increases',
@@ -31,4 +30,16 @@ export class NotificationsComponent {
       Time:'11:30am'
     }
   ]
+  onSubmit() {
+    const formData = {
+      Title: this.Title,
+      Description:this.Description,
+      Location: this.Location
+      
+    };
+    
+    console.log("success");
+
+    console.log(formData);
+  }
 }

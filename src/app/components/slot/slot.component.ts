@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-slot',
@@ -6,16 +7,32 @@ import { Component,OnInit } from '@angular/core';
   styleUrls: ['./slot.component.css']
 })
 export class SlotComponent implements OnInit{
-  timelineEvents = [
-    { date: '2023-08-01', description: 'Event 1' },
-    { date: '2023-08-10', description: 'Event 2' },
-    { date: '2023-08-18', description: 'Event 3' },
-    // Add more events as needed
-  ];
+   bookroomForm: FormGroup=new FormGroup({});
+  
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.initializeForm();
+  }
+
+  initializeForm() {
+    this.bookroomForm = this.formBuilder.group({
+      meetingTitle: [''],
+      numberOfParticipants:[''],
+      startTime:[''],
+      endTime:[''],
+      location: [''],
+
+    });
+  }
+
+  onSubmit() {
+    if (this.bookroomForm.valid) {
+      console.log('Form submitted:', this.bookroomForm.value);
+    } else {
+      console.log('Form is not valid');
+    }
   }
 
 }

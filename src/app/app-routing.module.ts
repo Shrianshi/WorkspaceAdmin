@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ArticleSectionComponent } from './components/article-section/article-section.component';
@@ -17,6 +17,7 @@ import { ManageConferenceComponent } from './components/manage-conference/manage
 import { LocationComponent } from './components/location/location.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { ViewEventComponent } from './components/view-event/view-event.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-up', pathMatch: 'full' },
@@ -37,6 +38,8 @@ const routes: Routes = [
   { path: 'manage/conference', component: ManageConferenceComponent },
   { path: 'manage/location', component: LocationComponent },
   { path: 'forgotpass', component: ForgotPassComponent },
+  { path: 'viewevent', component: ViewEventComponent },
+  { path: 'forgot-pass', component: ForgotPassComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
