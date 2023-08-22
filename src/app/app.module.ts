@@ -35,6 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewEventComponent } from './components/view-event/view-event.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,8 +68,11 @@ import { ViewEventComponent } from './components/view-event/view-event.component
     NoopAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 
     ReactiveFormsModule,
     HttpClientModule,

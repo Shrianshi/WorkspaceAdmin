@@ -1,5 +1,5 @@
 import { Component,OnInit,AfterViewInit } from '@angular/core';
-import { CalendarOptions } from '@fullcalendar/core'; // useful for typechecking
+import { CalendarOptions, EventInput } from '@fullcalendar/core'; // useful for typechecking
 import dayGridPlugin from '@fullcalendar/daygrid';
 import * as $ from 'jquery';
 import 'bootstrap-datepicker';
@@ -10,11 +10,13 @@ import 'bootstrap-datepicker';
 })
 export class CalendarComponent implements OnInit {
   today:Date = new Date();
-  events2:any=[];
-  calendarOptions: CalendarOptions = {
-    
-   
-  };
+  
+  calendarOptions: CalendarOptions = {};
+  events: EventInput[] = [
+    { title: 'Event 1', start: '2023-08-08', time: '8:00 AM' },
+    { title: 'Event 2', start: '2023-08-09', time: '12:00' },
+  ];
+  events2:EventInput=[];
   
   ngOnInit() {
     this.calendarOptions = {
@@ -25,18 +27,31 @@ export class CalendarComponent implements OnInit {
         center: 'title', 
         end: 'prev,next'             
       },
-      events: [
+     
+      // events: [
        
-        { title: 'event 3', date: '2023-07-25',time:'7.00' }
+      //   { title: 'event 3', date: '2023-07-25',time:'7.00' }
 
-      ],
+      // ],
+      events:this.events,
+      eventContent: this.customEventContent, 
+
+      eventTimeFormat: {
+        hour: '2-digit',
+        minute: '2-digit',
+        meridiem: true
+      },
       dayMaxEventRows: true,
       plugins: [dayGridPlugin] ,
       
+      
     };
-    this.events2= this.calendarOptions.events;
-    console.log(this.events2);
-  }//ngInit
- 
+
+    
+    
+    }
+  customEventContent(info:any) {
+    return { html: `<div>${info.event.title}</div><div>${info.event.start.toLocaleTimeString()}</div>` };
+  }
   
-}//end iof component
+}
