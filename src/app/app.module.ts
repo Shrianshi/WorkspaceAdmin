@@ -58,6 +58,7 @@ import { ViewEventComponent } from './components/view-event/view-event.component
     ForgotPassComponent,
     RemoveEmpComponent,
     BookedSuccessComponent,
+
     ViewEventComponent,
   ],
   imports: [
@@ -67,7 +68,7 @@ import { ViewEventComponent } from './components/view-event/view-event.component
     NoopAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FormsModule
+
 
     ReactiveFormsModule,
     HttpClientModule,
