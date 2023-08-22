@@ -3,10 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
-
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { NoopAnimationsModule, } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -68,8 +66,6 @@ import { ViewEventComponent } from './components/view-event/view-event.component
     NoopAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FormsModule
-
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
