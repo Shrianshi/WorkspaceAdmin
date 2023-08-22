@@ -111,16 +111,24 @@
               <img src="assets/images/KaniniLogo.svg" alt="HR Admin" />
               <p class="bookingclick">HR Admin</p>
             </div>
-            <div class="BookingHrInfo">
+            <div>
               
-              <button class="border border-0 bg-white"><img src="assets/images/AddSymbol.svg" alt="HR Admin"  /></button>
+              <button class="custom-button" (click)="toggleTextArea()"><img src="assets/images/AddSymbol.svg" alt="HR Admin"  /></button>
               <p class="bookingclick bookingclick1">Someone else</p>
+
+              
             </div>
+
+            <input type="text" rows="4" cols="50" class="text-area-container"  *ngIf="showTextArea">
+
+            <!-- <div class="text-area-container" style="display: block;" *ngIf="showTextArea">
+              <input type="text" rows="4" cols="50" class="text-area-container" style="display: block;" *ngIf="showTextArea">
+            </div> -->
           </div>
         </div>
         <div class="bookingbtn">
-          <button class="btn">Book a room</button>
-          <a href="#" class="cancelBooking">Cancel</a>
+          <button type="submit" class="btn">Book a room</button>
+          <a class="cancelBooking">Cancel</a>
         </div>
         </form>
         <div class="reservations">

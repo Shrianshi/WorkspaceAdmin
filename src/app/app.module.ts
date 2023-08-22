@@ -32,7 +32,7 @@ import { RemoveEmpComponent } from './components/remove-emp/remove-emp.component
 import { BookedSuccessComponent } from './components/booked-success/booked-success.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ViewEventComponent } from './components/view-event/view-event.component';
 
 
@@ -67,7 +67,7 @@ import { ViewEventComponent } from './components/view-event/view-event.component
     NoopAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FormsModule
+    FormsModule,
 
     ReactiveFormsModule,
     HttpClientModule,

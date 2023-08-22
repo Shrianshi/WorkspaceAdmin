@@ -62,7 +62,7 @@
                             <div class="offcanvas-body">
                                 <div class="row">
                                     <div class="col">
-                                        <select class="form-select text-muted" aria-label="Default select example" [(ngModel)]="newRoom.Location">
+                                        <select class="form-select text-muted" aria-label="Default select example" [(ngModel)]="newRoom.location">
                                             <option selected>Location</option>
                                             <option value="Chennai">Chennai</option>
                                             <option value="Pune">Pune</option>
@@ -73,11 +73,11 @@
                                 <div class="row">
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="Room Name"
-                                            aria-label="City" [(ngModel)]="newRoom.RoomName">
+                                            aria-label="City" [(ngModel)]="newRoom.roomName">
                                     </div>
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="Capacity"
-                                            aria-label="State" [(ngModel)]="newRoom.Capacity">
+                                            aria-label="State" [(ngModel)]="newRoom.capacity">
                                     </div>
                                 </div><br>
                                 <div class="row">
@@ -109,7 +109,7 @@
                                                 <h5 class="card-title"><img src="assets/images/gallery-icon.png"></h5>
                                                 <p class="card-text">Drop your Featured Image here, or 
                                                     <label class="text-decoration-none" for="fileInput" style="cursor: pointer; color: blue;">Browse</label>
-                                                    <input type="file" id="fileInput" style="display: none;" [(ngModel)]="newRoom.ImageUrl">
+                                                    <input type="file" id="fileInput" style="display: none;" >
                                                     <br>
                                                     <span class="text-muted">Supports: JPEG, PNG</span>"
                                                 </p>

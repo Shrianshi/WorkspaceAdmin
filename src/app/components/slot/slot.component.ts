@@ -7,7 +7,17 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./slot.component.css']
 })
 export class SlotComponent implements OnInit{
+
+  showTextArea = false;
+
+  toggleTextArea() {
+    console.log('Toggle button clicked');
+    this.showTextArea = !this.showTextArea;
+  }
    bookroomForm: FormGroup=new FormGroup({});
+
+
+   // Get references to the button and text area
   
 
   constructor(private formBuilder: FormBuilder) {}

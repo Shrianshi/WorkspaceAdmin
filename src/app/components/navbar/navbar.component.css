@@ -38,3 +38,25 @@
     position:absolute;
     bottom:10%;
 }
+
+@media (max-width: 768px) {
+    .text-invisible{
+      font-size: 0%;
+    }
+    .aside{
+        /* position:relative; */
+        width:70px; 
+        height:800px;
+    }
+    .body{
+        width:25%;
+        float:left;
+    }
+  
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    .text-invisible{
+        font-size: 60%;
+      }
+  }
