@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-forgot-pass',
@@ -8,11 +8,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class ForgotPassComponent {
   email: string = '';
 
-  @Output() emailEntered = new EventEmitter<string>();
 
-  onConfirmClick(): void {
-    this.emailEntered.emit(this.email);
-  }
+  
 
   onCancelClick(): void {
     // Handle cancellation if needed
