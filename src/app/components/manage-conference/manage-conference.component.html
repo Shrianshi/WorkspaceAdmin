@@ -20,7 +20,7 @@
 
         </div>
         <div class="col-sm-2" style="position:relative">
-            <img src="assets/img/bell.svg"> 
+            <img src="assets/img/bell.svg">
             <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
                 <span class="visually-hidden">Hello</span>
             </span>
@@ -28,192 +28,197 @@
         </div>
     </header>
 
-        <!-- Section 1 End-->
-<br>
-        <!-- Section 2 : Header 2-->
-        <section>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-10"><span class="mx-2">Found <b>120 Conference Rooms</b></span>
-                        <select id="allLocationFilter">
-                            <option value="Chennai">Chennai</option>
-                            <option value="Bangalore">Bangalore</option>
-                            <option value="Pune">Pune</option>
-                            <option value="AllLocation" selected>All Locations</option>
-                        </select>
-                    </div>
+    <!-- Section 1 End-->
+    <br>
+    <!-- Section 2 : Header 2-->
+    
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-10"><span class="mx-2">Found <b>120 Conference Rooms</b></span>
+                    <select id="allLocationFilter">
+                        <option value="Chennai">Chennai</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Pune">Pune</option>
+                        <option value="AllLocation" selected>All Locations</option>
+                    </select>
+                </div>
 
-                    <!-- Offcanvas -->
-                    <div class="col-sm-2">
-                        <button class="btn btn-primary btn-sm small-icon" id="btnCanvas" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add a new room</button>
+                <!-- Offcanvas -->
+                <div class="col-sm-2">
+                    <button class="btn btn-primary btn-sm small-icon" id="btnCanvas" type="button"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add a
+                        new room</button>
 
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                            aria-labelledby="offcanvasRightLabel">
-                            <div class="offcanvas-header py-3">
-                                <h6 class="offcanvas-title" id="offcanvasRightLabel">Add a new room</h6>
-                                <button type="button" class="button_close" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"><img src="../../../assets/images/close-icon.svg"></button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                        aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header py-3">
+                            <h6 class="offcanvas-title" id="offcanvasRightLabel">Add a new room</h6>
+                            <button type="button" class="button_close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"><img src="../../../assets/images/close-icon.svg"></button>
 
+                        </div>
+
+                        <!-- Offcanvas Form Body -->
+
+                        <div class="offcanvas-body">
+                            <div class="row">
+                                <div class="col">
+                                    <select class="form-select text-muted" aria-label="Default select example"
+                                        [(ngModel)]="newRoom.roomLocation">
+                                        <option selected>Location</option>
+                                        <option value="Chennai">Chennai</option>
+                                        <option value="Pune">Pune</option>
+                                        <option value="Bangalore">Bangalore</option>
+                                    </select>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Room Name" aria-label="City"
+                                        [(ngModel)]="newRoom.roomName">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Capacity" aria-label="State"
+                                        [(ngModel)]="newRoom.roomCapacity">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Choose Amenities inside the conference room</p>
+                                </div>
                             </div>
-                            <div class="offcanvas-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <select class="form-select text-muted" aria-label="Default select example">
-                                            <option selected>Location</option>
-                                            <option value="Chennai">Chennai</option>
-                                            <option value="Pune">Pune</option>
-                                            <option value="Bangalore">Bangalore</option>
-                                        </select>
-                                    </div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Room Name"
-                                            aria-label="City">
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Capacity"
-                                            aria-label="State">
-                                    </div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>Choose Amenities inside the conference room</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col text-muted">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                                value="option1">
-                                            <label class="form-check-label" for="inlineCheckbox1">TV</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                                value="option2">
-                                            <label class="form-check-label" for="inlineCheckbox2">Whiteboard</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                                value="option3">
-                                            <label class="form-check-label" for="inlineCheckbox3">Wi-Fi</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
-                                                value="option4">
-                                            <label class="form-check-label" for="inlineCheckbox4">Digital
-                                                Projector</label>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <br>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>Add conference room image</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card text-center mb-3" style="border:2px dashed #9DA2B6">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><img src="assets/images/gallery-icon.png"></h5>
-                                                <p class="card-text">Drop your Featured Image here, or <a
-                                                        class="text-decoration-none" href="#">Browse</a><br> <span
-                                                        class="text-muted">Supports : JPEG,PNG</span></p>
-                                            </div>
-                                        </div>
+
+                            <div class="row">
+                                <div class="col text-muted">
+                                    <div class="form-check form-check-inline" *ngFor="let amenity of amenities">
+                                        <input class="form-check-input" type="checkbox" [id]="amenity" [value]="amenity"
+                                            [(ngModel)]="selectedAmenities[amenity]">
+                                        <label class="form-check-label" [for]="amenity">{{ amenity }}</label>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="offcanvas-footer p-4">
-                                <button type="Add" class="btn btn-secondary" id="addbtn">Add</button>
-                                <button type="Cancel" class="btn bg-transparent" id="cancel"
-                                    data-bs-dismiss="offcanvas">Cancel</button>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Add conference room image</p>
+                                </div>
                             </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card text-center mb-3" style="border:2px dashed #9DA2B6">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><img src="assets/images/gallery-icon.png"></h5>
+                                            <p class="card-text">Drop your Featured Image here, or
+                                                <label class="text-decoration-none" for="fileInput"
+                                                    style="cursor: pointer; color: blue;">Browse</label>
+                                                <input type="file" id="fileInput" style="display: none;"
+                                                    [(ngModel)]="newRoom.imageData">
+                                                <br>
+                                                <span class="text-muted">Supports: JPEG, PNG</span>"
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="offcanvas-footer p-4">
+                            <button type="Add" class="btn btn-secondary" id="addbtn" (click)="addRoom()">Add</button>
+                            <button type="Cancel" class="btn bg-transparent" id="cancel"
+                                data-bs-dismiss="offcanvas">Cancel</button>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+            <!-- Section 2 End-->
 
-                <!-- Section 2 End-->
+            <br>
 
-                <br>
-                
-                
-                <!--Section 3 : Cards -->
-                <section>
-                    <div class="container-fluid">
-                        <div class="row" >
-                            <div class="card-size" *ngFor="let card of cards">
-                                <div class="card">
-                                    <img class="card-img-top" [src]="card.ImageUrl" alt="Card image cap">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-sm-8">
-                                                <h6 class="card-title"><small class="text-muted ">Conference
-                                                        Room:</small><br>{{card.RoomName}}</h6>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <button class="card-btn-chennai small-icon" [ngStyle]="{'background-color': card.Color}"
-                                                [class.card-btn-pune]="card.Location === 'Pune'"
-                                                [class.card-btn-bangalore]="card.Location === 'Bangalore'"
-                                                [class.card-btn-chennai]="card.Location === 'Chennai'">&nbsp; {{card.Location}} &nbsp;</button>
-                                            </div>
+
+            <!--Section 3 : Cards -->
+            
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="card-size" *ngFor="let card of cards">
+                            <div class="card">
+                                <img class="card-img-top" [src]="card.imageData" alt="Card image cap">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h6 class="card-title"><small class="text-muted ">Conference
+                                                    Room:</small><br>{{card.roomName}}</h6>
                                         </div>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-icons">
-                                                <span class="icon-border px-1"><img src="assets/images/profile-icon.png" class="conf-icon"> <span class="text-muted">{{card.Capacity}}</span> </span>&nbsp;&nbsp;
-                                                <span class="icon-border px-1"><img src="assets/images/TV.png" class="conf-icon"> <span class="text-muted">TV</span> </span>&nbsp;&nbsp;
-                                                <span class="icon-border px-1"><img src="assets/images/whiteboard.png" class="conf-icon"><span class="text-muted">Whiteboard</span> </span>&nbsp;&nbsp;
-                                            </div>
+                                        <div class="col-sm-4">
+                                            <button class=" small-icon"
+                                                [class.card-btn-pune]="card.roomLocation === 'Pune'"
+                                                [class.card-btn-bangalore]="card.roomLocation === 'Bangalore'"
+                                                [class.card-btn-chennai]="card.roomLocation === 'Chennai'">&nbsp;
+                                                {{card.roomLocation}} &nbsp;</button>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-icons">
+                                            <span class="icon-border px-1"><img src="assets/images/profile-icon.png"
+                                                    class="conf-icon"> <span
+                                                    class="text-muted">{{card.roomCapacity}}</span> </span>&nbsp;&nbsp;
+                                            <span class="icon-border px-1"><img src="assets/images/TV.png"
+                                                    class="conf-icon"> <span class="text-muted">TV</span>
+                                            </span>&nbsp;&nbsp;
+                                            <span class="icon-border px-1"><img src="assets/images/whiteboard.png"
+                                                    class="conf-icon"><span class="text-muted">Whiteboard</span>
+                                            </span>&nbsp;&nbsp;
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Section 3 End -->
+                        </div>
 
-                            <br>
+                        <!-- Section 3 End -->
 
-                            <!--Section 4 : Pagination -->
-                            <section class="page" id="#paginSection">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-sm-7 py-2 text-muted">View &nbsp;
-                                            <select id="roomsper">
-                                                <option value="RoomsPerPage" selected>6</option>
-                                                <option value="RoomsPerPage">10</option>
-                                                <option value="RoomsPerPage">14</option>
-                                                <option value="RoomsPerPage">20</option>
-                                            </select>
-                                            Rooms per page
-                                        </div>
+                        <br>
 
-                                        <span class="col-sm-2 text-muted" id="spanResult">Showing 6/120 results</span>
+                        <!--Section 4 : Pagination -->
+                        <section class="page" id="#paginSection">
+                            <div class="container-fluid small">
+                                <div class="row">
+                                    <div class="col-sm-7 py-2 text-muted">View &nbsp;
+                                        <select id="roomsper small">
+                                            <option value="RoomsPerPage" selected>6</option>
+                                            <option value="RoomsPerPage">10</option>
+                                            <option value="RoomsPerPage">14</option>
+                                            <option value="RoomsPerPage">20</option>
+                                        </select>
+                                        Rooms per page
+                                    </div>
+                                    
+                                    <span class="col-sm-2 text-muted small" id="spanResult">Showing 6/120 results</span>
 
-                                        <div class="col-sm-3" id="pagination">
-                                            <div class="pagination">
-                                                <button class="next-arrow"><img
-                                                        src="   assets/images/left-arrow.jpeg"></button>
+                                    <div class="col-sm-3" id="pagination">
+                                        <div class="pagination">
+                                            <button class="next-arrow"><img
+                                                    src="   assets/images/left-arrow.jpeg"></button>
 
-                                                <ul>
-                                                    <li class="link active" value="1">1</li>
-                                                    <li class="link" value="2">2</li>
-                                                    <li class="link" value="3">3</li>
-                                                    <li class="link" value="4">4</li>
-                                                    <li class="link" value="5">5</li>
-                                                </ul>
-                                                <button class="next-arrow"><img
-                                                        src="assets/images/right-arrow.jpeg"></button>
-                                            </div>
+                                            <ul>
+                                                <li class="link active" value="1">1</li>
+                                                <li class="link" value="2">2</li>
+                                                <li class="link" value="3">3</li>
+                                                <li class="link" value="4">4</li>
+                                                <li class="link" value="5">5</li>
+                                            </ul>
+                                            <button class="next-arrow"><img
+                                                    src="assets/images/right-arrow.jpeg"></button>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                            </section>
-                            <!-- Section 4 End -->
+                        </section>
+                        <!-- Section 4 End -->
 
 
-                        </div>
+                    </div>

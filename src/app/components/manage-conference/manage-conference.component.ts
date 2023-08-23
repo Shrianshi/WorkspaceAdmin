@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 interface Card{
-  ImageUrl:string;
-  RoomName:string;
-  Location:string;
-  Capacity:number;
-  Color:string;
+  imageData:string;
+  roomName:string;
+  roomLocation:string;
+  roomCapacity:number;
 }
 
 @Component({
@@ -15,73 +14,64 @@ interface Card{
 })
 export class ManageConferenceComponent  implements OnInit {
    cards: Card[]=[
-    
     {
-    ImageUrl:'assets/images/conference1.jpeg',
-    RoomName:'Spring 4Pax',
-    Location:'Chennai',
-    Capacity:20,
-    Color:''
+    imageData:'assets/images/conference1.jpeg',
+    roomName:'Spring 4Pax',
+    roomLocation:'Chennai',
+    roomCapacity:20,
    },
    {
-    ImageUrl:'assets/images/conference2.jpeg',
-    RoomName:'Sunrise',
-    Location:'Pune',
-    Capacity:6,
-    Color:''
+    imageData:'assets/images/conference2.jpeg',
+    roomName:'Sunrise',
+    roomLocation:'Pune',
+    roomCapacity:6,
    },
    {
-    ImageUrl:'assets/images/conference3.jpeg',
-    RoomName:'Sunset',
-    Location:'Bangalore',
-    Capacity:12,
-    Color:''
+    imageData:'assets/images/conference3.jpeg',
+    roomName:'Sunset',
+    roomLocation:'Bangalore',
+    roomCapacity:12,
    },
    {
-    ImageUrl:'assets/images/conference4.jpeg',
-    RoomName:'Dotnet',
-    Location:'Chennai',
-    Capacity:6,
-    Color:''
+    imageData:'assets/images/conference4.jpeg',
+    roomName:'Dotnet',
+    roomLocation:'Chennai',
+    roomCapacity:6,
    },
    {
-    ImageUrl:'assets/images/conference6.jpeg',
-    RoomName:'CHC 2.0',
-    Location:'Pune',
-    Capacity:10,
-    Color:''
+    imageData:'assets/images/conference6.jpeg',
+    roomName:'CHC 2.0',
+    roomLocation:'Pune',
+    roomCapacity:10,
    },
    {
-    ImageUrl:'assets/images/conference5.jpeg',
-    RoomName:'Storyboard',
-    Location:'Bangalore',
-    Capacity:14,
-    Color:''
+    imageData:'assets/images/conference5.jpeg',
+    roomName:'Storyboard',
+    roomLocation:'Bangalore',
+    roomCapacity:14,
    },
 
   ]
 
-  ngOnInit() {
-    this.applyColors();
+  //Console Print 
+  newRoom: Card = {
+    imageData: '',
+    roomName: '',
+    roomLocation: 'Location',
+    roomCapacity: 5
+  };
+
+  addRoom() {
+
+    console.log('this is newdata', this.newRoom);
+    const selectedAmenitiesList = Object.keys(this.selectedAmenities).filter(amenity => this.selectedAmenities[amenity]);
+    console.log('Selected Amenities:', selectedAmenitiesList);
   }
 
-  applyColors() {
-    for (const card of this.cards) {
-      switch (card.Location.toLowerCase()) {
-        case 'pune':
-          card.Color = 'rgba(246, 81, 81, 0.14)';
-          break;
-        case 'bangalore':
-          card.Color = 'rgba(173, 81, 246, 0.14)';
-          break;
-        case 'chennai':
-          card.Color = 'rgba(81, 98, 246, 0.14)';
-          break;
-        default:
-          card.Color = ''; // Set a default color or leave it empty
-          break;
-      }
-    }
+  amenities: string[] = ['TV', 'Whiteboard', 'Wi-Fi', 'Digital Projector'];
+  selectedAmenities: { [key: string]: boolean } = {};
+
+  ngOnInit() {
   }
-  
+
 }

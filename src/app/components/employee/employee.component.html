@@ -199,8 +199,7 @@
                         </li>
                         <li><a class="dropdown-item" href="#"><button class="btn " type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1"
-                                    aria-controls="offcanvasRight">Import CSV File
-                                    file</button></a>
+                                    aria-controls="offcanvasRight">Import CSV File</button></a>
                         </li>
 
 
@@ -258,16 +257,32 @@
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                     aria-labelledby="offcanvasRightLabel">
                     <div class="offcanvas-header">
+
                         <h5 class="offcanvas-title" id="offcanvasRightLabel">Add a Employee</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
+                        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+                           
+                            <div class="row">
+                                <div class="col"></div>
+                                
+                                <div class="col-sm-6">
+                                    <input type="file" class="form-control" formControlName="empimage" >
+                                </div>
+                                
+                                <div class="col"></div>
+                            </div>
+                            
+                            <br>
+
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Employee ID">
+                                <input type="text" class="form-control" formControlName="employeeId" placeholder="Employee ID">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="First Name"
+                                <input type="text" class="form-control" formControlName="firstName" placeholder="First Name"
                                     aria-label="First Name">
                             </div>
                         </div>
@@ -275,36 +290,30 @@
 
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Last name">
+                                <input type="text" class="form-control" formControlName="lastName" placeholder="Last name">
                             </div>
                             <div class="col">
-                                <select id="inputState" class="form-select">
+                                <select id="inputState" class="form-select" formControlName="Location">
                                     <option selected>Location</option>
                                     <option>Pune</option>
+                                    <option>Chennai</option>
+                                    <option>Banglore</option>
                                 </select>
                             </div>
                         </div>
                         <br>
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Department">
+                                <input type="text" class="form-control" placeholder="Department" formControlName="dept">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Title">
+                                <input type="text" class="form-control" placeholder="Title" formControlName="title1">
                             </div>
                         </div>
                         <br>
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Email address">
-                            </div>
-
-                        </div>
-                        <br>
-
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Phone number">
+                                <input type="text" class="form-control" placeholder="Email address" formControlName="email">
                             </div>
 
                         </div>
@@ -312,7 +321,7 @@
 
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Add Password">
+                                <input type="text" class="form-control" placeholder="Phone number" formControlName="contact">
                             </div>
 
                         </div>
@@ -320,7 +329,15 @@
 
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Confirm Password">
+                                <input type="text" class="form-control" placeholder="Add Password" formControlName="pass1">
+                            </div>
+
+                        </div>
+                        <br>
+
+                        <div class="row g-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Confirm Password" ormControlName="pass2">
                             </div>
 
                         </div>
@@ -329,10 +346,11 @@
                         <div class="row g-3">
                             <div class="col">
                                 <button type="submit" class="btn btn-primary">Add</button>
-                                <button type="submit" class="btn ">Cancel</button>
+                                <button type="submit" class="btn" (click)="employeeForm.reset()">Cancel</button>
                             </div>
 
                         </div>
+                        </form>
                     </div>
 
                 </div>
@@ -402,7 +420,7 @@
 
         </div>
 
-        <div class="container-fluid p-3 ">
+        <!-- <div class="container-fluid p-3 ">
             View
             <div class="btn-group">
                 <button class="btn  btn-sm dropdown-toggle btn-outline-secondary" type="button"
@@ -432,6 +450,41 @@
                 </ul>
             </nav>
 
-        </div>
+        </div> -->
+        <section class="page" id="#paginSection">
+            <div class="container-fluid small">
+                <div class="row">
+                    <div class="col-sm-7 py-2 text-muted">View &nbsp;
+                        <select id="roomsper small">
+                            <option value="RoomsPerPage" selected>6</option>
+                            <option value="RoomsPerPage">10</option>
+                            <option value="RoomsPerPage">14</option>
+                            <option value="RoomsPerPage">20</option>
+                        </select>
+                        Employees per page
+                    </div>
+
+                    <span class="col-sm-2 text-muted small" id="spanResult">Showing 8/500 results</span>
+
+                    <div class="col-sm-3" id="pagination">
+                        <div class="pagination">
+                            <button class="next-arrow"><img
+                                    src="   assets/images/left-arrow.jpeg"></button>
+
+                            <ul class="ul">
+                                <li class="link active li" value="1">1</li>
+                                <li class="link li" value="2">2</li>
+                                <li class="link li" value="3">3</li>
+                                <li class="link li" value="4">4</li>
+                                <li class="link li" value="5">5</li>
+                            </ul>
+                            <button class="next-arrow"><img
+                                    src="assets/images/right-arrow.jpeg"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
     </div>
 </body>

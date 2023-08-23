@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 interface Card {
@@ -18,7 +19,32 @@ interface Card {
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
-export class EmployeeComponent {
+export class EmployeeComponent implements OnInit{
+  employeeForm: FormGroup= new FormGroup({});;
+
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit() {
+    this.employeeForm = this.formBuilder.group({
+      employeeId: [''],
+      firstName: [''],
+      lastName: [''],
+      empimage:[''],
+      Location:[''],
+      dept:[''],
+      title1:[''],
+      email:[''],
+      contact:[''],
+      pass1:[''],
+      pass2:[''],
+
+      // Add other form controls here...
+    });
+  }
+
+  onSubmit() {
+    console.log('Form submitted:', this.employeeForm.value);
+  }
   cards: Card[] = [
     {
       EmpId:2678,
@@ -47,4 +73,6 @@ export class EmployeeComponent {
     // },
     // Add more cards as needed...
   ];
+
+
 }
