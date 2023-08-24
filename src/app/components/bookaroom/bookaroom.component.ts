@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RoomService } from 'src/app/services/roomservice/room.service';
 
 interface Card{
   ImageUrl:string;
@@ -15,61 +16,25 @@ interface Card{
   styleUrls: ['./bookaroom.component.css']
 })
 export class BookaroomComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router,private roomSer:RoomService) {}
 
   redirectToSlot() {
     this.router.navigate(['slot']);
   }
 
-  cards: Card[]=[
+  cards: any[]=[
     
-    {
-    ImageUrl:'assets/images/conference1.jpeg',
-    RoomName:'Spring 4Pax',
-    Location:'Chennai',
-    Capacity:20,
-    Color:''
-   },
-   {
-    ImageUrl:'assets/images/conference2.jpeg',
-    RoomName:'Sunrise',
-    Location:'Pune',
-    Capacity:6,
-    Color:''
-   },
-   {
-    ImageUrl:'assets/images/conference3.jpeg',
-    RoomName:'Sunset',
-    Location:'Bangalore',
-    Capacity:12,
-    Color:''
-   },
-   {
-    ImageUrl:'assets/images/conference4.jpeg',
-    RoomName:'Dotnet',
-    Location:'Chennai',
-    Capacity:6,
-    Color:''
-   },
-   {
-    ImageUrl:'assets/images/conference6.jpeg',
-    RoomName:'CHC 2.0',
-    Location:'Pune',
-    Capacity:10,
-    Color:''
-   },
-   {
-    ImageUrl:'assets/images/conference5.jpeg',
-    RoomName:'Storyboard',
-    Location:'Bangalore',
-    Capacity:14,
-    Color:''
-   },
+   
 
   ]
 
   ngOnInit() {
     this.applyColors();
+    this.roomSer.getAllRoom().subscribe((data)=>{
+      this.cards=data
+    },(error)=>{
+      console.log(error)
+    })
   }
 
   applyColors() {
@@ -85,7 +50,7 @@ export class BookaroomComponent implements OnInit {
           card.Color = 'rgba(81, 98, 246, 0.14)';
           break;
         default:
-          card.Color = ''; // Set a default color or leave it empty
+          card.Color = ''; 
           break;
       }
     }

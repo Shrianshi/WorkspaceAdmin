@@ -306,14 +306,16 @@
   cursor: pointer;
 }
 
-/* Styling for the text area, initially hidden */
 .text-area-container {
-  /* display: none; */
-  /* margin-top: px; */
-  /* padding: 10px; */
   border: 1px solid #ccc;
   resize: vertical;
   display: flex;
+  height: 30px;
   
 
+}
+.slot-img{
+  height:450px;
+  width:100%;
+  border-radius: 5%;
 }

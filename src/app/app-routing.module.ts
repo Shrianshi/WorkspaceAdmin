@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ArticleSectionComponent } from './components/article-section/article-section.component';
 import { EventsComponent } from './components/events/events.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'; 
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { DbookingComponent } from './components/dbooking/dbooking.component';
 import { RbookingComponent } from './components/rbooking/rbooking.component';
@@ -32,14 +32,13 @@ const routes: Routes = [
   { path: 'manage', component: ManageComponent },
   { path: 'employee', component: EmployeeComponent },
   { path: 'bookaroom', component: BookaroomComponent },
-  { path: 'slot', component: SlotComponent },
   { path: 'bookaroom', component: BookaroomComponent },
-  { path: 'slot', component: SlotComponent },
+  { path: 'slot/:id', component: SlotComponent },
   { path: 'manage/conference', component: ManageConferenceComponent },
   { path: 'manage/location', component: LocationComponent },
   { path: 'forgotpass', component: ForgotPassComponent },
-  { path: 'viewevent', component: ViewEventComponent },
-  { path: 'forgot-pass', component: ForgotPassComponent},
+  { path: 'viewevent/:id', component: ViewEventComponent },
+  { path: 'forgot-pass', component: ForgotPassComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

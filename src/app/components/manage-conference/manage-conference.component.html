@@ -62,11 +62,9 @@
                             <div class="offcanvas-body">
                                 <div class="row">
                                     <div class="col">
-                                        <select class="form-select text-muted" aria-label="Default select example" [(ngModel)]="newRoom.location">
-                                            <option selected>Location</option>
-                                            <option value="Chennai">Chennai</option>
-                                            <option value="Pune">Pune</option>
-                                            <option value="Bangalore">Bangalore</option>
+                                        <select class="form-select text-muted" aria-label="Default select example" [(ngModel)]="newRoom.roomLocation">
+                                            <option *ngFor="let l of locations" value="Chennai">{{l.city}}</option>
+                                        
                                         </select>
                                     </div>
                                 </div><br>
@@ -77,7 +75,7 @@
                                     </div>
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="Capacity"
-                                            aria-label="State" [(ngModel)]="newRoom.capacity">
+                                            aria-label="State" [(ngModel)]="newRoom.roomCapacity">
                                     </div>
                                 </div><br>
                                 <div class="row">
@@ -109,7 +107,7 @@
                                                 <h5 class="card-title"><img src="assets/images/gallery-icon.png"></h5>
                                                 <p class="card-text">Drop your Featured Image here, or 
                                                     <label class="text-decoration-none" for="fileInput" style="cursor: pointer; color: blue;">Browse</label>
-                                                    <input type="file" id="fileInput" style="display: none;" >
+                                                    <input type="file" id="fileInput" style="display: none;" (change)="onFileSelected($event)" >
                                                     <br>
                                                     <span class="text-muted">Supports: JPEG, PNG</span>"
                                                 </p>
@@ -140,24 +138,24 @@
                         <div class="row" >
                             <div class="card-size" *ngFor="let card of cards">
                                 <div class="card">
-                                    <img class="card-img-top" [src]="card.ImageUrl" alt="Card image cap">
+                                    <img [src]=" 'data:image/png;base64,' + card.imageData" class="card-img-top"  alt="Card image cap">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-sm-8">
                                                 <h6 class="card-title"><small class="text-muted ">Conference
-                                                        Room:</small><br>{{card.RoomName}}</h6>
+                                                        Room:</small><br>{{card.roomName}}</h6>
                                             </div>
                                             <div class="col-sm-4">
                                                 <button class=" small-icon" 
-                                                [class.card-btn-pune]="card.Location === 'Pune'"
-                                                [class.card-btn-bangalore]="card.Location === 'Bangalore'"
-                                                [class.card-btn-chennai]="card.Location === 'Chennai'">&nbsp; {{card.Location}} &nbsp;</button>
+                                                [class.card-btn-pune]="card.roomLocation === 'Pune'"
+                                                [class.card-btn-bangalore]="card.roomLocation === 'Bangalore'"
+                                                [class.card-btn-chennai]="card.roomLocation === 'Chennai'">&nbsp; {{card.roomLocation}} &nbsp;</button>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row">
                                             <div class="col-icons">
-                                                <span class="icon-border px-1"><img src="assets/images/profile-icon.png" class="conf-icon"> <span class="text-muted">{{card.Capacity}}</span> </span>&nbsp;&nbsp;
+                                                <span class="icon-border px-1"><img src="assets/images/profile-icon.png" class="conf-icon"> <span class="text-muted">{{card.roomCapacity}}</span> </span>&nbsp;&nbsp;
                                                 <span class="icon-border px-1"><img src="assets/images/TV.png" class="conf-icon"> <span class="text-muted">TV</span> </span>&nbsp;&nbsp;
                                                 <span class="icon-border px-1"><img src="assets/images/whiteboard.png" class="conf-icon"><span class="text-muted">Whiteboard</span> </span>&nbsp;&nbsp;
                                             </div>
@@ -206,6 +204,5 @@
 
                             </section>
                             <!-- Section 4 End -->
-
 
                         </div>

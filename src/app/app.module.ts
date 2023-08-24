@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
-
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { NoopAnimationsModule, } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -32,8 +29,9 @@ import { RemoveEmpComponent } from './components/remove-emp/remove-emp.component
 import { BookedSuccessComponent } from './components/booked-success/booked-success.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ViewEventComponent } from './components/view-event/view-event.component';
+
 
 
 @NgModule({
@@ -58,6 +56,7 @@ import { ViewEventComponent } from './components/view-event/view-event.component
     ForgotPassComponent,
     RemoveEmpComponent,
     BookedSuccessComponent,
+
     ViewEventComponent,
   ],
   imports: [
@@ -71,7 +70,6 @@ import { ViewEventComponent } from './components/view-event/view-event.component
 
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
