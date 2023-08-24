@@ -51,15 +51,18 @@ export class SignUpComponent implements OnInit{
           <br><br><div style="color: #1F2131; font-size: 24px; font-family: Manrope; font-weight: 600; word-wrap: break-word;">Forgot Password?</div><br>
           <div style="color: #626D8A; font-size: 16px; font-family: Manrope; font-weight: 500; word-wrap: break-word;">No worries, we’ll send you reset instructions.</div><br>
           <div style="color: #626D8A; font-size: 16px; font-family: Inter; font-weight: 400; word-wrap: break-word; text-align:left; ">Email ID</div><br>     
-          <input type="email" class="form-control" id="emailInput" placeholder="name@kanini.com" [(ngModel)]="email"><br>
+          <input type="email" class="form-control" id="emailInput" placeholder="name@kanini.com"><br>
         </div>
       `,
       confirmButtonText: "Submit",
       showCloseButton: true,
-      showCancelButton: false
     }).then((result) => {
       if (result.isConfirmed) {
-        this.onEmailEntered();
+        const emailInput = document.getElementById('emailInput') as HTMLInputElement;
+        if (emailInput) {
+          this.email = emailInput.value;
+          this.onEmailEntered();
+        }
       }
     });
   }
