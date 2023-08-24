@@ -269,59 +269,49 @@
                                 <div class="col"></div>
                                 
                                 <div class="col-sm-6">
-                                    <input type="file" class="form-control" formControlName="empimage" >
+                                    <input type="file" class="form-control" formControlName="empimage" (change)="onFileSelected($event)">
                                 </div>
                                 
                                 <div class="col"></div>
                             </div>
                             
                             <br>
+                          
 
                         <div class="row g-3">
+                         
                             <div class="col">
-                                <input type="text" class="form-control" formControlName="employeeId" placeholder="Employee ID">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" formControlName="firstName" placeholder="First Name"
-                                    aria-label="First Name">
+                                <input type="text" class="form-control" formControlName="fname" placeholder="First Name"
+                                    aria-label="First Name" [(ngModel)]="newEmployee.fname">
                             </div>
                         </div>
                         <br>
 
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" formControlName="lastName" placeholder="Last name">
+                                <input type="text" class="form-control" formControlName="lname" placeholder="Last name" [(ngModel)]="newEmployee.lname">
                             </div>
                             <div class="col">
-                                <select id="inputState" class="form-select" formControlName="Location">
-                                    <option selected>Location</option>
-                                    <option>Pune</option>
-                                    <option>Chennai</option>
-                                    <option>Banglore</option>
+                                <select id="inputState" class="form-select" formControlName="locationId" [(ngModel)]="newEmployee.locationId">
+                                    <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
                                 </select>
                             </div>
                         </div>
                         <br>
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Department" formControlName="dept">
+                                <select id="inputState" class="form-select" formControlName="locationId" [(ngModel)]="newEmployee.depId">
+                                    <option *ngFor="let d of departments" [value]="d.deptId">{{d.deptName}}</option>
+                                </select>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Title" formControlName="title1">
+                                <input type="text" class="form-control" placeholder="Title" formControlName="title" [(ngModel)]="newEmployee.title">
                             </div>
                         </div>
                         <br>
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Email address" formControlName="email">
-                            </div>
-
-                        </div>
-                        <br>
-
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Phone number" formControlName="contact">
+                                <input type="text" class="form-control" placeholder="Email address" formControlName="email" [(ngModel)]="newEmployee.email">
                             </div>
 
                         </div>
@@ -329,7 +319,7 @@
 
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Add Password" formControlName="pass1">
+                                <input type="text" class="form-control" placeholder="Phone number" formControlName="phone" [(ngModel)]="newEmployee.phone">
                             </div>
 
                         </div>
@@ -337,7 +327,15 @@
 
                         <div class="row g-3">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Confirm Password" ormControlName="pass2">
+                                <input type="text" class="form-control" placeholder="Add Password" formControlName="addPassword" [(ngModel)]="newEmployee.addPassword">
+                            </div>
+
+                        </div>
+                        <br>
+
+                        <div class="row g-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Confirm Password" formControlName="pass2">
                             </div>
 
                         </div>

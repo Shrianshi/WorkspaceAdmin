@@ -34,9 +34,7 @@
       </select>
     </div>
     <div>
-      <!-- <select class="basicDetails ms-3">
-        <option value="Ratha Tek,Chennai">11/07/2022</option>
-      </select> -->
+  
       <input type="date" class="basicDetails ms-3">
     </div>
     <div>
@@ -49,27 +47,27 @@
 
   <div class="BookingPlaces">
 
-    <div class="card-size" *ngFor="let card of cards" (click)="redirectToSlot()">
+    <div class="card-size" *ngFor="let card of cards"  routerLink="/slot/{{card.roomId}}">
       <div class="card">
-        <img class="card-img-top" [src]="card.ImageUrl" alt="Card image cap">
+        <img [src]=" 'data:image/png;base64,' + card.imageData" class="card-img-top" alt="Card image cap">
         <div class="card-body">
           <div class="row">
             <div class="col-sm-8">
               <h6 class="card-title"><small class="text-muted ">Conference
-                  Room:</small><br>{{card.RoomName}}</h6>
+                  Room:</small><br>{{card.roomName}}</h6>
             </div>
             <div class="col-sm-4">
               <button class="card-btn-chennai small-icon" [ngStyle]="{'background-color': card.Color}"
-                [class.card-btn-pune]="card.Location === 'Pune'"
-                [class.card-btn-bangalore]="card.Location === 'Bangalore'"
-                [class.card-btn-chennai]="card.Location === 'Chennai'">&nbsp; {{card.Location}} &nbsp;</button>
+                [class.card-btn-pune]="card.roomLocation === 'Pune'"
+                [class.card-btn-bangalore]="card.roomLocation === 'Bangalore'"
+                [class.card-btn-chennai]="card.roomLocation === 'Chennai'">&nbsp; {{card.roomLocation}} &nbsp;</button>
             </div>
           </div>
           <br>
           <div class="row">
             <div class="col-icons">
               <span class="icon-border px-1"><img src="assets/images/profile-icon.png" class="conf-icon"> <span
-                  class="text-muted">{{card.Capacity}}</span> </span>&nbsp;&nbsp;
+                  class="text-muted">{{card.roomCapacity}}</span> </span>&nbsp;&nbsp;
               <span class="icon-border px-1"><img src="assets/images/TV.png" class="conf-icon"> <span
                   class="text-muted">TV</span> </span>&nbsp;&nbsp;
               <span class="icon-border px-1"><img src="assets/images/whiteboard.png" class="conf-icon"><span

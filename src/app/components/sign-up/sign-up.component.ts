@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -7,10 +8,35 @@ import Swal from 'sweetalert2';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent {
-  email: string = '';
+export class SignUpComponent implements OnInit{
+  loginForm: FormGroup=new FormGroup({});
 
-  constructor(private router: Router) {}
+  constructor(private formBuilder: FormBuilder,private router: Router) {}
+
+  ngOnInit() {
+    this.initializeForm();
+  }
+
+  initializeForm() {
+    this.loginForm = this.formBuilder.group({
+      email: ['',[Validators.required, Validators.email]],
+      password:['', Validators.required]
+    });
+  }
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      console.log('Form submitted:', this.loginForm.value);
+      this.router.navigate(['article-section']);
+    } else {
+      console.log('Form is not valid');
+    }
+  }
+
+  
+  email: string = "";
+
+  // constructor(private router: Router) {}
 
   main() {
     this.router.navigate(['article-section']);

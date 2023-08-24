@@ -1,43 +1,142 @@
 .image-container {
+  position: relative;
+  float: left;
+}
+
+.index-0-img{
+  width:800px; 
+  height:650px
+}
+
+.image {
+  position: absolute;
+}
+
+
+.image1 {
+  z-index: 1;
+}
+
+.image2 {
+  margin-left: 400px;
+  z-index: 2;
+}
+
+.image3 {
+  margin-left: 200px;
+  margin-top:280px;
+  z-index: 2;
+}
+
+.image4 {
+  margin-top:400px;
+  z-index: 2;
+}
+.Form-container{
+  position:absolute;
+  margin-left: 920px;
+  margin-top:150px;
+}
+.logo{
+  padding-bottom: 30px;
+}
+.password{
+  padding-bottom: 50px;
+}
+input::placeholder{
+  color: rgb(120, 121, 121);
+  font-size:12px;
+}
+input{
+  width:350px;
+  border-radius: 2px;
+  border:solid 1px rgb(120, 121, 121);
+}
+.p{
+  color: rgb(120, 121, 121);
+  font-size: 14px;
+  
+}
+a{
+  text-decoration: none;
+  margin-left: 200px;
+}
+.email{
+  padding-bottom: 20px;
+
+}
+.signin{
+  /* background-color: rgb(28, 92, 219); */
+  border-radius: 2px;
+  /* border:solid 1px rgb(120, 121, 121); */
+  width:350px;
+  color:white;
+}
+.valid-button {
+  background-color: rgb(48, 56, 218);
+  border:solid 1px rgb(48, 56, 218);
+  color: white;
+  cursor: pointer;
+}
+
+.invalid-button {
+  background-color: gray;
+  border:solid 1px rgb(120, 121, 121);
+  color: white;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+@media (max-width:790px){
+  .image-container {
     position: relative;
     float: left;
   }
   
-  
+  .index-0-img{
+    width:0%; 
+    height:650px
+  }
   .image {
     position: absolute;
   }
   
   
   .image1 {
-    z-index: 1;
+    z-index: 0;
   }
   
   .image2 {
-    margin-left: 400px;
+    margin-left: 370px;
     z-index: 2;
   }
-
+  
   .image3 {
     margin-left: 200px;
-    margin-top:280px;
+    margin-top:10px;
     z-index: 2;
   }
-
+  
   .image4 {
     margin-top:400px;
     z-index: 2;
   }
+
+
   .Form-container{
     position:absolute;
-    margin-left: 920px;
-    margin-top:150px;
+    margin-left: 200px;
+    margin-top:200px;
   }
   .logo{
     padding-bottom: 30px;
   }
   .password{
-    padding-bottom: 50px;
+    padding-bottom: 10px;
   }
   input::placeholder{
     color: rgb(120, 121, 121);
@@ -59,12 +158,30 @@
   }
   .email{
     padding-bottom: 20px;
-
+  
   }
   .signin{
-    background-color: rgb(120, 121, 121);
+    /* background-color: rgb(28, 92, 219); */
     border-radius: 2px;
-    border:solid 1px rgb(120, 121, 121);
+    /* border:solid 1px rgb(120, 121, 121); */
     width:350px;
     color:white;
   }
+  .valid-button {
+    background-color: rgb(48, 56, 218);
+    border:solid 1px rgb(48, 56, 218);
+    color: white;
+    cursor: pointer;
+  }
+  
+  .invalid-button {
+    background-color: gray;
+    border:solid 1px rgb(120, 121, 121);
+    color: white;
+    cursor: not-allowed;
+  }
+
+}
+
+
+

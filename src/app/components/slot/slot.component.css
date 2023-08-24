@@ -298,3 +298,24 @@
   text-align: center;
   color: #333;
 }
+
+
+.custom-button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.text-area-container {
+  border: 1px solid #ccc;
+  resize: vertical;
+  display: flex;
+  height: 30px;
+  
+
+}
+.slot-img{
+  height:450px;
+  width:100%;
+  border-radius: 5%;
+}

@@ -38,7 +38,7 @@
             <img class="facilitiesImage" src="assets/images/Capacity.svg" alt="CapacityImage" />
             <div>
               <p class="facilityHeader">Capacity:</p>
-              <p>12 People</p>
+              <p>{{room.roomCapacity}}</p>
             </div>
           </div>
           <div class="facility">
@@ -72,22 +72,22 @@
               <fieldset class="fieldsetdetails form-group">
                 <img src="assets/images/Loaction.svg" alt="" />
                 &nbsp;
-                <!-- <legend class="bookingInfo">Location</legend> -->
-                <select class="basicDetails small form-control" formControlName="location">
+                <!-- <select class="basicDetails small form-control" formControlName="location">
                   <option value="">Location</option>
                   <option value="Ratha Tek, Chennai">Ratha Tek, Chennai</option>
                   <option value="Elcot Sez, Coimbatore">Elcot Sez, Coimbatore</option>
                   <option value="Navarathna Gardens, Bangalore">Navarathna Gardens, Bangalore</option>
                   <option value="Futura, Pune">Futura, Pune</option>
-                </select>
+                </select> -->
+                <p class="basicDetails">{{room.roomLocation}}</p>
               </fieldset>
             </div>
             <div class="col-sm-3">
               <fieldset class="fieldsetdetails form-group">
-      
+       
                 <img src="assets/images/Peopledark.svg" alt="" />
                 &nbsp;
-                <input type="number" formControlName="numberOfParticipants" class="basicDetails small form-control" min="1" max="12" placeholder="no. of emp">
+                <input type="number" formControlName="numberOfParticipants" class="basicDetails small form-control" min="1" max={{room.roomCapacity}} placeholder="no. of emp">
               </fieldset>
             </div>
           </div>
@@ -111,46 +111,38 @@
               <img src="assets/images/KaniniLogo.svg" alt="HR Admin" />
               <p class="bookingclick">HR Admin</p>
             </div>
-            <div class="BookingHrInfo">
+            <div>
               
-              <button class="border border-0 bg-white"><img src="assets/images/AddSymbol.svg" alt="HR Admin"  /></button>
+              <button class="custom-button" (click)="toggleTextArea()"><img src="assets/images/AddSymbol.svg" alt="HR Admin"  /></button>
               <p class="bookingclick bookingclick1">Someone else</p>
+
+              
             </div>
+
+            <select  class="text-area-container"  *ngIf="showTextArea">
+              <option value="">Choose any employee</option>
+              <option *ngFor="let e of employees">{{e.fname}} {{e.lname}}</option>
+            </select>
           </div>
         </div>
         <div class="bookingbtn">
-          <button class="btn">Book a room</button>
-          <a href="#" class="cancelBooking">Cancel</a>
+          <button type="submit" class="btn">Book a room</button>
+          <button class="cancelBooking" type="reset">Cancel</button>
         </div>
         </form>
         <div class="reservations">
           <p class="MeetingTitle">Reservations:</p>
-          <!-- <select class="reservationDetails">
-          <option value="Ratha Tek,Chennai">Today</option>
-        </select> -->
+        
           <input type="date" class="reservationDetails">
         </div>
         <div class="reservedDetails">
-          <!-- <div class="reservationList">
-            <img src="assets/images/KaniniLogo.svg" alt="CapacityImage" class="rerservedpersonimage" />
-            <div>
-              <p>Vishnu Venkatasen booked for today meeting</p>
-              <p class="registredtime">03.00pm-5.00pm</p>
-            </div>
-          </div>
-          <div class="reservationList">
-            <img src="assets/images/KaniniLogo.svg" alt="CapacityImage" class="rerservedpersonimage" />
-            <div>
-              <p>Vishnu Venkatasen booked for today meeting</p>
-              <p class="registredtime">03.00pm-5.00pm</p>
-            </div>
-          </div> -->
+        
         </div>
    
     </div>
 
     <div class="col-sm-4">
-      <img src="assets/images/spring1.png" height="450">
+      <img [src]=" 'data:image/png;base64,' + room.imageData" class="slot-img">
     </div>
 
 

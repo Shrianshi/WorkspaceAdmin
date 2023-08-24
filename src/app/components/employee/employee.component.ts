@@ -1,5 +1,11 @@
 import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { an } from '@fullcalendar/core/internal-common';
+import { error } from 'jquery';
+import { ToastrService } from 'ngx-toastr';
+import { DepartmentService } from 'src/app/services/deptservice/department.service';
+import { EmployeeService } from 'src/app/services/empservice/employee.service';
+import { LocationService } from 'src/app/services/location.service';
 
 
 interface Card {
@@ -20,30 +26,72 @@ interface Card {
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit{
-  employeeForm: FormGroup= new FormGroup({});;
+  constructor(private toast:ToastrService,private formBuilder: FormBuilder,private locationSer:LocationService,private deptSer:DepartmentService,private empSer:EmployeeService) {}
+  locations:any[]=[]
+  departments:any[]=[]
 
-  constructor(private formBuilder: FormBuilder) {}
+  employeeForm: FormGroup= new FormGroup({});;
+  newEmployee:any={
+    fname: '',
+    lname: "",
+    locationId: 0,
+    depId: 0,
+    email: "",
+    phone: "",
+    addPassword: "",
+    title: "",
+    imageData: ""
+  }
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    const fileReader = new FileReader();
+    fileReader.onload = (event) => {
+      const fileData = fileReader.result as ArrayBuffer;
+      const byteArray = new Uint8Array(fileData);
+      const numbersArray = Array.from(byteArray);
+      const base64String = btoa(String.fromCharCode.apply(null, numbersArray));
+      this.newEmployee.imageData = base64String;
+      console.log(this.newEmployee)
+    }
+    fileReader.readAsArrayBuffer(file);
+  }
+
 
   ngOnInit() {
+    this.locationSer.getAllLocation().subscribe((data)=>{
+      this.locations=data
+    },(error)=>{
+      console.log(error)
+    })
+    this.deptSer.getAllDepartment().subscribe((data)=>{
+      this.departments=data
+    },(error)=>{
+      console.log(error)
+    })
     this.employeeForm = this.formBuilder.group({
-      employeeId: [''],
-      firstName: [''],
-      lastName: [''],
+      fname: [''],
+      lname: [''],
       empimage:[''],
-      Location:[''],
-      dept:[''],
-      title1:[''],
+      locationId:[1],
+      depId:[1],
+      title:[''],
       email:[''],
-      contact:[''],
-      pass1:[''],
-      pass2:[''],
+      phone:[''],
+      addPassword:[''],
 
-      // Add other form controls here...
     });
+   
   }
 
   onSubmit() {
-    console.log('Form submitted:', this.employeeForm.value);
+    this.toast.success('Employee Added')
+    console.log(this.newEmployee)
+    // this.empSer.addEmployee(this.newEmployee).subscribe((data)=>{
+    //   this.toast.success('Employee Added')
+    //   console.log(this.newEmployee)
+    // },(error)=>{
+    //   console.log(error)
+    // })
   }
   cards: Card[] = [
     {
@@ -66,12 +114,7 @@ export class EmployeeComponent implements OnInit{
       Email:'sriram.muralidharan@kanini.com',
       Phone:8939191419
     }
-    // {
-    //   title: 'Card 2',
-    //   description: 'Description for Card 2',
-    //   imageUrl: 'https://example.com/card2.jpg'
-    // },
-    // Add more cards as needed...
+ 
   ];
 
 

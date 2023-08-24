@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { RoombookingService } from 'src/app/services/bookingservice/roombooking.service';
+import { LocationService } from 'src/app/services/location.service';
+import { RoomService } from 'src/app/services/roomservice/room.service';
 
 interface Card{
-  imageData:string;
-  roomName:string;
-  roomLocation:string;
-  roomCapacity:number;
+  ImageUrl:string;
+  RoomName:string;
+  Location:number;
+  Capacity:number;
 }
 
 @Component({
@@ -13,65 +16,64 @@ interface Card{
   styleUrls: ['./manage-conference.component.css']
 })
 export class ManageConferenceComponent  implements OnInit {
-   cards: Card[]=[
-    {
-    imageData:'assets/images/conference1.jpeg',
-    roomName:'Spring 4Pax',
-    roomLocation:'Chennai',
-    roomCapacity:20,
-   },
-   {
-    imageData:'assets/images/conference2.jpeg',
-    roomName:'Sunrise',
-    roomLocation:'Pune',
-    roomCapacity:6,
-   },
-   {
-    imageData:'assets/images/conference3.jpeg',
-    roomName:'Sunset',
-    roomLocation:'Bangalore',
-    roomCapacity:12,
-   },
-   {
-    imageData:'assets/images/conference4.jpeg',
-    roomName:'Dotnet',
-    roomLocation:'Chennai',
-    roomCapacity:6,
-   },
-   {
-    imageData:'assets/images/conference6.jpeg',
-    roomName:'CHC 2.0',
-    roomLocation:'Pune',
-    roomCapacity:10,
-   },
-   {
-    imageData:'assets/images/conference5.jpeg',
-    roomName:'Storyboard',
-    roomLocation:'Bangalore',
-    roomCapacity:14,
-   },
+  constructor(private roomSer:RoomService,private locSer:LocationService){}
+  cards:any[]=[]
+  locations:any[]=[]
 
-  ]
-
-  //Console Print 
-  newRoom: Card = {
+  newRoom: any = {
     imageData: '',
     roomName: '',
-    roomLocation: 'Location',
-    roomCapacity: 5
+    roomLocation: 1,
+    roomCapacity: 5,
+    amenities:[]
   };
-
-  addRoom() {
-
-    console.log('this is newdata', this.newRoom);
-    const selectedAmenitiesList = Object.keys(this.selectedAmenities).filter(amenity => this.selectedAmenities[amenity]);
-    console.log('Selected Amenities:', selectedAmenitiesList);
-  }
-
   amenities: string[] = ['TV', 'Whiteboard', 'Wi-Fi', 'Digital Projector'];
   selectedAmenities: { [key: string]: boolean } = {};
-
-  ngOnInit() {
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    const fileReader = new FileReader();
+    fileReader.onload = (event) => {
+      const fileData = fileReader.result as ArrayBuffer;
+      const byteArray = new Uint8Array(fileData);
+      const numbersArray = Array.from(byteArray);
+      const base64String = btoa(String.fromCharCode.apply(null, numbersArray));
+      this.newRoom.imageData = base64String;
+      console.log(this.newRoom)
+    }
+    fileReader.readAsArrayBuffer(file);
   }
+  ngOnInit():void {
+    this.locSer.getAllLocation().subscribe((data)=>{
+      this.locations=data
+    },(error)=>{
+      console.log(error)
+    })
+    this.roomSer.getAllRoom().subscribe((data)=>{
+      this.cards=data
+    },(error)=>{
+      console.log(error)
+    })
+
+  }
+  addRoom() {
+    const selectedAmenitiesList = Object.keys(this.selectedAmenities).filter(amenity => this.selectedAmenities[amenity]);
+    console.log('Selected Amenities:', selectedAmenitiesList);
+  
+ 
+
+    const amenitiesJson = JSON.stringify(selectedAmenitiesList);
+
+    this.newRoom.amenities = amenitiesJson;
+  
+    console.log("Final data", this.newRoom);
+  
+    this.roomSer.addRoom(this.newRoom).subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+ 
+
+ 
 
 }
