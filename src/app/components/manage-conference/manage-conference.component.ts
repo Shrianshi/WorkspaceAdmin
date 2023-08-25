@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RoombookingService } from 'src/app/services/bookingservice/roombooking.service';
 import { LocationService } from 'src/app/services/location.service';
 import { RoomService } from 'src/app/services/roomservice/room.service';
+import { ToastrService } from 'ngx-toastr';
 
 interface Card{
   ImageUrl:string;
@@ -16,14 +17,14 @@ interface Card{
   styleUrls: ['./manage-conference.component.css']
 })
 export class ManageConferenceComponent  implements OnInit {
-  constructor(private roomSer:RoomService,private locSer:LocationService){}
+  constructor(private roomSer:RoomService,private locSer:LocationService,private toast:ToastrService){}
   cards:any[]=[]
   locations:any[]=[]
 
   newRoom: any = {
     imageData: '',
     roomName: '',
-    roomLocation: 1,
+    roomLocation: "Bangalore",
     roomCapacity: 5,
     amenities:[]
   };
@@ -49,6 +50,7 @@ export class ManageConferenceComponent  implements OnInit {
       console.log(error)
     })
     this.roomSer.getAllRoom().subscribe((data)=>{
+      this.toast.success('Room Added')
       this.cards=data
     },(error)=>{
       console.log(error)

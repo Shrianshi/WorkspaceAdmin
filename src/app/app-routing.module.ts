@@ -18,11 +18,12 @@ import { LocationComponent } from './components/location/location.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { ViewEventComponent } from './components/view-event/view-event.component';
+import { AuthGuard } from './authGuard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-up', pathMatch: 'full' },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'article-section', component: ArticleSectionComponent },
+  { path: 'article-section', component: ArticleSectionComponent ,canActivate:[AuthGuard]},
   { path: 'events', component: EventsComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'dbooking', component: DbookingComponent },

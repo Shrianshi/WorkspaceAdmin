@@ -34,8 +34,8 @@
             <li class="li nav-item">
                 <a routerLink="/manage" class="a nav-link text-invisible" id="manage"><img src="assets/img/manage.svg" class="padding">Manage</a>
             </li>
-            <li class="li nav-item mt-5">
-                <a class="a nav-link logout-btn text-invisible" routerLink="/sign-up"><img src="assets/img/logout.svg" class="padding">Logout</a>
+            <li class="li nav-item mt-5" >
+                <a class="a nav-link logout-btn text-invisible" routerLink="/sign-up"><img src="assets/img/logout.svg" class="padding" (click)="logout()">Logout</a>
             </li>
 
         </ul>

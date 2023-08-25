@@ -58,7 +58,14 @@
         </div>
         <div class="form-group">
           <p class="MeetingTitle">Meeting Name</p>
-          <input type="text" placeholder="Description" class="MeetingInput" formControlName="meetingTitle" class="form-control"/>
+          <input type="text" placeholder="Meeting Title" class="MeetingInput" formControlName="meetingTitle"
+            class="form-control" [(ngModel)]="bookingDetail.meetingTitle" />
+          <div
+            *ngIf="bookroomForm.get('meetingTitle')?.hasError('required') && bookroomForm.get('meetingTitle')?.touched"
+            class="text-danger small">
+            Meeting name is required.
+          </div>
+
         </div>
         <div>
           <p class="MeetingTitle">Book Slot</p>
@@ -67,28 +74,29 @@
               <fieldset class="fieldsetdetails">
                 <input type="date" class="basicDetails small form-control">
               </fieldset>
+
             </div>
             <div class="col-sm-5">
               <fieldset class="fieldsetdetails form-group">
                 <img src="assets/images/Loaction.svg" alt="" />
                 &nbsp;
-                <!-- <select class="basicDetails small form-control" formControlName="location">
-                  <option value="">Location</option>
-                  <option value="Ratha Tek, Chennai">Ratha Tek, Chennai</option>
-                  <option value="Elcot Sez, Coimbatore">Elcot Sez, Coimbatore</option>
-                  <option value="Navarathna Gardens, Bangalore">Navarathna Gardens, Bangalore</option>
-                  <option value="Futura, Pune">Futura, Pune</option>
-                </select> -->
+
                 <p class="basicDetails">{{room.roomLocation}}</p>
               </fieldset>
             </div>
             <div class="col-sm-3">
               <fieldset class="fieldsetdetails form-group">
-       
+
                 <img src="assets/images/Peopledark.svg" alt="" />
                 &nbsp;
-                <input type="number" formControlName="numberOfParticipants" class="basicDetails small form-control" min="1" max={{room.roomCapacity}} placeholder="no. of emp">
+                <input type="number" formControlName="numberOfParticipants" class="basicDetails small form-control"
+                  min="1" max={{room.roomCapacity}} placeholder="no. of emp"
+                  [(ngModel)]="bookingDetail.numberOfParticipants">
               </fieldset>
+              <p *ngIf="room.roomCapacity<bookingDetail.numberOfParticipants" class="small text-danger">no of person
+                should be less than or equal to {{room.roomCapacity}}</p>
+              <p *ngIf="bookingDetail.numberOfParticipants<0" class="small text-danger">capacity
+                can't be less than 0</p>
             </div>
           </div>
         </div>
@@ -96,10 +104,16 @@
           <p class="MeetingTitle">Select Start & End Time</p>
           <div class="row mb-3">
             <fieldset class="fieldsetdetails mx-3 col-sm-5 form-group">
-              <b>Start: </b> <input type="date" formControlName="startTime" class="basicDetails small form-control">
+              <b>Start: </b> <input type="datetime-local" formControlName="startTime"
+                class="basicDetails small form-control" [(ngModel)]="bookingDetail.startTime">
             </fieldset>
+            <div *ngIf="bookroomForm.get('startTime')?.hasError('required') && bookroomForm.get('startTime')?.touched"
+              class="text-danger small">
+              Start date and time is required.
+            </div>
             <fieldset class="fieldsetdetails mx-3  col-sm-5 form-group">
-              <b>End: </b> <input type="date" formControlName="endTime" class="basicDetails small form-control">
+              <b>End: </b> <input type="time" formControlName="endTime" class="basicDetails small form-control"
+                [(ngModel)]="bookingDetail.endTime">
             </fieldset>
           </div>
 
@@ -112,16 +126,18 @@
               <p class="bookingclick">HR Admin</p>
             </div>
             <div>
-              
-              <button class="custom-button" (click)="toggleTextArea()"><img src="assets/images/AddSymbol.svg" alt="HR Admin"  /></button>
+
+              <button class="custom-button" (click)="toggleTextArea()"><img src="assets/images/AddSymbol.svg"
+                  alt="HR Admin" /></button>
               <p class="bookingclick bookingclick1">Someone else</p>
 
-              
+
             </div>
 
-            <select  class="text-area-container"  *ngIf="showTextArea">
-              <option value="">Choose any employee</option>
-              <option *ngFor="let e of employees">{{e.fname}} {{e.lname}}</option>
+
+            <select class="text-area-container" class="form-control" formControlName="employeeId"
+              [(ngModel)]="bookingDetail.employeeId" *ngIf="showTextArea">
+              <option *ngFor="let e of employees" [value]="e.employeeId">{{e.fname}} {{e.lname}}</option>
             </select>
           </div>
         </div>
@@ -129,16 +145,16 @@
           <button type="submit" class="btn">Book a room</button>
           <button class="cancelBooking" type="reset">Cancel</button>
         </div>
-        </form>
-        <div class="reservations">
-          <p class="MeetingTitle">Reservations:</p>
-        
-          <input type="date" class="reservationDetails">
-        </div>
-        <div class="reservedDetails">
-        
-        </div>
-   
+      </form>
+      <div class="reservations">
+        <p class="MeetingTitle">Reservations:</p>
+
+        <input type="date" class="reservationDetails">
+      </div>
+      <div class="reservedDetails">
+
+      </div>
+
     </div>
 
     <div class="col-sm-4">

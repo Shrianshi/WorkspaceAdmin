@@ -5,7 +5,7 @@
 
 .index-0-img{
   width:800px; 
-  height:650px
+  height:590px
 }
 
 .image {
@@ -29,12 +29,12 @@
 }
 
 .image4 {
-  margin-top:400px;
+  margin-top:340px;
   z-index: 2;
 }
 .Form-container{
   position:absolute;
-  margin-left: 920px;
+  margin-left: 900px;
   margin-top:150px;
 }
 .logo{
@@ -150,6 +150,7 @@ a{
   .p{
     color: rgb(120, 121, 121);
     font-size: 14px;
+    cursor: pointer;
     
   }
   a{

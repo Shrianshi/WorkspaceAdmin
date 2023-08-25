@@ -234,7 +234,11 @@
     
 }
 
-
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
 
 .pagination {
     display: flex;

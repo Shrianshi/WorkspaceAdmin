@@ -42,9 +42,9 @@
 
             <!-- FIRST COLUMN OF BODY SECOND SUBROW -->
             <div class="article">
-
+            
                 <!-- STATUS CHECK ROW-->
-                <div class="row">
+                <div class="row" (onchange)="calculating()">
                     <div class="col-md-6 mb-2">
                         <div class="card border">
                             <div class="card-body">
@@ -56,12 +56,12 @@
                                         <h6 class="card-title">Conference Room</h6>
                                         <p class="card-text  text-secondary-emphasis">Meeting halls</p>
                                         <div>
-                                            <h6>Busy(25/50)</h6>
+                                            <h6>Quiet({{count}}/{{roomscount}})</h6>
                                         </div>
                                         <div class="row">
-                                            <div class="status-bar busy mx-1"></div>
-                                            <div class="status-bar busy mx-1"></div>
-                                            <div class="status-bar busy mx-1"></div>
+                                            <div class="blank status-bar mx-1"></div>
+                                            <div class="status-bar blank mx-1" ></div>
+                                            <div class="status-bar blank mx-1"></div>
                                             <div class="status-bar blank mx-1"></div>
                                             <div class="status-bar blank mx-1"></div>
                                         </div>
@@ -82,11 +82,11 @@
                                         <h6 class="card-title">Desks</h6>
                                         <p class="card-text text-secondary-emphasis">People Check-In</p>
                                         <div>
-                                            <h6>Quiet(120/1000)</h6>
+                                            <h6>Quiet({{deskcount}}/200)</h6>
                                         </div>
                                         <div class="row">
                                             <div class="status-bar quiet mx-1"></div>
-                                            <div class="status-bar quiet mx-1"></div>
+                                            <div class="status-bar blank mx-1"></div>
                                             <div class="status-bar blank mx-1"></div>
                                             <div class="status-bar blank mx-1"></div>
                                             <div class="status-bar  blank mx-1"></div>
@@ -105,6 +105,7 @@
                 <!-- SERVICES SECTION -->
                 <div class="row mt-5">
                     <h6>All Services</h6>
+                
                     <div class="services text-center">
                         <a routerLink="/employee"><div class="i s1 p-2"><img src="assets/img/employee.png" class="img">
                         </div></a>
@@ -172,7 +173,7 @@
                 </div>
                 <hr>
                 <div>
-                    <h6 class="px-3"> Today, 7th March 2023</h6>
+                    <h6 class="px-3"> Today, {{date|date}}</h6>
                 </div>
                 <div class="notify-div n-1 p-2">
                     <img src="assets/img/party_small.svg" class="notify ni-1 p-2">
