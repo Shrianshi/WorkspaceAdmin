@@ -16,6 +16,9 @@ interface Card{
   styleUrls: ['./bookaroom.component.css']
 })
 export class BookaroomComponent implements OnInit {
+  header:string='Book a room';
+  search:string='booked room';
+
   constructor(private router: Router,private roomSer:RoomService) {}
 
   redirectToSlot() {

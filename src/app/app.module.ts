@@ -30,6 +30,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ViewEventComponent } from './components/view-event/view-event.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
@@ -56,6 +57,7 @@ import { ViewEventComponent } from './components/view-event/view-event.component
     BookedSuccessComponent,
 
     ViewEventComponent,
+      HeaderComponent,
   ],
   imports: [
     BrowserModule,

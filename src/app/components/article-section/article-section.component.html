@@ -1,41 +1,13 @@
 
 <app-navbar></app-navbar>
 <div class="body container-fluid" id="article">
-    <!-- BEGINNING OF BODY FIRST SUBROW -->
-    <header class="row p-4">
-        <div class="col-sm-6">
-            <h6>Welcome, Admin!</h6>
-            <p class="p-small text-secondary">View complete details of all location and its corresponding details
-            </p>
-            <div>
-                <select class="text-secondary border shadow-sm">
-                    <option>Chennai</option>
-                    <option>Pune</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="col-sm-4 px-1">
-            <nav class="navbar">
-                <form class="container-fluid  d-flex">
-                    <div class="input-group">
-                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass" style="color: #a1a3a5;"></i></span>
-                        <input type="text" class="search form-control no-border" placeholder="Search Employees"
-                            aria-label="Search Employees" aria-describedby="basic-addon1">
-                    </div>
-                </form>
-            </nav>
-
-        </div>
-        <div class="col-sm-2" style="position:relative">
-            <img src="assets/img/bell.svg">
-            <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
-                <span class="visually-hidden">Hello</span>
-            </span>
-            <button class="avatar-btn mx-2" type="submit"></button>HR admin
-        </div>
-
-    </header>
+    <app-header [header]="header" [para]="para" [search]="search"></app-header>
+    <div>
+        <select class="text-secondary border shadow-sm mx-5 mb-2">
+            <option>Chennai</option>
+            <option>Pune</option>
+        </select>
+    </div>
     <article>
         <!-- BIGINNING OF BODY SECOND SUBROW -->
         <div class="row ps-4">

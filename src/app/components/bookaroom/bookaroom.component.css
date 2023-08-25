@@ -115,18 +115,6 @@
     flex-direction: column;
   }
 
-
-
-  /* Card Icons*/
-/* .bi {
-    border: 1px solid grey;
-    border-radius: 0.3rem;
-    font-style: normal;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-} */
-
-/* Card Button*/
 .card-btn-chennai {
   color: rgba(81, 98, 246, 1) ;
   border-radius: 7px;
@@ -261,30 +249,6 @@ ul li.active {
   color: #333B4F;
 }
 
-.body{
-  width:100%;
-}
-.avatar-btn{
-  height:20px;
-  width:20px;
-  border-radius:10px;
-  background-color: black;
-}
-.search{
-  /* width:300px; */
-  height:25px;
-  background-color: rgba(216, 225, 228, 0.345);
-  font-size: 15px;
-  border:0px solid rgb(234, 224, 224);
-}
-#i{
-  color:#aaaaab;
-}
-.search::placeholder{
-  color: rgb(154, 152, 152);
-}
-
-/*card icons*/
 .conf-icon{
   width: 4%;
   margin-right: 2%;

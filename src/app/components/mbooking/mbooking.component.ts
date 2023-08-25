@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./mbooking.component.css']
 })
 export class MbookingComponent {
+  header:string='My Bookings'
 
 }

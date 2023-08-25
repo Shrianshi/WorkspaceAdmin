@@ -9,6 +9,7 @@ import { LocationService } from 'src/app/services/location.service';
 })
 
 export class LocationComponent implements OnInit {
+  header:string='Locations'
   constructor(private locationserv: LocationService, private toast: ToastrService) { }
   locationDetail: any = {
     floorNumberOrBuildingName: "",
