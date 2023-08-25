@@ -1,8 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/services/authservices/auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +11,7 @@ import Swal from 'sweetalert2';
 export class SignUpComponent implements OnInit{
   loginForm: FormGroup=new FormGroup({});
 
-  constructor(private formBuilder: FormBuilder,private router: Router,private authSer:AuthService,private toast:ToastrService) {}
+  constructor(private formBuilder: FormBuilder,private router: Router) {}
 
   ngOnInit() {
     this.initializeForm();
@@ -25,23 +23,11 @@ export class SignUpComponent implements OnInit{
       password:['', Validators.required]
     });
   }
-  loginData:any={
-    email:'',
-    password:''
-  }
 
   onSubmit() {
     if (this.loginForm.valid) {
       console.log('Form submitted:', this.loginForm.value);
-      // this.router.navigate(['article-section']);
-      this.authSer.loginAdmin(this.loginData).subscribe((data)=>{
-        localStorage.setItem('token',data.token)
-        this.toast.success('Login SuccessFul')
-        console.log("name",data.user.name)
-        this.router.navigate(['article-section']);
-      },(error)=>{
-        this.toast.error(error.error)
-      })
+      this.router.navigate(['article-section']);
     } else {
       console.log('Form is not valid');
     }
@@ -49,6 +35,8 @@ export class SignUpComponent implements OnInit{
 
   
   email: string = "";
+
+
   main() {
     this.router.navigate(['article-section']);
     console.log("inside dashboard");
@@ -62,20 +50,42 @@ export class SignUpComponent implements OnInit{
           <br><br><div style="color: #1F2131; font-size: 24px; font-family: Manrope; font-weight: 600; word-wrap: break-word;">Forgot Password?</div><br>
           <div style="color: #626D8A; font-size: 16px; font-family: Manrope; font-weight: 500; word-wrap: break-word;">No worries, we’ll send you reset instructions.</div><br>
           <div style="color: #626D8A; font-size: 16px; font-family: Inter; font-weight: 400; word-wrap: break-word; text-align:left; ">Email ID</div><br>     
-          <input type="email" class="form-control" id="emailInput" placeholder="name@kanini.com"><br>
-        </div>
+          <input
+          type="email"
+          class="form-control"
+          id="emailInput"
+          placeholder="name@kanini.com"
+          [ngClass]="{ 'is-invalid': emailInput.invalid && emailInput.dirty }"
+          #emailInput="ngModel"
+          required
+          email
+          [(ngModel)]="email"
+        >
+        <div *ngIf="emailInput.invalid && emailInput.dirty" class="invalid-feedback">
+          Please enter a valid email.
+        </div>        
+      </div>
       `,
       confirmButtonText: "Submit",
       showCloseButton: true,
-    }).then((result) => {
-      if (result.isConfirmed) {
+      preConfirm: () => {
         const emailInput = document.getElementById('emailInput') as HTMLInputElement;
-        if (emailInput) {
-          this.email = emailInput.value;
-          this.onEmailEntered();
+        if (emailInput && emailInput.value) {
+          if (this.isValidEmail(emailInput.value)) {
+            this.email = emailInput.value;
+            this.onEmailEntered();
+          } else {
+            Swal.showValidationMessage('Please enter a valid email address.');
+          }
         }
       }
     });
+  }
+
+  isValidEmail(email: string): boolean {
+    // Use a regular expression or any other method to validate the email
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(email);
   }
 
   onEmailEntered() {
@@ -84,6 +94,4 @@ export class SignUpComponent implements OnInit{
     };
     console.log(formData);
   }
-
-
 }
