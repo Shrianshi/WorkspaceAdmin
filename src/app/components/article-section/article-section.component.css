@@ -1,3 +1,4 @@
+
 .body{
     width:100%;
     height:100%;
@@ -14,25 +15,7 @@
 .p-small{
     font-size: 75%;
 }
-.avatar-btn{
-    height:23%;
-    width:13%;
-    border-radius:100%;
-    background-color: black;
-}
-.search{
-    /* width:300px; */
-    height:25px;
-    background-color: rgba(216, 225, 228, 0.345);
-    font-size: 90%;
-    border:0px solid rgb(234, 224, 224);
-}
-#i{
-    color:#aaaaab;
-}
-.search::placeholder{
-    color: rgb(154, 152, 152);
-}
+
 .div-img{
     width:15%; 
     max-height:45px;
@@ -174,14 +157,6 @@
     font-size: 13px;
     
 }
-/* .cal{
-    width:0px;
-} */
-/* .text-invisible{
-    font-size: 0%;
-  } */
-
-
 
 @media (min-width:575px) and (max-width:789px){
     .aside-div{

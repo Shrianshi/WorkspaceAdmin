@@ -7,6 +7,7 @@ import { DeskbookingService } from 'src/app/services/bookingservice/deskbooking.
   styleUrls: ['./dbooking.component.css']
 })
 export class DbookingComponent implements OnInit{
+  header:string='Desk Bookings'
   constructor(private deskSer:DeskbookingService){}
   deskbookings:any[]=[]
   ngOnInit(): void {

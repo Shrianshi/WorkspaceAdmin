@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./manage.component.css']
 })
 export class ManageComponent {
+  header:string='Manage'
   constructor(private router: Router) { }
   location() {
     this.router.navigate(['manage/location'])

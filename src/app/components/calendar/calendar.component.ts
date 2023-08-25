@@ -12,6 +12,7 @@ export class CalendarComponent implements OnInit {
   today:Date = new Date();
   
   calendarOptions: CalendarOptions = {};
+  header:string='Calendar';
   events: EventInput[] = [
     { title: 'Event 1', start: '2023-08-08', time: '8:00 AM' },
     { title: 'Event 2', start: '2023-08-09', time: '12:00' },

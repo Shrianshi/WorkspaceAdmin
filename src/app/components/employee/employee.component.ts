@@ -12,6 +12,10 @@ import { LocationService } from 'src/app/services/location.service';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit{
+  header:string='Employee';
+
+
+
   countEmp:number=0;
   addPassword:string='';
   confirmPassword:string='';

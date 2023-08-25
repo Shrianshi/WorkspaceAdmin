@@ -10,6 +10,7 @@ import { NotificationService } from 'src/app/services/notificationService/notifi
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
+  header:string='Notifications'
   constructor(private notiSer: NotificationService, private toast: ToastrService,private lcoationSer:LocationService) { }
   cards: any[] = []
   cardDetail: any = {

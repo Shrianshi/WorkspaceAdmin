@@ -12,6 +12,7 @@ import { LocationService } from 'src/app/services/location.service';
   styleUrls: ['./events.component.css'],
 })
 export class EventsComponent {
+  header:string='Events'
   constructor(private eventser: EventService, private toast: ToastrService, private locser: LocationService) { }
   events: any[] = []
   locations: any[] = []

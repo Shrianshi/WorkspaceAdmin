@@ -17,6 +17,7 @@ interface Card{
   styleUrls: ['./manage-conference.component.css']
 })
 export class ManageConferenceComponent  implements OnInit {
+  header:string='Conference Rooms'
   constructor(private roomSer:RoomService,private locSer:LocationService,private toast:ToastrService){}
   cards:any[]=[]
   locations:any[]=[]

@@ -12,6 +12,8 @@ import { RoomService } from 'src/app/services/roomservice/room.service';
   styleUrls: ['./slot.component.css']
 })
 export class SlotComponent implements OnInit{
+  header:string=''
+  
   constructor(private formBuilder: FormBuilder,private activatedRoute:ActivatedRoute,private roomSer:RoomService,private empSer:EmployeeService,private bookingSer:RoombookingService,private toast:ToastrService) {}
   showTextArea = false;
   roomId:string |null=''

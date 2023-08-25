@@ -12,6 +12,10 @@ import { DeskbookingService } from 'src/app/services/bookingservice/deskbooking.
   styleUrls: ['./article-section.component.css']
 })
 export class ArticleSectionComponent implements OnInit {
+  header:string='Welcome admin';
+  para:string='View complete details of all location and its corresponding details';
+  search:string='bookings';
+
   date?:Date=new Date();
   count: number = 0;
   roomscount: number=0;
@@ -47,12 +51,4 @@ export class ArticleSectionComponent implements OnInit {
     return this.occupancy;
   }
   
-  // employee() {
-  //   this.router.navigate(['employee'])
-  //   console.log("inside employee")
-  // }
-  // conference() {
-  //   this.router.navigate([''])
-  //   console.log("inside conference")
-  // }
 }
