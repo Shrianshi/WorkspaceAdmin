@@ -262,3 +262,14 @@
   font-size: 60%;
   padding: 1%;
 }
+@media (max-width: 768px) {
+  .offcanvas {
+    width: 100%; 
+  }
+}
+@media (max-width: 576px) {
+  .tophalf {
+    flex-direction: column;
+    gap: 0;
+  }
+}
