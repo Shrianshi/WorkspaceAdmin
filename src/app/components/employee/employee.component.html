@@ -1,5 +1,5 @@
-
 <app-navbar></app-navbar>
+
 <body class="body">
 
     <div class="container-fluid">
@@ -12,13 +12,14 @@
                 <nav class="navbar">
                     <form class="container-fluid  d-flex">
                         <div class="input-group">
-                            <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass" style="color: #a1a3a5;"></i></span>
+                            <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
+                                    style="color: #a1a3a5;"></i></span>
                             <input type="text" class="search form-control no-border" placeholder="Search Employees"
                                 aria-label="Search Employees" aria-describedby="basic-addon1">
                         </div>
                     </form>
                 </nav>
-    
+
             </div>
             <div class="col-sm-2" style="position:relative">
                 <img src="assets/img/bell.svg">
@@ -27,13 +28,13 @@
                 </span>
                 <button class="avatar-btn mx-2" type="submit"></button>HR admin
             </div>
-    
+
         </header>
 
         <!-- BODY -->
         <div class="row">
             <div class="col-sm-9">
-                <p style="font-size: 16px;" class="p-3">Founding <b> 453 Members</b></p>
+                <!-- <p style="font-size: 16px;" class="p-3">Founding <b> 453 Members</b></p> -->
             </div>
             <div class="col-sm-1">
                 <!-- FILTER SECTION -->
@@ -192,9 +193,8 @@
                         Add a new employee
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item"><button class="btn " type="button"
-                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                    aria-controls="offcanvasRight">Add
+                        <li><a class="dropdown-item"><button class="btn " type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add
                                     Manually</button></a>
                         </li>
                         <li><a class="dropdown-item" href="#"><button class="btn " type="button"
@@ -264,90 +264,144 @@
                     <div class="offcanvas-body">
                         <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
 
-                           
+
                             <div class="row">
                                 <div class="col"></div>
-                                
+
                                 <div class="col-sm-6">
-                                    <input type="file" class="form-control" formControlName="empimage" (change)="onFileSelected($event)">
+                                    <input type="file" class="form-control" formControlName="empimage"
+                                        (change)="onFileSelected($event)">
+                                </div>
+
+                                <div class="col"></div>
+                                <div *ngIf="employeeForm.get('empimage')?.hasError('required') && employeeForm.get('empimage')?.touched"
+                                    class="error-message">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+
+                            <br>
+
+
+                            <div class="row g-3">
+
+                                <div class="col">
+                                    <input type="text" class="form-control" formControlName="fname"
+                                        placeholder="First Name" aria-label="First Name"
+                                        [(ngModel)]="newEmployee.fname">
+
+                                </div>
+                                <div *ngIf="employeeForm.get('fname')?.hasError('required') && employeeForm.get('fname')?.touched"
+                                    class="error-message">
+                                    firstname is required.
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" formControlName="lname"
+                                        placeholder="Last name" [(ngModel)]="newEmployee.lname">
+                                    <div *ngIf="employeeForm.get('lname')?.hasError('required') && employeeForm.get('lname')?.touched"
+                                        class="error-message">
+                                        lastname is required.
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <select id="inputState" class="form-select" formControlName="locationId"
+                                        [(ngModel)]="newEmployee.locationId">
+                                        <option value="" selected>select Location</option>
+                                        <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
+                                    </select>
+                                    <div *ngIf="employeeForm.get('locationId')?.hasError('required') && employeeForm.get('locationId')?.touched"
+                                    class="error-message">
+                                    location is required.
+                                </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row g-3">
+                                <div class="col">
+                                    <select id="inputState" class="form-select" formControlName="depId"
+                                        [(ngModel)]="newEmployee.depId">
+                                        <option vlaue="" selected>select Department</option>
+                                        <option *ngFor="let d of departments" [value]="d.deptId">{{d.deptName}}</option>
+                                    </select>
+                                    <div *ngIf="employeeForm.get('depId')?.hasError('required') && employeeForm.get('depId')?.touched"
+                                    class="error-message">
+                                    department is required.
+                                </div>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Title" formControlName="title"
+                                        [(ngModel)]="newEmployee.title">
+                                        <div *ngIf="employeeForm.get('title')?.hasError('required') && employeeForm.get('title')?.touched"
+                                    class="error-message">
+                                    title is required.
+                                </div>
                                 </div>
                                 
-                                <div class="col"></div>
                             </div>
-                            
                             <br>
-                          
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Email address"
+                                        formControlName="email" [(ngModel)]="newEmployee.email">
+                                </div>
+                                <div *ngIf="employeeForm.get('email')?.hasError('required') && employeeForm.get('email')?.touched"
+                                    class="error-message">
+                                    Email is required.
+                                </div>
 
-                        <div class="row g-3">
-                         
-                            <div class="col">
-                                <input type="text" class="form-control" formControlName="fname" placeholder="First Name"
-                                    aria-label="First Name" [(ngModel)]="newEmployee.fname">
                             </div>
-                        </div>
-                        <br>
+                            <br>
 
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" formControlName="lname" placeholder="Last name" [(ngModel)]="newEmployee.lname">
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Phone number"
+                                        formControlName="phone" [(ngModel)]="newEmployee.phone">
+                                </div>
+                                <div *ngIf="employeeForm.get('phone')?.hasError('required') && employeeForm.get('phone')?.touched"
+                                    class="error-message">
+                                    Phone no. is required.
+                                </div>
+
                             </div>
-                            <div class="col">
-                                <select id="inputState" class="form-select" formControlName="locationId" [(ngModel)]="newEmployee.locationId">
-                                    <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
-                                </select>
+                            <br>
+
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="password" class="form-control" placeholder="Add Password"
+                                        formControlName="addPassword" value="addPassword"
+                                        [(ngModel)]="newEmployee.addPassword">
+                                </div>
+                                <div *ngIf="employeeForm.get('addPassword')?.hasError('required') && employeeForm.get('addPassword')?.touched"
+                                    class="error-message">
+                                    Password is required.
+                                </div>
+
                             </div>
-                        </div>
-                        <br>
-                        <div class="row g-3">
-                            <div class="col">
-                                <select id="inputState" class="form-select" formControlName="locationId" [(ngModel)]="newEmployee.depId">
-                                    <option *ngFor="let d of departments" [value]="d.deptId">{{d.deptName}}</option>
-                                </select>
+                            <br>
+
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="password" class="form-control" placeholder="Confirm Password"
+                                        formControlName="confirmPassword" [(ngModel)]="newEmployee.confirmPassword">
+                                </div>
+
                             </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Title" formControlName="title" [(ngModel)]="newEmployee.title">
+                            <p *ngIf="newEmployee.confirmPassword!='' && newEmployee.addPassword!=newEmployee.confirmPassword"
+                                class="text-danger">both password must be same</p>
+                            <br>
+
+                            <div class="row g-3">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">Add</button>
+                                    <button type="submit" class="btn" (click)="employeeForm.reset()">Cancel</button>
+                                </div>
+
                             </div>
-                        </div>
-                        <br>
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Email address" formControlName="email" [(ngModel)]="newEmployee.email">
-                            </div>
-
-                        </div>
-                        <br>
-
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Phone number" formControlName="phone" [(ngModel)]="newEmployee.phone">
-                            </div>
-
-                        </div>
-                        <br>
-
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Add Password" formControlName="addPassword" [(ngModel)]="newEmployee.addPassword">
-                            </div>
-
-                        </div>
-                        <br>
-
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Confirm Password" formControlName="pass2">
-                            </div>
-
-                        </div>
-                        <br>
-
-                        <div class="row g-3">
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">Add</button>
-                                <button type="submit" class="btn" (click)="employeeForm.reset()">Cancel</button>
-                            </div>
-
-                        </div>
                         </form>
                     </div>
 
@@ -365,10 +419,10 @@
 
         <div>
             <div class="row">
-                <div class="col-sm-3 " *ngFor="let card of cards">
+                <div class="col-sm-3 " *ngFor="let card of employees">
                     <div class="card">
 
-                        <div class="card-body" >
+                        <div class="card-body">
                             <div>
                                 <div class="dropdown">
                                     <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -381,8 +435,6 @@
 
                                     </ul>
                                 </div>
-
-
                                 <button type="button" class="red-btn">
                                     Out
                                 </button>
@@ -391,64 +443,26 @@
                             <div class="position-relative">
 
                                 <div class="position-absolute top-50 start-50 translate-middle">
-                                    <img [src]="card.imageUrl" alt="pic" class="rounded-circle " width="60px"
-                                        height="60px" id="p1">
+                                    <img [src]=" 'data:image/png;base64,' + card.imageData" alt="pic"
+                                        class="rounded-circle " width="60px" height="60px" id="p1">
                                 </div>
-
-
                             </div>
-
-
-
                             <br><br>
                             <div class="card-title black" align="center">
-                                {{card.EmpId}}-{{ card.fname }} {{card.lname}}</div>
-                            <p class="card-text" style="font-weight: 400;
-                        font-size: 12px;">{{card.Department}} - {{card.Title}}<br><br>
-                                <i class="bi-envelope"></i> {{card.Email}}<br>
-                                <i class="bi-telephone"></i> {{card.Phone}}
-                            </p>
-
+                                {{card.employeeId}}-{{ card.fname }} {{card.lname}}</div>
+                            <p class="card-text" style="font-size: 10px;">{{card.title}} - {{card.department.deptName}}<br><br>
+                        
+                               
+                            </p><hr>
+                            <span class="card-text" style="font-size: 11px;"><i class="bi-envelope"></i> {{card.email}}</span><br>
+                            <span class="card-text" style="font-size: 11px;"><i class="bi-telephone"></i> {{card.phone}}</span>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
-        <!-- <div class="container-fluid p-3 ">
-            View
-            <div class="btn-group">
-                <button class="btn  btn-sm dropdown-toggle btn-outline-secondary" type="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    8 &nbsp; &nbsp; &nbsp;<i class="bi-arrow-down-square"></i>
-                    <ul class="dropdown-menu">
-                        <li>4</li>
-                        <li>8</li>
-                        <li>12</li>
-                    </ul>
-                </button> &nbsp; Employees per page
-            </div>
 
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-end  border-0">
-                    Showing 8/500 results &nbsp; &nbsp; <li class="page-item">
-                        <a class="page-link"><i class="bi-arrow-left"></i></a>
-                    </li>
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">1</span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link"><i class="bi-arrow-right"></i></a>
-                    </li>
-                </ul>
-            </nav>
-
-        </div> -->
         <section class="page" id="#paginSection">
             <div class="container-fluid small">
                 <div class="row">
@@ -462,12 +476,11 @@
                         Employees per page
                     </div>
 
-                    <span class="col-sm-2 text-muted small" id="spanResult">Showing 8/500 results</span>
+                    <span class="col-sm-2 text-muted small" id="spanResult">Showing {{countEmp}}/{{countEmp}} results</span>
 
-                    <div class="col-sm-3" id="pagination">
+                    <!-- <div class="col-sm-3" id="pagination">
                         <div class="pagination">
-                            <button class="next-arrow"><img
-                                    src="   assets/images/left-arrow.jpeg"></button>
+                            <button class="next-arrow"><img src="   assets/images/left-arrow.jpeg"></button>
 
                             <ul class="ul">
                                 <li class="link active li" value="1">1</li>
@@ -476,10 +489,9 @@
                                 <li class="link li" value="4">4</li>
                                 <li class="link li" value="5">5</li>
                             </ul>
-                            <button class="next-arrow"><img
-                                    src="assets/images/right-arrow.jpeg"></button>
+                            <button class="next-arrow"><img src="assets/images/right-arrow.jpeg"></button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 

@@ -127,7 +127,7 @@
           <div class="card-body">
             <h6 class="card-title">{{ card.eventTitle }}</h6>
             <p class="card-text text-secondary" id="eventDate">
-              {{ card.startTime }} {{ card.endTime }}
+              {{ card.startTime | date:'mediumDate' }}, {{ card.startTime | date:'shortTime' }}-{{ card.endTime |date:'shortTime' }}
             </p>
             <button type="button" class="btn btn-outline-primary button" routerLink="/viewevent/{{card.eventId}}">
               View event details

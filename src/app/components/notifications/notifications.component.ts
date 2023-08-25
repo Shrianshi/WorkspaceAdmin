@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { error } from 'jquery';
 import { ToastrService } from 'ngx-toastr';
+import { LocationService } from 'src/app/services/location.service';
 import { NotificationService } from 'src/app/services/notificationService/notification.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { NotificationService } from 'src/app/services/notificationService/notifi
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
-  constructor(private notiSer: NotificationService, private toast: ToastrService) { }
+  constructor(private notiSer: NotificationService, private toast: ToastrService,private lcoationSer:LocationService) { }
   cards: any[] = []
   cardDetail: any = {
     notificationSubject: "",
@@ -18,6 +19,7 @@ export class NotificationsComponent implements OnInit {
     date: "",
     time: ""
   }
+  locations:any[]=[]
   currentDate = new Date();
 
   year = this.currentDate.getFullYear();
@@ -30,6 +32,11 @@ export class NotificationsComponent implements OnInit {
     this.notiSer.getAllNotification().subscribe((data) => {
       this.cards = data
     }, (error) => {
+      console.log(error)
+    })
+    this.lcoationSer.getAllLocation().subscribe((data)=>{
+      this.locations=data
+    },(error)=>{
       console.log(error)
     })
   }
