@@ -1,4 +1,6 @@
 <app-navbar></app-navbar>
+<app-header [header]="header"></app-header>
+<hr>
 <app-header [header]="header"></app-header><hr>
 
 <body class="body container-fluid mt-3" id="article">
@@ -55,7 +57,7 @@
                 <img src="assets/images/Loaction.svg" alt="" />
                 &nbsp;
 
-                <p class="basicDetails">{{room.roomLocation}}</p>
+                <p class="basicDetails">{{room.location.city}}</p>
               </fieldset>
             </div>
             <div class="col-sm-3">
