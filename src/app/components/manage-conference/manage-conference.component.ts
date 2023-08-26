@@ -50,6 +50,7 @@ export class ManageConferenceComponent implements OnInit {
     }, (error) => {
       console.log(error)
     })
+
     this.roomSer.getAllRoom().subscribe((data) => {
       this.cards = data
     }, (error) => {
@@ -65,6 +66,8 @@ export class ManageConferenceComponent implements OnInit {
     this.roomSer.addRoom(this.newRoom).subscribe((data) => {
       this.toast.success('Room Added')
       console.log(data);
+      this.toast.success('Room Added')
+
     });
   }
 
