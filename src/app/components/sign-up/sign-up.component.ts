@@ -36,8 +36,8 @@ export class SignUpComponent implements OnInit{
       // this.router.navigate(['article-section']);
       this.authSer.loginAdmin(this.loginData).subscribe((data)=>{
         localStorage.setItem('token',data.token)
-        this.toast.success('Login SuccessFul')
-        console.log("name",data.user.name)
+        localStorage.setItem('name',data.user.name)
+        this.toast.success('Welcome '+data.user.name)
         this.router.navigate(['article-section']);
       },(error)=>{
         this.toast.error(error.error)
