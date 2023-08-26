@@ -58,15 +58,14 @@
                             <button type="button" class="button_close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"><img src="../../../assets/images/close-icon.svg"></button>
 
-                        </div>
-
-                        <!-- Offcanvas Form Body -->
+                        
+            <!-- Offcanvas Form Body -->
 
                         <div class="offcanvas-body">
                             <div class="row">
                                 <div class="col">
                                     <select class="form-select text-muted" aria-label="Default select example"
-                                        [(ngModel)]="newRoom.roomLocation">
+                                        [(ngModel)]="newRoom.locationId">
                                         <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
 
                                     </select>
@@ -76,6 +75,7 @@
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Room Name" aria-label="City"
                                         [(ngModel)]="newRoom.roomName">
+
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Capacity" aria-label="State"
@@ -155,9 +155,9 @@
                                         </div>
                                         <div class="col-sm-4">
                                             <button class=" small-icon"
-                                                [class.card-btn-pune]="card.roomLocation === 'Pune'"
-                                                [class.card-btn-bangalore]="card.roomLocation === 'Bangalore'"
-                                                [class.card-btn-chennai]="card.roomLocation === 'Chennai'">&nbsp;
+                                                [class.card-btn-pune]="card.location.city === 'Pune'"
+                                                [class.card-btn-bangalore]="card.location.city === 'Bangalore'"
+                                                [class.card-btn-chennai]="card.location === 'Chennai' ">&nbsp;
                                                 {{card.location.city}} &nbsp;</button>
                                         </div>
                                     </div>

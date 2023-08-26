@@ -50,6 +50,7 @@ export class ManageConferenceComponent implements OnInit {
     }, (error) => {
       console.log(error)
     })
+
     this.roomSer.getAllRoom().subscribe((data) => {
       this.cards = data
     }, (error) => {
