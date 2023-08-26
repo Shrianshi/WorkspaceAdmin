@@ -12,4 +12,8 @@ export class WorkspaceFilterService {
     let dataUrl: string = `https://localhost:7239/api/WorkSpace/event/location?locationName=${locationName}`
     return this.http.get<any>(dataUrl)
   }
+  getNotificationByLocation(locationName: string): Observable<any> {
+    let dataUrl = `https://localhost:7239/api/WorkSpace/notification/location?locationName=${locationName}`
+    return this.http.get<any>(dataUrl)
+  }
 }
