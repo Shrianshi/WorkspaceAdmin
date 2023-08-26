@@ -4,11 +4,11 @@ import { LocationService } from 'src/app/services/location.service';
 import { RoomService } from 'src/app/services/roomservice/room.service';
 import { ToastrService } from 'ngx-toastr';
 
-interface Card{
-  ImageUrl:string;
-  RoomName:string;
-  Location:number;
-  Capacity:number;
+interface Card {
+  ImageUrl: string;
+  RoomName: string;
+  Location: number;
+  Capacity: number;
 }
 
 @Component({
@@ -16,18 +16,18 @@ interface Card{
   templateUrl: './manage-conference.component.html',
   styleUrls: ['./manage-conference.component.css']
 })
-export class ManageConferenceComponent  implements OnInit {
-  header:string='Conference Rooms'
-  constructor(private roomSer:RoomService,private locSer:LocationService,private toast:ToastrService){}
-  cards:any[]=[]
-  locations:any[]=[]
+export class ManageConferenceComponent implements OnInit {
+  header: string = 'Conference Rooms'
+  constructor(private roomSer: RoomService, private locSer: LocationService, private toast: ToastrService) { }
+  cards: any[] = []
+  locations: any[] = []
 
   newRoom: any = {
     imageData: '',
     roomName: '',
-    roomLocation: "Bangalore",
+    locationId: 1,
     roomCapacity: 5,
-    amenities:[]
+    amenities: []
   };
   amenities: string[] = ['TV', 'Whiteboard', 'Wi-Fi', 'Digital Projector'];
   selectedAmenities: { [key: string]: boolean } = {};
@@ -44,38 +44,35 @@ export class ManageConferenceComponent  implements OnInit {
     }
     fileReader.readAsArrayBuffer(file);
   }
-  ngOnInit():void {
-    this.locSer.getAllLocation().subscribe((data)=>{
-      this.locations=data
-    },(error)=>{
-      console.log(error)
-    })
-    this.roomSer.getAllRoom().subscribe((data)=>{
-      this.cards=data
-    },(error)=>{
+  ngOnInit(): void {
+    this.locSer.getAllLocation().subscribe((data) => {
+      this.locations = data
+    }, (error) => {
       console.log(error)
     })
 
+    this.roomSer.getAllRoom().subscribe((data) => {
+      this.cards = data
+    }, (error) => {
+      console.log(error)
+    })
   }
   addRoom() {
     const selectedAmenitiesList = Object.keys(this.selectedAmenities).filter(amenity => this.selectedAmenities[amenity]);
     console.log('Selected Amenities:', selectedAmenitiesList);
-
     const amenitiesJson = JSON.stringify(selectedAmenitiesList);
-
     this.newRoom.amenities = amenitiesJson;
-  
     console.log("Final data", this.newRoom);
-  
     this.roomSer.addRoom(this.newRoom).subscribe((data) => {
+      this.toast.success('Room Added')
       console.log(data);
       this.toast.success('Room Added')
 
     });
   }
 
- 
 
- 
+
+
 
 }
