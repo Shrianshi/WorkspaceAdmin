@@ -51,7 +51,6 @@ export class ManageConferenceComponent  implements OnInit {
       console.log(error)
     })
     this.roomSer.getAllRoom().subscribe((data)=>{
-      this.toast.success('Room Added')
       this.cards=data
     },(error)=>{
       console.log(error)
@@ -61,8 +60,6 @@ export class ManageConferenceComponent  implements OnInit {
   addRoom() {
     const selectedAmenitiesList = Object.keys(this.selectedAmenities).filter(amenity => this.selectedAmenities[amenity]);
     console.log('Selected Amenities:', selectedAmenitiesList);
-  
- 
 
     const amenitiesJson = JSON.stringify(selectedAmenitiesList);
 
@@ -72,6 +69,8 @@ export class ManageConferenceComponent  implements OnInit {
   
     this.roomSer.addRoom(this.newRoom).subscribe((data) => {
       console.log(data);
+      this.toast.success('Room Added')
+
     });
   }
 
