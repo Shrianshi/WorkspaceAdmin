@@ -66,8 +66,6 @@ export class ManageConferenceComponent implements OnInit {
     this.roomSer.addRoom(this.newRoom).subscribe((data) => {
       this.toast.success('Room Added')
       console.log(data);
-      this.toast.success('Room Added')
-
     });
   }
 
