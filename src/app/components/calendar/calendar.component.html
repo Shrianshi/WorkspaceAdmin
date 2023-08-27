@@ -47,15 +47,11 @@
         <hr>
         <h5>Events</h5>
         <p>Today, {{today|date}}</p>
-        <div class="card p-2"  [ngStyle]="{'background-color':'lightblue'}" >
-            <p>{{events2|json}}</p>
+        <div class="card p-2" *ngFor="let c of events"  [ngStyle]="{'background-color':'lightblue'}" >
+            <p>{{c.title}}</p>
             <button class="btn btn-outline-primary" [ngStyle]="{'width': '50%'}">View Details</button>
         </div>
-        <br>
-        <div class="card p-2"  [ngStyle]="{'background-color':'lightpink'}" >
-            <p>Event 2</p>
-            <button class="btn btn-outline-primary" [ngStyle]="{'width': '50%'}">View Details</button>
-        </div>
+        
       </div>
     
     </div>
