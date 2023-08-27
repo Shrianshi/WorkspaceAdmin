@@ -28,20 +28,11 @@ export class CalendarComponent implements OnInit {
         center: 'title', 
         end: 'prev,next'             
       },
-     
-      // events: [
+      events: [
        
-      //   { title: 'event 3', date: '2023-07-25',time:'7.00' }
+        { title: 'event 3', date: '2023-07-25',time:'7.00' }
 
-      // ],
-      events:this.events,
-      eventContent: this.customEventContent, 
-
-      eventTimeFormat: {
-        hour: '2-digit',
-        minute: '2-digit',
-        meridiem: true
-      },
+      ],
       dayMaxEventRows: true,
       plugins: [dayGridPlugin] ,
       
