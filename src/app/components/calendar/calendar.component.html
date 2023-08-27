@@ -20,10 +20,14 @@
         <hr>
         <h5>Events</h5>
         <p>Today, {{today|date}}</p>
-        <div class="card p-2" *ngFor="let c of events"  [ngStyle]="{'background-color':'lightblue'}" >
+        <div class="card p-2" *ngFor="let c of eventsToday"  [ngStyle]="{'background-color':'lightblue'}" >
             <p>{{c.title}}</p>
+            <p>{{c.start}}</p>
+            <p *ngIf="c.extendedProps && c.extendedProps['time']">{{ c.extendedProps['time'] }}</p>
             <button class="btn btn-outline-primary" [ngStyle]="{'width': '50%'}">View Details</button>
+
         </div>
+
        
 
         
