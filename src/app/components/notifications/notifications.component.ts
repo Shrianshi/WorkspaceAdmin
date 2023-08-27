@@ -3,6 +3,7 @@ import { error } from 'jquery';
 import { ToastrService } from 'ngx-toastr';
 import { LocationService } from 'src/app/services/location.service';
 import { NotificationService } from 'src/app/services/notificationService/notification.service';
+import { WorkspaceFilterService } from 'src/app/services/workspaceFilters/workspace-filter.service';
 
 @Component({
   selector: 'app-notifications',
@@ -10,17 +11,17 @@ import { NotificationService } from 'src/app/services/notificationService/notifi
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
-  header:string='Notifications'
-  constructor(private notiSer: NotificationService, private toast: ToastrService,private lcoationSer:LocationService) { }
+  header: string = 'Notifications'
+  constructor(private notiSer: NotificationService, private toast: ToastrService, private lcoationSer: LocationService, private wsFilterSer: WorkspaceFilterService) { }
   cards: any[] = []
   cardDetail: any = {
     notificationSubject: "",
     description: "",
-    locationd:1,
-    date: "",
-    time: ""
+    locationId: 0,
+    date: "2023-08-26T22:09:44.005Z",
+    time: "2023-08-26T22:09:44.005Z",
   }
-  locations:any[]=[]
+  locations: any[] = []
   currentDate = new Date();
 
   year = this.currentDate.getFullYear();
@@ -35,9 +36,9 @@ export class NotificationsComponent implements OnInit {
     }, (error) => {
       console.log(error)
     })
-    this.lcoationSer.getAllLocation().subscribe((data)=>{
-      this.locations=data
-    },(error)=>{
+    this.lcoationSer.getAllLocation().subscribe((data) => {
+      this.locations = data
+    }, (error) => {
       console.log(error)
     })
   }
@@ -51,6 +52,29 @@ export class NotificationsComponent implements OnInit {
       console.log(this.cardDetail)
     }, (error) => {
       console.log(error)
+    })
+  }
+  allNotification() {
+    this.notiSer.getAllNotification().subscribe((data) => {
+      this.cards = data
+    }, (error) => {
+      console.log(error)
+    })
+
+  }
+  chennaiNotification() {
+    this.wsFilterSer.getNotificationByLocation("Chennai").subscribe((data) => {
+      this.cards = data
+    })
+  }
+  puneNotification() {
+    this.wsFilterSer.getNotificationByLocation("Pune").subscribe((data) => {
+      this.cards = data
+    })
+  }
+  coimbatoreNotification() {
+    this.wsFilterSer.getNotificationByLocation("Coimbatore").subscribe((data) => {
+      this.cards = data
     })
   }
 }
