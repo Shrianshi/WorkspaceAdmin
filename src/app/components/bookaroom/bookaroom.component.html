@@ -33,11 +33,11 @@
                   Room:</small><br>{{card.roomName}}</h6>
             </div>
             <div class="col-sm-4">
-              <button class="card-btn-chennai small-icon" [ngStyle]="{'background-color': card.Color}"
-                [class.card-btn-pune]="card.roomLocation === 'Pune'"
-                [class.card-btn-bangalore]="card.roomLocation === 'Bangalore'"
-                [class.card-btn-chennai]="card.roomLocation === 'Chennai'">&nbsp; {{card.roomLocation}} &nbsp;</button>
-            </div>
+              <button class=" small-icon"
+                  [class.card-btn-pune]="card.location.city === 'Pune'"
+                  [class.card-btn-bangalore]="card.location.city === 'Bangalore'"
+                  [class.card-btn-chennai]="card.location.city === 'Chennai' ">&nbsp;
+                  {{card.location.city}} &nbsp;</button>
           </div>
           <br>
           <div class="row">

@@ -16,7 +16,7 @@ export class NotificationsComponent implements OnInit {
   cardDetail: any = {
     notificationSubject: "",
     description: "",
-    location: "",
+    locationd:1,
     date: "",
     time: ""
   }

@@ -3,34 +3,6 @@
 <body class="body">
     <div class="container-fluid whole">
         <app-header [header]="header"></app-header><hr>
-        <!-- <header class="row py-4 border-bottom">
-            <div class="col-sm-6">
-                <h6 class="">Notifications</h6>
-            </div>
-
-            <div class="col-sm-4 px-1">
-                <nav class="navbar">
-                    <form class="container-fluid  d-flex">
-                        <div class="input-group">
-                            <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
-                                    style="color: #a1a3a5;"></i></span>
-                            <input type="text" class="search form-control no-border" placeholder="Search Employees"
-                                aria-label="Search Employees" aria-describedby="basic-addon1">
-                        </div>
-                    </form>
-                </nav>
-
-            </div>
-            <div class="col-sm-2" style="position:relative">
-                <img src="assets/img/bell.svg">
-                <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
-                    <span class="visually-hidden">Hello</span>
-                </span>
-                <button class="avatar-btn mx-2" type="submit"></button>HR admin
-            </div>
-
-        </header> -->
-
         <div class="" style="display: flex;justify-content: space-between;">
             <div class="tophalf py-4">
                 <button type="button">
@@ -78,7 +50,7 @@
                     <!-- <label for="exampleFormControlInput1" class="form-label"></label>
                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Location"
                         [(ngModel)]="cardDetail.location"> -->
-                    <select name="location" id="location"  [(ngModel)]="cardDetail.location">
+                    <select name="location" id="location"  [(ngModel)]="cardDetail.locationId">
                         <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
                     </select>    
                 </div>
