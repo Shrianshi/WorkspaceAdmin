@@ -4,8 +4,6 @@
     <div class="container-fluid whole">
         <app-header [header]="header"></app-header>
         <hr>
-       
-
         <div class="" style="display: flex;justify-content: space-between;">
             <div class="tophalf py-4">
                 <button type="button">
@@ -50,10 +48,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <!-- <label for="exampleFormControlInput1" class="form-label"></label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Location"
-                        [(ngModel)]="cardDetail.location"> -->
-                    <select name="location" id="location"  [(ngModel)]="cardDetail.location">
+
+                    <select name="location" id="location" [(ngModel)]="cardDetail.location">
                         <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
                     </select>
                 </div>
