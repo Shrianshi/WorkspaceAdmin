@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
-<app-header [header]="header"></app-header>
-<hr>
+
+<app-header [header]="room.roomName"></app-header><hr>
 
 <body class="body container-fluid mt-3" id="article">
   <main class="row">
@@ -55,7 +55,6 @@
               <fieldset class="fieldsetdetails form-group">
                 <img src="assets/images/Loaction.svg" alt="" />
                 &nbsp;
-
                 <p class="basicDetails">{{room.location.city}}</p>
               </fieldset>
             </div>

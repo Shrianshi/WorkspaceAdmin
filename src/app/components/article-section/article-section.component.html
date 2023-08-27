@@ -1,4 +1,3 @@
-
 <app-navbar></app-navbar>
 <div class="body container-fluid" id="article">
     <app-header [header]="header" [para]="para" [search]="search"></app-header>
@@ -14,7 +13,7 @@
 
             <!-- FIRST COLUMN OF BODY SECOND SUBROW -->
             <div class="article">
-            
+
                 <!-- STATUS CHECK ROW-->
                 <div class="row" (onchange)="calculating()">
                     <div class="col-md-6 mb-2">
@@ -31,11 +30,13 @@
                                             <h6>Quiet({{count}}/{{roomscount}})</h6>
                                         </div>
                                         <div class="row">
-                                            <div class="blank status-bar mx-1"></div>
-                                            <div class="status-bar blank mx-1" ></div>
-                                            <div class="status-bar blank mx-1"></div>
-                                            <div class="status-bar blank mx-1"></div>
-                                            <div class="status-bar blank mx-1"></div>
+                                            <div [class.blank]="count==0" [class.quiet]="calculating()<=40"
+                                                [class.busy]="calculating()>40" class="status-bar mx-1"></div>
+                                            <div [class.blank]="count<=20" [class.quiet]="calculating()<=40"
+                                                [class.busy]="calculating()>40" class="status-bar mx-1"></div>
+                                            <div [class.blank]="count<=40" [class.busy]="calculating()>40" class="status-bar mx-1"></div>
+                                            <div [class.blank]="count<=60" [class.busy]="calculating()>60" class="status-bar mx-1"></div>
+                                            <div [class.blank]="count<=80" [class.busy]="calculating()>80" class="status-bar mx-1"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -47,8 +48,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-4 div-img">
-                                        <img src="assets/img/deskbook.png"
-                                            class="dash-img bg-warning-subtle pt-1">
+                                        <img src="assets/img/deskbook.png" class="dash-img bg-warning-subtle pt-1">
                                     </div>
                                     <div class="col-sm-8 px-4">
                                         <h6 class="card-title">Desks</h6>
@@ -77,29 +77,34 @@
                 <!-- SERVICES SECTION -->
                 <div class="row mt-5">
                     <h6>All Services</h6>
-                
+
                     <div class="services text-center">
-                        <a routerLink="/employee"><div class="i s1 p-2"><img src="assets/img/employee.png" class="img">
-                        </div></a>
+                        <a routerLink="/employee">
+                            <div class="i s1 p-2"><img src="assets/img/employee.png" class="img">
+                            </div>
+                        </a>
                         <a routerLink="/employee">
                             <p class="p text-dark fw-semibold mx-2">Employee Data</p>
                         </a>
                     </div>
                     <div class="services text-center">
-                        <div class="i s2 p-2"><a routerLink="/rbooking"><img src="assets/img/rbooking.png" class="img"></a>
+                        <div class="i s2 p-2"><a routerLink="/rbooking"><img src="assets/img/rbooking.png"
+                                    class="img"></a>
                         </div>
                         <a routerLink="/rbooking">
                             <p class="p text-dark fw-semibold mx-2">Room Booking</p>
                         </a>
                     </div>
                     <div class="services text-center">
-                        <div class="i s3 p-2"><a routerLink="/dbooking"><img src="assets/img/dbooking.png" class="img"></a></div>
+                        <div class="i s3 p-2"><a routerLink="/dbooking"><img src="assets/img/dbooking.png"
+                                    class="img"></a></div>
                         <a routerLink="/dbooking">
                             <p class="p text-dark fw-semibold mx-2">Desk Booking</p>
                         </a>
                     </div>
                     <div class="services text-center">
-                        <div class="i s4 p-2"><a routerLink="/calendar"><img src="assets/img/calicon.png" class="img"></a>
+                        <div class="i s4 p-2"><a routerLink="/calendar"><img src="assets/img/calicon.png"
+                                    class="img"></a>
                         </div>
                         <a routerLink="/calendar">
                             <p class="p text-dark fw-semibold mx-2">My Bookings</p>
@@ -107,28 +112,31 @@
                     </div>
 
                     <div class="services  text-center">
-                        <div class="i s5 p-2"><a routerLink="/events"><img src="assets/img/eventicon.png" class="img"></a>
-                        </div> 
+                        <div class="i s5 p-2"><a routerLink="/events"><img src="assets/img/eventicon.png"
+                                    class="img"></a>
+                        </div>
                         <a routerLink="/events">
                             <p class="p text-dark fw-semibold mx-4">Events</p>
                         </a>
                     </div>
                     <div class="services  border text-center">
-                        <div class="i s6 p-2"><a routerLink="/notifications"><img src="assets/img/Notifyicon.png" class="img"></a>
+                        <div class="i s6 p-2"><a routerLink="/notifications"><img src="assets/img/Notifyicon.png"
+                                    class="img"></a>
                         </div>
                         <a routerLink="/notifications">
                             <p class="p text-dark fw-semibold text-center mx-2">Notifications</p>
                         </a>
                     </div>
                     <div class="services text-center">
-                        <div class="i s7 p-2"><a routerLink="/manage/location" class="location"><img src="assets/img/locicon.png"
-                                    class="img"></a></div>
+                        <div class="i s7 p-2"><a routerLink="/manage/location" class="location"><img
+                                    src="assets/img/locicon.png" class="img"></a></div>
                         <a routerLink="/manage/location" class="location">
                             <p class="p text-dark fw-semibold text-center mx-3">Locations</p>
                         </a>
                     </div>
                     <div class="services p-1 text-center">
-                        <div class="i s8 p-2"><a routerLink="/manage/conference"><img src="assets/img/croom.png" class="img"></a>
+                        <div class="i s8 p-2"><a routerLink="/manage/conference"><img src="assets/img/croom.png"
+                                    class="img"></a>
                         </div>
                         <a routerLink="/manage/conference">
                             <p class="p text-dark fw-semibold">Conference Rooms</p>
