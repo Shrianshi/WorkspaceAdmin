@@ -1,39 +1,6 @@
 <app-navbar></app-navbar>
 <app-header [header]="header"></app-header><hr>
-<!-- <header class="row py-4 border-bottom mb-3">
-    <div class="col-sm-6">
-      <h6>Events</h6>
-    </div>
 
-    <div class="col-sm-4 px-1">
-      <nav class="navbar">
-        <form class="container-fluid d-flex">
-          <div class="input-group">
-            <span class="search input-group-text" id="basic-addon1"
-              ><i class="fa fa-magnifying-glass" style="color: #a1a3a5"></i
-            ></span>
-            <input
-              type="text"
-              class="search form-control no-border"
-              placeholder="Search Employees"
-              aria-label="Search Employees"
-              aria-describedby="basic-addon1"
-            />
-          </div>
-        </form>
-      </nav>
-    </div>
-    <div class="col-sm-2" style="position: relative">
-      <img src="assets/img/bell.svg" />
-      <span
-        class="badge bg-danger rounded-circle p-1"
-        style="position: absolute; left: 21px; top: 3px"
-      >
-        <span class="visually-hidden">Hello</span>
-      </span>
-      <button class="avatar-btn mx-2" type="submit"></button>HR admin
-    </div>
-  </header> -->
 <body>
     <main>
         
@@ -41,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-10">
-                        <span class="mx-2"><b>Founding 12 Bookings</b></span>
+                        <span class="mx-2"><b>Finding {{count}} Bookings</b></span>
                         <select id="allLocationFilter" class="text-secondary border shadow-sm ms-2">
                             <option value="AllLocation" selected>All Locations</option>
                         </select>
@@ -56,26 +23,26 @@
                 </div>
             </div>
         </section>
-        <div class="container">
-            <div>
-                <img src="assets/images/sunset1.svg" alt="SunsetmeetingroomImage" class="bannerImage">
+        <div class="container" *ngFor="let card of cards">
+            <div >
+                <img [src]="'data:image/png;base64,' + card.roomDetail.imageData" alt="SunsetmeetingroomImage" class="bannerImage">
             </div>
             <div class="BookingInfo">
                 <div>
-                    <p class="bookingTitle">Storyboard</p>
+                    <p class="bookingTitle">{{card.roomDetail.roomName}}</p>
                 </div>
                 <div>
-                    <p class="bookingIdtitle">Booking id &nbsp;<span class="BookingID">#5424</span></p>
+                    <p class="bookingIdtitle">Booking id &nbsp;<span class="BookingID">#{{card.bookingId}}</span></p>
                 </div>
                 <div>
                     <button class="Viewandmodifydata">View and Modify Booking</button>
                 </div>
                 <div class="BookingData">
-                    <p><i class="bi bi-chat-left"></i>&nbsp;&nbsp;CHC Developer meet</p>
-                    <p><i class="bi bi-geo-alt"></i> &nbsp;&nbsp;Ratha tek, Chennai</p>
-                    <p><i class="bi bi-person"></i>&nbsp;&nbsp; 8 people</p>
-                    <p><i class="bi bi-calendar4"></i>&nbsp;&nbsp;July 11, 2022 </p>
-                    <p><i class="bi bi-clock"></i>&nbsp;&nbsp; 11:00am- 12:00pm</p>
+                    <p><i class="bi bi-chat-left"></i>&nbsp;&nbsp;{{card.meetingTitle}}</p>
+                    <p><i class="bi bi-geo-alt"></i> &nbsp;&nbsp;{{card.roomDetail.location.city}}</p>
+                    <p><i class="bi bi-person"></i>&nbsp;&nbsp; {{card.numberOfParticipants}} people</p>
+                    <p><i class="bi bi-calendar4"></i>&nbsp;&nbsp;{{card.startTime| date:'mediumDate'}} </p>
+                    <p><i class="bi bi-clock"></i>&nbsp;&nbsp; {{card.startTime| date:'shortTime'}}- {{card.endTime| date:'shortTime'}}</p>
                 </div>
                 
             </div>

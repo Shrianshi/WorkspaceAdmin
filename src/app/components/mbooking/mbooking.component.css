@@ -2,16 +2,16 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 10px;
+    padding: 1%;
     border: 1px solid #DDDEDE;
     border-radius: 8px;
     width: 70%;
     height: 150px;
-    margin: 20px;
+    margin: 2%;
 }
 .bannerImage{
-    padding: 5px;
-    width: 190px;
+    padding: 2%;
+    width: 95%;
     height: 150px;
 }
 .BookingInfo{
@@ -25,34 +25,25 @@
     display: flex;
 }
 
-.Viewandmodifydata{
-    float: right;
-}
-
-.bookingTitle{
-    font-family: 'Inter';
+/* .bookingTitle{
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
-}
-.bookingIdtitle{
-    font-family: 'Manrope';
-    font-style: normal;
+} */
+/* .bookingIdtitle{
     font-weight: 500;
     font-size: 12px;
     color: #626D8A;
-}
-.BookingID{
-    font-family: 'Manrope';
-    font-style: normal;
+} */
+/* .BookingID{
+
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 0.05em;
     color: #1F2131;
-}
+} */
 .Viewandmodifydata{
-    font-family: 'Manrope';
-    font-style: normal;
+    float: right;
     font-weight: 500;
     font-size: 14px;
     line-height: 19px;
@@ -62,8 +53,7 @@
     border-radius: 4px;
 }
 .BookingData p{
-    font-family: 'Manrope';
-    font-style: normal;
+   
     font-weight: 600;
     font-size: 14px;
     padding: 10px;
@@ -71,29 +61,6 @@
     color: #1F2131;
 }
 
-
-.body{
-    width:100%;
-  }
-  .avatar-btn{
-    height:20px;
-    width:20px;
-    border-radius:10px;
-    background-color: black;
-  }
-  .search{
-    /* width:300px; */
-    height:25px;
-    background-color: rgba(216, 225, 228, 0.345);
-    font-size: 15px;
-    border:0px solid rgb(234, 224, 224);
-  }
-  #i{
-    color:#aaaaab;
-  }
-  .search::placeholder{
-    color: rgb(154, 152, 152);
-  }
   
   /*card icons*/
   .conf-icon{
