@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 
-<app-header [header]="header" [search]="search"></app-header><hr>
+<app-header [header]="header" [search]="search"></app-header>
+<hr>
 
 <div class="parent">
   <div class="bookingInfo ms-3">
@@ -10,7 +11,7 @@
       </select>
     </div>
     <div>
-  
+
       <input type="date" class="basicDetails ms-3">
     </div>
     <div>
@@ -23,7 +24,7 @@
 
   <div class="BookingPlaces">
 
-    <div class="card-size" *ngFor="let card of cards"  routerLink="/slot/{{card.roomId}}">
+    <div class="card-size" *ngFor="let card of cards" routerLink="/slot/{{card.roomId}}">
       <div class="card">
         <img [src]=" 'data:image/png;base64,' + card.imageData" class="card-img-top" alt="Card image cap">
         <div class="card-body">
@@ -33,11 +34,13 @@
                   Room:</small><br>{{card.roomName}}</h6>
             </div>
             <div class="col-sm-4">
-              <button class=" small-icon"
-                  [class.card-btn-pune]="card.location.city === 'Pune'"
-                  [class.card-btn-bangalore]="card.location.city === 'Bangalore'"
-                  [class.card-btn-chennai]="card.location.city === 'Chennai' ">&nbsp;
-                  {{card.location.city}} &nbsp;</button>
+
+              <button class="card-btn-chennai small-icon" [ngStyle]="{'background-color': card.Color}"
+                [class.card-btn-pune]="card.roomLocation === 'Pune'"
+                [class.card-btn-bangalore]="card.roomLocation === 'Bangalore'"
+                [class.card-btn-chennai]="card.roomLocation === 'Chennai'">&nbsp; {{card.location.city}} &nbsp;</button>
+            </div>
+
           </div>
           <br>
           <div class="row">

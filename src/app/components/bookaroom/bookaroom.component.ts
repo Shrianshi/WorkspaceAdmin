@@ -1,13 +1,13 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RoomService } from 'src/app/services/roomservice/room.service';
 
-interface Card{
-  ImageUrl:string;
-  RoomName:string;
-  Location:string;
-  Capacity:number;
-  Color:string;
+interface Card {
+  ImageUrl: string;
+  RoomName: string;
+  Location: string;
+  Capacity: number;
+  Color: string;
 }
 
 @Component({
@@ -16,26 +16,24 @@ interface Card{
   styleUrls: ['./bookaroom.component.css']
 })
 export class BookaroomComponent implements OnInit {
-  header:string='Book a room';
-  search:string='booked room';
+  header: string = 'Book a room';
+  search: string = 'booked room';
 
-  constructor(private router: Router,private roomSer:RoomService) {}
+  constructor(private router: Router, private roomSer: RoomService) { }
 
   redirectToSlot() {
     this.router.navigate(['slot']);
   }
 
-  cards: any[]=[
-    
-   
+  cards: any[] = [
 
   ]
 
   ngOnInit() {
     this.applyColors();
-    this.roomSer.getAllRoom().subscribe((data)=>{
-      this.cards=data
-    },(error)=>{
+    this.roomSer.getAllRoom().subscribe((data) => {
+      this.cards = data
+    }, (error) => {
       console.log(error)
     })
   }
@@ -53,7 +51,7 @@ export class BookaroomComponent implements OnInit {
           card.Color = 'rgba(81, 98, 246, 0.14)';
           break;
         default:
-          card.Color = ''; 
+          card.Color = '';
           break;
       }
     }
