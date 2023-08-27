@@ -1,16 +1,19 @@
 <app-navbar></app-navbar>
 
 <div class="body">
-  <app-header [header]="header"></app-header><hr>
+  <app-header [header]="header"></app-header>
+  <hr>
   <div style="display: flex; justify-content: space-between">
     <div class="tophalf py-4">
       <h6>Finding <b>5 events</b></h6>
       <div>
-        <select name="" id="" class="text-secondary border shadow-sm ms-2">
-          <option value="">Chennai</option>
-          <option value="">Bangalore</option>
-          <option value="">Pune</option>
-          <option value="">Combaitore</option>
+        <select name="" id="" class="text-secondary border shadow-sm ms-2" (change)="changeFilterLoc()"
+          [(ngModel)]="filterloc">
+          <option value="All">All Location</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Pune">Pune</option>
+          <option value="Combaitore">Combaitore</option>
         </select>
       </div>
       <div>
@@ -103,7 +106,8 @@
           <div class="card-body">
             <h6 class="card-title">{{ card.eventTitle }}</h6>
             <p class="card-text text-secondary" id="eventDate">
-              {{ card.startTime | date:'mediumDate' }}, {{ card.startTime | date:'shortTime' }}-{{ card.endTime |date:'shortTime' }}
+              {{ card.startTime | date:'mediumDate' }}, {{ card.startTime | date:'shortTime' }}-{{ card.endTime
+              |date:'shortTime' }}
             </p>
             <button type="button" class="btn btn-outline-primary button" routerLink="/viewevent/{{card.eventId}}">
               View event details
@@ -118,4 +122,3 @@
     </div>
   </div>
 </div>
-<router-outlet></router-outlet>

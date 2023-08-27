@@ -2,7 +2,10 @@
 
 <body class="body">
     <div class="container-fluid whole">
-        <app-header [header]="header"></app-header><hr>
+        <app-header [header]="header"></app-header>
+        <hr>
+       
+
         <div class="" style="display: flex;justify-content: space-between;">
             <div class="tophalf py-4">
                 <button type="button">
@@ -50,9 +53,9 @@
                     <!-- <label for="exampleFormControlInput1" class="form-label"></label>
                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Location"
                         [(ngModel)]="cardDetail.location"> -->
-                    <select name="location" id="location"  [(ngModel)]="cardDetail.locationId">
+                    <select name="location" id="location"  [(ngModel)]="cardDetail.location">
                         <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
-                    </select>    
+                    </select>
                 </div>
 
 
@@ -74,9 +77,12 @@
             <div class="di2 p-3">
                 <h6>{{card.notificationSubject}}</h6>
                 <p>{{card.description}}</p>
-                <span class="mx-2 small"><i class="fa-solid fa-location-dot me-2" style="color: #8a8a8a"></i>{{card.location}}</span>
-                <span class=" mx-2 small"><i class="fa-regular fa-calendar me-2" style="color: #8a8a8a"></i>{{ card.date | date:'mediumDate' }}</span>
-                <span class=" mx-2 small"><i class="fa-regular fa-clock me-2" style="color: #030303" style="color: #8a8a8a"></i>{{ card.time| date:'shortTime' }}</span>
+                <span class="mx-2 small"><i class="fa-solid fa-location-dot me-2"
+                        style="color: #8a8a8a"></i>{{card.location}}</span>
+                <span class=" mx-2 small"><i class="fa-regular fa-calendar me-2" style="color: #8a8a8a"></i>{{ card.date
+                    | date:'mediumDate' }}</span>
+                <span class=" mx-2 small"><i class="fa-regular fa-clock me-2" style="color: #030303"
+                        style="color: #8a8a8a"></i>{{ card.time| date:'shortTime' }}</span>
 
 
             </div>
