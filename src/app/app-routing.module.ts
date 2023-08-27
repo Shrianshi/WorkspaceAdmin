@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ArticleSectionComponent } from './components/article-section/article-section.component';
@@ -16,11 +16,14 @@ import { SlotComponent } from './components/slot/slot.component';
 import { ManageConferenceComponent } from './components/manage-conference/manage-conference.component';
 import { LocationComponent } from './components/location/location.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { ViewEventComponent } from './components/view-event/view-event.component';
+import { AuthGuard } from './authGuard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-up', pathMatch: 'full' },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'article-section', component: ArticleSectionComponent },
+  { path: 'article-section', component: ArticleSectionComponent ,canActivate:[AuthGuard]},
   { path: 'events', component: EventsComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'dbooking', component: DbookingComponent },
@@ -30,11 +33,13 @@ const routes: Routes = [
   { path: 'manage', component: ManageComponent },
   { path: 'employee', component: EmployeeComponent },
   { path: 'bookaroom', component: BookaroomComponent },
-  { path: 'slot', component: SlotComponent },
   { path: 'bookaroom', component: BookaroomComponent },
-  { path: 'slot', component: SlotComponent },
+  { path: 'slot/:id', component: SlotComponent },
   { path: 'manage/conference', component: ManageConferenceComponent },
   { path: 'manage/location', component: LocationComponent },
+  { path: 'forgotpass', component: ForgotPassComponent },
+  { path: 'viewevent/:id', component: ViewEventComponent },
+  { path: 'forgot-pass', component: ForgotPassComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

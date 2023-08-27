@@ -1,40 +1,141 @@
-.body{
-    width:14.9%;
-    float:left;
+@media (max-width: 399px) {
+    .text-invisible {
+        font-size: 0%;
+    }
+
+    .body {
+        width: 25%;
+        float: left;
+    }
+
+    .li {
+        /* width:30%; */
+        margin: 1%;
+    }
+
+    .padding {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
 }
-.li{
-    width:30%;
-    margin: 7%;
+
+
+@media (min-width: 400px) and (max-width: 768px) {
+    .text-invisible {
+        font-size: 0%;
+    }
+
+    .aside {
+        /* position:relative; */
+        width: 70px;
+        height: 2000px;
+    }
+
+    .body {
+        width: 10%;
+        float: left;
+    }
+
 }
-.a
-{
-    color: grey;
-    text-decoration: none;
-    /* margin-left: 10%; */
-    /* margin-bottom: 30%; */
-    width:186px;
-    /* margin: 7%; */
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .text-invisible {
+        font-size: 60%;
+    }
+
+    .body {
+        width: 14.9%;
+        float: left;
+    }
+
+    .li {
+        width: 30%;
+        margin: 3%;
+    }
+
+    .padding {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .a {
+        color: grey;
+        text-decoration: none;
+        width: 186px;
+    }
+
+    .a:hover {
+        color: grey;
+        text-decoration: none;
+    }
+
+    .a:focus {
+        color: rgb(31, 78, 219);
+        border-right: 3px solid rgb(31, 78, 219);
+    }
+
+    .logout-btn {
+        position: absolute;
+        bottom: 3%;
+    }
+
+    .aside {
+        position: relative;
+        width: 100%;
+        height: 800px;
+    }
+
+    .logout-btn {
+        position: absolute;
+        bottom: 10%;
+    }
 }
-.a:hover{
-    color: grey;
-    text-decoration: none;
-}
-.a:focus{
-   color:rgb(31, 78, 219);
-   /* background-color: aquamarine; */
-   /* padding-right: 10px; */
-   border-right: 3px solid rgb(31, 78, 219);
-}
-.logout-btn{
-    position:absolute;
-    bottom:3%;
-}
-.aside{
-    position:relative;
-    width:100%; 
-    height:800px;
-}
-.logout-btn{
-    position:absolute;
-    bottom:30px;
+
+@media (min-width:993px) {
+    .body {
+        width: 14.9%;
+        float: left;
+    }
+
+    .li {
+        width: 30%;
+        margin: 3%;
+    }
+
+    .padding {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .a {
+        color: grey;
+        text-decoration: none;
+        width: 186px;
+    }
+
+    .a:hover {
+        color: grey;
+        text-decoration: none;
+    }
+
+    .a:focus {
+        color: rgb(31, 78, 219);
+        border-right: 3px solid rgb(31, 78, 219);
+    }
+
+    .logout-btn {
+        position: absolute;
+        bottom: 3%;
+    }
+
+    .aside {
+        position: relative;
+        width: 100%;
+        height: 800px;
+    }
+
+    .logout-btn {
+        position: absolute;
+        bottom: 10%;
+    }
 }

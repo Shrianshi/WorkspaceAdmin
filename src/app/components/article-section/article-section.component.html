@@ -1,41 +1,12 @@
-
 <app-navbar></app-navbar>
-<div class="body" id="article">
-    <!-- BEGINNING OF BODY FIRST SUBROW -->
-    <header class="row p-4">
-        <div class="col-sm-6">
-            <h6>Welcome, Admin!</h6>
-            <p class="p-small text-secondary">View complete details of all location and its corresponding details
-            </p>
-            <div>
-                <select class="text-secondary border shadow-sm">
-                    <option>Chennai</option>
-                    <option>Pune</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="col-sm-4 px-1">
-            <nav class="navbar">
-                <form class="container-fluid  d-flex">
-                    <div class="input-group">
-                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass" style="color: #a1a3a5;"></i></span>
-                        <input type="text" class="search form-control no-border" placeholder="Search Employees"
-                            aria-label="Search Employees" aria-describedby="basic-addon1">
-                    </div>
-                </form>
-            </nav>
-
-        </div>
-        <div class="col-sm-2" style="position:relative">
-            <img src="assets/img/bell.svg">
-            <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
-                <span class="visually-hidden">Hello</span>
-            </span>
-            <button class="avatar-btn mx-2" type="submit"></button>HR admin
-        </div>
-
-    </header>
+<div class="body container-fluid" id="article">
+    <app-header [header]="header" [para]="para" [search]="search"></app-header>
+    <div>
+        <select class="text-secondary border shadow-sm mx-5 mb-2">
+            <option>Chennai</option>
+            <option>Pune</option>
+        </select>
+    </div>
     <article>
         <!-- BIGINNING OF BODY SECOND SUBROW -->
         <div class="row ps-4">
@@ -44,8 +15,8 @@
             <div class="article">
 
                 <!-- STATUS CHECK ROW-->
-                <div class="row">
-                    <div class="cardw">
+                <div class="row" (onchange)="calculating()">
+                    <div class="col-md-6 mb-2">
                         <div class="card border">
                             <div class="card-body">
                                 <div class="row">
@@ -56,37 +27,38 @@
                                         <h6 class="card-title">Conference Room</h6>
                                         <p class="card-text  text-secondary-emphasis">Meeting halls</p>
                                         <div>
-                                            <h6>Busy(25/50)</h6>
+                                            <h6>Quiet({{count}}/{{roomscount}})</h6>
                                         </div>
                                         <div class="row">
-                                            <div class="status-bar busy mx-1"></div>
-                                            <div class="status-bar busy mx-1"></div>
-                                            <div class="status-bar busy mx-1"></div>
-                                            <div class="status-bar blank mx-1"></div>
-                                            <div class="status-bar blank mx-1"></div>
+                                            <div [class.blank]="count==0" [class.quiet]="calculating()<=40"
+                                                [class.busy]="calculating()>40" class="status-bar mx-1"></div>
+                                            <div [class.blank]="count==20" [class.quiet]="calculating()<=40"
+                                                [class.busy]="calculating()>40" class="status-bar mx-1"></div>
+                                            <div [class.blank]="count==40" [class.busy]="calculating()>40" class="status-bar mx-1"></div>
+                                            <div [class.blank]="count==60" [class.busy]="calculating()>60" class="status-bar mx-1"></div>
+                                            <div [class.blank]="count==80" [class.busy]="calculating()>80" class="status-bar mx-1"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="cardw">
+                    <div class="col-md-6 mb-2">
                         <div class="card border">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-4 div-img">
-                                        <img src="assets/img/deskbook.png"
-                                            class="dash-img bg-warning-subtle pt-1">
+                                        <img src="assets/img/deskbook.png" class="dash-img bg-warning-subtle pt-1">
                                     </div>
                                     <div class="col-sm-8 px-4">
                                         <h6 class="card-title">Desks</h6>
                                         <p class="card-text text-secondary-emphasis">People Check-In</p>
                                         <div>
-                                            <h6>Quiet(120/1000)</h6>
+                                            <h6>Quiet({{deskcount}}/200)</h6>
                                         </div>
                                         <div class="row">
                                             <div class="status-bar quiet mx-1"></div>
-                                            <div class="status-bar quiet mx-1"></div>
+                                            <div class="status-bar blank mx-1"></div>
                                             <div class="status-bar blank mx-1"></div>
                                             <div class="status-bar blank mx-1"></div>
                                             <div class="status-bar  blank mx-1"></div>
@@ -105,28 +77,34 @@
                 <!-- SERVICES SECTION -->
                 <div class="row mt-5">
                     <h6>All Services</h6>
+
                     <div class="services text-center">
-                        <a routerLink="/employee"><div class="i s1 p-2"><img src="assets/img/employee.png" class="img">
-                        </div></a>
+                        <a routerLink="/employee">
+                            <div class="i s1 p-2"><img src="assets/img/employee.png" class="img">
+                            </div>
+                        </a>
                         <a routerLink="/employee">
                             <p class="p text-dark fw-semibold mx-2">Employee Data</p>
                         </a>
                     </div>
                     <div class="services text-center">
-                        <div class="i s2 p-2"><a routerLink="/rbooking"><img src="assets/img/rbooking.png" class="img"></a>
+                        <div class="i s2 p-2"><a routerLink="/rbooking"><img src="assets/img/rbooking.png"
+                                    class="img"></a>
                         </div>
                         <a routerLink="/rbooking">
                             <p class="p text-dark fw-semibold mx-2">Room Booking</p>
                         </a>
                     </div>
                     <div class="services text-center">
-                        <div class="i s3 p-2"><a routerLink="/dbooking"><img src="assets/img/dbooking.png" class="img"></a></div>
+                        <div class="i s3 p-2"><a routerLink="/dbooking"><img src="assets/img/dbooking.png"
+                                    class="img"></a></div>
                         <a routerLink="/dbooking">
                             <p class="p text-dark fw-semibold mx-2">Desk Booking</p>
                         </a>
                     </div>
                     <div class="services text-center">
-                        <div class="i s4 p-2"><a routerLink="/calendar"><img src="assets/img/calicon.png" class="img"></a>
+                        <div class="i s4 p-2"><a routerLink="/calendar"><img src="assets/img/calicon.png"
+                                    class="img"></a>
                         </div>
                         <a routerLink="/calendar">
                             <p class="p text-dark fw-semibold mx-2">My Bookings</p>
@@ -134,28 +112,31 @@
                     </div>
 
                     <div class="services  text-center">
-                        <div class="i s5 p-2"><a routerLink="/events"><img src="assets/img/eventicon.png" class="img"></a>
-                        </div> 
+                        <div class="i s5 p-2"><a routerLink="/events"><img src="assets/img/eventicon.png"
+                                    class="img"></a>
+                        </div>
                         <a routerLink="/events">
                             <p class="p text-dark fw-semibold mx-4">Events</p>
                         </a>
                     </div>
                     <div class="services  border text-center">
-                        <div class="i s6 p-2"><a routerLink="/notifications"><img src="assets/img/Notifyicon.png" class="img"></a>
+                        <div class="i s6 p-2"><a routerLink="/notifications"><img src="assets/img/Notifyicon.png"
+                                    class="img"></a>
                         </div>
                         <a routerLink="/notifications">
                             <p class="p text-dark fw-semibold text-center mx-2">Notifications</p>
                         </a>
                     </div>
                     <div class="services text-center">
-                        <div class="i s7 p-2"><a routerLink="/manage/location" class="location"><img src="assets/img/locicon.png"
-                                    class="img"></a></div>
+                        <div class="i s7 p-2"><a routerLink="/manage/location" class="location"><img
+                                    src="assets/img/locicon.png" class="img"></a></div>
                         <a routerLink="/manage/location" class="location">
                             <p class="p text-dark fw-semibold text-center mx-3">Locations</p>
                         </a>
                     </div>
                     <div class="services p-1 text-center">
-                        <div class="i s8 p-2"><a routerLink="/manage/conference"><img src="assets/img/croom.png" class="img"></a>
+                        <div class="i s8 p-2"><a routerLink="/manage/conference"><img src="assets/img/croom.png"
+                                    class="img"></a>
                         </div>
                         <a routerLink="/manage/conference">
                             <p class="p text-dark fw-semibold">Conference Rooms</p>
@@ -168,13 +149,13 @@
 
             <div class="border aside-div">
                 <div class="container cal">
-                    <mat-calendar #releasedAtPicker color="primary" ></mat-calendar>
+                    <mat-calendar #releasedAtPicker color="primary"></mat-calendar>
                 </div>
                 <hr>
                 <div>
-                    <h6 class="px-3"> Today, 7th March 2023</h6>
+                    <h6 class="px-3"> Today, {{date|date}}</h6>
                 </div>
-                <div class="notify-div n-1 p-2 ">
+                <div class="notify-div n-1 p-2">
                     <img src="assets/img/party_small.svg" class="notify ni-1 p-2">
                     <p class="m-1 mt-2">Family day in Chennai faculty</p>
                     <p class="p-small m-1">10:30AM to 6:00PM</p>

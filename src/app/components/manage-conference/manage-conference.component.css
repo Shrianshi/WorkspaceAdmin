@@ -1,39 +1,33 @@
-/* Card Icons*/
-.bi {
-    border: 1px solid grey;
-    border-radius: 0.3rem;
-    font-style: normal;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-}
-
 /* Card Button*/
 .card-btn-chennai {
-
     float: right;
-    margin-top: 7px;
-    color: blue;
-    background-color: rgb(208, 227, 244);
+    color: rgba(81, 98, 246, 1) ;
     border-radius: 7px;
     border: none;
+    width: 87px;
+    height: 25px;
 }
 
 .card-btn-pune {
     float: right;
     margin-top: 7px;
-    color: rgb(186, 113, 124);
-    background-color: rgb(247, 220, 224);
+    color: rgba(241, 117, 117, 1);
+    /* background: #5162F624; */
     border-radius: 7px;
+    background: #F6515124;
     border: none;
+    width: 87px;
+    height: 25px;
 }
 
 .card-btn-bangalore {
     float: right;
     margin-top: 7px;
-    background-color: #AD51F624;
-    color: #B864F9;
+    color: rgba(184, 100, 249, 1);  
     border-radius: 7px;
     border: none;
+    width: 87px;
+    height: 25px;
 }
 
 /* pagination */
@@ -42,13 +36,8 @@
     align-items: center;
     background: none;
     color: #15151A;
-    /* padding: 10px 40px; */
     border-radius: 6px;
 }
-
-/* ul{
-            margin: 20px 30px;
-        } */
 
 ul li {
     display: inline-block;
@@ -97,10 +86,10 @@ ul li.active {
 
 /* offCanvas CSS */
 #btnCanvas {
-    width: 161px;
-    height: 40px;
+    width: 65%;
     background: #5162F6;
     border-radius: 4px;
+    margin-left: 33%;
 }
 
 .offcanvas {
@@ -168,4 +157,29 @@ ul li.active {
 }
 .search::placeholder{
     color: rgb(154, 152, 152);
+}
+
+/*card icons*/
+.conf-icon{
+    width: 4%;
+    margin-right: 2%;
+    padding-bottom: 2%;
+}   
+
+.icon-border{
+    border:1px solid #ECECEC;
+    border-radius:7px;
+    margin:1%;
+    width: 111px;
+    height: 25px;
+}
+
+.card-size{
+    width:29%;
+    margin-bottom: 1%;
+    height: 20%;
+}
+
+.small-icon{
+    font-size:80%;
 }

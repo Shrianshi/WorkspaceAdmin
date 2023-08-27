@@ -1,39 +1,15 @@
-
 <app-navbar></app-navbar>
+
 <body class="body">
 
     <div class="container-fluid">
-        <header class="row py-4 border-bottom">
-            <div class="col-sm-6">
-                <h6 class="">Employee Details</h6>
-            </div>
-
-            <div class="col-sm-4 px-1">
-                <nav class="navbar">
-                    <form class="container-fluid  d-flex">
-                        <div class="input-group">
-                            <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass" style="color: #a1a3a5;"></i></span>
-                            <input type="text" class="search form-control no-border" placeholder="Search Employees"
-                                aria-label="Search Employees" aria-describedby="basic-addon1">
-                        </div>
-                    </form>
-                </nav>
-    
-            </div>
-            <div class="col-sm-2" style="position:relative">
-                <img src="assets/img/bell.svg">
-                <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
-                    <span class="visually-hidden">Hello</span>
-                </span>
-                <button class="avatar-btn mx-2" type="submit"></button>HR admin
-            </div>
-    
-        </header>
-
+        <app-header [header]="header"></app-header>
+        <hr>
+        
         <!-- BODY -->
         <div class="row">
             <div class="col-sm-9">
-                <p style="font-size: 16px;" class="p-3">Founding <b> 453 Members</b></p>
+                <p style="font-size: 16px;" class="p-3">Finding <b> {{countEmp}} Members</b></p>
             </div>
             <div class="col-sm-1">
                 <!-- FILTER SECTION -->
@@ -192,15 +168,13 @@
                         Add a new employee
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item"><button class="btn " type="button"
-                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                    aria-controls="offcanvasRight">Add
+                        <li><a class="dropdown-item"><button class="btn " type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add
                                     Manually</button></a>
                         </li>
                         <li><a class="dropdown-item" href="#"><button class="btn " type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1"
-                                    aria-controls="offcanvasRight">Import CSV File
-                                    file</button></a>
+                                    aria-controls="offcanvasRight">Import CSV File</button></a>
                         </li>
 
 
@@ -258,81 +232,152 @@
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                     aria-labelledby="offcanvasRightLabel">
                     <div class="offcanvas-header">
+
                         <h5 class="offcanvas-title" id="offcanvasRightLabel">Add a Employee</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Employee ID">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="First Name"
-                                    aria-label="First Name">
-                            </div>
-                        </div>
-                        <br>
+                        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
 
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Last name">
-                            </div>
-                            <div class="col">
-                                <select id="inputState" class="form-select">
-                                    <option selected>Location</option>
-                                    <option>Pune</option>
-                                </select>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Department">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Title">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Email address">
+
+                            <div class="row">
+                                <div class="col"></div>
+
+                                <div class="col-sm-6">
+                                    <input type="file" class="form-control" formControlName="empimage"
+                                        (change)="onFileSelected($event)">
+                                </div>
+
+                                <div class="col"></div>
+                                <div *ngIf="employeeForm.get('empimage')?.hasError('required') && employeeForm.get('empimage')?.touched"
+                                    class="error-message">
+                                    Please enter a valid email address.
+                                </div>
                             </div>
 
-                        </div>
-                        <br>
+                            <br>
 
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Phone number">
+
+                            <div class="row g-3">
+
+                                <div class="col">
+                                    <input type="text" class="form-control" formControlName="fname"
+                                        placeholder="First Name" aria-label="First Name"
+                                        [(ngModel)]="newEmployee.fname">
+
+                                </div>
+                                <div *ngIf="employeeForm.get('fname')?.hasError('required') && employeeForm.get('fname')?.touched"
+                                    class="error-message">
+                                    firstname is required.
+                                </div>
                             </div>
+                            <br>
 
-                        </div>
-                        <br>
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" formControlName="lname"
+                                        placeholder="Last name" [(ngModel)]="newEmployee.lname">
+                                    <div *ngIf="employeeForm.get('lname')?.hasError('required') && employeeForm.get('lname')?.touched"
+                                        class="error-message">
+                                        lastname is required.
+                                    </div>
+                                </div>
 
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Add Password">
+                                <div class="col">
+                                    <select id="inputState" class="form-select" formControlName="locationId"
+                                        [(ngModel)]="newEmployee.locationId">
+                                        <option value="">select Location</option>
+                                        <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
+                                    </select>
+                                    <div *ngIf="employeeForm.get('locationId')?.hasError('required') && employeeForm.get('locationId')?.touched"
+                                    class="error-message">
+                                    location is required.
+                                </div>
+                                </div>
                             </div>
-
-                        </div>
-                        <br>
-
-                        <div class="row g-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Confirm Password">
+                            <br>
+                            <div class="row g-3">
+                                <div class="col">
+                                    <select id="inputState" class="form-select" formControlName="depId"
+                                        [(ngModel)]="newEmployee.depId">
+                                        <option vlaue="" selected>select Department</option>
+                                        <option *ngFor="let d of departments" [value]="d.deptId">{{d.deptName}}</option>
+                                    </select>
+                                    <div *ngIf="employeeForm.get('depId')?.hasError('required') && employeeForm.get('depId')?.touched"
+                                    class="error-message">
+                                    department is required.
+                                </div>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Title" formControlName="title"
+                                        [(ngModel)]="newEmployee.title">
+                                        <div *ngIf="employeeForm.get('title')?.hasError('required') && employeeForm.get('title')?.touched"
+                                    class="error-message">
+                                    title is required.
+                                </div>
+                                </div>
+                                
                             </div>
+                            <br>
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Email address"
+                                        formControlName="email" [(ngModel)]="newEmployee.email">
+                                </div>
+                                <div *ngIf="employeeForm.get('email')?.hasError('required') && employeeForm.get('email')?.touched"
+                                    class="error-message">
+                                    Email is required.
+                                </div>
 
-                        </div>
-                        <br>
-
-                        <div class="row g-3">
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">Add</button>
-                                <button type="submit" class="btn ">Cancel</button>
                             </div>
+                            <br>
 
-                        </div>
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Phone number"
+                                        formControlName="phone" [(ngModel)]="newEmployee.phone">
+                                </div>
+                                <div *ngIf="employeeForm.get('phone')?.hasError('required') && employeeForm.get('phone')?.touched"
+                                    class="error-message">
+                                    Phone no. is required.
+                                </div>
+
+                            </div>
+                            <br>
+
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="password" class="form-control" placeholder="Add Password"
+                                        formControlName="addPassword" value="addPassword"
+                                        [(ngModel)]="newEmployee.addPassword">
+                                </div>
+                                <div *ngIf="employeeForm.get('addPassword')?.hasError('required') && employeeForm.get('addPassword')?.touched"
+                                    class="error-message">
+                                    Password is required.
+                                </div>
+
+                            </div>
+                            <br>
+
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="password" class="form-control" placeholder="Confirm Password"
+                                        formControlName="confirmPassword" [(ngModel)]="newEmployee.confirmPassword">
+                                </div>
+
+                            </div>
+                            <p *ngIf="newEmployee.confirmPassword!='' && newEmployee.addPassword!=newEmployee.confirmPassword"
+                                class="text-danger">both password must be same</p>
+                            <br>
+
+                            <div class="row g-3">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">Add</button>
+                                    <button type="submit" class="btn" (click)="employeeForm.reset()">Cancel</button>
+                                </div>
+
+                            </div>
+                        </form>
                     </div>
 
                 </div>
@@ -349,10 +394,10 @@
 
         <div>
             <div class="row">
-                <div class="col-sm-3 " *ngFor="let card of cards">
+                <div class="col-sm-3 " *ngFor="let card of employees">
                     <div class="card">
 
-                        <div class="card-body" >
+                        <div class="card-body">
                             <div>
                                 <div class="dropdown">
                                     <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -365,8 +410,6 @@
 
                                     </ul>
                                 </div>
-
-
                                 <button type="button" class="red-btn">
                                     Out
                                 </button>
@@ -375,63 +418,58 @@
                             <div class="position-relative">
 
                                 <div class="position-absolute top-50 start-50 translate-middle">
-                                    <img [src]="card.imageUrl" alt="pic" class="rounded-circle " width="60px"
-                                        height="60px" id="p1">
+                                    <img [src]=" 'data:image/png;base64,' + card.imageData" alt="pic"
+                                        class="rounded-circle " width="60px" height="60px" id="p1">
                                 </div>
-
-
                             </div>
-
-
-
                             <br><br>
                             <div class="card-title black" align="center">
-                                {{card.EmpId}}-{{ card.fname }} {{card.lname}}</div>
-                            <p class="card-text" style="font-weight: 400;
-                        font-size: 12px;">{{card.Department}} - {{card.Title}}<br><br>
-                                <i class="bi-envelope"></i> {{card.Email}}<br>
-                                <i class="bi-telephone"></i> {{card.Phone}}
-                            </p>
-
+                                {{card.employeeId}}-{{ card.fname }} {{card.lname}}</div>
+                            <p class="card-text" style="font-size: 10px;">{{card.title}} - {{card.department.deptName}}<br><br>
+                        
+                               
+                            </p><hr>
+                            <span class="card-text" style="font-size: 11px;"><i class="bi-envelope"></i> {{card.email}}</span><br>
+                            <span class="card-text" style="font-size: 11px;"><i class="bi-telephone"></i> {{card.phone}}</span>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
-        <div class="container-fluid p-3 ">
-            View
-            <div class="btn-group">
-                <button class="btn  btn-sm dropdown-toggle btn-outline-secondary" type="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    8 &nbsp; &nbsp; &nbsp;<i class="bi-arrow-down-square"></i>
-                    <ul class="dropdown-menu">
-                        <li>4</li>
-                        <li>8</li>
-                        <li>12</li>
-                    </ul>
-                </button> &nbsp; Employees per page
+
+        <section class="page" id="#paginSection">
+            <div class="container-fluid small">
+                <div class="row">
+                    <div class="col-sm-7 py-2 text-muted">View &nbsp;
+                        <select id="roomsper small">
+                            <option value="RoomsPerPage" selected>6</option>
+                            <option value="RoomsPerPage">10</option>
+                            <option value="RoomsPerPage">14</option>
+                            <option value="RoomsPerPage">20</option>
+                        </select>
+                        Employees per page
+                    </div>
+
+                    <span class="col-sm-2 text-muted small" id="spanResult">Showing {{countEmp}}/{{countEmp}} results</span>
+
+                    <!-- <div class="col-sm-3" id="pagination">
+                        <div class="pagination">
+                            <button class="next-arrow"><img src="   assets/images/left-arrow.jpeg"></button>
+
+                            <ul class="ul">
+                                <li class="link active li" value="1">1</li>
+                                <li class="link li" value="2">2</li>
+                                <li class="link li" value="3">3</li>
+                                <li class="link li" value="4">4</li>
+                                <li class="link li" value="5">5</li>
+                            </ul>
+                            <button class="next-arrow"><img src="assets/images/right-arrow.jpeg"></button>
+                        </div>
+                    </div> -->
+                </div>
             </div>
 
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-end  border-0">
-                    Showing 8/500 results &nbsp; &nbsp; <li class="page-item">
-                        <a class="page-link"><i class="bi-arrow-left"></i></a>
-                    </li>
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">1</span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link"><i class="bi-arrow-right"></i></a>
-                    </li>
-                </ul>
-            </nav>
-
-        </div>
+        </section>
     </div>
 </body>

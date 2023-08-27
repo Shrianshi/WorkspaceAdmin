@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-forgot-pass',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./forgot-pass.component.css']
 })
 export class ForgotPassComponent {
+  email: string = '';
 
+
+  
+
+  onCancelClick(): void {
+    // Handle cancellation if needed
+  }
 }

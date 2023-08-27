@@ -1,6 +1,6 @@
 <div class="image-container">
     <div class="image image1">
-        <img src="assets/img/SignIn.png" width="800px" height="650px">
+        <img src="assets/img/SignIn.png" class="index-0-img">
     </div>
     <div class="image image2">
         <img src="assets/img/Signin2.png" width="400px" height="450px">
@@ -18,21 +18,36 @@
     <div>
         <h4>Sign In</h4>
         <p class="p">Welcome back! Please enter email id and password</p>
-        <div class="email">
-            Email ID<br>
-            <input type="text" placeholder="name@kanini.com">
-        </div>
-        <div class="password">
-            Password<br>
-            <input type="password" placeholder="**********">
-            <a class="p">forgot your password?</a>
-        </div>
-        
-        <div>
-            <button type="submit" class="signin" routerLink="/article-section">Signin</button>
-        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="email">
+                Email ID<br>
+                <input type="text" placeholder="name@kanini.com" formControlName="email" [(ngModel)]="loginData.email">
+                <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched"
+                    class="error-message">
+                    Email is required.
+                </div>
+                <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched"
+                    class="error-message">
+                    Please enter a valid email address.
+                </div>
+
+            </div>
+            <div class="password">
+                Password<br>
+                <input type="password" placeholder="**********" formControlName="password" [(ngModel)]="loginData.password">
+                <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+                    class="error-message">
+                    Password is required.
+                </div>
+                <a class="p" (click)="emailNotification()">forgot your password?</a>
+            </div>
+            <div>
+                <button type="submit" class="signin" [class.valid-button]="loginForm.valid"
+                [class.invalid-button]="!loginForm.valid" [disabled]="!loginForm.valid">Signin</button>
+            </div>
+        </form>
     </div>
+
 </div>
 
 <!-- <router-outlet></router-outlet> -->
-

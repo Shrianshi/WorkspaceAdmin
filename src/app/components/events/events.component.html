@@ -1,133 +1,124 @@
 <app-navbar></app-navbar>
 
-
 <div class="body">
-    <header class="row py-4 border-bottom">
-        <div class="col-sm-6">
-            <h6>Events</h6>
+  <app-header [header]="header"></app-header>
+  <hr>
+  <div style="display: flex; justify-content: space-between">
+    <div class="tophalf py-4">
+      <h6>Finding <b>5 events</b></h6>
+      <div>
+        <select name="" id="" class="text-secondary border shadow-sm ms-2" (change)="changeFilterLoc()"
+          [(ngModel)]="filterloc">
+          <option value="All">All Location</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Pune">Pune</option>
+          <option value="Combaitore">Combaitore</option>
+        </select>
+      </div>
+      <div>
+        <input type="date" class="text-secondary border shadow-sm ms-2" />
+      </div>
+    </div>
+    <div class="p-4">
+      <button class="btn btn-primary btn-sm float-end" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#addEventOffcanvas">
+        Add Event
+      </button>
+    </div>
+    <div class="offcanvas offcanvas-end" id="offcanvasRight" tabindex="-1" id="addEventOffcanvas"
+      aria-labelledby="addEventOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="addEventOffcanvasLabel">
+          Add a new Event
+        </h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+
+        <div class="form-group form p-5">
+          <div class="card-body text-center">
+            <h5 class="card-title">
+              <img src="assets/images/gallery-icon.png" />
+            </h5>
+            <p class="card-text text-center">
+              Drop your Featured Image here, or
+              <label class="text-decoration-none" for="fileInput" style="cursor: pointer; color: blue">
+                Browse
+              </label>
+              <input type="file" id="fileInput" class="custom-file-input" style="display: none"
+                (change)="onFileSelected($event)" />
+              <br />
+              <span class="text-muted text-center">Supports: JPEG, PNG</span>
+            </p>
+          </div>
         </div>
 
-        <div class="col-sm-4 px-1">
-            <nav class="navbar">
-                <form class="container-fluid  d-flex">
-                    <div class="input-group">
-                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
-                                style="color: #a1a3a5;"></i></span>
-                        <input type="text" class="search form-control no-border" placeholder="Search Employees"
-                            aria-label="Search Employees" aria-describedby="basic-addon1">
-                    </div>
-                </form>
-            </nav>
+        <div class="mb-3">
+          <label for="eventTitle" class="form-label">Title</label>
+          <input type="text" class="form-control" id="eventTitle" [(ngModel)]="newEvent.eventTitle" />
+        </div>
+        <div class="mb-3">
+          <label for="eventDescription" class="form-label">Description</label>
+          <textarea class="form-control" id="eventDescription" rows="3"
+            [(ngModel)]="newEvent.eventDescription"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="eventLocation" class="form-label">Location</label>
+          <select class="form-select" id="eventLocation" name="locationId" [(ngModel)]="newEvent.locationId">
+            <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
+
+          </select>
 
         </div>
-        <div class="col-sm-2" style="position:relative">
-            <img src="assets/img/bell.svg">
-            <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
-                <span class="visually-hidden">Hello</span>
+
+        <div class="mb-3 d-flex">
+          <div class="me-3 flex-grow-1">
+            <label for="eventDate" class="form-label">Date</label>
+            <input type="date" class="form-control" id="eventDate" [(ngModel)]="newEvent.startTime" />
+          </div>
+          <div class="flex-grow-1">
+            <label for="eventTime" class="form-label">Time</label>
+            <input type="time" class="form-control" id="eventTime" [(ngModel)]="newEvent.endTime" />
+          </div>
+        </div>
+        <div class="mb-3 d-flex justify-content-between">
+          <button class="btn btn-primary me-1" (click)="addEvent()">
+            Submit
+          </button>
+          <button type="button" class="btn btn-secondary me-1" data-bs-dismiss="offcanvas">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+  </div>
+
+  <div class="container">
+    <div class="row g-3 card-deck">
+      <div class="col-lg-4" *ngFor="let card of events">
+        <div class="card">
+
+          <img [src]=" 'data:image/png;base64,' + card.imageData" class="card-img-top" alt="A Street in Europe" />
+          <div class="card-body">
+            <h6 class="card-title">{{ card.eventTitle }}</h6>
+            <p class="card-text text-secondary" id="eventDate">
+              {{ card.startTime | date:'mediumDate' }}, {{ card.startTime | date:'shortTime' }}-{{ card.endTime
+              |date:'shortTime' }}
+            </p>
+            <button type="button" class="btn btn-outline-primary button" routerLink="/viewevent/{{card.eventId}}">
+              View event details
+            </button>
+            <span style="text-decoration: none" href="" onclick="window.open('softskill.html')"><img
+                src="assets/img/party_vs.svg" alt="" class="img-event bg-primary" />
+              <span class="people p-small">120 People Joining this event</span>
             </span>
-            <button class="avatar-btn mx-2" type="submit"></button>HR admin
+          </div>
         </div>
-
-    </header>
-    <div style="display: flex;justify-content: space-between;">
-        <div class="tophalf py-4">
-            <h6>Finding <b>5 events</b></h6>
-            <div>
-                <select name="" id="">
-                    <option value="">Chennai</option>
-                    <option value="">Bangalore</option>
-                    <option value="">Pune</option>
-                    <option value="">Combaitore</option>
-                </select>
-            </div>
-            <div>
-                <select name="" id="">
-                    <option value="">Today</option>
-                </select>
-
-            </div>
-        </div>
-        <div class="p-4">
-            <button type="button" class="btn btn-primary px-2" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add Events</button>
-        </div>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="addEventOffcanvas"
-            aria-labelledby="addEventOffcanvasLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="addEventOffcanvasLabel">Add a new Event</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <form>
-                    <div class="form-group form p-5">
-                        <label for="featured-image">Featured Image</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-image"></i></span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="featured-image">
-                                <label class="custom-file-label" for="featured-image">Drop your featured image here or
-                                    browse</label>
-                            </div>
-                        </div>
-                        <small class="form-text text-muted mt-2">Supports: JPG, PNG</small>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="eventTitle" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="eventTitle">
-                    </div>
-                    <div class="mb-3">
-                        <label for="eventDescription" class="form-label">Description</label>
-                        <textarea class="form-control" id="eventDescription" rows="3"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="eventLocation" class="form-label">Location</label>
-                        <input type="text" class="form-control" id="eventLocation">
-                    </div>
-                    <div class="mb-3">
-                        <label for="eventDateTime" class="form-label">Date and Time</label>
-                        <input type="datetime-local" class="form-control" id="eventDateTime">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas">Cancel</button>
-                </form>
-            </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-
+      </div>
     </div>
-
-    <!-- Example split danger button -->
-    <div class="container">
-        <div class="row g-3 card-deck">
-            <div class="col-lg-4" *ngFor="let card of cards">
-                <div class="card">
-                    <img [src]="card.ImageUrl" class="card-img-top" alt="A Street in Europe" />
-                    <div class="card-body">
-                        <h6 class="card-title">{{card.Title}}</h6>
-                        <p class="card-text text-secondary" id="eventDate">{{card.Date}} {{card.Time}}</p>
-                        <button type="button" class="btn btn-outline-primary button"
-                            onclick="window.open('softskill.html')">View
-                            event
-                            details
-                        </button>
-                        <span style="text-decoration: none;" href="" onclick="window.open('softskill.html')"><img
-                                src="assets/img/party_vs.svg" alt="" class="img-event bg-primary">
-                            <span class="people p-small">{{card.Description}}</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-    </div>
-
+  </div>
 </div>
-<router-outlet></router-outlet>

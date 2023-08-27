@@ -1,29 +1,18 @@
 <app-navbar></app-navbar>
+<app-header [header]="header"></app-header><hr>
 
 <body>
     <main>
-        <section>
-            <div class="container-fluid">
-                <div class="row py-2">
-                    <div class="col">
-                    </div>
-                </div>
-                <div class="row">
-                    <hr class="hr" />
-                </div>
-            </div>
-        </section>
+        
         <section>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-10">
-                        <span class="mx-2"><b>Founding 12 Bookings</b></span>
-                        <select id="allLocationFilter">
+                        <span class="mx-2"><b>Finding {{count}} Bookings</b></span>
+                        <select id="allLocationFilter" class="text-secondary border shadow-sm ms-2">
                             <option value="AllLocation" selected>All Locations</option>
                         </select>
-                        <select id="todayFilter">
-                            <option value="Today" selected>Today</option>
-                        </select>
+                        <input type="date" class="text-secondary border shadow-sm ms-2">
                     </div>
                     <div class="col-sm-2">
                         <a routerLink="/bookaroom">
@@ -34,26 +23,26 @@
                 </div>
             </div>
         </section>
-        <div class="container">
-            <div>
-                <img src="assets/images/sunset1.svg" alt="SunsetmeetingroomImage" class="bannerImage">
+        <div class="container" *ngFor="let card of cards">
+            <div >
+                <img [src]="'data:image/png;base64,' + card.roomDetail.imageData" alt="SunsetmeetingroomImage" class="bannerImage">
             </div>
             <div class="BookingInfo">
                 <div>
-                    <p class="bookingTitle">Storyboard</p>
+                    <p class="bookingTitle">{{card.roomDetail.roomName}}</p>
                 </div>
                 <div>
-                    <p class="bookingIdtitle">Booking id &nbsp;<span class="BookingID">#5424</span></p>
+                    <p class="bookingIdtitle">Booking id &nbsp;<span class="BookingID">#{{card.bookingId}}</span></p>
                 </div>
                 <div>
                     <button class="Viewandmodifydata">View and Modify Booking</button>
                 </div>
                 <div class="BookingData">
-                    <p><i class="bi bi-chat-left"></i>&nbsp;&nbsp;CHC Developer meet</p>
-                    <p><i class="bi bi-geo-alt"></i> &nbsp;&nbsp;Ratha tek, Chennai</p>
-                    <p><i class="bi bi-person"></i>&nbsp;&nbsp; 8 people</p>
-                    <p><i class="bi bi-calendar4"></i>&nbsp;&nbsp;July 11, 2022 </p>
-                    <p><i class="bi bi-clock"></i>&nbsp;&nbsp; 11:00am- 12:00pm</p>
+                    <p><i class="bi bi-chat-left"></i>&nbsp;&nbsp;{{card.meetingTitle}}</p>
+                    <p><i class="bi bi-geo-alt"></i> &nbsp;&nbsp;{{card.roomDetail.location.city}}</p>
+                    <p><i class="bi bi-person"></i>&nbsp;&nbsp; {{card.numberOfParticipants}} people</p>
+                    <p><i class="bi bi-calendar4"></i>&nbsp;&nbsp;{{card.startTime| date:'mediumDate'}} </p>
+                    <p><i class="bi bi-clock"></i>&nbsp;&nbsp; {{card.startTime| date:'shortTime'}}- {{card.endTime| date:'shortTime'}}</p>
                 </div>
                 
             </div>

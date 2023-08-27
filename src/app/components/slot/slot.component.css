@@ -1,205 +1,321 @@
+.body {
+  width: 100%;
+}
+
+.article {
+  width: 70%;
+  height: 100%;
+}
+
+
 .facilities {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    box-shadow: 0px 8px 19px rgba(0, 0, 0, 0.07);
-    border-radius: 8px;
-    width: 800px;
-  }
-  .facility {
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    line-height: 0%;
-    width: 250px;
-    height: 40px;
-    font-family: "Manrope";
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 1;
-    gap: 20px;
-    border-right: 2px solid #edf1f5;
-  }
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  box-shadow: 0px 8px 19px rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.facility {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  line-height: 0%;
+  width: 250px;
+  height: 40px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1;
+  gap: 20px;
+  border-right: 2px solid #edf1f5;
+}
+
+.AdditionalFacility {
+  border: none;
+}
+
+.facilityHeader {
+  color: #626d8a;
+  font-size: 10px;
+}
+
+.facilitiesImage {
+  background: #e4e7eb;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.MeetingInput {
+  width: 100%;
+  height: 35px;
+  padding-left: 15px;
+  background: #ffffff;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  border: 1px solid #9da2b6;
+  border-radius: 6px;
+}
+
+.MeetingTitle {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 27px;
+}
+
+/* .BookingSlot {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  background: #ffffff;
+} */
+
+.fieldsetdetails {
+  display: flex;
+  padding: 0px;
+  border: 1px solid #9da2b6;
+  border-radius: 6px;
+  color: black;
+}
+
+.basicDetails {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  width: 100%;
+  color: black;
+}
+
+.bookingInfo {
+  font-family: "Inter";
+  font-size: 10px;
+  color: #626d8a;
+}
+
+/* .timingGraph {
+  height: 100px;
+  width: 800px;
+  background: #ffffff;
+  border: 1px solid #ced0db;
+  border-radius: 8px;
+} */
+
+.BookingFor {
+  width: 270px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.BookingFor img {
+  width: 30px;
+  height: 30px;
+}
+
+.BookingHrInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.bookingclick {
+  font-family: "Manrope";
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1;
+  color: #1f2131;
+}
+
+.bookingclick1 {
+  color: #626d8a;
+}
+
+.btn {
+  background: #bdc0c4;
+  border-radius: 4px;
+  width: 150px;
+  height: 40px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-size: 12px;
+  color: #ffffff;
+  border: none;
+}
+
+.bookingbtn {
+  display: flex;
+  width: 300px;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cancelBooking {
+  text-decoration: none;
+  font-family: "Manrope";
+  font-style: normal;
+  font-size: 15px;
+  color: #626d8a;
+}
+
+.reservations {
+  width: 300px;
+  display: flex;
+  line-height: 0%;
+  gap: 15px;
+}
+
+.reservationDetails {
+  margin-top: 1px;
+  width: 100px;
+  height: 25px;
+  opacity: 0.5;
+  border: 1px solid #ced0db;
+  border-radius: 3px;
+}
+
+.reservationList {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: thin gray solid;
+  line-height: 0.5;
+  gap: 20px;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid #ced0db;
+  border-radius: 8px;
+  font-family: "Manrope";
+  font-weight: bolder;
+  font-size: 12px;
+  line-height: 0.5;
+  color: #1f2131;
+}
+
+/* .rerservedpersonimage {
+  width: 40px;
+  height: 40px;
+} */
+
+.registredtime {
+  font-weight: 0px;
+  color: grey;
+}
+
+.reservedDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.body{
+  width:100%;
+}
+.avatar-btn{
+  height:20px;
+  width:20px;
+  border-radius:10px;
+  background-color: black;
+}
+.search{
+  /* width:300px; */
+  height:25px;
+  background-color: rgba(216, 225, 228, 0.345);
+  font-size: 15px;
+  border:0px solid rgb(234, 224, 224);
+}
+#i{
+  color:#aaaaab;
+}
+.search::placeholder{
+  color: rgb(154, 152, 152);
+}
+
+/*card icons*/
+.conf-icon{
+  width: 4%;
+  margin-right: 2%;
+  padding-bottom: 2%;
+}   
+
+.icon-border{
+  border:1px solid #ECECEC;
+  border-radius:7px;
+  margin:1%;
+  width: 111px;
+  height: 25px;
+}
+
+.card-size{
+  width:30%;
+  margin-bottom: 2%;
+}
+
+.small-icon{
+  font-size:80%;
+}
+
+
+.timeline {
+  position: relative;
+  margin: 20px 0;
+  height: 2px;
+  background-color: #ccc;
+}
+
+.timeline-event {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #007bff;
+  transform: translateX(-50%);
+}
+
+.event-date {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #666;
+}
+
+.event-description {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  width: 200px;
+  text-align: center;
+  color: #333;
+}
+
+
+.custom-button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.text-area-container {
+  border: 1px solid #ccc;
+  resize: vertical;
+  display: flex;
+  height: 30px;
   
-  .AdditionalFacility {
-    border: none;
-  }
-  
-  .facilityHeader {
-    color: #626d8a;
-    font-size: 10px;
-  }
-  
-  .facilitiesImage {
-    background: #e4e7eb;
-    border-radius: 6px;
-    padding: 10px;
-  }
-  
-  .MeetingInput {
-    width: 780px;
-    height: 35px;
-    padding-left: 15px;
-    background: #ffffff;
-    mix-blend-mode: normal;
-    opacity: 0.5;
-    border: 1px solid #9da2b6;
-    border-radius: 6px;
-  }
-  
-  .MeetingTitle {
-    font-family: "Manrope";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 27px;
-  }
-  
-  .BookingSlot {
-    display: flex;
-    justify-content: space-between;
-    width: 800px;
-    background: #ffffff;
-  }
-  
-  .fieldsetdetails {
-    display: flex;
-    padding: 10px;
-    border: 1px solid #9da2b6;
-    border-radius: 6px;
-    color: black;
-  }
-  
-  .basicDetails {
-    display: flex;
-    justify-content: space-between;
-    border: none;
-    width: 200px;
-    color: black;
-  }
-  
-  .bookingInfo {
-    font-family: "Inter";
-    font-size: 10px;
-    color: #626d8a;
-  }
-  
-  .timingGraph {
-    height: 100px;
-    width: 800px;
-    background: #ffffff;
-    border: 1px solid #ced0db;
-    border-radius: 8px;
-  }
-  
-  .BookingFor {
-    width: 270px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .BookingFor img {
-    width: 30px;
-    height: 30px;
-  }
-  
-  .BookingHrInfo {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  
-  .bookingclick {
-    font-family: "Manrope";
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 1;
-    color: #1f2131;
-  }
-  
-  .bookingclick1 {
-    color: #626d8a;
-  }
-  
-  .btn {
-    background: #bdc0c4;
-    border-radius: 4px;
-    width: 150px;
-    height: 40px;
-    font-family: "Manrope";
-    font-style: normal;
-    font-size: 12px;
-    color: #ffffff;
-    border: none;
-  }
-  
-  .bookingbtn {
-    display: flex;
-    width: 300px;
-    height: 100px;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .cancelBooking {
-    text-decoration: none;
-    font-family: "Manrope";
-    font-style: normal;
-    font-size: 15px;
-    color: #626d8a;
-  }
-  .reservations {
-    width: 300px;
-    display: flex;
-    line-height: 0%;
-    gap: 15px;
-  }
-  
-  .reservationDetails {
-    margin-top: 1px;
-    width: 100px;
-    height: 25px;
-    opacity: 0.5;
-    border: 1px solid #ced0db;
-    border-radius: 3px;
-  }
-  
-  .reservationList {
-    width: 800px;
-    display: flex;
-    align-items: center;
-    border: thin gray solid;
-    line-height: 0.5;
-    gap: 20px;
-    height: 50px;
-    padding: 10px;
-    border: 1px solid #ced0db;
-    border-radius: 8px;
-    font-family: "Manrope";
-    font-weight: bolder;
-    font-size: 12px;
-    line-height: 0.5;
-    color: #1f2131;
-  }
-  
-  .rerservedpersonimage {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .registredtime {
-    font-weight: 0px;
-    color: grey;
-  }
-  
-  .reservedDetails {
-    display: flex;
-    flex-direction: column;
-    gap:20px;
-  }
-  
-  
+
+}
+.slot-img{
+  height:450px;
+  width:100%;
+  border-radius: 5%;
+}
