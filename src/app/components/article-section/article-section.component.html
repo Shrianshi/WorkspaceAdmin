@@ -32,11 +32,11 @@
                                         <div class="row">
                                             <div [class.blank]="count==0" [class.quiet]="calculating()<=40"
                                                 [class.busy]="calculating()>40" class="status-bar mx-1"></div>
-                                            <div [class.blank]="count<=20" [class.quiet]="calculating()<=40"
+                                            <div [class.blank]="count==20" [class.quiet]="calculating()<=40"
                                                 [class.busy]="calculating()>40" class="status-bar mx-1"></div>
-                                            <div [class.blank]="count<=40" [class.busy]="calculating()>40" class="status-bar mx-1"></div>
-                                            <div [class.blank]="count<=60" [class.busy]="calculating()>60" class="status-bar mx-1"></div>
-                                            <div [class.blank]="count<=80" [class.busy]="calculating()>80" class="status-bar mx-1"></div>
+                                            <div [class.blank]="count==40" [class.busy]="calculating()>40" class="status-bar mx-1"></div>
+                                            <div [class.blank]="count==60" [class.busy]="calculating()>60" class="status-bar mx-1"></div>
+                                            <div [class.blank]="count==80" [class.busy]="calculating()>80" class="status-bar mx-1"></div>
                                         </div>
                                     </div>
                                 </div>
