@@ -30,7 +30,6 @@
                     class="error-message">
                     Please enter a valid email address.
                 </div>
-
             </div>
             <div class="password">
                 Password<br>
@@ -43,11 +42,10 @@
             </div>
             <div>
                 <button type="submit" class="signin" [class.valid-button]="loginForm.valid"
-                [class.invalid-button]="!loginForm.valid" [disabled]="!loginForm.valid">Signin</button>
+                    [class.invalid-button]="!loginForm.valid" [disabled]="!loginForm.valid">Signin</button>
             </div>
         </form>
     </div>
-
 </div>
 
 <!-- <router-outlet></router-outlet> -->

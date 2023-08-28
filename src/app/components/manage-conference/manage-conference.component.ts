@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { WorkspaceFilterService } from 'src/app/services/workspaceFilters/workspace-filter.service';
 
 
+
 interface Card {
   ImageUrl: string;
   RoomName: string;
@@ -36,6 +37,7 @@ export class ManageConferenceComponent implements OnInit {
   cards: any[] = []
   locations: any[] = []
   locationName: string ='All'
+
 
   newRoom: any = {
     imageData: '',
@@ -88,8 +90,6 @@ export class ManageConferenceComponent implements OnInit {
       console.log(data);
     });
   }
-
-
   changeLocationHandler() {
     this.roomOnLocation(this.locationName)
   }
@@ -111,5 +111,4 @@ export class ManageConferenceComponent implements OnInit {
     }
   }
 }
-
 
