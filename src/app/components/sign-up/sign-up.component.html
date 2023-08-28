@@ -21,7 +21,7 @@
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="email">
                 Email ID<br>
-                <input type="text" placeholder="name@kanini.com" formControlName="email">
+                <input type="text" placeholder="name@kanini.com" formControlName="email" [(ngModel)]="loginData.email">
                 <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched"
                     class="error-message">
                     Email is required.
@@ -33,7 +33,7 @@
             </div>
             <div class="password">
                 Password<br>
-                <input type="password" placeholder="**********" formControlName="password">
+                <input type="password" placeholder="**********" formControlName="password" [(ngModel)]="loginData.password">
                 <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
                     class="error-message">
                     Password is required.
