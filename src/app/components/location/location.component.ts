@@ -84,9 +84,6 @@ export class LocationComponent implements OnInit {
   get country(){
     return this.locationForm.get('country');
   }
-  get floorNumberOrBuildingName() {
-    return this.locationForm.get('floorNumberOrBuildingName');
-  }
 
   get numberOfConferenceRooms(){
     return this.locationForm.get('numberOfConferenceRooms');
