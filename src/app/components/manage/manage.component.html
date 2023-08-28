@@ -1,1 +1,77 @@
-<p>manage works!</p>
+<app-navbar></app-navbar>
+
+<body class="body">
+    <!-- Manage Starts Here -->
+    <div class="container-fluid py-2">
+        <app-header [header]="header"></app-header><hr>
+        <!-- <header class="row py-4 border-bottom">
+            <div class="col-sm-6">
+                <h6 class="">Manage</h6>
+            </div>
+
+            <div class="col-sm-4 px-1">
+                <nav class="navbar">
+                    <form class="container-fluid  d-flex">
+                        <div class="input-group">
+                            <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
+                                    style="color: #a1a3a5;"></i></span>
+                            <input type="text" class="search form-control no-border" placeholder="Search Employees"
+                                aria-label="Search Employees" aria-describedby="basic-addon1">
+                        </div>
+                    </form>
+                </nav>
+
+            </div>
+            <div class="col-sm-2" style="position:relative">
+                <img src="assets/img/bell.svg">
+                <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
+                    <span class="visually-hidden">Hello</span>
+                </span>
+                <button class="avatar-btn mx-2" type="submit"></button>HR admin
+            </div>
+
+        </header> -->
+
+        <div class="row">
+            <!-- <div class="col m-2" (click)="location()">
+                <div class="card text-center. ">
+                    <div class="card-body">
+                        <div class="circleAddLocation">
+                            <img src="../../../assets/images/locationLogo.jpeg">
+                        </div>
+                        <p class="pb-2">Locations</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col m-2" (click)="conference()">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="circleMeeting">
+                            <img src="../../../assets/images/conferenceLogo.jpeg">
+
+                        </div>
+                        <p class="pb-2">Conference Rooms</p>
+                    </div>
+                </div>
+            </div> -->
+            <div class="services text-center">
+                <div class="i s7 p-2"><a routerLink="/manage/location" class="location"><img
+                            src="assets/img/locicon.png" class="img"></a></div>
+                <a routerLink="/manage/location" class="location">
+                    <p class="p text-dark fw-semibold text-center mx-3">Locations</p>
+                </a>
+            </div>
+            <div class="services p-1 text-center">
+                <div class="i s8 p-2"><a routerLink="/manage/conference"><img src="assets/img/croom.png"
+                            class="img"></a>
+                </div>
+                <a routerLink="/manage/conference">
+                    <p class="p text-dark fw-semibold">Conference Rooms</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Manage Starts End -->
+
+</body>

@@ -1,49 +1,40 @@
+
+<app-navbar></app-navbar>
 <div class="body" id="article">
     <!-- BEGINNING OF BODY FIRST SUBROW -->
-    <header class="row p-4">
-        <div class="col-sm-6">
-            <h4>Calendar</h4>
-            <p class="p-small text-secondary">   </p>
-            <div>
-               
-            </div>
-        </div>
 
-        <div class="col-sm-4 px-1">
-            <nav class="navbar">
-                <form class="container-fluid  d-flex">
-                    <div class="input-group">
-                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass" style="color: #a1a3a5;"></i></span>
-                        <input type="text" class="search form-control no-border" placeholder="Search Employees"
-                            aria-label="Search Employees" aria-describedby="basic-addon1">
-                    </div>
-                </form>
-            </nav>
-
-        </div>
-        <div class="col-sm-2" style="position:relative">
-            <img src="assets/img/bell.svg">
-            <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
-                <span class="visually-hidden">Hello</span>
-            </span>
-            <button class="avatar-btn mx-2" type="submit"></button>HR admin
-        </div>
-        </header>
-</div>
+    <app-header [header]="header"></app-header>
+   </div>
 <hr class="custom-line">
 <div class="container-fluid">
 <div class="row">
-    <div class="col-sm-7">
-        <full-calendar [options]="calendarOptions"></full-calendar>
+    <div class="col-sm-8">
+        <div class="card cal">
+            <full-calendar [options]="calendarOptions"></full-calendar>
+
+        </div>        
+    </div>
+    <div class="mini-cal col-sm-4">
+      <div class="card p-3">
+        <mat-calendar #releasedAtPicker color="primary" ></mat-calendar>
+        <hr>
+        <h5>Events</h5>
+        <p>Today, {{today|date}}</p>
+        <div class="card p-2" *ngFor="let c of eventsToday"  [ngStyle]="{'background-color':'lightblue'}" >
+            <p>{{c.title}}</p>
+            <p>{{c.start}}</p>
+            <p *ngIf="c.extendedProps && c.extendedProps['time']">{{ c.extendedProps['time'] }}</p>
+            <button class="btn btn-outline-primary" [ngStyle]="{'width': '50%'}">View Details</button>
+
+        </div>
+
+       
+
         
-    </div>
-    <div class="col-sm-5">
-        hi
-    </div>
-</div>
-
-</div>
-
-<div class="col-sm-3">
+      </div>
     
+    </div>
 </div>
+
+</div>
+

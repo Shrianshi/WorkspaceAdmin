@@ -1,0 +1,176 @@
+<app-navbar></app-navbar>
+
+<body class="body">
+    <header class="row py-4 border-bottom">
+        <div class="col-sm-6">
+            <h6 class="">Locations</h6>
+        </div>
+
+        <div class="col-sm-4 px-1">
+            <nav class="navbar">
+                <form class="container-fluid  d-flex">
+                    <div class="input-group">
+                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
+                                style="color: #a1a3a5;"></i></span>
+                        <input type="text" class="search form-control no-border" placeholder="Search Employees"
+                            aria-label="Search Employees" aria-describedby="basic-addon1">
+                    </div>
+                </form>
+            </nav>
+
+        </div>
+        <div class="col-sm-2" style="position:relative">
+            <img src="assets/img/bell.svg">
+            <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
+                <span class="visually-hidden">Hello</span>
+            </span>
+            <button class="avatar-btn mx-2" type="submit"></button>HR admin
+        </div>
+
+    </header>
+    <div>
+        <aside>
+            <div class="row">
+                <div class="col-10 text-left mt-3">
+                    <h6>All Location</h6>
+                </div>
+
+                <div class="col-2 text-right">
+                    <button class="btn btn-primary btn-sm mt-3" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add Location</button>
+
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                        aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasRightLabel">Add a new location</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class=row>
+                                <p>Share location building image</p>
+                                <div class="card text-center mb-3" style="border:1px dashed;">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi-card-image"></i></h5>
+                                        <input type="file" placeholder="select image"
+                                        (change)="onFileSelected($event)"><br>
+                                        <p>Supports : JPG,PNG</p>
+                                    </div>
+                                </div>
+
+                            </div><br>
+
+                            <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
+                                <div class="row" >
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Floor no/Buiding name"
+                                        aria-label="Floor no/Building name" formControlName="floorNumberOrBuildingName">
+
+                                        <div *ngIf="locationForm.get('floorNumberOrBuildingName')?.hasError('required')" class="text-danger">
+                                            Floor no/Building name is required.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="streetAddress"
+                                        aria-label="streetAddress" formControlName="streetAddress">
+
+                                        <div *ngIf="locationForm.get('streetAddress')?.hasError('required')" class="text-danger">
+                                            streetAddress is required.
+                                        </div>
+                                    </div>
+                                </div><br>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="City" aria-label="City"
+                                        formControlName="city" >
+
+                                        <div *ngIf="locationForm.get('city')?.hasError('required')" class="text-danger">
+                                            city is required.
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="State" aria-label="State"
+                                        formControlName="state" >
+
+                                        <div *ngIf="locationForm.get('state')?.hasError('required')" class="text-danger">
+                                            state is required.
+                                        </div>
+                                    </div>
+                                </div><br>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="number" class="form-control" placeholder="Pincode" aria-label="Pincode"
+                                        formControlName="pincode" >
+
+                                        <div *ngIf="locationForm.get('pincode')?.hasError('required')" class="text-danger">
+                                            pincode is required.
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Country" aria-label="Country"
+                                        formControlName="country" >
+
+                                        <div *ngIf="locationForm.get('country')?.hasError('required')" class="text-danger">
+                                            country is required.
+                                        </div>
+                                    </div>
+                                </div><br>
+
+                                <div class="row">
+                                    <p>General Info</p>
+                                    <div class="col">
+                                        <input type="number" class="form-control" placeholder="No. of conference room"
+                                            aria-label="No. of coference room" formControlName="numberOfConferenceRooms" >
+                                        
+                                        <div *ngIf="locationForm.get('numberOfConferenceRooms')?.hasError('required')" class="text-danger">
+                                            No. of conference room is required.
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <input type="number" class="form-control" placeholder="No. of desk"
+                                            aria-label="No. of desk" formControlName="numberOfDesk" >
+
+                                        <div *ngIf="locationForm.get('numberOfDesk')?.hasError('required')" class="text-danger">
+                                                No. of desk room is required.
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <div>
+                                    <button type="submit" class="btn btn-primary" >Submit</button>
+                                </div>
+                     
+                            </form>    
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </aside>
+
+    </div>
+    <br>
+    <article>
+        <div>
+            <div class="row ">
+                <div class="col-sm-3" *ngFor="let l of locations">
+                    <div class="card">
+                        <img [src]=" 'data:image/png;base64,' + l.imageData" class="card-img-top " alt="... ">
+                        <div class="card-body ">
+                            <h6 class="card-title ">{{l.city}}</h6>
+                            <p class="card-text p1 text-secondary">{{l.streetAddress}}, {{l.city}}-{{l.pincode}}</p>
+                            <a href="# " class="btn btn-sm border border-primary text-primary">Edit Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>

@@ -1,0 +1,53 @@
+<div class="image-container">
+    <div class="image image1">
+        <img src="assets/img/SignIn.png" class="index-0-img">
+    </div>
+    <div class="image image2">
+        <img src="assets/img/Signin2.png" width="400px" height="450px">
+    </div>
+    <div class="image image3">
+        <img src="assets/img/Signin3.png" width="250px" height="120px">
+    </div>
+    <div class="image image4">
+        <img src="assets/img/Sign4.png" width="200px" height="250px">
+    </div>
+
+</div>
+<div class="Form-container">
+    <div class="logo"><img src="assets/img/Kanini.png" width="150px" height="50px"></div>
+    <div>
+        <h4>Sign In</h4>
+        <p class="p">Welcome back! Please enter email id and password</p>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="email">
+                Email ID<br>
+                <input type="text" placeholder="name@kanini.com" formControlName="email" [(ngModel)]="loginData.email">
+                <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched"
+                    class="error-message">
+                    Email is required.
+                </div>
+                <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched"
+                    class="error-message">
+                    Please enter a valid email address.
+                </div>
+
+            </div>
+            <div class="password">
+                Password<br>
+                <input type="password" placeholder="**********" formControlName="password" [(ngModel)]="loginData.password">
+                <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+                    class="error-message">
+                    Password is required.
+                </div>
+                <a class="p" (click)="emailNotification()">forgot your password?</a>
+            </div>
+            <div>
+                <button type="submit" class="signin" [class.valid-button]="loginForm.valid"
+                [class.invalid-button]="!loginForm.valid" [disabled]="!loginForm.valid">Signin</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!-- <router-outlet></router-outlet> -->

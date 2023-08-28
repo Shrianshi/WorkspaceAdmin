@@ -1,1 +1,475 @@
-<p>employee works!</p>
+<app-navbar></app-navbar>
+
+<body class="body">
+
+    <div class="container-fluid">
+        <app-header [header]="header"></app-header>
+        <hr>
+        
+        <!-- BODY -->
+        <div class="row">
+            <div class="col-sm-9">
+                <p style="font-size: 16px;" class="p-3">Finding <b> {{countEmp}} Members</b></p>
+            </div>
+            <div class="col-sm-1">
+                <!-- FILTER SECTION -->
+                <div class="btn-group p-3" style="float: right;">
+                    <button class="btn  btn-sm dropdown-toggle" id="t1" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="border: 1px solid #9DA2B6;width: 101px;
+                        height: 30px;">
+                        <i class="bi-funnel"></i> Filter
+                    </button>
+                    <ul class="dropdown-menu" id="t2">
+                        <div style="width: 18rem;">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Location
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Chennai
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Coimbatore
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Banglore
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Pune
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            Department
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="accordion-body">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault" checked>
+                                                        IT Application Development
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        Data science
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        Software testing
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        Human resource
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        Finance & Accounting
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        Network & Security
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        Digital marketing
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                            Status
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    All
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    In
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Out
+                                                </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="btn-group">
+                    <button class="btn btn-primary btn-sm dropdown-toggle mt-3" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Add a new employee
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"><button class="btn " type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add
+                                    Manually</button></a>
+                        </li>
+                        <li><a class="dropdown-item" href="#"><button class="btn " type="button"
+                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1"
+                                    aria-controls="offcanvasRight">Import CSV File</button></a>
+                        </li>
+
+
+
+                    </ul>
+
+                    <!-- CSV IMPORT -->
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight1"
+                        aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasRightLabel1">Import employee from CSV file</h5>
+
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+
+
+                        </div>
+
+                        <p> This tool allows you to import (or merge) employee data to your
+                            employee list from a CSV file.</p>
+                        <div class="offcanvas-body">
+                            <div>
+                                <h5> Download Template</h5>
+                                <button type="submit" class="btn btn-primary btn-sm" style="float: right;">Download
+                                    Template</button>
+                                <br>
+                                Download the CSV file template to match your data<br>
+
+                            </div>
+                            <br>
+
+
+                            Choose a CSV file from your computer
+
+
+
+                            <div>
+                                <div class="card text-center mb-3" style="border:1px dashed;">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi-card-image"></i></h5>
+                                        <p class="card-text">Drop your CSV file here, or <a href="#">Browse</a><br>
+                                            Supports : CSV, TXT</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Import</button>
+                            <button type="submit" class="btn ">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MANUALLY ADD -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+
+                        <h5 class="offcanvas-title" id="offcanvasRightLabel">Add a Employee</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+
+                            <div class="row">
+                                <div class="col"></div>
+
+                                <div class="col-sm-6">
+                                    <input type="file" class="form-control" formControlName="empimage"
+                                        (change)="onFileSelected($event)">
+                                </div>
+
+                                <div class="col"></div>
+                                <div *ngIf="employeeForm.get('empimage')?.hasError('required') && employeeForm.get('empimage')?.touched"
+                                    class="error-message">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+
+                            <br>
+
+
+                            <div class="row g-3">
+
+                                <div class="col">
+                                    <input type="text" class="form-control" formControlName="fname"
+                                        placeholder="First Name" aria-label="First Name"
+                                        [(ngModel)]="newEmployee.fname">
+
+                                </div>
+                                <div *ngIf="employeeForm.get('fname')?.hasError('required') && employeeForm.get('fname')?.touched"
+                                    class="error-message">
+                                    firstname is required.
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" formControlName="lname"
+                                        placeholder="Last name" [(ngModel)]="newEmployee.lname">
+                                    <div *ngIf="employeeForm.get('lname')?.hasError('required') && employeeForm.get('lname')?.touched"
+                                        class="error-message">
+                                        lastname is required.
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <select id="inputState" class="form-select" formControlName="locationId"
+                                        [(ngModel)]="newEmployee.locationId">
+                                        <option value="">select Location</option>
+                                        <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
+                                    </select>
+                                    <div *ngIf="employeeForm.get('locationId')?.hasError('required') && employeeForm.get('locationId')?.touched"
+                                    class="error-message">
+                                    location is required.
+                                </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row g-3">
+                                <div class="col">
+                                    <select id="inputState" class="form-select" formControlName="depId"
+                                        [(ngModel)]="newEmployee.depId">
+                                        <option vlaue="" selected>select Department</option>
+                                        <option *ngFor="let d of departments" [value]="d.deptId">{{d.deptName}}</option>
+                                    </select>
+                                    <div *ngIf="employeeForm.get('depId')?.hasError('required') && employeeForm.get('depId')?.touched"
+                                    class="error-message">
+                                    department is required.
+                                </div>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Title" formControlName="title"
+                                        [(ngModel)]="newEmployee.title">
+                                        <div *ngIf="employeeForm.get('title')?.hasError('required') && employeeForm.get('title')?.touched"
+                                    class="error-message">
+                                    title is required.
+                                </div>
+                                </div>
+                                
+                            </div>
+                            <br>
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Email address"
+                                        formControlName="email" [(ngModel)]="newEmployee.email">
+                                </div>
+                                <div *ngIf="employeeForm.get('email')?.hasError('required') && employeeForm.get('email')?.touched"
+                                    class="error-message">
+                                    Email is required.
+                                </div>
+
+                            </div>
+                            <br>
+
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Phone number"
+                                        formControlName="phone" [(ngModel)]="newEmployee.phone">
+                                </div>
+                                <div *ngIf="employeeForm.get('phone')?.hasError('required') && employeeForm.get('phone')?.touched"
+                                    class="error-message">
+                                    Phone no. is required.
+                                </div>
+
+                            </div>
+                            <br>
+
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="password" class="form-control" placeholder="Add Password"
+                                        formControlName="addPassword" value="addPassword"
+                                        [(ngModel)]="newEmployee.addPassword">
+                                </div>
+                                <div *ngIf="employeeForm.get('addPassword')?.hasError('required') && employeeForm.get('addPassword')?.touched"
+                                    class="error-message">
+                                    Password is required.
+                                </div>
+
+                            </div>
+                            <br>
+
+                            <div class="row g-3">
+                                <div class="col">
+                                    <input type="password" class="form-control" placeholder="Confirm Password"
+                                        formControlName="confirmPassword" [(ngModel)]="newEmployee.confirmPassword">
+                                </div>
+
+                            </div>
+                            <p *ngIf="newEmployee.confirmPassword!='' && newEmployee.addPassword!=newEmployee.confirmPassword"
+                                class="text-danger">both password must be same</p>
+                            <br>
+
+                            <div class="row g-3">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">Add</button>
+                                    <button type="submit" class="btn" (click)="employeeForm.reset()">Cancel</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+
+
+
+
+        <!-- CARD SECTION -->
+
+        <div>
+            <div class="row">
+                <div class="col-sm-3 " *ngFor="let card of employees">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div>
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false" style="float: right; border: none;">
+                                        <i class="bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+
+                                    </ul>
+                                </div>
+                                <button type="button" class="red-btn">
+                                    Out
+                                </button>
+                            </div>
+                            <br> <br> <br> <br>
+                            <div class="position-relative">
+
+                                <div class="position-absolute top-50 start-50 translate-middle">
+                                    <img [src]=" 'data:image/png;base64,' + card.imageData" alt="pic"
+                                        class="rounded-circle " width="60px" height="60px" id="p1">
+                                </div>
+                            </div>
+                            <br><br>
+                            <div class="card-title black" align="center">
+                                {{card.employeeId}}-{{ card.fname }} {{card.lname}}</div>
+                            <p class="card-text" style="font-size: 10px;">{{card.title}} - {{card.department.deptName}}<br><br>
+                        
+                               
+                            </p><hr>
+                            <span class="card-text" style="font-size: 11px;"><i class="bi-envelope"></i> {{card.email}}</span><br>
+                            <span class="card-text" style="font-size: 11px;"><i class="bi-telephone"></i> {{card.phone}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="page" id="#paginSection">
+            <div class="container-fluid small">
+                <div class="row">
+                    <div class="col-sm-7 py-2 text-muted">View &nbsp;
+                        <select id="roomsper small">
+                            <option value="RoomsPerPage" selected>6</option>
+                            <option value="RoomsPerPage">10</option>
+                            <option value="RoomsPerPage">14</option>
+                            <option value="RoomsPerPage">20</option>
+                        </select>
+                        Employees per page
+                    </div>
+
+                    <span class="col-sm-2 text-muted small" id="spanResult">Showing {{countEmp}}/{{countEmp}} results</span>
+
+                    <!-- <div class="col-sm-3" id="pagination">
+                        <div class="pagination">
+                            <button class="next-arrow"><img src="   assets/images/left-arrow.jpeg"></button>
+
+                            <ul class="ul">
+                                <li class="link active li" value="1">1</li>
+                                <li class="link li" value="2">2</li>
+                                <li class="link li" value="3">3</li>
+                                <li class="link li" value="4">4</li>
+                                <li class="link li" value="5">5</li>
+                            </ul>
+                            <button class="next-arrow"><img src="assets/images/right-arrow.jpeg"></button>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+        </section>
+    </div>
+</body>

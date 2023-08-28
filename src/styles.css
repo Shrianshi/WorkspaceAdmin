@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .text-invisible{
+    font-size: 0px;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 992px) {}
+
+
+@media (min-width: 992px) {}

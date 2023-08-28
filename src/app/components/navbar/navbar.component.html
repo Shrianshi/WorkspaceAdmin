@@ -1,18 +1,18 @@
 <div class="body">
     <div class="border-end aside">
-        <p class="p-3 pb-1"><img src="assets/img/kaniniimage.jpeg" width="20" height="20">Kanini <b>Workspace</b></p>
+        <p class="p-3 pb-1 text-invisible"><img src="assets/img/kaniniimage.jpeg" width="20" height="20">Kanini <b>Workspace</b></p>
 
         <ul class="nav flex-column">
             <li class="li nav-item">
-                <a class="a nav-link" aria-current="page" routerLink="/article-section" target="_parent"><img src="assets/img/dashboard.svg"
-                        class="px-3" id="dashboard" target="_top">Dashboard</a>
+                <a class="a nav-link text-invisible" aria-current="page" routerLink="/article-section" target="_parent"><img src="assets/img/dashboard.svg"
+                        class="padding" id="dashboard" target="_top" routerLink="/article-section">Dashboard</a>
             </li>
             <li class="li nav-item">
-                <a class="a nav-link" routerLink="/employee" id="employees"><img src="assets/img/people.svg" class="px-3">Employee</a>
+                <a class="a nav-link text-invisible" routerLink="/employee" id="employees"><img src="assets/img/people.svg" class="padding">Employee</a>
             </li>
             <li class="li nav-item dropdown ">
-                <a class="a nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button"
-                    aria-expanded="false"><img src="assets/img/door.svg" class="px-3">Booking</a>
+                <a class="a nav-link dropdown-toggle text-invisible" data-bs-toggle="dropdown" role="button"
+                    aria-expanded="false"><img src="assets/img/door.svg" class="padding">Booking</a>
                 <ul class="dropdown-menu">
                     <li><a class="a dropdown-item" routerLink="/rbooking">Room bookings</a></li>
                     <li><a class="a dropdown-item" routerLink="/dbooking">Desk bookings</a></li>
@@ -20,22 +20,22 @@
                 </ul>
             </li>
             <li class="li nav-item">
-                <a routerLink="calendar" class="a nav-link" id="calendar1"><img src="assets/img/calendar.svg"
-                        class="px-3">Calendar</a>
+                <a routerLink="/calendar" class="a nav-link text-invisible" id="calendar1"><img src="assets/img/calendar.svg"
+                        class="padding">Calendar</a>
             </li>
             <li class="li nav-item ">
-                <a class="a nav-link" id="event" routerLink="/events"><img src="assets/img/party.svg" class="px-3">Events</a>
+                <a class="a nav-link text-invisible" id="event" routerLink="/events"><img src="assets/img/party.svg" class="padding">Events</a>
             </li>
 
             <li class="li nav-item ">
-                <a class="a nav-link " id="notification" routerLink="/notifications"><img src="assets/img/bell.svg"
-                        class="px-3">Notification</a>
+                <a class="a nav-link text-invisible" id="notification" routerLink="/notifications"><img src="assets/img/bell.svg"
+                        class="padding">Notification</a>
             </li>
             <li class="li nav-item">
-                <a routerLink="/manage" class="a nav-link " id="manage"><img src="assets/img/manage.svg" class="px-3">Manage</a>
+                <a routerLink="/manage" class="a nav-link text-invisible" id="manage"><img src="assets/img/manage.svg" class="padding">Manage</a>
             </li>
-            <li class="li nav-item mt-5">
-                <a class="a nav-link logout-btn"><img src="assets/img/logout.svg" class="px-3">Logout</a>
+            <li class="li nav-item mt-5" >
+                <a class="a nav-link logout-btn text-invisible" routerLink="/sign-up"><img src="assets/img/logout.svg" class="padding" (click)="logout()">Logout</a>
             </li>
 
         </ul>
