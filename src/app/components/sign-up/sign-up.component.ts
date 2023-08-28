@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import emailjs from '@emailjs/browser';
+import { AuthService } from 'src/app/services/authservices/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
