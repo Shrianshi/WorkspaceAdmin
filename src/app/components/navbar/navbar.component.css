@@ -95,6 +95,7 @@
     .body {
         width: 14.9%;
         float: left;
+        height: 2 00%;
     }
 
     .li {
@@ -131,7 +132,7 @@
     .aside {
         position: relative;
         width: 100%;
-        height: 800px;
+        height: 100%;
     }
 
     .logout-btn {

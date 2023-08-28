@@ -90,6 +90,7 @@ export class EmployeeComponent implements OnInit{
     this.empSer.addEmployee(this.newEmployee).subscribe((data)=>{
       this.toast.success('Employee Added')
       console.log(this.newEmployee)
+      this.employeeForm.reset();
     },(error)=>{
       console.log(error)
     })
