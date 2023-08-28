@@ -2,42 +2,14 @@
 <div>
     <app-header [header]="header"></app-header>
     <hr>
-    <!-- Section 1: Header -->
-    <!-- <header class="row py-4 border-bottom">
-        <div class="col-sm-6">
-            <h6 class="">Rooms</h6>
-        </div>
-
-        <div class="col-sm-4 px-1">
-            <nav class="navbar">
-                <form class="container-fluid  d-flex">
-                    <div class="input-group">
-                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
-                                style="color: #a1a3a5;"></i></span>
-                        <input type="text" class="search form-control no-border" placeholder="Search Employees"
-                            aria-label="Search Employees" aria-describedby="basic-addon1">
-                    </div>
-                </form>
-            </nav>
-
-        </div>
-        <div class="col-sm-2" style="position:relative">
-            <img src="assets/img/bell.svg"> 
-            <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
-                <span class="visually-hidden">Hello</span>
-            </span>
-            <button class="avatar-btn mx-2" type="submit"></button>HR admin
-        </div>
-    </header> -->
-
-    <!-- Section 1 End-->
     <br>
     <!-- Section 2 : Header 2-->
     <section>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-10"><span class="mx-2">Found <b>120 Conference Rooms</b></span>
-                    <select id="allLocationFilter">
+                    <select id="allLocationFilter" [(ngModel)]="locationName" (change)="changeLocationHandler()">
+                        <option value="All">All Locations</option>
                         <option value="Chennai">Chennai</option>
                         <option value="Bangalore">Bangalore</option>
                         <option value="Pune">Pune</option>
@@ -58,8 +30,8 @@
                             <button type="button" class="button_close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"><img src="../../../assets/images/close-icon.svg"></button>
 
-                        
-            <!-- Offcanvas Form Body -->
+                        </div>
+                        <!-- Offcanvas Form Body -->
 
                         <div class="offcanvas-body">
                             <div class="row">
@@ -133,12 +105,9 @@
                     </div>
                 </div>
             </div>
-
             <!-- Section 2 End-->
-
             <br>
             <br>
-
             <!--Section 3 : Cards -->
             <section>
                 <div class="container-fluid">
@@ -161,7 +130,7 @@
                                                 {{card.location.city}} &nbsp;</button>
                                         </div>
                                     </div>
-                            
+
                                     <br>
                                     <div class="row">
                                         <div class="col-icons">
@@ -180,9 +149,7 @@
                             </div>
                         </div>
                         <!-- Section 3 End -->
-
                         <br>
-
                         <!--Section 4 : Pagination -->
                         <section class="page" id="#paginSection">
                             <div class="container-fluid small">
@@ -201,7 +168,7 @@
 
                                 </div>
                             </div>
-                            
+
 
                         </section>
                         <!-- Section 4 End -->

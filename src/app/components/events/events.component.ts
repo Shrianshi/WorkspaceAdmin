@@ -74,7 +74,6 @@ export class EventsComponent {
         console.log(error)
       })
     }
-
   }
   ngOnInit(): void {
     this.eventser.getAllEvents().subscribe((data) => {
