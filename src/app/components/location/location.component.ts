@@ -10,14 +10,12 @@ import { LocationService } from 'src/app/services/location.service';
 })
 
 export class LocationComponent implements OnInit {
-  
-  constructor(private locationserv: LocationService, private toast: ToastrService, private formBuilder:FormBuilder) { }
 
+  constructor(private locationserv: LocationService, private toast: ToastrService, private formBuilder: FormBuilder) { }
   locations: any[] = []
-
   locationForm!: FormGroup;
   newLocation: any = {
-    floorNumberOrBuildingName: "",
+    floorNumberOrBuildingName:"",
     streetAddress: "",
     city: "",
     state: "",
@@ -37,6 +35,8 @@ export class LocationComponent implements OnInit {
       const base64String = btoa(String.fromCharCode.apply(null, numbersArray));
       this.newLocation.imageData = base64String;
       console.log(this.newLocation)
+
+      
     }
     fileReader.readAsArrayBuffer(file);
   }
@@ -47,30 +47,63 @@ export class LocationComponent implements OnInit {
     }, (error) => {
       console.log(error)
     })
-  
+
     this.locationForm = this.formBuilder.group({
       floorNumberOrBuildingName: ['', Validators.required],
       streetAddress: ['', Validators.required],
       city: ['', Validators.required],
       state: ['', Validators.required],
-      pincode: [0, Validators.required],
+      pincode: [null,[Validators.required, Validators.pattern(/^\d{6}$/)]],
       country: ['', Validators.required],
       imageData: [''],
-      numberOfConferenceRooms: [0, Validators.required],
-      numberOfDesk: [0, Validators.required],
+      numberOfConferenceRooms: [null, Validators.required],
+      numberOfDesk: [null, Validators.required],
     });
-  
-    // Remove this line from ngOnInit
-    // this.newLocation = this.locationForm.value;
+  }
+
+  get floorNumberOrBuildingName(){
+    return this.locationForm.get('floorNumberOrBuildingName');
+  }
+
+  get streetAddress(){
+    return this.locationForm.get('streetAddress');
   }
   
+  get city(){
+    return this.locationForm.get('city');
+  }
+
+  get state(){
+    return this.locationForm.get('state');
+  }
+
+  get pincode(){
+    return this.locationForm.get('pincode');
+  }
+
+  get country(){
+    return this.locationForm.get('country');
+  }
+
+  get numberOfConferenceRooms(){
+    return this.locationForm.get('numberOfConferenceRooms');
+  }
+
+  get numberOfDesk(){
+    return this.locationForm.get('numberOfDesk');
+  }
+  get imageData(){
+    return this.locationForm.get('imageData')
+  }
 
   onSubmit() {
     if (this.locationForm.valid) {
-      this.locationserv.addLocation(this.locationForm.value).subscribe((data) => {
-        console.log(data); // Check the response from the server
+      this.locationserv.addLocation(this.newLocation).subscribe((data) => {
+        console.log(data);
         this.toast.success("Location Added");
         this.locationForm.reset();
+
+        this.newLocation.imageData = '';
       }, (error) => {
         console.log(error);
       });

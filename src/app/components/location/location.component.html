@@ -48,11 +48,15 @@
                         </div>
                         <div class="offcanvas-body">
                             <div class=row>
+                                
                                 <p>Share location building image</p>
                                 <div class="card text-center mb-3" style="border:1px dashed;">
+                                    <h5 class="card-title">
+                                        <img src="assets/images/gallery-icon.png" />
+                                      </h5>
                                     <div class="card-body">
                                         <h5 class="card-title"><i class="bi-card-image"></i></h5>
-                                        <input type="file" placeholder="select image"
+                                        <input type="file" placeholder="select image" formControlName = "imageData"
                                         (change)="onFileSelected($event)"><br>
                                         <p>Supports : JPG,PNG</p>
                                     </div>
@@ -64,19 +68,19 @@
                                 <div class="row" >
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="Floor no/Buiding name"
-                                        aria-label="Floor no/Building name" formControlName="floorNumberOrBuildingName">
+                                        aria-label="Floor no/Building name" formControlName="floorNumberOrBuildingName" [(ngModel)]="newLocation.floorNumberOrBuildingName">
 
-                                        <div *ngIf="locationForm.get('floorNumberOrBuildingName')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="floorNumberOrBuildingName?.invalid && floorNumberOrBuildingName?.touched" class="text-danger">
                                             Floor no/Building name is required.
                                         </div>
                                     </div>
                                     
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="streetAddress"
-                                        aria-label="streetAddress" formControlName="streetAddress">
+                                        <input type="text" class="form-control" placeholder="Street Address"
+                                        aria-label="streetAddress" formControlName="streetAddress" [(ngModel)]="newLocation.streetAddress">
 
-                                        <div *ngIf="locationForm.get('streetAddress')?.hasError('required')" class="text-danger">
-                                            streetAddress is required.
+                                        <div *ngIf="streetAddress?.invalid && streetAddress?.touched" class="text-danger">
+                                            street Address is required.
                                         </div>
                                     </div>
                                 </div><br>
@@ -84,18 +88,18 @@
                                 <div class="row">
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="City" aria-label="City"
-                                        formControlName="city" >
+                                        formControlName="city" [(ngModel)]="newLocation.city" >
 
-                                        <div *ngIf="locationForm.get('city')?.hasError('required')" class="text-danger">
-                                            city is required.
+                                        <div *ngIf="city?.invalid && city?.touched" class="text-danger">
+                                           city is required.
                                         </div>
                                     </div>
 
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="State" aria-label="State"
-                                        formControlName="state" >
+                                        formControlName="state" [(ngModel)]="newLocation.state" >
 
-                                        <div *ngIf="locationForm.get('state')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="state?.invalid && state?.touched" class="text-danger">
                                             state is required.
                                         </div>
                                     </div>
@@ -104,18 +108,18 @@
                                 <div class="row">
                                     <div class="col">
                                         <input type="number" class="form-control" placeholder="Pincode" aria-label="Pincode"
-                                        formControlName="pincode" >
+                                        formControlName="pincode" [(ngModel)]="newLocation.pincode">
 
-                                        <div *ngIf="locationForm.get('pincode')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="pincode?.invalid && pincode?.touched" class="text-danger">
                                             pincode is required.
                                         </div>
                                     </div>
 
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="Country" aria-label="Country"
-                                        formControlName="country" >
+                                        formControlName="country" [(ngModel)]="newLocation.country" >
 
-                                        <div *ngIf="locationForm.get('country')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="country?.invalid && country?.touched" class="text-danger">
                                             country is required.
                                         </div>
                                     </div>
@@ -125,25 +129,31 @@
                                     <p>General Info</p>
                                     <div class="col">
                                         <input type="number" class="form-control" placeholder="No. of conference room"
-                                            aria-label="No. of coference room" formControlName="numberOfConferenceRooms" >
+                                            aria-label="No. of coference room" formControlName="numberOfConferenceRooms" [(ngModel)]="newLocation.numberOfConferenceRooms" >
                                         
-                                        <div *ngIf="locationForm.get('numberOfConferenceRooms')?.hasError('required')" class="text-danger">
-                                            No. of conference room is required.
+                                        <div *ngIf="numberOfConferenceRooms?.invalid && numberOfConferenceRooms?.touched" class="text-danger">
+                                                number of conference rooms is required.
                                         </div>
                                     </div>
 
                                     <div class="col">
                                         <input type="number" class="form-control" placeholder="No. of desk"
-                                            aria-label="No. of desk" formControlName="numberOfDesk" >
+                                            aria-label="No. of desk" formControlName="numberOfDesk" [(ngModel)]="newLocation.numberOfDesk">
 
-                                        <div *ngIf="locationForm.get('numberOfDesk')?.hasError('required')" class="text-danger">
-                                                No. of desk room is required.
+                                        <div *ngIf="numberOfDesk?.invalid && numberOfDesk?.touched" class="text-danger">
+                                                number of desk is required.
                                         </div>
                                     </div>
                                 </div><br>
-                                <div>
-                                    <button type="submit" class="btn btn-primary" >Submit</button>
-                                </div>
+                                <div class="mb-3 d-flex justify-content-between">
+                                    
+                                        <button type="submit" class="btn btn-primary" >Submit</button>
+                                    
+                                    <button type="button" class="btn btn-secondary me-1" data-bs-dismiss="offcanvas">
+                                      Cancel
+                                    </button>
+                                  </div>
+
                      
                             </form>    
                             
@@ -169,7 +179,9 @@
                             <p class="card-text p1 text-secondary">{{l.streetAddress}}, {{l.city}}-{{l.pincode}}</p>
                             <a href="# " class="btn btn-sm border border-primary text-primary">Edit Details</a>
                         </div>
-                    </div>
+                    </div><br>
+                    
+    
                 </div>
             </div>
         </div>

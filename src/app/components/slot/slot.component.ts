@@ -35,7 +35,6 @@ export class SlotComponent implements OnInit {
     startTime: "2023-08-24T05:44:08.047Z",
     endTime: "2023-08-24T05:44:08.047Z",
     employeeName: "",
-    employeeId: 0,
     roomId: 0,
   }
   ngOnInit() {
@@ -68,21 +67,17 @@ export class SlotComponent implements OnInit {
   }
 
   onSubmit() {
-    // if (this.bookroomForm.valid) {
-    //   console.log('Form submitted:', this.bookroomForm.value);
-    // } else {
-    //   console.log('Form is not valid');
-    // }
-    if (this.roomId != null && this.bookroomForm.valid) {
-      this.bookingDetail.roomId = parseInt(this.roomId)
-      this.bookingSer.addRoomBooking(this.bookingDetail).subscribe((data) => {
-        this.toast.success("Booking Successful")
-        console.log(this.bookingDetail)
-      }, (error) => {
-        console.log(error)
-      })
 
-    }
+    if (this.roomId != null)
+      this.bookingDetail.roomId = parseInt(this.roomId)
+    this.bookingSer.addRoomBooking(this.bookingDetail).subscribe((data) => {
+      this.toast.success("Booking Successful")
+      console.log(this.bookingDetail)
+    }, (error) => {
+      console.log(error)
+    })
+
+
   }
 
   }
