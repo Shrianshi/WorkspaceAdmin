@@ -1,58 +1,56 @@
-import { Component,OnInit,AfterViewInit } from '@angular/core';
-import { CalendarOptions, EventInput } from '@fullcalendar/core'; // useful for typechecking
+import { Component, OnInit } from '@angular/core';
+import { CalendarOptions, EventInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import * as $ from 'jquery';
-import 'bootstrap-datepicker';
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-  today:Date = new Date();
+  today: Date = new Date();
   
   calendarOptions: CalendarOptions = {};
-  header:string='Calendar';
+  header: string = 'Calendar';
   events: EventInput[] = [
-    { title: 'Event 1', start: '2023-08-08', time: '8:00 AM' },
-    { title: 'Event 2', start: '2023-08-09', time: '12:00' },
+    { title: 'Event 1', start: '2023-08-27', extendedProps: { time: '8:00 AM' } },
+    { title: 'Event 2', start: '2023-08-28', extendedProps: { time: '12:00 PM' } },
+    //{ title: 'Event 3', start: '2023-08-28', extendedProps: { time: '2:00 PM' } },
+    { title: 'Event 4', start: '2023-08-27', extendedProps: { time: '12:00 PM' } },
+
+
   ];
-  events2:EventInput=[];
-  
+  eventsToday: EventInput[] = [];
+
   ngOnInit() {
+    const todayDate = new Date().toISOString().split('T')[0];
+    this.eventsToday = this.events.filter(event => event.start === todayDate);
+ 
     this.calendarOptions = {
       initialView: 'dayGridMonth', 
       headerToolbar: {
-        
         left: 'dayGridDay,dayGridWeek,dayGridMonth', 
         center: 'title', 
         end: 'prev,next'             
       },
-     
-      // events: [
-       
-      //   { title: 'event 3', date: '2023-07-25',time:'7.00' }
-
-      // ],
-      events:this.events,
-      eventContent: this.customEventContent, 
-
-      eventTimeFormat: {
-        hour: '2-digit',
-        minute: '2-digit',
-        meridiem: true
-      },
+      events: this.events,
       dayMaxEventRows: true,
-      plugins: [dayGridPlugin] ,
-      
-      
+      plugins: [dayGridPlugin],
+      eventContent: this.customEventContent
     };
-
-    
-    
-    }
-  customEventContent(info:any) {
-    return { html: `<div>${info.event.title}</div><div>${info.event.start.toLocaleTimeString()}</div>` };
   }
-  
+
+  customEventContent(info: any) {
+    const eventTime = new Date(info.event.start);
+    const eventProps = info.event.extendedProps;
+    const formattedTime = eventProps && eventProps.time ? eventProps.time : '';
+    
+    return {
+      html: `
+        <div>${info.event.title}</div>
+        <div>Date: ${eventTime.toDateString()}</div>
+        <div>Time: ${formattedTime}</div>
+      `
+    };
+  }
 }
