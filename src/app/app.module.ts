@@ -28,9 +28,10 @@ import { RemoveEmpComponent } from './components/remove-emp/remove-emp.component
 import { BookedSuccessComponent } from './components/booked-success/booked-success.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewEventComponent } from './components/view-event/view-event.component';
 import { HeaderComponent } from './components/header/header.component';
+
 
 
 
@@ -57,7 +58,7 @@ import { HeaderComponent } from './components/header/header.component';
     BookedSuccessComponent,
 
     ViewEventComponent,
-      HeaderComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +68,6 @@ import { HeaderComponent } from './components/header/header.component';
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
-
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,

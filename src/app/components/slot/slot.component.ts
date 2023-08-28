@@ -73,7 +73,6 @@ export class SlotComponent implements OnInit{
     // } else {
     //   console.log('Form is not valid');
     // }
-    console.log(this.bookingDetail)
     if(this.roomId!=null)
     this.bookingDetail.roomId=parseInt(this.roomId)
   this.bookingSer.addRoomBooking(this.bookingDetail).subscribe((data)=>{

@@ -9,7 +9,7 @@
         <!-- BODY -->
         <div class="row">
             <div class="col-sm-9">
-                <p style="font-size: 16px;" class="p-3">Founding <b> {{countEmp}} Members</b></p>
+                <p style="font-size: 16px;" class="p-3">Finding <b> {{countEmp}} Members</b></p>
             </div>
             <div class="col-sm-1">
                 <!-- FILTER SECTION -->
@@ -286,7 +286,7 @@
                                 <div class="col">
                                     <select id="inputState" class="form-select" formControlName="locationId"
                                         [(ngModel)]="newEmployee.locationId">
-                                        <option value="" selected>select Location</option>
+                                        <option value="">select Location</option>
                                         <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
                                     </select>
                                     <div *ngIf="employeeForm.get('locationId')?.hasError('required') && employeeForm.get('locationId')?.touched"

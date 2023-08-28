@@ -1,17 +1,20 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import emailjs from '@emailjs/browser';
+
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent implements OnInit{
-  loginForm: FormGroup=new FormGroup({});
+export class SignUpComponent implements OnInit {
+  loginForm: FormGroup = new FormGroup({});
 
-  constructor(private formBuilder: FormBuilder,private router: Router) {}
+
+  constructor(private formBuilder: FormBuilder, private router: Router, private authSer: AuthService, private toast: ToastrService) { }
 
   ngOnInit() {
     this.initializeForm();
@@ -19,21 +22,34 @@ export class SignUpComponent implements OnInit{
 
   initializeForm() {
     this.loginForm = this.formBuilder.group({
-      email: ['',[Validators.required, Validators.email]],
-      password:['', Validators.required]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
     });
+  }
+
+  loginData: any = {
+    email: '',
+    password: ''
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
       console.log('Form submitted:', this.loginForm.value);
-      this.router.navigate(['article-section']);
+      // this.router.navigate(['article-section'])
+      this.authSer.loginAdmin(this.loginData).subscribe((data)=>{
+        localStorage.setItem('token',data.token)
+        localStorage.setItem('name',data.user.name)
+        this.toast.success('Welcome '+data.user.name)
+        this.router.navigate(['article-section']);
+      }, (error) => {
+        this.toast.error(error.error)
+      })
     } else {
       console.log('Form is not valid');
     }
   }
 
-  
+
   email: string = "";
 
 
@@ -90,8 +106,20 @@ export class SignUpComponent implements OnInit{
 
   onEmailEntered() {
     const formData = {
-      email: this.email
+      name: 'WorkSpaceManagement',
+      email: this.email,
+      password: 'test pass'
     };
-    console.log(formData);
+    emailjs.send("service_o92sfhd", "template_tksmu3d", formData, 'McZvSNPJpTc5eFa-D')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
   }
+
 }
+
+
+
+

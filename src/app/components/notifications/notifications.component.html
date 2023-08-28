@@ -2,14 +2,27 @@
 
 <body class="body">
     <div class="container-fluid whole">
-        <app-header [header]="header"></app-header><hr>
-    
+
+      
+        <app-header [header]="header"></app-header>
+        <hr>
+
         <div class="" style="display: flex;justify-content: space-between;">
             <div class="tophalf py-4">
-                <button type="button">All </button>
-                <button type="button">Chennai</button>
-                <button type="button">Coimbatore</button>
-                <button type="button">Pune</button>
+                <button type="button" (click)="allNotification()">
+                    All </button>
+
+                <button type="button" (click)="chennaiNotification()">
+                    Chennai</button>
+
+                <button type="button" (click)="coimbatoreNotification()">
+                    Coimbatore
+                </button>
+
+                <button type="button" class="" (click)="puneNotification()">
+                    Pune
+                </button>
+
             </div>
             <div class="p-4">
                 <button type="button" class="btn btn-primary px-2" data-bs-toggle="offcanvas"
@@ -42,6 +55,7 @@
                     </div>
                 </div>
                 <div class="mb-3">
+
                     <label for="location" class="form-label">Location</label>
                     <select name="location" id="location" [(ngModel)]="cardDetail.location" name="location" required #location="ngModel">
                         <option value="" disabled>Select a location</option>
@@ -50,6 +64,7 @@
                     <div *ngIf="location.invalid && (location.dirty || location.touched)" class="error-message">
                         <div *ngIf="location.errors?.['required']">Location is required.</div>
                     </div>
+
                 </div>
                 <div class="down">
                     <button type="button" class="btn btn-primary" (click)="onSubmit()"
@@ -70,9 +85,16 @@
             <div class="di2 p-3">
                 <h6>{{card.notificationSubject}}</h6>
                 <p>{{card.description}}</p>
-                <span class="mx-2 small"><i class="fa-solid fa-location-dot me-2" style="color: #8a8a8a"></i>{{card.location}}</span>
-                <span class=" mx-2 small"><i class="fa-regular fa-calendar me-2" style="color: #8a8a8a"></i>{{ card.date | date:'mediumDate' }}</span>
-                <span class=" mx-2 small"><i class="fa-regular fa-clock me-2" style="color: #030303" style="color: #8a8a8a"></i>{{ card.time| date:'shortTime' }}</span>
+
+                <span class="mx-2 small"><i class="fa-solid fa-location-dot me-2"
+                        style="color: #8a8a8a"></i>{{card.location.city}}</span>
+                <span class=" mx-2 small"><i class="fa-regular fa-calendar me-2" style="color: #8a8a8a"></i>{{ card.date
+                    | date:'mediumDate' }}</span>
+                <span class=" mx-2 small"><i class="fa-regular fa-clock me-2" style="color: #030303"
+                        style="color: #8a8a8a"></i>{{ card.time| date:'shortTime' }}</span>
+
+
+
             </div>
         </div>
     </div>
