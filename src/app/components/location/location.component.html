@@ -53,7 +53,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title"><i class="bi-card-image"></i></h5>
                                         <input type="file" placeholder="select image"
-                                        (change)="onFileSelected($event)"><br>
+                                            (change)="onFileSelected($event)"><br>
                                         <p>Supports : JPG,PNG</p>
                                     </div>
                                 </div>
@@ -61,21 +61,24 @@
                             </div><br>
 
                             <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
-                                <div class="row" >
+                                <div class="row">
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="Floor no/Buiding name"
-                                        aria-label="Floor no/Building name" formControlName="floorNumberOrBuildingName">
+                                            aria-label="Floor no/Building name"
+                                            formControlName="floorNumberOrBuildingName">
 
-                                        <div *ngIf="locationForm.get('floorNumberOrBuildingName')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="floorNumberOrBuildingName?.invalid && floorNumberOrBuildingName?.touched"
+                                            class="text-danger">
                                             Floor no/Building name is required.
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="streetAddress"
-                                        aria-label="streetAddress" formControlName="streetAddress">
+                                            aria-label="streetAddress" formControlName="streetAddress">
 
-                                        <div *ngIf="locationForm.get('streetAddress')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="locationForm.get('streetAddress')?.hasError('required')"
+                                            class="text-danger">
                                             streetAddress is required.
                                         </div>
                                     </div>
@@ -84,7 +87,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="City" aria-label="City"
-                                        formControlName="city" >
+                                            formControlName="city">
 
                                         <div *ngIf="locationForm.get('city')?.hasError('required')" class="text-danger">
                                             city is required.
@@ -93,9 +96,10 @@
 
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="State" aria-label="State"
-                                        formControlName="state" >
+                                            formControlName="state">
 
-                                        <div *ngIf="locationForm.get('state')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="locationForm.get('state')?.hasError('required')"
+                                            class="text-danger">
                                             state is required.
                                         </div>
                                     </div>
@@ -103,19 +107,21 @@
 
                                 <div class="row">
                                     <div class="col">
-                                        <input type="number" class="form-control" placeholder="Pincode" aria-label="Pincode"
-                                        formControlName="pincode" >
+                                        <input type="number" class="form-control" placeholder="Pincode"
+                                            aria-label="Pincode" formControlName="pincode">
 
-                                        <div *ngIf="locationForm.get('pincode')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="locationForm.get('pincode')?.hasError('required')"
+                                            class="text-danger">
                                             pincode is required.
                                         </div>
                                     </div>
 
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="Country" aria-label="Country"
-                                        formControlName="country" >
+                                        <input type="text" class="form-control" placeholder="Country"
+                                            aria-label="Country" formControlName="country">
 
-                                        <div *ngIf="locationForm.get('country')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="locationForm.get('country')?.hasError('required')"
+                                            class="text-danger">
                                             country is required.
                                         </div>
                                     </div>
@@ -125,28 +131,31 @@
                                     <p>General Info</p>
                                     <div class="col">
                                         <input type="number" class="form-control" placeholder="No. of conference room"
-                                            aria-label="No. of coference room" formControlName="numberOfConferenceRooms" >
-                                        
-                                        <div *ngIf="locationForm.get('numberOfConferenceRooms')?.hasError('required')" class="text-danger">
+                                            aria-label="No. of coference room"
+                                            formControlName="numberOfConferenceRooms">
+
+                                        <div *ngIf="locationForm.get('numberOfConferenceRooms')?.hasError('required')"
+                                            class="text-danger">
                                             No. of conference room is required.
                                         </div>
                                     </div>
 
                                     <div class="col">
                                         <input type="number" class="form-control" placeholder="No. of desk"
-                                            aria-label="No. of desk" formControlName="numberOfDesk" >
+                                            aria-label="No. of desk" formControlName="numberOfDesk">
 
-                                        <div *ngIf="locationForm.get('numberOfDesk')?.hasError('required')" class="text-danger">
-                                                No. of desk room is required.
+                                        <div *ngIf="locationForm.get('numberOfDesk')?.hasError('required')"
+                                            class="text-danger">
+                                            No. of desk room is required.
                                         </div>
                                     </div>
                                 </div><br>
                                 <div>
-                                    <button type="submit" class="btn btn-primary" >Submit</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
-                     
-                            </form>    
-                            
+
+                            </form>
+
                         </div>
                     </div>
 

@@ -20,4 +20,9 @@ export class WorkspaceFilterService {
     let dataUrl = `https://localhost:7239/api/WorkSpace/manageConf/location?locationName=${locationName}`
     return this.http.get<any>(dataUrl);
   }
+  getRBookingByLocation(locationName: string): Observable<any> {
+    let dataUrl = `  https://localhost:7239/api/WorkSpace/roomBooking/location?locationName=${locationName}`
+    return this.http.get<any>(dataUrl);
+  }
+
 }

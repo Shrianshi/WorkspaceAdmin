@@ -10,11 +10,9 @@ import { LocationService } from 'src/app/services/location.service';
 })
 
 export class LocationComponent implements OnInit {
-  
-  constructor(private locationserv: LocationService, private toast: ToastrService, private formBuilder:FormBuilder) { }
 
+  constructor(private locationserv: LocationService, private toast: ToastrService, private formBuilder: FormBuilder) { }
   locations: any[] = []
-
   locationForm!: FormGroup;
   newLocation: any = {
     floorNumberOrBuildingName: "",
@@ -47,7 +45,7 @@ export class LocationComponent implements OnInit {
     }, (error) => {
       console.log(error)
     })
-  
+
     this.locationForm = this.formBuilder.group({
       floorNumberOrBuildingName: ['', Validators.required],
       streetAddress: ['', Validators.required],
@@ -59,16 +57,15 @@ export class LocationComponent implements OnInit {
       numberOfConferenceRooms: [0, Validators.required],
       numberOfDesk: [0, Validators.required],
     });
-  
-    // Remove this line from ngOnInit
-    // this.newLocation = this.locationForm.value;
   }
-  
+  get floorNumberOrBuildingName() {
+    return this.locationForm.get('floorNumberOrBuildingName');
+  }
 
   onSubmit() {
     if (this.locationForm.valid) {
-      this.locationserv.addLocation(this.locationForm.value).subscribe((data) => {
-        console.log(data); // Check the response from the server
+      this.locationserv.addLocation(this.newLocation).subscribe((data) => {
+        console.log(data);
         this.toast.success("Location Added");
         this.locationForm.reset();
       }, (error) => {
