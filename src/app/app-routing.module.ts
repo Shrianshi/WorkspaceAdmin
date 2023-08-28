@@ -16,7 +16,6 @@ import { SlotComponent } from './components/slot/slot.component';
 import { ManageConferenceComponent } from './components/manage-conference/manage-conference.component';
 import { LocationComponent } from './components/location/location.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { ViewEventComponent } from './components/view-event/view-event.component';
 import { AuthGuard } from './authGuard/auth.guard';
 
@@ -37,9 +36,7 @@ const routes: Routes = [
   { path: 'slot/:id', component: SlotComponent },
   { path: 'manage/conference', component: ManageConferenceComponent },
   { path: 'manage/location', component: LocationComponent },
-  { path: 'forgotpass', component: ForgotPassComponent },
   { path: 'viewevent/:id', component: ViewEventComponent },
-  { path: 'forgot-pass', component: ForgotPassComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

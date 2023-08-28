@@ -24,7 +24,6 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { ManageConferenceComponent } from './components/manage-conference/manage-conference.component';
 import { LocationComponent } from './components/location/location.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { RemoveEmpComponent } from './components/remove-emp/remove-emp.component';
 import { BookedSuccessComponent } from './components/booked-success/booked-success.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -55,7 +54,6 @@ import { HeaderComponent } from './components/header/header.component';
     ManageConferenceComponent,
     LocationComponent,
     SignUpComponent,
-    ForgotPassComponent,
     RemoveEmpComponent,
     BookedSuccessComponent,
 
