@@ -3,6 +3,7 @@ import { RoombookingService } from 'src/app/services/bookingservice/roombooking.
 import { LocationService } from 'src/app/services/location.service';
 import { RoomService } from 'src/app/services/roomservice/room.service';
 import { ToastrService } from 'ngx-toastr';
+import { WorkspaceFilterService } from 'src/app/services/workspaceFilters/workspace-filter.service';
 
 interface Card {
   ImageUrl: string;
@@ -18,9 +19,10 @@ interface Card {
 })
 export class ManageConferenceComponent implements OnInit {
   header: string = 'Conference Rooms'
-  constructor(private roomSer: RoomService, private locSer: LocationService, private toast: ToastrService) { }
+  constructor(private roomSer: RoomService, private locSer: LocationService, private toast: ToastrService, private wsService: WorkspaceFilterService) { }
   cards: any[] = []
   locations: any[] = []
+  locationName: string = 'All'
 
   newRoom: any = {
     imageData: '',
@@ -68,9 +70,24 @@ export class ManageConferenceComponent implements OnInit {
       console.log(data);
     });
   }
-
-
-
-
-
+  changeLocationHandler() {
+    this.roomOnLocation(this.locationName)
+  }
+  roomOnLocation(locationName: string) {
+    if (locationName == "All") {
+      this.roomSer.getAllRoom().subscribe((data) => {
+        this.cards = data
+      }, (error) => {
+        console.log(error)
+      })
+    }
+    else {
+      this.wsService.getRoomsByLocation(locationName).subscribe((data) => {
+        this.cards = []
+        this.cards = data;
+      }, (error) => {
+        console.log(error)
+      })
+    }
+  }
 }
