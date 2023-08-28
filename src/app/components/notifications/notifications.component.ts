@@ -71,9 +71,6 @@ export class NotificationsComponent implements OnInit {
       }
     );
   }
-
-}
-
   allNotification() {
     this.notiSer.getAllNotification().subscribe((data) => {
       this.cards = data
@@ -97,5 +94,9 @@ export class NotificationsComponent implements OnInit {
       this.cards = data
     })
   }
+
 }
+
+  
+
 
