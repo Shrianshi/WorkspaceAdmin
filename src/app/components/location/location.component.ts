@@ -10,11 +10,9 @@ import { LocationService } from 'src/app/services/location.service';
 })
 
 export class LocationComponent implements OnInit {
-  
-  constructor(private locationserv: LocationService, private toast: ToastrService, private formBuilder:FormBuilder) { }
 
+  constructor(private locationserv: LocationService, private toast: ToastrService, private formBuilder: FormBuilder) { }
   locations: any[] = []
-
   locationForm!: FormGroup;
   newLocation: any = {
     floorNumberOrBuildingName:"",
@@ -49,7 +47,7 @@ export class LocationComponent implements OnInit {
     }, (error) => {
       console.log(error)
     })
-  
+
     this.locationForm = this.formBuilder.group({
       floorNumberOrBuildingName: ['', Validators.required],
       streetAddress: ['', Validators.required],
@@ -61,7 +59,6 @@ export class LocationComponent implements OnInit {
       numberOfConferenceRooms: [null, Validators.required],
       numberOfDesk: [null, Validators.required],
     });
-
   }
 
   get floorNumberOrBuildingName(){
@@ -87,7 +84,9 @@ export class LocationComponent implements OnInit {
   get country(){
     return this.locationForm.get('country');
   }
-  
+  get floorNumberOrBuildingName() {
+    return this.locationForm.get('floorNumberOrBuildingName');
+  }
 
   get numberOfConferenceRooms(){
     return this.locationForm.get('numberOfConferenceRooms');
