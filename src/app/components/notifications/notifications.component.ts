@@ -11,7 +11,9 @@ import { WorkspaceFilterService } from 'src/app/services/workspaceFilters/worksp
 })
 export class NotificationsComponent implements OnInit {
 
-  header: string = 'Notifications'
+  header: string = 'Notifications';
+  search:string='notifications'
+
   constructor(private notiSer: NotificationService, private toast: ToastrService, private lcoationSer: LocationService, private wsFilterSer: WorkspaceFilterService) { }
   cards: any[] = []
   cardDetail: any = {

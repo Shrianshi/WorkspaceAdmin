@@ -21,7 +21,10 @@ interface Card {
   styleUrls: ['./manage-conference.component.css']
 })
 export class ManageConferenceComponent implements OnInit {
-  header: string = 'Conference Rooms'
+  header: string = 'Conference Rooms';
+  search:string='rooms';
+  count:number=0;
+
   roomForm: FormGroup;
 
   constructor(private roomSer: RoomService, private locSer: LocationService, private toast: ToastrService,
@@ -73,6 +76,7 @@ export class ManageConferenceComponent implements OnInit {
 
     this.roomSer.getAllRoom().subscribe((data) => {
       this.cards = data
+      this.count=data.length
     }, (error) => {
       console.log(error)
     })

@@ -17,7 +17,7 @@ interface Card {
 })
 export class BookaroomComponent implements OnInit {
   header: string = 'Book a room';
-  search: string = 'booked room';
+  search: string = 'rooms';
 
   constructor(private router: Router, private roomSer: RoomService) { }
 

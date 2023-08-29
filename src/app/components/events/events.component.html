@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
 
 <div class="body">
-  <app-header [header]="header"></app-header>
+  <app-header [header]="header" [search]="search"></app-header>
   <hr>
   <div style="display: flex; justify-content: space-between">
     <div class="tophalf py-4">
-      <h6>Finding <b>5 events</b></h6>
+      <h6>Finding <b>{{count}} events</b></h6>
       <div>
         <select name="" id="" class="text-secondary border shadow-sm ms-2" (change)="changeFilterLoc()"
           [(ngModel)]="filterloc">
