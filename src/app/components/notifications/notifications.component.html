@@ -4,7 +4,7 @@
     <div class="container-fluid whole">
 
 
-        <app-header [header]="header"></app-header>
+        <app-header [header]="header" [search]="search"></app-header>
         <hr>
 
         <div class="" style="display: flex;justify-content: space-between;">
@@ -61,6 +61,7 @@
                 <div class="mb-3">
 
                     <label for="location" class="form-label">Location</label>
+
                     <select name="location" id="location" [(ngModel)]="cardDetail.locationId" name="location" required
                         #location="ngModel">
                         <option value="" disabled>Select a location</option>

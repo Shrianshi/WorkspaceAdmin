@@ -9,13 +9,16 @@ import { WorkspaceFilterService } from 'src/app/services/workspaceFilters/worksp
 })
 export class RbookingComponent implements OnInit {
   constructor(private rbookingSer: RoombookingService, private wsfilter: WorkspaceFilterService) { }
-  header: string = 'Room Bookings'
+  header: string = 'Room Bookings';
+  search:string='room bookings';
+  count:number=0
   rooms: any[] = []
   test: string = ''
   filterloc: string = 'All'
   ngOnInit(): void {
     this.rbookingSer.getAllRoomBookig().subscribe((data) => {
       this.rooms = data
+      this.count=data.length
     }, (error) => {
       console.log(error)
     })

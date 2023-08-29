@@ -67,6 +67,7 @@ export class SlotComponent implements OnInit {
   }
 
   onSubmit() {
+
     if (this.roomId != null)
       this.bookingDetail.roomId = parseInt(this.roomId)
     this.bookingSer.addRoomBooking(this.bookingDetail).subscribe((data) => {
@@ -76,6 +77,7 @@ export class SlotComponent implements OnInit {
       console.log(error)
     })
 
+
   }
 
-}
+  }

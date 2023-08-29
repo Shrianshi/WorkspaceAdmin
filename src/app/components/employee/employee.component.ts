@@ -13,8 +13,7 @@ import { LocationService } from 'src/app/services/location.service';
 })
 export class EmployeeComponent implements OnInit{
   header:string='Employee';
-
-
+  search:string='employees'
 
   countEmp:number=0;
   addPassword:string='';
@@ -90,6 +89,7 @@ export class EmployeeComponent implements OnInit{
     this.empSer.addEmployee(this.newEmployee).subscribe((data)=>{
       this.toast.success('Employee Added')
       console.log(this.newEmployee)
+      this.employeeForm.reset();
     },(error)=>{
       console.log(error)
     })

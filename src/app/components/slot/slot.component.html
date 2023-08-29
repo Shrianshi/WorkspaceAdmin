@@ -94,6 +94,7 @@
               <p class="bookingclick">HR Admin</p>
             </div>
             <div>
+
               <button class="custom-button" (click)="toggleTextArea()"><img src="assets/images/AddSymbol.svg"
                   alt="HR Admin" /></button>
               <p class="bookingclick bookingclick1">Someone else</p>
@@ -105,7 +106,7 @@
           </div>
         </div>
         <div class="bookingbtn">
-          <button type="submit" class="btn">Book a room</button>
+          <button type="submit" [class.valid-button]="bookroomForm.valid" [class.invalid-button]="!bookroomForm.valid" [disabled]="!bookroomForm.valid">Book a room</button>
           <button class="cancelBooking" type="reset">Cancel</button>
         </div>
       </form>

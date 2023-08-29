@@ -11,6 +11,8 @@ import { WorkspaceFilterService } from 'src/app/services/workspaceFilters/worksp
 })
 export class EventsComponent {
   header: string = 'Events';
+  search:string='events';
+  count:number=0;
   eventForm: FormGroup;
 
   constructor(private eventser: EventService, private toast: ToastrService, private locser: LocationService,
@@ -98,6 +100,7 @@ export class EventsComponent {
   ngOnInit(): void {
     this.eventser.getAllEvents().subscribe((data) => {
       this.events = data
+      this.count=data.length
     }, (error) => {
       console.log(error)
     })
