@@ -13,8 +13,7 @@ import { LocationService } from 'src/app/services/location.service';
 })
 export class EmployeeComponent implements OnInit{
   header:string='Employee';
-
-
+  search:string='employees'
 
   countEmp:number=0;
   addPassword:string='';

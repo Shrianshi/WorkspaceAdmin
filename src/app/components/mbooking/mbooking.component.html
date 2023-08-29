@@ -1,10 +1,11 @@
+<body class="body">
+
 <app-navbar></app-navbar>
-<app-header [header]="header"></app-header>
+<app-header [header]="header" [search]="search"></app-header>
 <hr>
 
-<body>
+<div>
     <main>
-
         <section>
             <div class="container-fluid">
                 <div class="row">
@@ -33,24 +34,44 @@
             </div>
             <div class="BookingInfo">
                 <div>
-                    <p class="bookingTitle">{{card.roomDetail.roomName}}</p>
+                    <h6 class="bookingTitle">{{card.roomDetail.roomName}}</h6>
                 </div>
                 <div>
-                    <p class="bookingIdtitle">Booking id &nbsp;<span class="BookingID">#{{card.bookingId}}</span></p>
+                    <p class="small">Booking id &nbsp;<span class="BookingID"><b>#{{card.bookingId}}</b></span></p>
                 </div>
                 <div>
                     <button class="Viewandmodifydata">View and Modify Booking</button>
                 </div>
+
                 <div class="BookingData">
+                    <span class="small h6 m-3">
+                      <img src="../assets/images/smsImg.png">
+                      {{card.meetingTitle}}</span>
+            
+                    <span class="small h6 m-3"><i class="fa-solid fa-location-dot me-2"
+                        style="color: #8a8a8a"></i>{{card.roomDetail.location.city}}</span>
+            
+                    <span class="small h6 m-3"><img
+                      src="assets/images/profile-icon.png" class="person-img">{{card.numberOfParticipants}} people</span>
+            
+                    <span class="small h6 m-3"><i class="fa-regular fa-calendar me-2" style="color: #8a8a8a"></i>{{card.startTime| date:'mediumDate'}}
+                    </span>
+            
+                    <span class="small h6 m-3"><i class="fa-regular fa-clock me-2" style="color: #030303" style="color: #8a8a8a"></i>{{card.startTime|
+                      date:'shortTime'}}- {{card.endTime|
+                      date:'shortTime'}}</span>
+                  </div>
+                <!-- <div class="BookingData">
                     <p><i class="bi bi-chat-left"></i>&nbsp;&nbsp;{{card.meetingTitle}}</p>
                     <p><i class="bi bi-geo-alt"></i> &nbsp;&nbsp;{{card.roomDetail.location.city}}</p>
                     <p><i class="bi bi-person"></i>&nbsp;&nbsp; {{card.numberOfParticipants}} people</p>
                     <p><i class="bi bi-calendar4"></i>&nbsp;&nbsp;{{card.startTime| date:'mediumDate'}} </p>
                     <p><i class="bi bi-clock"></i>&nbsp;&nbsp; {{card.startTime| date:'shortTime'}}- {{card.endTime|
                         date:'shortTime'}}</p>
-                </div>
+                </div> -->
 
             </div>
         </div>
     </main>
+</div>
 </body>

@@ -1,23 +1,68 @@
 <app-navbar></app-navbar>
-<app-header [header]="header"></app-header>
+<app-header [header]="header" [search]="search"></app-header>
 <hr>
-<div class="parent">
-
-  <div class="container d-flex flex-wrap mb-3 mb-4">
-    <h6 style="color:grey" class="">Founding <b style="color:black">
-        12 Bookings
-      </b></h6>
-    <select name="" id="" class="text-secondary border shadow-sm ms-2" (change)="changeFilterLoc()"
-      [(ngModel)]="filterloc">
-      <option value="All">All Location</option>
-      <option value="Chennai">Chennai</option>
-      <option value="Bangalore">Bangalore</option>
-      <option value="Pune">Pune</option>
-      <option value="Combaitore">Combaitore</option>
-    </select>
-    <input type="date" class="text-secondary border shadow-sm ms-2">
+<div class="container-fluid">
+  <div class="row">
+    <span class="col-sm-2">
+      <h6 style="color:grey" class="">Finding <b style="color:black">
+          {{count}} Bookings
+        </b></h6>
+    </span>
+    <span class="col-sm-1 mx-2">
+      <select name="" id="" class="text-secondary border shadow-sm" (change)="changeFilterLoc()"
+        [(ngModel)]="filterloc">
+        <option value="All">All Location</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Pune">Pune</option>
+        <option value="Combaitore">Combaitore</option>
+      </select>
+    </span>
+    <span class="col-sm-2 mx-3">
+      <input type="date" class="text-secondary border shadow-sm">
+    </span>
   </div>
-  <div class=" container cardCont d-flex flex-wrap border border-secondary p-1 ml-4 mb-4 " *ngFor="let room of rooms">
+
+  <div class="container" *ngFor="let room of rooms">
+    <div>
+      <img class="bannerImage" [src]="'data:image/png;base64,' + room.roomDetail.imageData" alt="">
+    </div>
+    <div class="BookingInfo">
+      <div>
+        <h6 class="small">{{room.roomDetail.roomName}}</h6>
+      </div>
+      <div class="mb-4">
+
+        <span class="small">
+          <img src="../assets/images/logoGroup.png" height="20">
+          <span>Employee: <b>{{room.employeeName}}</b> | </span>
+          <span class="BookingID">Booking id <b>#{{room.bookingId}}</b></span></span>
+      </div>
+      <div class="BookingData">
+        <span class="small h6 m-3">
+          <img src="../assets/images/smsImg.png">
+          {{room.meetingTitle}}</span>
+
+        <span class="small h6 m-3"><i class="fa-solid fa-location-dot me-2"
+            style="color: #8a8a8a"></i>{{room.roomDetail.location.city}}</span>
+
+        <span class="small h6 m-3"><img
+          src="assets/images/profile-icon.png" class="person-img">{{room.numberOfParticipants}} people</span>
+
+        <span class="small h6 m-3"><i class="fa-regular fa-calendar me-2" style="color: #8a8a8a"></i>{{room.startTime| date:'mediumDate'}}
+        </span>
+
+        <span class="small h6 m-3"><i class="fa-regular fa-clock me-2" style="color: #030303" style="color: #8a8a8a"></i>{{room.startTime|
+          date:'shortTime'}}- {{room.endTime|
+          date:'shortTime'}}</span>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- <div class=" container cardCont d-flex flex-wrap border border-secondary p-1 ml-4 mb-4 " *ngFor="let room of rooms">
     <img class="roomImg" [src]="'data:image/png;base64,' + room.roomDetail.imageData" alt="">
     <div>
       <div class="roomName ps-4">
@@ -43,5 +88,5 @@
         <h6 class="ps-1">{{room.time | date:''}}</h6>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
