@@ -12,7 +12,7 @@ export class RbookingComponent implements OnInit {
   header: string = 'Room Bookings'
   rooms: any[] = []
   test: string = ''
-  filterloc: string = ''
+  filterloc: string = 'All'
   ngOnInit(): void {
     this.rbookingSer.getAllRoomBookig().subscribe((data) => {
       this.rooms = data

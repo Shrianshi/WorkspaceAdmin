@@ -10,7 +10,6 @@ import { LocationService } from 'src/app/services/location.service';
 })
 
 export class LocationComponent implements OnInit {
-
   constructor(private locationserv: LocationService, private toast: ToastrService, private formBuilder: FormBuilder) { }
   locations: any[] = []
   locationForm!: FormGroup;
