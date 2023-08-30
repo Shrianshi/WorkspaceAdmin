@@ -57,13 +57,16 @@ export class NotificationsComponent implements OnInit {
       (data) => {
         this.toast.success('Notification Added');
         console.log('Notification sent:', this.cardDetail);
+        
   
         // Clear the form fields after sending the notification with a delay
         setTimeout(() => {
           this.cardDetail.notificationSubject = '';
           this.cardDetail.description = '';
-          this.cardDetail.location = '';
+          this.cardDetail.locationId = '';
         });
+
+        this.cardDetail.reset();
   
       },
       (error) => {
