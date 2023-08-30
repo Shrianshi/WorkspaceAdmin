@@ -10,14 +10,14 @@ import { LocationService } from 'src/app/services/location.service';
 })
 
 export class LocationComponent implements OnInit {
-  
-  constructor(private locationserv: LocationService, private toast: ToastrService, private formBuilder:FormBuilder) { }
 
+  header: string = 'Locations'
+  search: string = 'locations'
+  constructor(private locationserv: LocationService, private toast: ToastrService, private formBuilder: FormBuilder) { }
   locations: any[] = []
-
   locationForm!: FormGroup;
   newLocation: any = {
-    floorNumberOrBuildingName:"",
+    floorNumberOrBuildingName: "",
     streetAddress: "",
     city: "",
     state: "",
@@ -38,7 +38,7 @@ export class LocationComponent implements OnInit {
       this.newLocation.imageData = base64String;
       console.log(this.newLocation)
 
-      
+
     }
     fileReader.readAsArrayBuffer(file);
   }
@@ -49,54 +49,52 @@ export class LocationComponent implements OnInit {
     }, (error) => {
       console.log(error)
     })
-  
+
     this.locationForm = this.formBuilder.group({
       floorNumberOrBuildingName: ['', Validators.required],
       streetAddress: ['', Validators.required],
       city: ['', Validators.required],
       state: ['', Validators.required],
-      pincode: [null,[Validators.required, Validators.pattern(/^\d{6}$/)]],
+      pincode: [null, [Validators.required, Validators.pattern(/^\d{6}$/)]],
       country: ['', Validators.required],
       imageData: [''],
       numberOfConferenceRooms: [null, Validators.required],
       numberOfDesk: [null, Validators.required],
     });
-
   }
 
-  get floorNumberOrBuildingName(){
+  get floorNumberOrBuildingName() {
     return this.locationForm.get('floorNumberOrBuildingName');
   }
 
-  get streetAddress(){
+  get streetAddress() {
     return this.locationForm.get('streetAddress');
   }
-  
-  get city(){
+
+  get city() {
     return this.locationForm.get('city');
   }
 
-  get state(){
+  get state() {
     return this.locationForm.get('state');
   }
 
-  get pincode(){
+  get pincode() {
     return this.locationForm.get('pincode');
   }
 
-  get country(){
+  get country() {
     return this.locationForm.get('country');
   }
-  
 
-  get numberOfConferenceRooms(){
+  get numberOfConferenceRooms() {
     return this.locationForm.get('numberOfConferenceRooms');
   }
 
-  get numberOfDesk(){
+  get numberOfDesk() {
     return this.locationForm.get('numberOfDesk');
   }
-  get imageData(){
+  get imageData() {
     return this.locationForm.get('imageData')
   }
 

@@ -35,7 +35,7 @@
                 Password<br>
                 <input type="password" placeholder="**********" formControlName="password" [(ngModel)]="loginData.password">
                 <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
-                    class="error-message">
+                    class="error-message" >
                     Password is required.
                 </div>
                 <a class="p" (click)="emailNotification()">forgot your password?</a>

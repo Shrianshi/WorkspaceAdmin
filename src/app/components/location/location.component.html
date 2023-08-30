@@ -1,33 +1,7 @@
 <app-navbar></app-navbar>
 
 <body class="body">
-    <header class="row py-4 border-bottom">
-        <div class="col-sm-6">
-            <h6 class="">Locations</h6>
-        </div>
-
-        <div class="col-sm-4 px-1">
-            <nav class="navbar">
-                <form class="container-fluid  d-flex">
-                    <div class="input-group">
-                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
-                                style="color: #a1a3a5;"></i></span>
-                        <input type="text" class="search form-control no-border" placeholder="Search Employees"
-                            aria-label="Search Employees" aria-describedby="basic-addon1">
-                    </div>
-                </form>
-            </nav>
-
-        </div>
-        <div class="col-sm-2" style="position:relative">
-            <img src="assets/img/bell.svg">
-            <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
-                <span class="visually-hidden">Hello</span>
-            </span>
-            <button class="avatar-btn mx-2" type="submit"></button>HR admin
-        </div>
-
-    </header>
+    <app-header [header]="header" [search]="search"></app-header><hr>
     <div>
         <aside>
             <div class="row">
@@ -176,7 +150,7 @@
                         <img [src]=" 'data:image/png;base64,' + l.imageData" class="card-img-top " alt="... ">
                         <div class="card-body ">
                             <h6 class="card-title ">{{l.city}}</h6>
-                            <p class="card-text p1 text-secondary">{{l.streetAddress}}, {{l.city}}-{{l.pincode}}</p>
+                            <p class="card-text p1 text-secondary small">{{l.streetAddress}}, {{l.city}}-{{l.pincode}}</p>
                             <a href="# " class="btn btn-sm border border-primary text-primary">Edit Details</a>
                         </div>
                     </div><br>

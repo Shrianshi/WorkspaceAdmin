@@ -101,7 +101,6 @@ export class SignUpComponent implements OnInit {
   }
 
   isValidEmail(email: string): boolean {
-    // Use a regular expression or any other method to validate the email
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailPattern.test(email);
   }

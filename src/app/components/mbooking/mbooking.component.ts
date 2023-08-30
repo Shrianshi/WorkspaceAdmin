@@ -8,7 +8,9 @@ import { RoombookingService } from 'src/app/services/bookingservice/roombooking.
 })
 export class MbookingComponent {
   count:number=0
-  header:string='My Bookings'
+  header:string='My Bookings';
+  search:string='my bookings'
+
   constructor(private bookingSer:RoombookingService){}
   cards:any[]=[]
   ngOnInit(){
