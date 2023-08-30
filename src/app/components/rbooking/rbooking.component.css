@@ -1,36 +1,66 @@
-.parent {
-    display: flex;
-    flex-direction: column;
+/* .parent {
+  display: flex;
+  flex-direction: column;
 }
 
+.body {
+  width: 100%;
+} */
+
 .body{
-    width:100%;
-  }
-  .avatar-btn{
-    height:20px;
-    width:20px;
-    border-radius:10px;
-    background-color: black;
-  }
-  .search{
-    /* width:300px; */
-    height:25px;
-    background-color: rgba(216, 225, 228, 0.345);
-    font-size: 15px;
-    border:0px solid rgb(234, 224, 224);
-  }
-  #i{
-    color:#aaaaab;
-  }
-  .search::placeholder{
-    color: rgb(154, 152, 152);
-  }
-  
-  /*card icons*/
-  .conf-icon{
-    width: 4%;
+  width:100%;
+}
+
+.container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1%;
+    border: 1px solid #DDDEDE;
+    border-radius: 8px;
+    width: 82%;
+    height: 150px;
+    margin: 2%;
+}
+.bannerImage{
+    padding: 2%;
+    width: 95%;
+    height: 150px;
+}
+.BookingInfo{
+    display: flex;
+    flex-direction: column;
+    line-height: 0%;
+    width: 100%;
+    padding: 20px;
+}
+.BookingData{
+    display: flex;
+}
+.Viewandmodifydata{
+    float: right;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #5162F6;
+    background-color: #ffffff;
+    border: 1px solid #EAE9EA;
+    border-radius: 4px;
+}
+.BookingData p{
+   
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px;
+    line-height: 1;
+    color: #1F2131;
+}
+
+  .person-img{
+    width: 15%;
     margin-right: 2%;
-    padding-bottom: 2%;
+    margin-left:2%;
+    /* padding-bottom: 2%; */
   }   
   
   .icon-border{

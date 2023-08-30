@@ -14,6 +14,8 @@ export class CalendarComponent implements OnInit {
   constructor(private eventservice:EventService){};
   calendarOptions: CalendarOptions = {};
   header: string = 'Calendar';
+  search:string='events'
+
   events: EventInput[] = [
     { title: 'Event 1', start: '2023-08-27', extendedProps: { time: '8:00 AM' } },
     { title: 'Event 2', start: '2023-08-28', extendedProps: { time: '12:00 PM' } },

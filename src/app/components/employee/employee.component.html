@@ -3,7 +3,7 @@
 <body class="body">
 
     <div class="container-fluid">
-        <app-header [header]="header"></app-header>
+        <app-header [header]="header" [search]="search"></app-header>
         <hr>
         
         <!-- BODY -->
@@ -251,7 +251,7 @@
                                 <div class="col"></div>
                                 <div *ngIf="employeeForm.get('empimage')?.hasError('required') && employeeForm.get('empimage')?.touched"
                                     class="error-message">
-                                    Please enter a valid email address.
+                                    choose image in (png/jpg) format.
                                 </div>
                             </div>
 

@@ -1,72 +1,92 @@
 <app-navbar></app-navbar>
-<app-header [header]="header"></app-header><hr>
-<!-- <header class="row py-4 border-bottom mb-3">
-    <div class="col-sm-6">
-      <h6 class="">Room Bookings</h6>
-    </div>
-  
-    <div class="col-sm-4 px-1">
-      <nav class="navbar">
-        <form class="container-fluid  d-flex">
-          <div class="input-group">
-            <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
-                style="color: #a1a3a5;"></i></span>
-            <input type="text" class="search form-control no-border" placeholder="Search Employees"
-              aria-label="Search Employees" aria-describedby="basic-addon1">
-          </div>
-        </form>
-      </nav>
-  
-    </div>
-    <div class="col-sm-2" style="position:relative">
-      <img src="assets/img/bell.svg">
-      <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
-        <span class="visually-hidden">Hello</span>
-      </span>
-      <button class="avatar-btn mx-2" type="submit"></button>HR admin
-    </div>
-  </header> -->
+<app-header [header]="header" [search]="search"></app-header>
+<hr>
+<div class="container-fluid">
+  <div class="row">
+    <span class="col-sm-2">
+      <h6 style="color:grey" class="">Finding <b style="color:black">
+          {{count}} Bookings
+        </b></h6>
+    </span>
+    <span class="col-sm-1 mx-2">
+      <select name="" id="" class="text-secondary border shadow-sm" (change)="changeFilterLoc()"
+        [(ngModel)]="filterloc">
+        <option value="All">All Location</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Pune">Pune</option>
+        <option value="Combaitore">Combaitore</option>
+      </select>
+    </span>
+    <span class="col-sm-2 mx-3">
+      <input type="date" class="text-secondary border shadow-sm">
+    </span>
+  </div>
 
-<div class="parent">
-
-    <div class="container d-flex flex-wrap mb-3 mb-4">
-        <h6 style="color:grey" class="">Founding <b style="color:black">
-                12 Bookings
-            </b></h6>
-            <select class="text-secondary border shadow-sm ms-2">
-                <option>Chennai</option>
-                <option>Pune</option>
-            </select>
-        <input type="date" class="text-secondary border shadow-sm ms-2">
+  <div class="container" *ngFor="let room of rooms">
+    <div>
+      <img class="bannerImage" [src]="'data:image/png;base64,' + room.roomDetail.imageData" alt="">
     </div>
-    <div class=" container cardCont d-flex flex-wrap border border-secondary p-1 ml-4 mb-4 " *ngFor="let room of rooms">
+    <div class="BookingInfo">
+      <div>
+        <h6 class="small">{{room.roomDetail.roomName}}</h6>
+      </div>
+      <div class="mb-4">
 
-        <img class="roomImg" src="../../../assets/images/{{room.image}}" alt="">
+        <span class="small">
+          <img src="../assets/images/logoGroup.png" height="20">
+          <span>Employee: <b>{{room.employeeName}}</b> | </span>
+          <span class="BookingID">Booking id <b>#{{room.bookingId}}</b></span></span>
+      </div>
+      <div class="BookingData">
+        <span class="small h6 m-3">
+          <img src="../assets/images/smsImg.png">
+          {{room.meetingTitle}}</span>
 
+        <span class="small h6 m-3"><i class="fa-solid fa-location-dot me-2"
+            style="color: #8a8a8a"></i>{{room.roomDetail.location.city}}</span>
 
-        <div>
-            <div class="roomName ps-4">
-                <h2>{{room.roomName}} </h2>
-            </div>
-            <div class=" empRow d-flex  ">
-                <img class="knainiLogo" src=" ../../../assets/images/kanini logo.png">
-                <h6 class="emp text-secondary">Employee :</h6>
-                <h6> {{room.user}}</h6>
-                <h6 class="text-secondary">| Booking id</h6>
-                <h6><b>{{room.bookingId}}</b></h6>
-            </div>
-            <div class=" d-flex mt-4">
-                <i class=" fa fa-light fa-comment text-secondary ps-4"></i>
-                <h6 class="ps-1">{{room.purpose}}</h6>
-                <i class="fa fa-map-marker text-secondary ps-2"></i>
-                <h6 class="ps-1">{{room.location}}</h6>
-                <i class="fa fa-light fa-user text-secondary ps-2"></i>
-                <h6 class="ps-1">{{room.noOfPeople}}</h6>
-                <i class="fa fa-sharp fa-light fa-calendar text-secondary ps-2"></i>
-                <h6 class="ps-1">{{room.date}}</h6>
-                <i class="fa fa-clock-o text-secondary ps-2"></i>
-                <h6 class="ps-1">{{room.time}}</h6>
-            </div>
-        </div>
+        <span class="small h6 m-3"><img
+          src="assets/images/profile-icon.png" class="person-img">{{room.numberOfParticipants}} people</span>
+
+        <span class="small h6 m-3"><i class="fa-regular fa-calendar me-2" style="color: #8a8a8a"></i>{{room.startTime| date:'mediumDate'}}
+        </span>
+
+        <span class="small h6 m-3"><i class="fa-regular fa-clock me-2" style="color: #030303" style="color: #8a8a8a"></i>{{room.startTime|
+          date:'shortTime'}}- {{room.endTime|
+          date:'shortTime'}}</span>
+      </div>
+
     </div>
+  </div>
+
+
+
+  <!-- <div class=" container cardCont d-flex flex-wrap border border-secondary p-1 ml-4 mb-4 " *ngFor="let room of rooms">
+    <img class="roomImg" [src]="'data:image/png;base64,' + room.roomDetail.imageData" alt="">
+    <div>
+      <div class="roomName ps-4">
+        <h2>{{room.roomDetail.roomName}} </h2>
+      </div>
+      <div class=" empRow d-flex  ">
+        <img class="knainiLogo" src=" ../../../assets/images/kanini logo.png">
+        <h6 class="emp text-secondary">Employee :</h6>
+        <h6> {{room.employeeName}}</h6>
+        <h6 class="text-secondary">| Booking id</h6>
+        <h6><b>{{room.bookingId}}</b></h6>
+      </div>
+      <div class=" d-flex mt-4">
+        <i class=" fa fa-light fa-comment text-secondary ps-4"></i>
+        <h6 class="ps-1">{{room.meetingTitle}}</h6>
+        <i class="fa fa-map-marker text-secondary ps-2"></i>
+        <h6 class="ps-1">{{room.roomDetail.location.city}}</h6>
+        <i class="fa fa-light fa-user text-secondary ps-2"></i>
+        <h6 class="ps-1">{{room.numberOfParticipants}}</h6>
+        <i class="fa fa-sharp fa-light fa-calendar text-secondary ps-2"></i>
+        <h6 class="ps-1">{{room.date | date:''}}</h6>
+        <i class="fa fa-clock-o text-secondary ps-2"></i>
+        <h6 class="ps-1">{{room.time | date:''}}</h6>
+      </div>
+    </div>
+  </div> -->
 </div>

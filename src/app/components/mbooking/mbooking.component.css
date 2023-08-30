@@ -1,3 +1,7 @@
+.body{
+  width:100%;
+}
+
 .container{
     display: flex;
     justify-content: flex-start;
@@ -5,7 +9,7 @@
     padding: 1%;
     border: 1px solid #DDDEDE;
     border-radius: 8px;
-    width: 70%;
+    width: 82%;
     height: 150px;
     margin: 2%;
 }
@@ -25,23 +29,13 @@
     display: flex;
 }
 
-/* .bookingTitle{
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-} */
-/* .bookingIdtitle{
-    font-weight: 500;
-    font-size: 12px;
-    color: #626D8A;
-} */
-/* .BookingID{
+.person-img{
+  width: 15%;
+  margin-right: 2%;
+  margin-left:2%;
+  /* padding-bottom: 2%; */
+}
 
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.05em;
-    color: #1F2131;
-} */
 .Viewandmodifydata{
     float: right;
     font-weight: 500;

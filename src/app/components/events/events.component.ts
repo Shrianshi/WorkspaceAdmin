@@ -1,25 +1,34 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { error } from 'jquery';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { EventService } from 'src/app/services/eventService/event.service';
 import { LocationService } from 'src/app/services/location.service';
 import { WorkspaceFilterService } from 'src/app/services/workspaceFilters/workspace-filter.service';
-
-
-
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.css'],
 })
 export class EventsComponent {
-  header: string = 'Events'
+  header: string = 'Events';
+  search:string='events';
+  count:number=0;
+  eventForm: FormGroup;
+
   constructor(private eventser: EventService, private toast: ToastrService, private locser: LocationService,
-    private wsfilterser: WorkspaceFilterService) { }
+    private wsfilterser: WorkspaceFilterService, private fb: FormBuilder) {
+    this.eventForm = this.fb.group({
+      eventTitle: new FormControl('', [Validators.required]),
+      eventDescription: new FormControl('', [Validators.required]),
+      locationId: new FormControl(1, [Validators.required]),
+      startTime: new FormControl('', [Validators.required]),
+      endTime: new FormControl('', [Validators.required]),
+    });
+  }
   events: any[] = []
   locations: any[] = []
   filterloc: string = 'All'
+  filterDate: string = 'l'
 
   newEvent: any = {
     imageData: "",
@@ -42,21 +51,34 @@ export class EventsComponent {
     }
     fileReader.readAsArrayBuffer(file);
   }
-
   addEvent() {
-    console.log("addevent")
-    this.eventser.addEvent(this.newEvent).subscribe((data) => {
-      this.toast.success("Event Added")
-      console.log(data)
-    }, (error) => {
-      console.log(error)
-    })
+    if (this.eventForm.valid) {
+      console.log('addevent');
+      this.newEvent.eventTitle = this.eventForm.get('eventTitle')?.value;
+      this.newEvent.eventDescription = this.eventForm.get('eventDescription')?.value;
+      this.newEvent.locationId = this.eventForm.get('locationId')?.value;
+      this.newEvent.startTime = this.eventForm.get('startTime')?.value;
+      this.newEvent.endTime = this.eventForm.get('endTime')?.value;
 
+      this.eventser.addEvent(this.newEvent).subscribe(
+        (data) => {
+          this.toast.success('Event Added');
+          console.log(data);
+          this.eventForm.reset();
+
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    } else {
+      this.toast.error('Invalid form data. Please check the fields.');
+    }
   }
+
   changeFilterLoc() {
     console.log(this.filterloc)
-    this.eventFilterOnLocation(this.filterloc);
-
+    this.eventFilterOnLocation(this.filterloc)
   }
   eventFilterOnLocation(locationName: string) {
     if (locationName == "All") {
@@ -74,11 +96,11 @@ export class EventsComponent {
         console.log(error)
       })
     }
-
   }
   ngOnInit(): void {
     this.eventser.getAllEvents().subscribe((data) => {
       this.events = data
+      this.count=data.length
     }, (error) => {
       console.log(error)
     })
@@ -87,5 +109,35 @@ export class EventsComponent {
     }, (error) => {
       console.log(error)
     })
+  }
+  filterArrayOnDate(arr: any[], filterDate: string): any[] {
+    let filteredArray: any[] = []
+    filteredArray = arr.filter((item: any) => {
+      const eventDate = item.startTime.slice(0, 10)
+      console.log(eventDate, " ", filterDate)
+      return eventDate === filterDate
+    })
+    return filteredArray;
+  }
+  handleDateChange() {
+    if (this.filterDate.length <= 3) {
+      this.changeFilterLoc()
+    }
+    else {
+      if (this.filterloc == "All") {
+        this.eventser.getAllEvents().subscribe((data) => {
+          this.events = this.filterArrayOnDate(data, this.filterDate)
+        }, (error) => {
+          console.log(error)
+        })
+      }
+      else {
+        this.wsfilterser.getEventByLocation(this.filterloc).subscribe((data) => {
+          this.events = this.filterArrayOnDate(data, this.filterDate);
+        }, (error) => {
+          console.log(error)
+        })
+      }
+    }
   }
 }

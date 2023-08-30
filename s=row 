@@ -1,0 +1,223 @@
+[33mcommit d3a77a688009da2cff75e5da5dd49c033f129ed9[m[33m ([m[1;36mHEAD -> [m[1;32mnikhil[m[33m, [m[1;31morigin/nikhil[m[33m)[m
+Merge: a411092 2a20332
+Author: Safal Chayal <90495027+SafalChayal@users.noreply.github.com>
+Date:   Mon Aug 21 10:41:19 2023 +0530
+
+    Merge branch 'master' into nikhil
+
+[33mcommit 2a20332c4f38752ddf06e4c6aab17c55d3482593[m
+Merge: b71f731 e2bf759
+Author: Safal Chayal <90495027+SafalChayal@users.noreply.github.com>
+Date:   Mon Aug 21 10:31:48 2023 +0530
+
+    Merge pull request #13 from Shrianshi/saurabh
+    
+    added service file
+
+[33mcommit a411092a950c4b38aa8f6ea180174c22b70c4a46[m
+Author: nikh3107 <nikhiljaiswal3107@gmail.com>
+Date:   Mon Aug 21 10:28:58 2023 +0530
+
+    My component changes
+
+[33mcommit e2bf759a3b9b6202695afc5a322d2aa40decb723[m
+Author: saurabhkanini <saurabh.kanini@gmail.com>
+Date:   Mon Aug 21 00:47:14 2023 +0530
+
+    added service file
+
+[33mcommit b71f731c1728188da80ebbaac6f87ec64b4d0660[m
+Merge: 3a53521 8a75d0b
+Author: Shrianshi <shrianshi.kanini@gmail.com>
+Date:   Sun Aug 20 15:44:04 2023 +0530
+
+    modified bookings pages
+
+[33mcommit 3a535217257665d64fcd418598c58f9471a87a61[m
+Author: Shrianshi <shrianshi.kanini@gmail.com>
+Date:   Sat Aug 19 23:35:14 2023 +0530
+
+    modified book a room component
+
+[33mcommit 8a75d0ba3a8ba5a9b83ba3687e74ede082807744[m[33m ([m[1;31morigin/shri[m[33m)[m
+Merge: 8dcf100 e7d430d
+Author: Shubham Kumar <110228891+Krshubhammm@users.noreply.github.com>
+Date:   Fri Aug 18 17:51:36 2023 +0530
+
+    Merge pull request #8 from Shrianshi/shubham
+    
+    I have made some changes in my Event Component
+
+[33mcommit e7d430dddc7e8f8474ac5992ad879e5f6f22dadf[m
+Author: Krshubhammm <shubhamkumarrk.cse@sce.org.in>
+Date:   Fri Aug 18 17:48:45 2023 +0530
+
+    I have made some chnages in my Event Component
+
+[33mcommit 8dcf10069f7cca527c2cb894f992705e7a06a076[m
+Merge: 2ef843d 89a6469
+Author: Shrianshi <shrianshi.kanini@gmail.com>
+Date:   Fri Aug 18 10:31:48 2023 +0530
+
+    Merge branch 'master' of https://github.com/Shrianshi/WorkspaceAdmin
+
+[33mcommit 2ef843da558c8bd78fc514340a7ad193c9e2aee0[m
+Author: Shrianshi <shrianshi.kanini@gmail.com>
+Date:   Fri Aug 18 10:28:52 2023 +0530
+
+    modification in event component
+
+[33mcommit 89a646950d449447ec20a5e8d3695a9b78c6247b[m
+Author: ʀᴀᴊ ᴛʜᴀᴋᴜʀ <rajthakur.kanini@gmail.com>
+Date:   Thu Aug 17 10:41:06 2023 +0530
+
+    done
+
+[33mcommit 4b665d5743bb1322f31038040d7b00b4b158cd8b[m
+Author: ʀᴀᴊ ᴛʜᴀᴋᴜʀ <rajthakur.kanini@gmail.com>
+Date:   Thu Aug 17 10:40:43 2023 +0530
+
+    channges
+
+[33mcommit 0de583d4ee66a71e98caef046716ddd4bf8016a4[m
+Merge: cd49d03 9a8f71d
+Author: Safal Chayal <126567172+safal224@users.noreply.github.com>
+Date:   Wed Aug 16 15:29:57 2023 +0530
+
+    Merge pull request #7 from Shrianshi/mybranch
+    
+    some changes
+
+[33mcommit 9a8f71df3461bd8dd1786bec0077f42899c0a413[m[33m ([m[1;31morigin/mybranch[m[33m)[m
+Author: Almighty69 <90495027+Almighty69@users.noreply.github.com>
+Date:   Wed Aug 16 12:13:53 2023 +0530
+
+    some changes
+
+[33mcommit cd49d0360f42a31d2c2451a2d204b2ce33cc74c7[m
+Author: Shrianshi <shrianshi.kanini@gmail.com>
+Date:   Mon Aug 14 13:34:12 2023 +0530
+
+    modified contents of events, employees and notification
+
+[33mcommit db6b548bca7f46d0233b35ff7010373069417460[m
+Merge: 942dbb6 c625761
+Author: Almighty69 <90495027+Almighty69@users.noreply.github.com>
+Date:   Wed Jul 26 12:59:11 2023 +0530
+
+    updates
+
+[33mcommit c625761b8cc95d780ecb264d651e9f403c343922[m
+Author: unknown <shrianshi.kanini@gmail.com>
+Date:   Wed Jul 26 12:17:53 2023 +0530
+
+    added signup component
+
+[33mcommit 942dbb6cdb76de759ac7e35012b498493aa6cb12[m
+Author: Almighty69 <90495027+Almighty69@users.noreply.github.com>
+Date:   Tue Jul 25 17:43:45 2023 +0530
+
+    Updated Calendar Component
+
+[33mcommit 0906f1160c2a908abb853d524f92d70ec2509318[m[33m ([m[1;31morigin/calendar_updated[m[33m)[m
+Author: saurabhkanini <saurabh.kanini@gmail.com>
+Date:   Mon Jul 24 13:03:38 2023 +0530
+
+    added manage and its sub component
+
+[33mcommit fcc3002961c23e6efef1b3c03db6a9d5bb0cd948[m
+Author: saurabhkanini <saurabh.kanini@gmail.com>
+Date:   Thu Jul 13 12:30:16 2023 +0530
+
+    added few required components
+
+[33mcommit cfbe72dd39cda7ffa8b2e8068180e026d0e314c9[m
+Merge: 537d3f6 eb30d5f
+Author: Saurabh <125125379+Saurabhkanini@users.noreply.github.com>
+Date:   Fri Jun 23 01:08:34 2023 +0530
+
+    Merge pull request #5 from Shrianshi/feature/roomBooking
+    
+    Adding css to deskBooking
+
+[33mcommit eb30d5f54064cbd6b67af83cda1d2fc8039b368c[m[33m ([m[1;31morigin/feature/roomBooking[m[33m)[m
+Author: saurabhkanini <saurabh.kanini@gmail.com>
+Date:   Fri Jun 23 01:07:40 2023 +0530
+
+    Adding css to deskBooking
+
+[33mcommit 537d3f6f90fa2d24eaf307bb8dbdde0fc7e70c4d[m
+Merge: 49846f8 a39eff0
+Author: Saurabh <125125379+Saurabhkanini@users.noreply.github.com>
+Date:   Fri Jun 23 00:37:29 2023 +0530
+
+    Merge pull request #4 from Shrianshi/develop
+    
+    Develop
+
+[33mcommit a39eff02505677f8ed9bc8e4280685fd09e4392c[m[33m ([m[1;31morigin/services[m[33m, [m[1;31morigin/develop[m[33m)[m
+Merge: 97714f8 49846f8
+Author: Saurabh <125125379+Saurabhkanini@users.noreply.github.com>
+Date:   Fri Jun 23 00:37:09 2023 +0530
+
+    Merge branch 'master' into develop
+
+[33mcommit 97714f85802e1a3d40fb880f7f40ee9c6606d16c[m
+Merge: 9d15371 f2df669
+Author: Saurabh <125125379+Saurabhkanini@users.noreply.github.com>
+Date:   Thu Jun 22 17:48:45 2023 +0530
+
+    Merge pull request #3 from Shrianshi/feature/bookAroomAbhinav
+    
+    added mybooking component
+
+[33mcommit f2df669301d4037853d68ff5c30858beebbe2bdf[m[33m ([m[1;31morigin/feature/bookAroomAbhinav[m[33m)[m
+Author: Abhinav Challa <abhinav.kanini@gmail.com>
+Date:   Thu Jun 22 17:41:41 2023 +0530
+
+    added mybooking component
+
+[33mcommit 49846f8e7d299f4c48c67ff835520e465f00767c[m
+Author: Almighty69 <90495027+Almighty69@users.noreply.github.com>
+Date:   Thu Jun 22 16:00:51 2023 +0530
+
+    update
+
+[33mcommit 9d1537161d9e77a2e614677569061724b5b2d814[m[33m ([m[1;31morigin/feature/manageJerusha[m[33m)[m
+Merge: a6d75a1 77bc81f
+Author: Saurabh <125125379+Saurabhkanini@users.noreply.github.com>
+Date:   Thu Jun 22 14:52:08 2023 +0530
+
+    Merge pull request #1 from Shrianshi/feature/roomBooking
+    
+    checking for new branch
+
+[33mcommit 77bc81f2c87de79f126d4515feabd395cd901393[m
+Author: saurabhkanini <saurabh.kanini@gmail.com>
+Date:   Thu Jun 22 14:50:03 2023 +0530
+
+    checking for new branch
+
+[33mcommit 379db482db429f39441dccc746938af40f9773fd[m
+Author: Almighty69 <90495027+Almighty69@users.noreply.github.com>
+Date:   Thu Jun 22 10:25:03 2023 +0530
+
+    Adding Calendar navba
+
+[33mcommit a6d75a1cbd3b2bd1d087636af6ecfb3be84bedb9[m
+Author: saurabhkanini <saurabh.kanini@gmail.com>
+Date:   Wed Jun 21 12:47:11 2023 +0530
+
+    Added RoomBooking and DeskBooking components
+
+[33mcommit 1922e8a352eeb481ca22a0779eba7b6ada66d283[m
+Author: saurabhkanini <saurabh.kanini@gmail.com>
+Date:   Tue Jun 20 17:50:44 2023 +0530
+
+    checking Git Push
+
+[33mcommit 3e8b7e31341c9147684687d9c19125c49a7e7f13[m
+Author: Shrianshi <shrianshi.kanini@gmail.com>
+Date:   Tue Jun 20 15:28:48 2023 +0530
+
+    first commit

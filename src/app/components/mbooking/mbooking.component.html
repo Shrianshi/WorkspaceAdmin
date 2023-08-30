@@ -1,9 +1,11 @@
-<app-navbar></app-navbar>
-<app-header [header]="header"></app-header><hr>
+<body class="body">
 
-<body>
+<app-navbar></app-navbar>
+<app-header [header]="header" [search]="search"></app-header>
+<hr>
+
+<div>
     <main>
-        
         <section>
             <div class="container-fluid">
                 <div class="row">
@@ -16,7 +18,9 @@
                     </div>
                     <div class="col-sm-2">
                         <a routerLink="/bookaroom">
-                        <button class="btn btn-primary btn-sm" id="btnCanvas" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Book a room</button>
+                            <button class="btn btn-primary btn-sm" id="btnCanvas" type="button"
+                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                                aria-controls="offcanvasRight">Book a room</button>
                         </a>
                         <br>
                     </div>
@@ -24,52 +28,50 @@
             </div>
         </section>
         <div class="container" *ngFor="let card of cards">
-            <div >
-                <img [src]="'data:image/png;base64,' + card.roomDetail.imageData" alt="SunsetmeetingroomImage" class="bannerImage">
+            <div>
+                <img [src]="'data:image/png;base64,' + card.roomDetail.imageData" alt="SunsetmeetingroomImage"
+                    class="bannerImage">
             </div>
             <div class="BookingInfo">
                 <div>
-                    <p class="bookingTitle">{{card.roomDetail.roomName}}</p>
+                    <h6 class="bookingTitle">{{card.roomDetail.roomName}}</h6>
                 </div>
                 <div>
-                    <p class="bookingIdtitle">Booking id &nbsp;<span class="BookingID">#{{card.bookingId}}</span></p>
+                    <p class="small">Booking id &nbsp;<span class="BookingID"><b>#{{card.bookingId}}</b></span></p>
                 </div>
                 <div>
                     <button class="Viewandmodifydata">View and Modify Booking</button>
                 </div>
+
                 <div class="BookingData">
+                    <span class="small h6 m-3">
+                      <img src="../assets/images/smsImg.png">
+                      {{card.meetingTitle}}</span>
+            
+                    <span class="small h6 m-3"><i class="fa-solid fa-location-dot me-2"
+                        style="color: #8a8a8a"></i>{{card.roomDetail.location.city}}</span>
+            
+                    <span class="small h6 m-3"><img
+                      src="assets/images/profile-icon.png" class="person-img">{{card.numberOfParticipants}} people</span>
+            
+                    <span class="small h6 m-3"><i class="fa-regular fa-calendar me-2" style="color: #8a8a8a"></i>{{card.startTime| date:'mediumDate'}}
+                    </span>
+            
+                    <span class="small h6 m-3"><i class="fa-regular fa-clock me-2" style="color: #030303" style="color: #8a8a8a"></i>{{card.startTime|
+                      date:'shortTime'}}- {{card.endTime|
+                      date:'shortTime'}}</span>
+                  </div>
+                <!-- <div class="BookingData">
                     <p><i class="bi bi-chat-left"></i>&nbsp;&nbsp;{{card.meetingTitle}}</p>
                     <p><i class="bi bi-geo-alt"></i> &nbsp;&nbsp;{{card.roomDetail.location.city}}</p>
                     <p><i class="bi bi-person"></i>&nbsp;&nbsp; {{card.numberOfParticipants}} people</p>
                     <p><i class="bi bi-calendar4"></i>&nbsp;&nbsp;{{card.startTime| date:'mediumDate'}} </p>
-                    <p><i class="bi bi-clock"></i>&nbsp;&nbsp; {{card.startTime| date:'shortTime'}}- {{card.endTime| date:'shortTime'}}</p>
-                </div>
-                
-            </div>
-        </div>
-        
-        <div class="container">
-            <div>
-                <img src="assets/images/storyboard1.svg" alt="SunsetmeetingroomImage" class="bannerImage">
-            </div>
-            <div class="BookingInfo">
-                <div>
-                    <p class="bookingTitle">Storyboard</p>
-                </div>
-                <div>
-                    <p class="bookingIdtitle">Booking id &nbsp;<span class="BookingID">#5424</span></p>
-                </div>
-                <div>
-                    <button class="Viewandmodifydata">View and Modify Booking</button>
-                </div>
-                <div class="BookingData">
-                    <p><i class="bi bi-chat-left"></i>&nbsp;&nbsp;CHC Developer meet</p>
-                    <p><i class="bi bi-geo-alt"></i> &nbsp;&nbsp;Ratha tek, Chennai</p>
-                    <p><i class="bi bi-person"></i>&nbsp;&nbsp; 8 people</p>
-                    <p><i class="bi bi-calendar4"></i>&nbsp;&nbsp;July 11, 2022 </p>
-                    <p><i class="bi bi-clock"></i>&nbsp;&nbsp; 11:00am- 12:00pm</p>
-                </div>
+                    <p><i class="bi bi-clock"></i>&nbsp;&nbsp; {{card.startTime| date:'shortTime'}}- {{card.endTime|
+                        date:'shortTime'}}</p>
+                </div> -->
+
             </div>
         </div>
     </main>
+</div>
 </body>
