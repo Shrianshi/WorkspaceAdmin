@@ -62,8 +62,11 @@ export class NotificationsComponent implements OnInit {
         setTimeout(() => {
           this.cardDetail.notificationSubject = '';
           this.cardDetail.description = '';
-          this.cardDetail.location = '';
+          this.cardDetail.locationId = '';
         });
+
+        this.cardDetail.reset();
+  
 
       },
       (error) => {
