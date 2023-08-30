@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { LocationService } from 'src/app/services/location.service';
 import { NotificationService } from 'src/app/services/notificationService/notification.service';
@@ -10,6 +11,7 @@ import { WorkspaceFilterService } from 'src/app/services/workspaceFilters/worksp
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
+  @ViewChild('notificationForm') notificationForm!: NgForm;
 
   header: string = 'Notifications';
   search:string='notifications'
@@ -52,20 +54,18 @@ export class NotificationsComponent implements OnInit {
     this.cardDetail.date = `${this.year}-${this.month}-${this.day}`;
     this.cardDetail.time = `${this.hours}:${this.minutes}:${this.seconds}`;
     console.log(this.cardDetail);
-    // Call your notification service here to add the notification
+    
     this.notiSer.addNotification(this.cardDetail).subscribe(
       (data) => {
         this.toast.success('Notification Added');
         console.log('Notification sent:', this.cardDetail);
 
-        // Clear the form fields after sending the notification with a delay
+        
         setTimeout(() => {
-          this.cardDetail.notificationSubject = '';
-          this.cardDetail.description = '';
-          this.cardDetail.locationId = '';
+          this.notificationForm.resetForm();
         });
 
-        this.cardDetail.reset();
+        
   
 
       },
@@ -99,7 +99,3 @@ export class NotificationsComponent implements OnInit {
   }
 
 }
-
-
-
-
