@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions, EventInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { EventService } from 'src/app/services/eventService/event.service';
 
 @Component({
   selector: 'app-calendar',
@@ -10,6 +11,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 export class CalendarComponent implements OnInit {
   today: Date = new Date();
   
+  constructor(private eventservice:EventService){};
   calendarOptions: CalendarOptions = {};
   header: string = 'Calendar';
   events: EventInput[] = [
@@ -21,6 +23,7 @@ export class CalendarComponent implements OnInit {
 
   ];
   eventsToday: EventInput[] = [];
+  displayEvent = this.eventservice.getAllEvents();
 
   ngOnInit() {
     const todayDate = new Date().toISOString().split('T')[0];
@@ -39,7 +42,6 @@ export class CalendarComponent implements OnInit {
       eventContent: this.customEventContent
     };
   }
-
   customEventContent(info: any) {
     const eventTime = new Date(info.event.start);
     const eventProps = info.event.extendedProps;
@@ -53,4 +55,6 @@ export class CalendarComponent implements OnInit {
       `
     };
   }
+
+
 }
