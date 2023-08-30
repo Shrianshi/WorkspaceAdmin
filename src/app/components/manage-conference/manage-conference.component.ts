@@ -23,7 +23,7 @@ interface Card {
 export class ManageConferenceComponent implements OnInit {
   header: string = 'Conference Rooms';
   search:string='rooms';
-  count:number=0;
+  //count:number=0;
 
   roomForm: FormGroup;
 
@@ -40,6 +40,7 @@ export class ManageConferenceComponent implements OnInit {
   cards: any[] = []
   locations: any[] = []
   locationName: string ='All'
+  count: number = 0;
 
 
   newRoom: any = {
@@ -63,8 +64,15 @@ export class ManageConferenceComponent implements OnInit {
       const base64String = btoa(String.fromCharCode.apply(null, numbersArray));
       this.newRoom.imageData = base64String;
       console.log(this.newRoom)
+      this.showAddedToast('Image Added');
     }
     fileReader.readAsArrayBuffer(file);
+  }
+
+  private showAddedToast(message: string) {
+    this.toast.success(message, '', {
+      timeOut: 1000 // Time in milliseconds
+    });
   }
 
   ngOnInit(): void {
@@ -101,6 +109,7 @@ export class ManageConferenceComponent implements OnInit {
     if (locationName == "All") {
       this.roomSer.getAllRoom().subscribe((data) => {
         this.cards = data
+        this.count = data.length
       }, (error) => {
         console.log(error)
       })
@@ -109,6 +118,7 @@ export class ManageConferenceComponent implements OnInit {
       this.wsService.getRoomsByLocation(locationName).subscribe((data) => {
         this.cards = []
         this.cards = data;
+        this.count = data.length
       }, (error) => {
         console.log(error)
       })
