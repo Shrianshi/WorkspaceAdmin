@@ -86,7 +86,7 @@
         <div class="mb-3 d-flex">
           <div class="me-3 flex-grow-1">
             <label for="eventDate" class="form-label">Date</label>
-            <input type="date" class="form-control" id="eventDate" formControlName="startTime" />
+            <input type="datetime-local" class="form-control" id="eventDate" formControlName="startTime" />
             <div *ngIf="eventForm.get('startTime')?.hasError('required') && eventForm.get('startTime')?.touched"
               class="text-danger">
               Date is required.
