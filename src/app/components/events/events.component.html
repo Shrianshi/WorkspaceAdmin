@@ -36,6 +36,7 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
+        
         <form [formGroup]="eventForm" (ngSubmit)="addEvent()">
           <div class="form-group form p-5">
             <div class="card-body text-center">
@@ -88,12 +89,12 @@
           <div class="mb-3 d-flex">
             <div class="me-3 flex-grow-1">
               <label for="eventDate" class="form-label">Date</label>
-              <input type="date" class="form-control" id="eventDate" formControlName="startTime" />
+              <input type="datetime-local" class="form-control" id="eventDate" formControlName="startTime" />
               <div *ngIf="eventForm.get('startTime')?.hasError('required') && eventForm.get('startTime')?.touched"
                 class="text-danger">
                 Date is required.
               </div>
-            </div>
+            </div>
             <div class="flex-grow-1">
               <label for="eventTime" class="form-label">Time</label>
               <input type="time" class="form-control" id="eventTime" formControlName="endTime" />
