@@ -1,38 +1,12 @@
 <app-navbar></app-navbar>
 
 <body class="body">
-    <header class="row py-4 border-bottom">
-        <div class="col-sm-6">
-            <h6 class="">Locations</h6>
-        </div>
-
-        <div class="col-sm-4 px-1">
-            <nav class="navbar">
-                <form class="container-fluid  d-flex">
-                    <div class="input-group">
-                        <span class="search input-group-text" id="basic-addon1"><i class="fa fa-magnifying-glass"
-                                style="color: #a1a3a5;"></i></span>
-                        <input type="text" class="search form-control no-border" placeholder="Search Employees"
-                            aria-label="Search Employees" aria-describedby="basic-addon1">
-                    </div>
-                </form>
-            </nav>
-
-        </div>
-        <div class="col-sm-2" style="position:relative">
-            <img src="assets/img/bell.svg">
-            <span class="badge bg-danger rounded-circle p-1" style=" position:absolute; left:21px; top:3px">
-                <span class="visually-hidden">Hello</span>
-            </span>
-            <button class="avatar-btn mx-2" type="submit"></button>HR admin
-        </div>
-
-    </header>
+    <app-header [header]="header" [search]="search"></app-header><hr>
     <div>
         <aside>
             <div class="row">
                 <div class="col-10 text-left mt-3">
-                    <h6>All Location</h6>
+                    <h6>All Locations</h6>
                 </div>
 
                 <div class="col-2 text-right">
@@ -47,36 +21,46 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
-                            <div class=row>
-                                <p>Share location building image</p>
-                                <div class="card text-center mb-3" style="border:1px dashed;">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="bi-card-image"></i></h5>
-                                        <input type="file" placeholder="select image"
-                                        (change)="onFileSelected($event)"><br>
-                                        <p>Supports : JPG,PNG</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Share location building Image</p>
+                                    <div class="card text-center mb-3"
+                                        style="border:2px dashed #9DA2B6">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><img
+                                                    src="assets/images/gallery-icon.png"></h5>
+                                            <p class="card-text">Drop your Featured Image here, or
+                                                <label class="text-decoration-none" for="fileInput"
+                                                    style="cursor: pointer; color: blue;">Browse</label>
+                                                <input type="file" id="fileInput" formControlName = "imageData"
+                                                    style="display: none;"
+                                                    (change)="onFileSelected($event)">
+                                                <br>
+                                                <span class="text-muted">Supports: JPEG, PNG</span>"
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                            </div><br>
+                                </div>
+                            </div>
 
                             <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
                                 <div class="row" >
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="Floor no/Buiding name"
-                                        aria-label="Floor no/Building name" formControlName="floorNumberOrBuildingName">
+                                        aria-label="Floor no/Building name" formControlName="floorNumberOrBuildingName" [(ngModel)]="newLocation.floorNumberOrBuildingName">
 
-                                        <div *ngIf="locationForm.get('floorNumberOrBuildingName')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="floorNumberOrBuildingName?.invalid && floorNumberOrBuildingName?.touched" class="text-danger">
                                             Floor no/Building name is required.
                                         </div>
                                     </div>
                                     
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="streetAddress"
-                                        aria-label="streetAddress" formControlName="streetAddress">
+                                        <input type="text" class="form-control" placeholder="Street Address"
+                                        aria-label="streetAddress" formControlName="streetAddress" [(ngModel)]="newLocation.streetAddress">
 
-                                        <div *ngIf="locationForm.get('streetAddress')?.hasError('required')" class="text-danger">
-                                            streetAddress is required.
+                                        <div *ngIf="streetAddress?.invalid && streetAddress?.touched" class="text-danger">
+                                            street Address is required.
                                         </div>
                                     </div>
                                 </div><br>
@@ -84,18 +68,18 @@
                                 <div class="row">
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="City" aria-label="City"
-                                        formControlName="city" >
+                                        formControlName="city" [(ngModel)]="newLocation.city" >
 
-                                        <div *ngIf="locationForm.get('city')?.hasError('required')" class="text-danger">
-                                            city is required.
+                                        <div *ngIf="city?.invalid && city?.touched" class="text-danger">
+                                           city is required.
                                         </div>
                                     </div>
 
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="State" aria-label="State"
-                                        formControlName="state" >
+                                        formControlName="state" [(ngModel)]="newLocation.state" >
 
-                                        <div *ngIf="locationForm.get('state')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="state?.invalid && state?.touched" class="text-danger">
                                             state is required.
                                         </div>
                                     </div>
@@ -104,18 +88,18 @@
                                 <div class="row">
                                     <div class="col">
                                         <input type="number" class="form-control" placeholder="Pincode" aria-label="Pincode"
-                                        formControlName="pincode" >
+                                        formControlName="pincode" [(ngModel)]="newLocation.pincode">
 
-                                        <div *ngIf="locationForm.get('pincode')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="pincode?.invalid && pincode?.touched" class="text-danger">
                                             pincode is required.
                                         </div>
                                     </div>
 
                                     <div class="col">
                                         <input type="text" class="form-control" placeholder="Country" aria-label="Country"
-                                        formControlName="country" >
+                                        formControlName="country" [(ngModel)]="newLocation.country" >
 
-                                        <div *ngIf="locationForm.get('country')?.hasError('required')" class="text-danger">
+                                        <div *ngIf="country?.invalid && country?.touched" class="text-danger">
                                             country is required.
                                         </div>
                                     </div>
@@ -125,25 +109,31 @@
                                     <p>General Info</p>
                                     <div class="col">
                                         <input type="number" class="form-control" placeholder="No. of conference room"
-                                            aria-label="No. of coference room" formControlName="numberOfConferenceRooms" >
+                                            aria-label="No. of coference room" formControlName="numberOfConferenceRooms" [(ngModel)]="newLocation.numberOfConferenceRooms" >
                                         
-                                        <div *ngIf="locationForm.get('numberOfConferenceRooms')?.hasError('required')" class="text-danger">
-                                            No. of conference room is required.
+                                        <div *ngIf="numberOfConferenceRooms?.invalid && numberOfConferenceRooms?.touched" class="text-danger">
+                                                number of conference rooms is required.
                                         </div>
                                     </div>
 
                                     <div class="col">
                                         <input type="number" class="form-control" placeholder="No. of desk"
-                                            aria-label="No. of desk" formControlName="numberOfDesk" >
+                                            aria-label="No. of desk" formControlName="numberOfDesk" [(ngModel)]="newLocation.numberOfDesk">
 
-                                        <div *ngIf="locationForm.get('numberOfDesk')?.hasError('required')" class="text-danger">
-                                                No. of desk room is required.
+                                        <div *ngIf="numberOfDesk?.invalid && numberOfDesk?.touched" class="text-danger">
+                                                number of desk is required.
                                         </div>
                                     </div>
                                 </div><br>
-                                <div>
-                                    <button type="submit" class="btn btn-primary" >Submit</button>
-                                </div>
+                                <div class="mb-3 d-flex justify-content-between">
+                                    
+                                        <button type="submit" class="btn btn-primary" >Submit</button>
+                                    
+                                    <button type="button" class="btn btn-secondary me-1" data-bs-dismiss="offcanvas">
+                                      Cancel
+                                    </button>
+                                  </div>
+
                      
                             </form>    
                             
@@ -166,10 +156,12 @@
                         <img [src]=" 'data:image/png;base64,' + l.imageData" class="card-img-top " alt="... ">
                         <div class="card-body ">
                             <h6 class="card-title ">{{l.city}}</h6>
-                            <p class="card-text p1 text-secondary">{{l.streetAddress}}, {{l.city}}-{{l.pincode}}</p>
+                            <p class="card-text p1 text-secondary small">{{l.streetAddress}}, {{l.city}}-{{l.pincode}}</p>
                             <a href="# " class="btn btn-sm border border-primary text-primary">Edit Details</a>
                         </div>
-                    </div>
+                    </div><br>
+                    
+    
                 </div>
             </div>
         </div>

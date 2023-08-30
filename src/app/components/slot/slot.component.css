@@ -319,3 +319,17 @@
   width:100%;
   border-radius: 5%;
 }
+
+.valid-button {
+  background-color: rgb(48, 56, 218);
+  border:solid 1px rgb(48, 56, 218);
+  color: white;
+  cursor: pointer;
+}
+
+.invalid-button {
+  background-color: gray;
+  border:solid 1px rgb(120, 121, 121);
+  color: white;
+  cursor: not-allowed;
+}

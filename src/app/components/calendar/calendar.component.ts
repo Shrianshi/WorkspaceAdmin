@@ -9,13 +9,14 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 })
 export class CalendarComponent implements OnInit {
   today: Date = new Date();
-  
+
   calendarOptions: CalendarOptions = {};
   header: string = 'Calendar';
+  search: string = 'events'
+
   events: EventInput[] = [
     { title: 'Event 1', start: '2023-08-27', extendedProps: { time: '8:00 AM' } },
     { title: 'Event 2', start: '2023-08-28', extendedProps: { time: '12:00 PM' } },
-    //{ title: 'Event 3', start: '2023-08-28', extendedProps: { time: '2:00 PM' } },
     { title: 'Event 4', start: '2023-08-27', extendedProps: { time: '12:00 PM' } },
 
 
@@ -25,13 +26,13 @@ export class CalendarComponent implements OnInit {
   ngOnInit() {
     const todayDate = new Date().toISOString().split('T')[0];
     this.eventsToday = this.events.filter(event => event.start === todayDate);
- 
+
     this.calendarOptions = {
-      initialView: 'dayGridMonth', 
+      initialView: 'dayGridMonth',
       headerToolbar: {
-        left: 'dayGridDay,dayGridWeek,dayGridMonth', 
-        center: 'title', 
-        end: 'prev,next'             
+        left: 'dayGridDay,dayGridWeek,dayGridMonth',
+        center: 'title',
+        end: 'prev,next'
       },
       events: this.events,
       dayMaxEventRows: true,
@@ -44,7 +45,7 @@ export class CalendarComponent implements OnInit {
     const eventTime = new Date(info.event.start);
     const eventProps = info.event.extendedProps;
     const formattedTime = eventProps && eventProps.time ? eventProps.time : '';
-    
+
     return {
       html: `
         <div>${info.event.title}</div>
