@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -15,4 +15,10 @@ export class EmployeeService {
   getEmployees(): Observable<any> {
     return this.http.get<any>(this.dataUrl)
   }
+  getEmployeesByLocations(locationNames: string[]): Observable<any> {
+    locationNames=["chennai"];
+    const params = new HttpParams().set('locationNames', locationNames.join(','));
+    return this.http.get<any>('https://localhost:7239/api/FilterLocation', { params });
+  }
+  
 }
