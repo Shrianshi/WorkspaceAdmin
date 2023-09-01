@@ -9,8 +9,8 @@
         </b></h6>
     </span>
     <span class="col-sm-1 mx-2">
-      <select name="" id="" class="text-secondary border shadow-sm" (change)="changeFilterLoc()"
-        [(ngModel)]="filterloc">
+      <select name="" id="" class="text-secondary border shadow-sm" [(ngModel)]="filterloc"
+        (change)="handleDateChange()">
         <option value="All">All Location</option>
         <option value="Chennai">Chennai</option>
         <option value="Bangalore">Bangalore</option>
@@ -19,7 +19,7 @@
       </select>
     </span>
     <span class="col-sm-2 mx-3">
-      <input type="date" class="text-secondary border shadow-sm">
+      <input type="date" class="text-secondary border shadow-sm" [(ngModel)]="filterDate" (change)="handleDateChange()">
     </span>
   </div>
 
@@ -46,47 +46,19 @@
         <span class="small h6 m-3"><i class="fa-solid fa-location-dot me-2"
             style="color: #8a8a8a"></i>{{room.roomDetail.location.city}}</span>
 
-        <span class="small h6 m-3"><img
-          src="assets/images/profile-icon.png" class="person-img">{{room.numberOfParticipants}} people</span>
+        <span class="small h6 m-3"><img src="assets/images/profile-icon.png"
+            class="person-img">{{room.numberOfParticipants}} people</span>
 
-        <span class="small h6 m-3"><i class="fa-regular fa-calendar me-2" style="color: #8a8a8a"></i>{{room.startTime| date:'mediumDate'}}
+        <span class="small h6 m-3"><i class="fa-regular fa-calendar me-2" style="color: #8a8a8a"></i>{{room.startTime|
+          date:'mediumDate'}}
         </span>
 
-        <span class="small h6 m-3"><i class="fa-regular fa-clock me-2" style="color: #030303" style="color: #8a8a8a"></i>{{room.startTime|
+        <span class="small h6 m-3"><i class="fa-regular fa-clock me-2" style="color: #030303"
+            style="color: #8a8a8a"></i>{{room.startTime|
           date:'shortTime'}}- {{room.endTime|
           date:'shortTime'}}</span>
       </div>
 
     </div>
   </div>
-
-
-
-  <!-- <div class=" container cardCont d-flex flex-wrap border border-secondary p-1 ml-4 mb-4 " *ngFor="let room of rooms">
-    <img class="roomImg" [src]="'data:image/png;base64,' + room.roomDetail.imageData" alt="">
-    <div>
-      <div class="roomName ps-4">
-        <h2>{{room.roomDetail.roomName}} </h2>
-      </div>
-      <div class=" empRow d-flex  ">
-        <img class="knainiLogo" src=" ../../../assets/images/kanini logo.png">
-        <h6 class="emp text-secondary">Employee :</h6>
-        <h6> {{room.employeeName}}</h6>
-        <h6 class="text-secondary">| Booking id</h6>
-        <h6><b>{{room.bookingId}}</b></h6>
-      </div>
-      <div class=" d-flex mt-4">
-        <i class=" fa fa-light fa-comment text-secondary ps-4"></i>
-        <h6 class="ps-1">{{room.meetingTitle}}</h6>
-        <i class="fa fa-map-marker text-secondary ps-2"></i>
-        <h6 class="ps-1">{{room.roomDetail.location.city}}</h6>
-        <i class="fa fa-light fa-user text-secondary ps-2"></i>
-        <h6 class="ps-1">{{room.numberOfParticipants}}</h6>
-        <i class="fa fa-sharp fa-light fa-calendar text-secondary ps-2"></i>
-        <h6 class="ps-1">{{room.date | date:''}}</h6>
-        <i class="fa fa-clock-o text-secondary ps-2"></i>
-        <h6 class="ps-1">{{room.time | date:''}}</h6>
-      </div>
-    </div>
-  </div> -->
 </div>

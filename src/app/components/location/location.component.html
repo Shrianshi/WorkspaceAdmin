@@ -6,7 +6,7 @@
         <aside>
             <div class="row">
                 <div class="col-10 text-left mt-3">
-                    <h6>All Location</h6>
+                    <h6>All Locations</h6>
                 </div>
 
                 <div class="col-2 text-right">
@@ -21,22 +21,28 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
-                            <div class=row>
-                                
-                                <p>Share location building image</p>
-                                <div class="card text-center mb-3" style="border:1px dashed;">
-                                    <h5 class="card-title">
-                                        <img src="assets/images/gallery-icon.png" />
-                                      </h5>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="bi-card-image"></i></h5>
-                                        <input type="file" placeholder="select image" formControlName = "imageData"
-                                        (change)="onFileSelected($event)"><br>
-                                        <p>Supports : JPG,PNG</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Share location building Image</p>
+                                    <div class="card text-center mb-3"
+                                        style="border:2px dashed #9DA2B6">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><img
+                                                    src="assets/images/gallery-icon.png"></h5>
+                                            <p class="card-text">Drop your Featured Image here, or
+                                                <label class="text-decoration-none" for="fileInput"
+                                                    style="cursor: pointer; color: blue;">Browse</label>
+                                                <input type="file" id="fileInput" formControlName = "imageData"
+                                                    style="display: none;"
+                                                    (change)="onFileSelected($event)">
+                                                <br>
+                                                <span class="text-muted">Supports: JPEG, PNG</span>"
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                            </div><br>
+                                </div>
+                            </div>
 
                             <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
                                 <div class="row" >
