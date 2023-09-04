@@ -6,6 +6,7 @@
     width:20px;
     border-radius:10px;
     background-color: black;
+    margin-top: 0.7rem;
   }
   .search{
     height:25px;
@@ -22,3 +23,16 @@
   .p-small{
     font-size: 75%;
 }
+
+h6{
+  margin-top: 0.7rem ;
+}
+
+#bell{
+  margin-top: 0.7rem;
+}
+
+.badge{
+  margin-top: 0.3rem;
+}
+
