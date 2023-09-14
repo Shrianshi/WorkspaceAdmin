@@ -15,6 +15,14 @@ export class EmployeeService {
   getEmployees(): Observable<any> {
     return this.http.get<any>(this.dataUrl)
   }
+  updateEmployee(id: number, data: any): Observable<any> {
+    let dataUrl = `${this.dataUrl}/${id}`
+    return this.http.put<any>(dataUrl, data)
+  }
+  deleteEmployee(id: number): Observable<any> {
+    let dataUrl = `${this.dataUrl}/${id}`
+    return this.http.delete<any>(dataUrl)
+  }
   getEmployeesByLocations(locationNames: string[]): Observable<any> {
     locationNames=["chennai"];
     const params = new HttpParams().set('locationNames', locationNames.join(','));

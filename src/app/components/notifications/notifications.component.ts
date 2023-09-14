@@ -14,7 +14,7 @@ export class NotificationsComponent implements OnInit {
   @ViewChild('notificationForm') notificationForm!: NgForm;
 
   header: string = 'Notifications';
-  search:string='notifications'
+  search: string = 'notifications'
 
   constructor(private notiSer: NotificationService, private toast: ToastrService, private lcoationSer: LocationService, private wsFilterSer: WorkspaceFilterService) { }
   cards: any[] = []
@@ -54,20 +54,14 @@ export class NotificationsComponent implements OnInit {
     this.cardDetail.date = `${this.year}-${this.month}-${this.day}`;
     this.cardDetail.time = `${this.hours}:${this.minutes}:${this.seconds}`;
     console.log(this.cardDetail);
-    
     this.notiSer.addNotification(this.cardDetail).subscribe(
       (data) => {
         this.toast.success('Notification Added');
+        this.ngOnInit()
         console.log('Notification sent:', this.cardDetail);
-
-        
         setTimeout(() => {
           this.notificationForm.resetForm();
         });
-
-        
-  
-
       },
       (error) => {
         console.log(error);

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="password-update">
+        <h2>Password Update</h2>
+        <form (ngSubmit)="updatePassword()" [formGroup]="passwordUpdateForm" class="form">
+            <div class="form-group">
+                <label for="password">New Password:</label>
+                <input type="password" id="password" formControlName="password" placeholder="Enter Password"
+                    class="form-control" [(ngModel)]="newDetail.password">
+                <div *ngIf="password?.invalid && password?.touched" class="error">
+                    Password must be at least 6 characters long.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" formControlName="confirmPassword"
+                    placeholder="Confirm Password" class="form-control">
+                <span
+                    *ngIf="confirmPassword && password && confirmPassword.value !== password.value && confirmPassword.touched"
+                    class="text-danger">Enter Same PassWord as above</span><br>
+            </div>
+            <button type="submit" [disabled]="passwordUpdateForm.invalid" class="btn-submit">Update Password</button>
+        </form>
+    </div>
+</div>

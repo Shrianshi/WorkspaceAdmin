@@ -22,11 +22,14 @@ interface Card {
 })
 export class ManageConferenceComponent implements OnInit {
   header: string = 'Conference Rooms';
-  search:string='rooms';
+
+  search: string = 'rooms';
+  count: number = 0;
 
   roomForm: FormGroup;
 
   constructor(private roomSer: RoomService, private locSer: LocationService, private toast: ToastrService,
+
     private fb: FormBuilder, private wsService: WorkspaceFilterService) { 
       this.roomForm = this.fb.group({
         roomName: new FormControl('',[Validators.required]),    
@@ -82,7 +85,7 @@ export class ManageConferenceComponent implements OnInit {
 
     this.roomSer.getAllRoom().subscribe((data) => {
       this.cards = data
-      this.count=data.length
+      this.count = data.length
     }, (error) => {
       console.log(error)
     })
@@ -93,10 +96,9 @@ export class ManageConferenceComponent implements OnInit {
     console.log('Selected Amenities:', selectedAmenitiesList);
     const amenitiesJson = JSON.stringify(selectedAmenitiesList);
     this.newRoom.amenities = amenitiesJson;
-    // console.log("Final data", this.newRoom);
-    
     this.roomSer.addRoom(this.newRoom).subscribe((data) => {
       this.toast.success('Room Added')
+      this.ngOnInit()
       console.log(data);
       this.roomForm.reset();
     });

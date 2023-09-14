@@ -1,3 +1,4 @@
+
 import { Component,ElementRef,OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { an } from '@fullcalendar/core/internal-common';
@@ -46,8 +47,8 @@ export class EmployeeComponent implements OnInit{
   locationCheckboxes = { ...this.initialLocationCheckboxes };
   departmentCheckboxes = { ...this.initialDepartmentCheckboxes };
 
-  employeeForm: FormGroup= new FormGroup({});;
-  newEmployee:any={
+  employeeForm: FormGroup = new FormGroup({});;
+  newEmployee: any = {
     fname: '',
     lname: "",
     locationId: null,
@@ -75,29 +76,35 @@ export class EmployeeComponent implements OnInit{
 
 arr:string[] = [];
   ngOnInit() {
-    this.locationSer.getAllLocation().subscribe((data)=>{
-      this.locations=data
-    },(error)=>{
+    this.locationSer.getAllLocation().subscribe((data) => {
+      this.locations = data
+    }, (error) => {
       console.log(error)
     })
-    this.deptSer.getAllDepartment().subscribe((data)=>{
-      this.departments=data
-    },(error)=>{
+    this.deptSer.getAllDepartment().subscribe((data) => {
+      this.departments = data
+    }, (error) => {
       console.log(error)
     })
     this.employeeForm = this.formBuilder.group({
-      fname: ['',Validators.required],
-      lname: ['',Validators.required],
-      empimage:['',Validators.required],
-      locationId:[1],
-      depId:[1],
-      title:['',Validators.required],
-      email:['',Validators.required],
-      phone:['',Validators.required],
-      addPassword:['',Validators.required],
-      confirmPassword:['',Validators.required]
+      fname: ['', Validators.required],
+      lname: ['', Validators.required],
+      empimage: ['', Validators.required],
+      locationId: [1],
+      depId: [1],
+      title: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      addPassword: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
 
     });
+    this.empSer.getEmployees().subscribe((data) => {
+      this.employees = data
+      this.countEmp = data.length
+    }, (error) => {
+      console.log(error)
+    })
    this.empSer.getEmployeesByLocations(this.arr).subscribe((data)=>{
     this.employees=data
     this.countEmp=data.length
@@ -107,15 +114,25 @@ arr:string[] = [];
   }
 
   onSubmit() {
-   
-    this.empSer.addEmployee(this.newEmployee).subscribe((data)=>{
+
+    this.empSer.addEmployee(this.newEmployee).subscribe((data) => {
       this.toast.success('Employee Added')
+      this.ngOnInit()
       console.log(this.newEmployee)
       this.employeeForm.reset();
-    },(error)=>{
+    }, (error) => {
       console.log(error)
     })
   }
+  deleteEmp(id: number) {
+    this.empSer.deleteEmployee(id).subscribe((data) => {
+      this.toast.success('Employee Deleted Successful')
+      this.ngOnInit()
+    }, (error) => {
+      console.log(error)
+    })
+  }
+
 
   applyFilters(){
     if(this.locationCheckboxes.banglore==true){

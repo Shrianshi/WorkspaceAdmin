@@ -12,10 +12,7 @@
       <select name="" id="" class="text-secondary border shadow-sm" [(ngModel)]="filterloc"
         (change)="handleDateChange()">
         <option value="All">All Location</option>
-        <option value="Chennai">Chennai</option>
-        <option value="Bangalore">Bangalore</option>
-        <option value="Pune">Pune</option>
-        <option value="Combaitore">Combaitore</option>
+        <option *ngFor="let l of locations" [value]="l.city">{{l.city}}</option>
       </select>
     </span>
     <span class="col-sm-2 mx-3">

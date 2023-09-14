@@ -104,7 +104,7 @@ export class LocationComponent implements OnInit {
         console.log(data);
         this.toast.success("Location Added");
         this.locationForm.reset();
-
+        this.ngOnInit()
         this.newLocation.imageData = '';
       }, (error) => {
         console.log(error);
