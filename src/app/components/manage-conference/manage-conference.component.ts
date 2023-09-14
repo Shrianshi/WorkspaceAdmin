@@ -41,7 +41,6 @@ export class ManageConferenceComponent implements OnInit {
   cards: any[] = []
   locations: any[] = []
   locationName: string ='All'
-  count: number = 0;
 
 
   newRoom: any = {
