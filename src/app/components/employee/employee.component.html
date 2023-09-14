@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <app-header [header]="header" [search]="search"></app-header>
         <hr>
-        
+
         <!-- BODY -->
         <div class="row">
             <div class="col-sm-9">
@@ -290,9 +290,9 @@
                                         <option *ngFor="let l of locations" [value]="l.location_Id">{{l.city}}</option>
                                     </select>
                                     <div *ngIf="employeeForm.get('locationId')?.hasError('required') && employeeForm.get('locationId')?.touched"
-                                    class="error-message">
-                                    location is required.
-                                </div>
+                                        class="error-message">
+                                        location is required.
+                                    </div>
                                 </div>
                             </div>
                             <br>
@@ -304,19 +304,19 @@
                                         <option *ngFor="let d of departments" [value]="d.deptId">{{d.deptName}}</option>
                                     </select>
                                     <div *ngIf="employeeForm.get('depId')?.hasError('required') && employeeForm.get('depId')?.touched"
-                                    class="error-message">
-                                    department is required.
-                                </div>
+                                        class="error-message">
+                                        department is required.
+                                    </div>
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Title" formControlName="title"
                                         [(ngModel)]="newEmployee.title">
-                                        <div *ngIf="employeeForm.get('title')?.hasError('required') && employeeForm.get('title')?.touched"
-                                    class="error-message">
-                                    title is required.
+                                    <div *ngIf="employeeForm.get('title')?.hasError('required') && employeeForm.get('title')?.touched"
+                                        class="error-message">
+                                        title is required.
+                                    </div>
                                 </div>
-                                </div>
-                                
+
                             </div>
                             <br>
                             <div class="row g-3">
@@ -406,7 +406,8 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                                        <li><a class="dropdown-item" (click)="deleteEmp(card.employeeId)">Delete</a>
+                                        </li>
 
                                     </ul>
                                 </div>
@@ -425,12 +426,16 @@
                             <br><br>
                             <div class="card-title black" align="center">
                                 {{card.employeeId}}-{{ card.fname }} {{card.lname}}</div>
-                            <p class="card-text" style="font-size: 10px;">{{card.title}} - {{card.department.deptName}}<br><br>
-                        
-                               
-                            </p><hr>
-                            <span class="card-text" style="font-size: 11px;"><i class="bi-envelope"></i> {{card.email}}</span><br>
-                            <span class="card-text" style="font-size: 11px;"><i class="bi-telephone"></i> {{card.phone}}</span>
+                            <p class="card-text" style="font-size: 10px;">{{card.title}} -
+                                {{card.department.deptName}}<br><br>
+
+
+                            </p>
+                            <hr>
+                            <span class="card-text" style="font-size: 11px;"><i class="bi-envelope"></i>
+                                {{card.email}}</span><br>
+                            <span class="card-text" style="font-size: 11px;"><i class="bi-telephone"></i>
+                                {{card.phone}}</span>
                         </div>
                     </div>
                 </div>
@@ -451,7 +456,8 @@
                         Employees per page
                     </div>
 
-                    <span class="col-sm-2 text-muted small" id="spanResult">Showing {{countEmp}}/{{countEmp}} results</span>
+                    <span class="col-sm-2 text-muted small" id="spanResult">Showing {{countEmp}}/{{countEmp}}
+                        results</span>
 
                     <!-- <div class="col-sm-3" id="pagination">
                         <div class="pagination">

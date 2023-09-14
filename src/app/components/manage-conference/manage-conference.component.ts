@@ -22,24 +22,24 @@ interface Card {
 })
 export class ManageConferenceComponent implements OnInit {
   header: string = 'Conference Rooms';
-  search:string='rooms';
-  count:number=0;
+  search: string = 'rooms';
+  count: number = 0;
 
   roomForm: FormGroup;
 
   constructor(private roomSer: RoomService, private locSer: LocationService, private toast: ToastrService,
-    private fb: FormBuilder, private wsService: WorkspaceFilterService) { 
-      this.roomForm = this.fb.group({
-        roomName: new FormControl('',[Validators.required]),    
-        roomCapacity: new FormControl('',[Validators.required]),
-        locationId: new FormControl(1, [Validators.required]),
-        amenities: new FormControl([],[Validators.required])
-      });
-    }
+    private fb: FormBuilder, private wsService: WorkspaceFilterService) {
+    this.roomForm = this.fb.group({
+      roomName: new FormControl('', [Validators.required]),
+      roomCapacity: new FormControl('', [Validators.required]),
+      locationId: new FormControl(1, [Validators.required]),
+      amenities: new FormControl([], [Validators.required])
+    });
+  }
 
   cards: any[] = []
   locations: any[] = []
-  locationName: string ='All'
+  locationName: string = 'All'
 
 
   newRoom: any = {
@@ -76,7 +76,7 @@ export class ManageConferenceComponent implements OnInit {
 
     this.roomSer.getAllRoom().subscribe((data) => {
       this.cards = data
-      this.count=data.length
+      this.count = data.length
     }, (error) => {
       console.log(error)
     })
@@ -87,10 +87,9 @@ export class ManageConferenceComponent implements OnInit {
     console.log('Selected Amenities:', selectedAmenitiesList);
     const amenitiesJson = JSON.stringify(selectedAmenitiesList);
     this.newRoom.amenities = amenitiesJson;
-    // console.log("Final data", this.newRoom);
-    
     this.roomSer.addRoom(this.newRoom).subscribe((data) => {
       this.toast.success('Room Added')
+      this.ngOnInit()
       console.log(data);
     });
   }
@@ -101,6 +100,7 @@ export class ManageConferenceComponent implements OnInit {
     if (locationName == "All") {
       this.roomSer.getAllRoom().subscribe((data) => {
         this.cards = data
+        this.count = data.length
       }, (error) => {
         console.log(error)
       })
@@ -109,6 +109,7 @@ export class ManageConferenceComponent implements OnInit {
       this.wsService.getRoomsByLocation(locationName).subscribe((data) => {
         this.cards = []
         this.cards = data;
+        this.count = data.length
       }, (error) => {
         console.log(error)
       })

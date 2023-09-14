@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoombookingService } from 'src/app/services/bookingservice/roombooking.service';
+import { LocationService } from 'src/app/services/location.service';
 import { WorkspaceFilterService } from 'src/app/services/workspaceFilters/workspace-filter.service';
 @Component({
   selector: 'app-rbooking',
@@ -7,11 +8,12 @@ import { WorkspaceFilterService } from 'src/app/services/workspaceFilters/worksp
   styleUrls: ['./rbooking.component.css']
 })
 export class RbookingComponent implements OnInit {
-  constructor(private rbookingSer: RoombookingService, private wsfilter: WorkspaceFilterService) { }
+  constructor(private rbookingSer: RoombookingService, private wsfilter: WorkspaceFilterService, private locationSer: LocationService) { }
   header: string = 'Room Bookings';
   search: string = 'room bookings';
   count: number = 0
   rooms: any[] = []
+  locations: any[] = []
   test: string = ''
   filterloc: string = 'All'
   filterDate: string = 'd'
@@ -19,6 +21,11 @@ export class RbookingComponent implements OnInit {
     this.rbookingSer.getAllRoomBookig().subscribe((data) => {
       this.rooms = data
       this.count = data.length
+    }, (error) => {
+      console.log(error)
+    })
+    this.locationSer.getAllLocation().subscribe((data) => {
+      this.locations = data
     }, (error) => {
       console.log(error)
     })
@@ -30,6 +37,7 @@ export class RbookingComponent implements OnInit {
     if (locationName == "All") {
       this.rbookingSer.getAllRoomBookig().subscribe((data) => {
         this.rooms = data
+        this.count = this.rooms.length
       }, (error) => {
         console.log(error)
       })
@@ -38,6 +46,7 @@ export class RbookingComponent implements OnInit {
       this.wsfilter.getRBookingByLocation(locationName).subscribe((data) => {
         this.rooms = []
         this.rooms = data;
+        this.count = this.rooms.length
       }, (error) => {
         console.log(error)
       })

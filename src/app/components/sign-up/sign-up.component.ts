@@ -37,11 +37,10 @@ export class SignUpComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.valid) {
       console.log('Form submitted:', this.loginForm.value);
-      // this.router.navigate(['article-section'])
-      this.authSer.loginAdmin(this.loginData).subscribe((data)=>{
-        localStorage.setItem('token',data.token)
-        localStorage.setItem('name',data.user.name)
-        this.toast.success('Welcome '+data.user.name)
+      this.authSer.loginAdmin(this.loginData).subscribe((data) => {
+        localStorage.setItem('token', data.token)
+        localStorage.setItem('name', data.user.name)
+        this.toast.success('Welcome ' + data.user.name)
         this.router.navigate(['article-section']);
       }, (error) => {
         this.toast.error(error.error)
@@ -99,7 +98,6 @@ export class SignUpComponent implements OnInit {
       }
     });
   }
-
   isValidEmail(email: string): boolean {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailPattern.test(email);
@@ -109,17 +107,25 @@ export class SignUpComponent implements OnInit {
     const formData = {
       name: 'WorkSpaceManagement',
       email: this.email,
-      password: 'test pass'
+      link: 'http://localhost:4200/updatepass'
     };
-    emailjs.send("service_o92sfhd", "template_tksmu3d", formData, 'McZvSNPJpTc5eFa-D')
-      .then((result) => {
-        console.log(result.text);
+    if (this.email != null)
+      this.authSer.getUserByEmail(this.email).subscribe((data) => {
+        localStorage.setItem('resetEmail', this.email)
+        emailjs.send("service_o92sfhd", "template_tksmu3d", formData, 'McZvSNPJpTc5eFa-D')
+          .then((result) => {
+            console.log(result.text);
+            this.toast.success("Reset link Sent to Registred Email")
+          }, (error) => {
+            console.log(error.text);
+          });
       }, (error) => {
-        console.log(error.text);
-      });
+        this.toast.error("Enter Valid Email")
+      })
   }
-
 }
+
+
 
 
 

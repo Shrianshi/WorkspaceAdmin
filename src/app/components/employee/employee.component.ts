@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { an } from '@fullcalendar/core/internal-common';
 import { error } from 'jquery';
@@ -11,21 +11,21 @@ import { LocationService } from 'src/app/services/location.service';
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
-export class EmployeeComponent implements OnInit{
-  header:string='Employee';
-  search:string='employees'
+export class EmployeeComponent implements OnInit {
+  header: string = 'Employee';
+  search: string = 'employees'
 
-  countEmp:number=0;
-  addPassword:string='';
-  confirmPassword:string='';
-  constructor(private toast:ToastrService,private formBuilder: FormBuilder,private locationSer:LocationService,private deptSer:DepartmentService,private empSer:EmployeeService) {}
-  locations:any[]=[]
-  departments:any[]=[]
-  employees:any[]=[]
-  
+  countEmp: number = 0;
+  addPassword: string = '';
+  confirmPassword: string = '';
+  constructor(private toast: ToastrService, private formBuilder: FormBuilder, private locationSer: LocationService, private deptSer: DepartmentService, private empSer: EmployeeService) { }
+  locations: any[] = []
+  departments: any[] = []
+  employees: any[] = []
 
-  employeeForm: FormGroup= new FormGroup({});;
-  newEmployee:any={
+
+  employeeForm: FormGroup = new FormGroup({});;
+  newEmployee: any = {
     fname: '',
     lname: "",
     locationId: null,
@@ -53,50 +53,54 @@ export class EmployeeComponent implements OnInit{
 
 
   ngOnInit() {
-    this.locationSer.getAllLocation().subscribe((data)=>{
-      this.locations=data
-    },(error)=>{
+    this.locationSer.getAllLocation().subscribe((data) => {
+      this.locations = data
+    }, (error) => {
       console.log(error)
     })
-    this.deptSer.getAllDepartment().subscribe((data)=>{
-      this.departments=data
-    },(error)=>{
+    this.deptSer.getAllDepartment().subscribe((data) => {
+      this.departments = data
+    }, (error) => {
       console.log(error)
     })
     this.employeeForm = this.formBuilder.group({
-      fname: ['',Validators.required],
-      lname: ['',Validators.required],
-      empimage:['',Validators.required],
-      locationId:[1],
-      depId:[1],
-      title:['',Validators.required],
-      email:['',Validators.required],
-      phone:['',Validators.required],
-      addPassword:['',Validators.required],
-      confirmPassword:['',Validators.required]
+      fname: ['', Validators.required],
+      lname: ['', Validators.required],
+      empimage: ['', Validators.required],
+      locationId: [1],
+      depId: [1],
+      title: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      addPassword: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
 
     });
-   this.empSer.getEmployees().subscribe((data)=>{
-    this.employees=data
-    this.countEmp=data.length
-   },(error)=>{
-    console.log(error)
-   })
-  }
-
-  onSubmit() {
-   
-    this.empSer.addEmployee(this.newEmployee).subscribe((data)=>{
-      this.toast.success('Employee Added')
-      console.log(this.newEmployee)
-      this.employeeForm.reset();
-    },(error)=>{
+    this.empSer.getEmployees().subscribe((data) => {
+      this.employees = data
+      this.countEmp = data.length
+    }, (error) => {
       console.log(error)
     })
   }
 
- 
+  onSubmit() {
 
-
-
+    this.empSer.addEmployee(this.newEmployee).subscribe((data) => {
+      this.toast.success('Employee Added')
+      this.ngOnInit()
+      console.log(this.newEmployee)
+      this.employeeForm.reset();
+    }, (error) => {
+      console.log(error)
+    })
+  }
+  deleteEmp(id: number) {
+    this.empSer.deleteEmployee(id).subscribe((data) => {
+      this.toast.success('Employee Deleted Successful')
+      this.ngOnInit()
+    }, (error) => {
+      console.log(error)
+    })
+  }
 }

@@ -31,6 +31,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewEventComponent } from './components/view-event/view-event.component';
 import { HeaderComponent } from './components/header/header.component';
+import { UpdatePassComponent } from './components/update-pass/update-pass.component';
 
 
 
@@ -59,6 +60,7 @@ import { HeaderComponent } from './components/header/header.component';
 
     ViewEventComponent,
     HeaderComponent,
+    UpdatePassComponent,
   ],
   imports: [
     BrowserModule,

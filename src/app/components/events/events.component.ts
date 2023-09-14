@@ -58,7 +58,6 @@ export class EventsComponent {
       this.newEvent.locationId = this.eventForm.get('locationId')?.value;
       this.newEvent.startTime = this.eventForm.get('startTime')?.value;
       this.newEvent.endTime = this.eventForm.get('endTime')?.value;
-
       this.eventser.addEvent(this.newEvent).subscribe(
         (data) => {
           this.toast.success('Event Added');
