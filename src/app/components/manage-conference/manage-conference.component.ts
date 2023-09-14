@@ -8,7 +8,7 @@ import { WorkspaceFilterService } from 'src/app/services/workspaceFilters/worksp
 
 
 
-interface Card {
+interface Card {  
   ImageUrl: string;
   RoomName: string;
   Location: number;
@@ -22,24 +22,26 @@ interface Card {
 })
 export class ManageConferenceComponent implements OnInit {
   header: string = 'Conference Rooms';
+
   search: string = 'rooms';
   count: number = 0;
 
   roomForm: FormGroup;
 
   constructor(private roomSer: RoomService, private locSer: LocationService, private toast: ToastrService,
-    private fb: FormBuilder, private wsService: WorkspaceFilterService) {
-    this.roomForm = this.fb.group({
-      roomName: new FormControl('', [Validators.required]),
-      roomCapacity: new FormControl('', [Validators.required]),
-      locationId: new FormControl(1, [Validators.required]),
-      amenities: new FormControl([], [Validators.required])
-    });
-  }
+
+    private fb: FormBuilder, private wsService: WorkspaceFilterService) { 
+      this.roomForm = this.fb.group({
+        roomName: new FormControl('',[Validators.required]),    
+        roomCapacity: new FormControl('',[Validators.required]),
+        locationId: new FormControl(1, [Validators.required]),
+      });
+    }
 
   cards: any[] = []
   locations: any[] = []
-  locationName: string = 'All'
+  locationName: string ='All'
+  count: number = 0;
 
 
   newRoom: any = {
@@ -63,8 +65,15 @@ export class ManageConferenceComponent implements OnInit {
       const base64String = btoa(String.fromCharCode.apply(null, numbersArray));
       this.newRoom.imageData = base64String;
       console.log(this.newRoom)
+      this.showAddedToast('Image Added'); //custom toast
     }
     fileReader.readAsArrayBuffer(file);
+  }
+
+  private showAddedToast(message: string) {
+    this.toast.success(message, '', {
+      timeOut: 1000 // Time in milliseconds
+    });
   }
 
   ngOnInit(): void {
@@ -91,7 +100,9 @@ export class ManageConferenceComponent implements OnInit {
       this.toast.success('Room Added')
       this.ngOnInit()
       console.log(data);
+      this.roomForm.reset();
     });
+    
   }
   changeLocationHandler() {
     this.roomOnLocation(this.locationName)

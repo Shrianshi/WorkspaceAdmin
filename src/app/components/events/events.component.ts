@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,Renderer2} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { EventService } from 'src/app/services/eventService/event.service';
@@ -14,7 +14,7 @@ export class EventsComponent {
   search: string = 'events';
   eventForm: FormGroup;
 
-  constructor(private eventser: EventService, private toast: ToastrService, private locser: LocationService,
+  constructor(private eventser: EventService, private toast: ToastrService, private locser: LocationService,   private renderer: Renderer2,
     private wsfilterser: WorkspaceFilterService, private fb: FormBuilder) {
     this.eventForm = this.fb.group({
       eventTitle: new FormControl('', [Validators.required]),
@@ -61,9 +61,23 @@ export class EventsComponent {
       this.eventser.addEvent(this.newEvent).subscribe(
         (data) => {
           this.toast.success('Event Added');
+          // Add the new event to the events array
+          this.events.unshift(data);
           console.log(data);
           this.eventForm.reset();
-
+          this.newEvent = {
+            imageData: "",
+            eventTitle: "",
+            eventDescription: "",
+            locationId: 1,
+            startTime: "",
+            endTime: "",
+          };
+ // Close the offcanvas
+ const offcanvasElement = document.getElementById('addEventOffcanvas');
+ if (offcanvasElement) {
+   this.renderer.removeClass(offcanvasElement, 'show');
+ }
         },
         (error) => {
           console.log(error);

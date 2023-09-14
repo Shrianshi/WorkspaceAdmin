@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { LocationService } from 'src/app/services/location.service';
 import { NotificationService } from 'src/app/services/notificationService/notification.service';
@@ -10,6 +11,7 @@ import { WorkspaceFilterService } from 'src/app/services/workspaceFilters/worksp
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
+  @ViewChild('notificationForm') notificationForm!: NgForm;
 
   header: string = 'Notifications';
   search: string = 'notifications'
@@ -58,11 +60,8 @@ export class NotificationsComponent implements OnInit {
         this.ngOnInit()
         console.log('Notification sent:', this.cardDetail);
         setTimeout(() => {
-          this.cardDetail.notificationSubject = '';
-          this.cardDetail.description = '';
-          this.cardDetail.location = '';
+          this.notificationForm.resetForm();
         });
-
       },
       (error) => {
         console.log(error);
@@ -94,7 +93,3 @@ export class NotificationsComponent implements OnInit {
   }
 
 }
-
-
-
-

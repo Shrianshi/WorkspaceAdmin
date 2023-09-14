@@ -1,35 +1,84 @@
-/* Card Button*/
-.card-btn-chennai {
-    float: right;
-    color: rgba(81, 98, 246, 1) ;
-    border-radius: 7px;
-    border: none;
-    width: 87px;
-    height: 25px;
+.body{
+    width:100%;
 }
 
-.card-btn-pune {
-    float: right;
-    margin-top: 7px;
-    color: rgba(241, 117, 117, 1);
-    border-radius: 7px;
-    background: #F6515124;
-    border: none;
-    width: 87px;
-    height: 25px;
+.avatar-btn{
+    height:20px;
+    width:20px;
+    border-radius:10px;
+    background-color: black;
+}
+.search{
+    height:25px;
+    background-color: rgba(216, 225, 228, 0.345);
+    font-size: 15px;
+    border:0px solid rgb(234, 224, 224);
+}
+#i{
+    color:#aaaaab;
+}
+.search::placeholder{
+    color: rgb(154, 152, 152);
 }
 
-.card-btn-bangalore {
-    float: right;
-    margin-top: 7px;
-    color: rgba(184, 100, 249, 1);  
-    border-radius: 7px;
+/* Header */
+
+#allLocationFilter {
+    background: #FFFFFF;
+    border: 1px solid #EAE9EA;
+    box-shadow: 0px 7px 29px rgba(86, 86, 86, 0.07);
+    border-radius: 4px;
+    color: #333B4F;
+    width: 123px;
+    height: 32px;
+}
+
+#roomsper {
+    width: 71px;
+    height: 32px;
+    background: #FFFFFF;
+    border: 1px solid #EAE9EA;
+    box-shadow: 0px 7px 29px rgba(86, 86, 86, 0.07);
+    border-radius: 4px;
+    color: #333B4F;
+}
+
+
+/* offCanvas CSS */
+
+#btnCanvas {
+    width: 65%;
+    background: #5162F6;
+    border-radius: 4px;
+    margin-left: 33%;
+}
+
+.offcanvas {
+    background-color: #FFFFFF;
+}
+
+#offcanvasRight {
+    width: 35rem;
+}
+
+#offcanvasRightLabel {
+    font-size: 24px;
+}
+
+.button_close {
     border: none;
-    width: 87px;
-    height: 25px;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+#addbtn,
+#cancel {
+    width: 125px;
+    height: 50px;
 }
 
 /* pagination */
+
 .pagination {
     display: flex;
     align-items: center;
@@ -82,83 +131,45 @@ ul li.active {
     right: 50px;
 }
 
+/* Card Button*/
 
-/* offCanvas CSS */
-#btnCanvas {
-    width: 65%;
-    background: #5162F6;
-    border-radius: 4px;
-    margin-left: 33%;
-}
-
-.offcanvas {
-    background-color: #FFFFFF;
-}
-
-#offcanvasRight {
-    width: 35rem;
-}
-
-#offcanvasRightLabel {
-    font-size: 24px;
-}
-
-.button_close {
+.card-btn-chennai {
+    float: right;
+    color: rgba(81, 98, 246, 1) ;
+    border-radius: 7px;
     border: none;
-    background-color: transparent;
-    border-radius: 50%;
+    width: 87px;    
+    height: 25px;
+    font-weight: 500;
 }
 
-#addbtn,
-#cancel {
-    width: 125px;
-    height: 50px;
+.card-btn-pune {
+    float: right;
+    color: rgba(241, 117, 117, 1);
+    border-radius: 7px;
+    background: #F6515124;
+    border: none;
+    width: 87px;
+    height: 25px;
+    font-weight: 500;
 }
 
-#allLocationFilter {
-    background: #FFFFFF;
-    border: 1px solid #EAE9EA;
-    box-shadow: 0px 7px 29px rgba(86, 86, 86, 0.07);
-    border-radius: 4px;
-    color: #333B4F;
-    width: 123px;
-    height: 32px;
+.card-btn-bangalore {
+    float: right;
+    color: rgba(184, 100, 249, 1);  
+    border-radius: 7px;
+    border: none;
+    width: 87px;
+    height: 25px;
+    font-weight: 500;
 }
 
-#roomsper {
-    width: 71px;
-    height: 32px;
-    background: #FFFFFF;
-    border: 1px solid #EAE9EA;
-    box-shadow: 0px 7px 29px rgba(86, 86, 86, 0.07);
-    border-radius: 4px;
-    color: #333B4F;
-}
-
-.body{
-    width:100%;
-}
-.avatar-btn{
-    height:20px;
-    width:20px;
-    border-radius:10px;
-    background-color: black;
-}
-.search{
-    /* width:300px; */
-    height:25px;
-    background-color: rgba(216, 225, 228, 0.345);
-    font-size: 15px;
-    border:0px solid rgb(234, 224, 224);
-}
-#i{
-    color:#aaaaab;
-}
-.search::placeholder{
-    color: rgb(154, 152, 152);
+.small-icon{
+    font-size:80%;
 }
 
 /*card icons*/
+
 .conf-icon{
     width: 4%;
     margin-right: 2%;
@@ -173,12 +184,43 @@ ul li.active {
     height: 25px;
 }
 
-.card-size{
-    width:29%;
-    margin-bottom: 1%;
-    height: 20%;
+#amenities-text{
+    font-size: 100%;
 }
 
-.small-icon{
-    font-size:80%;
+/* card layout for different screen sizes */
+
+.card-size {
+    width: 100%; 
+    margin-bottom: 1rem; 
+    /* height: auto; */ 
 }
+
+/* Media Queries */
+
+@media (min-width: 576px) {
+    .card-size {
+        width: 48%; 
+    }
+    
+
+}
+
+@media (min-width: 768px) {
+    .card-size {
+        width: 32%;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-size {
+        width: 30%; 
+    }
+}
+
+@media (min-width: 375px) and (max-width:1200px){
+    #amenities-text{
+        font-size: 62%;
+    }
+}
+
